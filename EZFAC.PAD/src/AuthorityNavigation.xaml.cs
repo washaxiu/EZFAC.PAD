@@ -60,15 +60,6 @@ namespace EZFAC.PAD
             string selectAuthority = module.SelectedItem.ToString();
             string userLevel = data["level"];
 
-            // 判断是否为点检，否则为审批
-            if(userLevel == "1")
-            {
-                if (selectAuthority == "PointCheck") this.Frame.Navigate(typeof(CheckRecord), data);
-            }
-            else
-            {
-                if (selectAuthority == "PointCheck") this.Frame.Navigate(typeof(ApprovalList), data);
-            }
 
         }
     }
