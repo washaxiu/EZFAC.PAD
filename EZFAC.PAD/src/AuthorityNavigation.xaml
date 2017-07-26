@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="EZFAC.PAD.AuthorityNavigation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EZFAC.PAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55" />
+            <RowDefinition Height="30"  />
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"  />
+            <RowDefinition Height="55" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <Run FontSize="30"  Foreground="Blue" Text="2017-06-19 21:40:32" />
+        </TextBlock>
+        <Rectangle Grid.Row="1" Grid.Column="0" Fill="Green"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom"  >
+            <Run FontSize="40"  Foreground="#FF008FFF" Text="上海吉田拉链有限公司" />
+        </TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom"  >
+            <Run FontSize="40"  Foreground="#FF008FFF" Text="质量点检平板终端" />
+        </TextBlock>
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" BorderBrush="Black"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ComboBox x:Name="module" Width="150">
+            </ComboBox>
+        </Border>
+
+        <TextBlock x:Name="information" FontSize="15" Grid.Row="6" HorizontalAlignment="Center"/>
+        <Button x:Name="button" FontSize="30" Content="进    入" HorizontalAlignment="Center"  Grid.Row="7" VerticalAlignment="Top" MinWidth="200" MinHeight="60" Background="#FF00D5FF" Foreground="White" Click="SignIn"/>
+        <Border Grid.Row="8" Padding="6" Background="Green">
+            <TextBlock x:Name="tbRes" FontSize="12" Foreground="White" Margin="0,0,10,0" Text="Andon系统 版本号：R1.01.B001" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        </Border>
+    </Grid>
+</Page>
