@@ -30,10 +30,12 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class ApprovalList : Page
     {
-        private string userlevel = "2";
+
         private CommonOperation commonOperation = new CommonOperation();
         private PointCheckService pointCheckService = new PointCheckService();
         private MessDialog messDialog = new MessDialog();
+        private Dictionary<string, string> data = new Dictionary<string, string>();
+        private string userlevel = "2";
 
         public ApprovalList()
         {
@@ -46,23 +48,20 @@ namespace EZFAC.PAD
             if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
             {
                 // 获取导航参数
-                Dictionary<string, string> data = (Dictionary<string, string>)e.Parameter;
+                data = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
                 ApprovalListUser.Text = data["username"];
-                string level = data["level"];
-                userlevel = level;
                 // 获取职位
-                ApprovalListPosition.Text = commonOperation.getJobByLevel(level);
+                ApprovalListPosition.Text = commonOperation.getJobByLevel(data["userlevel"]);
                 // 获取审批信息列表
-                pointCheckService.getApprovalList(lvFiles, userlevel);
+                pointCheckService.getApprovalList(lvFiles, data["userlevel"]);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, string> data = new Dictionary<string, string>();
-            this.Frame.Navigate(typeof(LoginPage), data);
+            this.Frame.Navigate(typeof(AuthorityNavigation), data);
         }
 
         private void checkBox_Changed(object sender, RoutedEventArgs e)
@@ -85,49 +84,43 @@ namespace EZFAC.PAD
             // 获取当前所在行
             int courrent = Convert.ToInt32(btn.CommandParameter);
             // 获取信息详情
-            Dictionary<string, string> data = pointCheckService.getDetail(lvFiles.Items[courrent].ToString(), ApprovalListUser.Text, userlevel);
+            Dictionary<string, string> getData = pointCheckService.getDetail(lvFiles.Items[courrent].ToString(), data["username"], data["userlevel"]);
+            getData.Add("authority", data["authority"]);
             // 导航并传递参数
-            this.Frame.Navigate(typeof(ApprovalDetail), data);
+            this.Frame.Navigate(typeof(ApprovalDetail), getData);
         }
 
         private async void Confirm_Click(object sender, RoutedEventArgs e)
         {
-           // string groupName = null, lineName = null, date = null;
-
-          //  string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date + ".ykk";
-
-            // 设置提示框
-        /*    for(int i=0;i<lvFiles.SelectedItems.Count;i++)
+            if (lvFiles.SelectedItems.Count > 0)
             {
-                // messDialog.showDialog(lvFiles.SelectedItems[i].ToString());
-                ContentDialog ct = new ContentDialog()
+                PointCheckEntity pointCheck = new PointCheckEntity();
+                pointCheck.checker = ApprovalListUser.Text;
+                pointCheck.date = date.Text;
+                //  审批所选信息
+                pointCheckService.mulApproval(lvFiles, userlevel, pointCheck, "PointCheck");
+                // 设置提示框
+                ContentDialog dialog = new ContentDialog()
                 {
-                    Content = lvFiles.SelectedItems[i].ToString(),
+                    Content = "审批成功！",
                     PrimaryButtonText = "确定",
                     SecondaryButtonText = "取消"
                 };
-                await ct.ShowAsync();
-            }*/
-            PointCheck pointCheck = new PointCheck();
-            pointCheck.checker = ApprovalListUser.Text;
-            pointCheck.date = date.Text;
-
-            pointCheckService.mulApproval(lvFiles, userlevel, pointCheck, "PointCheck");
-            // 获取审批信息列表
-
-            ContentDialog dialog = new ContentDialog()
+                dialog.PrimaryButtonClick += primaryButtonClick1;
+                await dialog.ShowAsync();
+            }
+            else
             {
-                Content = "审批成功！",
-                PrimaryButtonText = "确定",
-                SecondaryButtonText = "取消"
-            };
-            dialog.PrimaryButtonClick += primaryButtonClick1;
-            await dialog.ShowAsync();
+                messDialog.showDialog("请至少选择一天数据进行审批！");
+            }
         }
 
         public void primaryButtonClick1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+            // 获取审批信息列表
             pointCheckService.getApprovalList(lvFiles, userlevel);
+            checkBox.Content = "全选";
+            checkBox.IsChecked = false;
         }
 
     }

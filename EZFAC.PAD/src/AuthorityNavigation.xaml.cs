@@ -31,32 +31,43 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class AuthorityNavigation : Page
     {
+
+        private Dictionary<string, string> data = new Dictionary<string, string>();
+
         public AuthorityNavigation()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             //username.Text = "用户名/员工号/邮箱地址";
-
             timetag.Text = DateTime.Now.ToString();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
-            string[] authority = getdata["authority"].Split(',');
+            data = (Dictionary<string, string>)e.Parameter;
+            string[] authority = data["authority"].Split(',');
+            if ("1".Equals(data["userlevel"]))
+            {
+                button.Content = "检    查";
+            }
+            else
+            {
+                button.Content = "审    批";
+            }
             List<String> items = new List<string>();
             for (int i = 0; i < authority.Length; i++)
             {
                 items.Add(authority[i]);
             }
             module.ItemsSource = items;
+            if (authority.Length > 0) module.SelectedIndex = 0;
         }
 
         private void SignIn(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add("username", "dfasdfa");
             string app = module.SelectedItem.ToString();
+
+            //  点检的检查和审批界面
             if ("CheckRecord".Equals(app))
             {
                 this.Frame.Navigate(typeof(CheckRecord), data);
@@ -65,6 +76,8 @@ namespace EZFAC.PAD
             {
                 this.Frame.Navigate(typeof(ApprovalList), data);
             }
+
+            // 中班和检查和审批界面 
             else if ("DailyCheckNoon".Equals(app))
             {
                 this.Frame.Navigate(typeof(DailyCheckNoon), data);
@@ -73,23 +86,11 @@ namespace EZFAC.PAD
             {
                 this.Frame.Navigate(typeof(ApprovalList), data);
             }
-            else if ("ApprovalList".Equals(app))
-            {
-                this.Frame.Navigate(typeof(ApprovalList), data);
-            }
-            else if ("ApprovalList".Equals(app))
-            {
-                this.Frame.Navigate(typeof(ApprovalList), data);
-            }
-            else if ("ApprovalList".Equals(app))
-            {
-                this.Frame.Navigate(typeof(ApprovalList), data);
-            }
-            else if ("ApprovalList".Equals(app))
-            {
-                this.Frame.Navigate(typeof(ApprovalList), data);
-            }
+        }
 
+        private void loginOut_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LoginPage), "");
         }
     }
 

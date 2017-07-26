@@ -23,6 +23,10 @@
             <RowDefinition Height="30"  />
             <RowDefinition Height="55" />
         </Grid.RowDefinitions>
+
+        <Button x:Name="loginOut" FontSize="22" Content="退   出" HorizontalAlignment="Left"  Grid.Row="0" VerticalAlignment="Center" MinWidth="100" MinHeight="40"  Foreground="Blue" Click="loginOut_Click" Margin="24,0,0,0" />
+
+
         <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="30"  Foreground="Blue" Text="2017-06-19 21:40:32" />
         </TextBlock>

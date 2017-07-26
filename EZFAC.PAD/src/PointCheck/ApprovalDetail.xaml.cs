@@ -29,15 +29,14 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class ApprovalDetail : Page
     {
-        private JsonObject checkRecordData = new JsonObject();
-        private StorageFile record_file;//UWP 采用StorageFile来读写文件
-        private StorageFolder record_folder;//folder来读写文件夹        
+        private JsonObject checkRecordData = new JsonObject();   
         private string checkfilename = "Unknown";
         private string checkgroup = "A";
         private string checkline = "01";
         private string checkdate = "2017-06-10";
         private string userLevel = "2";
         private string checker = "zhaoyi";
+        private string authority = null;
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
 
@@ -61,6 +60,7 @@ namespace EZFAC.PAD
                 checker = getdata["checker"];
                 checkgroup = getdata["group"];
                 checkline = getdata["line"];
+                authority = getdata["authority"];
 
                 string ltemp1 = getdata["temp1"];
                 string ltemp2 = getdata["temp2"];
@@ -95,9 +95,7 @@ namespace EZFAC.PAD
 
                 // 获取审批信息并显示在多行Texkbox
                 commonOperation.getStateText(reviewInfor, userLevel, checkfilename, "PointCheck");
-
                 // 将上一级用户修改的内容标红
-
                 string[] strs = editContent.Split('+');
                 for (int i = 1; i < strs.Length; i++)
                 {
@@ -118,7 +116,8 @@ namespace EZFAC.PAD
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("username", ApprovalPosition.Text);
-            data.Add("level", userLevel);
+            data.Add("userlevel", userLevel);
+            data.Add("authority", authority);
             this.Frame.Navigate(typeof(ApprovalList), data);
         }
 
@@ -126,9 +125,8 @@ namespace EZFAC.PAD
         {
             JsonValue good = JsonValue.CreateStringValue("good");
             JsonValue bad = JsonValue.CreateStringValue("bad");
-            PointCheck pointCheck = new PointCheck();
+            PointCheckEntity pointCheck = new PointCheckEntity();
             string edit = "0";
-
             StorageFolder folder =await KnownFolders.PicturesLibrary.CreateFolderAsync("PointCheck",CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
@@ -142,7 +140,6 @@ namespace EZFAC.PAD
                     {
                         string jsonText = await FileIO.ReadTextAsync(file);
                         JsonObject jsonObject = JsonObject.Parse(jsonText);
-
                         // 判断点检信息是否被更改
                         edit = editContnet(jsonObject);
 

@@ -7,7 +7,8 @@
 			"Password": "123456",
 			"CNName": "zhaoyi",
 			"level":"1",
-			"date" : "2016-01-23"
+			"date" : "2016-01-23",
+			"authority" : "CheckRecord,DailyCheckNoon"
 		},
 		{
 			"UniqueId": "000002",
@@ -16,16 +17,18 @@
 			"Password": "123456",
 			"CNName" : "chener",
 			"level":"2",
-			"date" : "2016-01-23"
+			"date" : "2016-01-23",
+			"authority" : "ApprovalList,DailyCheckNoonList"
 		},
 		{
-			"UniqueId": "000001",
+			"UniqueId": "000003",
 			"UserName": "zhangsan",
 			"e-mail" : "zhangsan@123.com",
 			"Password": "123456",
 			"CNName" : "zhangsan",
 			"level":"3",
-			"date" : "2016-01-23"
+			"date" : "2016-01-23",
+			"authority" : "ApprovalList,DailyCheckNoonList"
 		},
 		{
 			"UniqueId": "000004",
@@ -34,7 +37,8 @@
 			"Password": "123456",
 			"CNName" : "lisi",
 			"level":"4",
-			"date" : "2016-01-23"
+			"date" : "2016-01-23",
+			"authority" : "ApprovalList,DailyCheckNoonList"
 		},
 		{
 			"UniqueId": "000005",
@@ -43,7 +47,8 @@
 			"Password": "123456",
 			"CNName" : "wangwu",
 			"level":"5",
-			"date" : "2016-01-23"
+			"date" : "2016-01-23",
+			"authority" : "ApprovalList,DailyCheckNoonList"
 		}
 	]
 }
