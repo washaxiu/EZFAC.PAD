@@ -31,6 +31,8 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class AuthorityNavigation : Page
     {
+        private Dictionary<string, string> data;
+
         public AuthorityNavigation()
         {
             this.InitializeComponent();
@@ -42,22 +44,32 @@ namespace EZFAC.PAD
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
-            string[] authority = getdata["authority"].Split(',');
+            data = (Dictionary<string, string>)e.Parameter;
+            string[] authority = data["authority"].Split(',');
             List<String> items = new List<string>();
             for (int i = 0; i < authority.Length; i++)
             {
                 items.Add(authority[i]);
             }
+            
             module.ItemsSource = items;
+            if(items.Count>0) module.SelectedIndex = 0;
         }
 
         private void SignIn(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add("username", "dfasdfa");
-            string app = module.SelectedItem.ToString();
-            this.Frame.Navigate(typeof(CheckRecord), data);
+            string selectAuthority = module.SelectedItem.ToString();
+            string userLevel = data["level"];
+
+            // 判断是否为点检，否则为审批
+            if(userLevel == "1")
+            {
+                if (selectAuthority == "PointCheck") this.Frame.Navigate(typeof(CheckRecord), data);
+            }
+            else
+            {
+                if (selectAuthority == "PointCheck") this.Frame.Navigate(typeof(ApprovalList), data);
+            }
 
         }
     }

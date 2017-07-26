@@ -41,7 +41,7 @@ namespace EZFAC.PAD
             //username.Text = "用户名/员工号/邮箱地址";
             username.Text = "000002";
             password.Password = "123456";
-            timetag.Text = DateTime.Now.ToString(); 
+            timetag.Text = DateTime.Now.ToString();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -91,14 +91,15 @@ namespace EZFAC.PAD
                     string jusermail = userObject["e-mail"].GetString();
                     string jpassword = userObject["Password"].GetString();
                     string jlevel = userObject["level"].GetString();
-                    //string jposation = userObject["Password"].GetString();
-
-                    if ((username.Text == juserid)|| (username.Text == jusername)|| (username.Text == jusermail))
+                    string authority = userObject["authority"].GetString();
+                    //string jposation = userObject["Password"].GetString();                 
+                    if ((username.Text == juserid) || (username.Text == jusername) || (username.Text == jusermail))
                     {
                         isValidUser = true;
                         if (password.Password == jpassword)
                         {
                             data.Add("username", jusername);
+                            data.Add("authority", authority);
                             //data.Add("position", jposation);
                             data.Add("level", jlevel);
                             userLevel = jlevel;
@@ -127,14 +128,7 @@ namespace EZFAC.PAD
             }
             else
             {
-                if (userLevel == "1")
-                {
-                    this.Frame.Navigate(typeof(CheckRecord), data);
-                }
-                else
-                {
-                    this.Frame.Navigate(typeof(ApprovalList), data);
-                }
+                this.Frame.Navigate(typeof(AuthorityNavigation), data);
             }
         }
     }

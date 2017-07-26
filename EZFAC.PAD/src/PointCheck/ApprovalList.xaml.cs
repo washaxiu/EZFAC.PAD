@@ -117,14 +117,12 @@ namespace EZFAC.PAD
 
             ContentDialog dialog = new ContentDialog()
             {
-                Content = "审批成功",
+                Content = "审批成功！",
                 PrimaryButtonText = "确定",
                 SecondaryButtonText = "取消"
             };
             dialog.PrimaryButtonClick += primaryButtonClick1;
             await dialog.ShowAsync();
-           // messDialog.showDialog("审批成功！");
-           //  pointCheckService.getApprovalList(lvFiles, userlevel);
         }
 
         public void primaryButtonClick1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
