@@ -29,9 +29,7 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class ApprovalDetail : Page
     {
-        private JsonObject checkRecordData = new JsonObject();
-        private StorageFile record_file;//UWP 采用StorageFile来读写文件
-        private StorageFolder record_folder;//folder来读写文件夹        
+        private JsonObject checkRecordData = new JsonObject();     
         private string checkfilename = "Unknown";
         private string checkgroup = "A";
         private string checkline = "01";

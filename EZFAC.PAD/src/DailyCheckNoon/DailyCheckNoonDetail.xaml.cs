@@ -24,12 +24,12 @@ namespace EZFAC.PAD
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class DailyCheckNoon : Page
+    public sealed partial class DailyCheckNoonDetail : Page
     {
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
 
-        public DailyCheckNoon()
+        public DailyCheckNoonDetail()
         {
             this.InitializeComponent();
             timetag.Text = DateTime.Now.ToString();

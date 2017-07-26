@@ -44,18 +44,22 @@ namespace EZFAC.PAD
         {
             Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
             string[] authority = getdata["authority"].Split(',');
+            username.Text = getdata["username"];
+            level.Text = getdata["level"];
             List<String> items = new List<string>();
             for (int i = 0; i < authority.Length; i++)
             {
                 items.Add(authority[i]);
             }
             module.ItemsSource = items;
+            if (items.Count > 0) module.SelectedIndex = 0;
         }
 
         private void SignIn(object sender, RoutedEventArgs e)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add("username", "dfasdfa");
+            data.Add("username", username.Text);
+            data.Add("level", level.Text);
             string app = module.SelectedItem.ToString();
             if ("CheckRecord".Equals(app))
             {
@@ -71,7 +75,7 @@ namespace EZFAC.PAD
             }
             else if ("DailyCheckNoonList".Equals(app))
             {
-                this.Frame.Navigate(typeof(ApprovalList), data);
+                this.Frame.Navigate(typeof(DailyCheckNoonList), data);
             }
             else if ("ApprovalList".Equals(app))
             {

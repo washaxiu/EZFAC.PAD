@@ -103,6 +103,9 @@
     <Compile Include="src\AuthorityNavigation.xaml.cs">
       <DependentUpon>AuthorityNavigation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\DailyCheckNoon\DailyCheckNoonDetail.xaml.cs">
+      <DependentUpon>DailyCheckNoonDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\DailyCheckNoon\DailyCheckNoon.xaml.cs">
       <DependentUpon>DailyCheckNoon.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="src\AuthorityNavigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\DailyCheckNoon\DailyCheckNoonDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

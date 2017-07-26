@@ -37,7 +37,8 @@
             <ComboBox x:Name="module" Width="150">
             </ComboBox>
         </Border>
-
+        <TextBlock  x:Name="username" Visibility="Collapsed"></TextBlock>
+        <TextBlock  x:Name="level" Visibility="Collapsed"></TextBlock>
         <TextBlock x:Name="information" FontSize="15" Grid.Row="6" HorizontalAlignment="Center"/>
         <Button x:Name="button" FontSize="30" Content="进    入" HorizontalAlignment="Center"  Grid.Row="7" VerticalAlignment="Top" MinWidth="200" MinHeight="60" Background="#FF00D5FF" Foreground="White" Click="SignIn"/>
         <Border Grid.Row="8" Padding="6" Background="Green">

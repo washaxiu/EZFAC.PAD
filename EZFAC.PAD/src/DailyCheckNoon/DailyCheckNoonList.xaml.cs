@@ -87,7 +87,7 @@ namespace EZFAC.PAD
             // 获取信息详情
             Dictionary<string, string> data = dailyCheckNoonService.getDetail(lvFiles.Items[courrent].ToString(), ApprovalListUser.Text, userlevel);
             // 导航并传递参数
-            this.Frame.Navigate(typeof(ApprovalDetail), data);
+            this.Frame.Navigate(typeof(DailyCheckNoonDetail), data);
         }
 
         private async void Confirm_Click(object sender, RoutedEventArgs e)
