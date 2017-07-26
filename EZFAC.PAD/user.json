@@ -1,0 +1,49 @@
+{
+    "Users": [
+    	{
+    		"UniqueId": "000001",
+    		"UserName": "zhaoyi",
+    		"e-mail" : "zhaoyi@123.com",
+    		"Password": "123456"
+    		"CNName" : "赵一",
+    		"Posation" : "员工",
+    		"date" : "2016-01-23"
+    	},
+    	{
+    		"UniqueId": "000002",
+    		"UserName": "chener",
+    		"e-mail" : "chener@123.com",
+    		"Password": "123456"
+    		"CNName" : "陈二",
+    		"Posation" : "出班长",
+    		"date" : "2016-01-23"
+    	},
+    	{
+    		"UniqueId": "000001",
+    		"UserName": "zhangsan",
+    		"e-mail" : "zhangsan@123.com",
+    		"Password": "123456"
+    		"CNName" : "张三",
+    		"Posation" : "保全",
+    		"date" : "2016-01-23"
+    	},
+    	{
+    		"UniqueId": "000004",
+    		"UserName": "lisi",
+    		"e-mail" : "lisi@123.com",
+    		"Password": "123456"
+    		"CNName" : "李四",
+    		"Posation" : "课长",
+    		"date" : "2016-01-23"
+    	},
+    	{
+    		"UniqueId": "000005",
+    		"UserName": "wangwu",
+    		"e-mail" : "wangwu@123.com",
+    		"Password": "123456"
+    		"CNName" : "王五",
+    		"Posation" : "部门长",
+    		"date" : "2016-01-23"
+    	}
+	 ]
+}

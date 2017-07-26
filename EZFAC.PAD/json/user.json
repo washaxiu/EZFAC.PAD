@@ -1,0 +1,49 @@
+{
+	"Users": [
+		{
+			"UniqueId": "000001",
+			"UserName": "zhaoyi",
+			"e-mail" : "zhaoyi@123.com",
+			"Password": "123456",
+			"CNName": "zhaoyi",
+			"level":"1",
+			"date" : "2016-01-23"
+		},
+		{
+			"UniqueId": "000002",
+			"UserName": "chener",
+			"e-mail" : "chener@123.com",
+			"Password": "123456",
+			"CNName" : "chener",
+			"level":"2",
+			"date" : "2016-01-23"
+		},
+		{
+			"UniqueId": "000001",
+			"UserName": "zhangsan",
+			"e-mail" : "zhangsan@123.com",
+			"Password": "123456",
+			"CNName" : "zhangsan",
+			"level":"3",
+			"date" : "2016-01-23"
+		},
+		{
+			"UniqueId": "000004",
+			"UserName": "lisi",
+			"e-mail" : "lisi@123.com",
+			"Password": "123456",
+			"CNName" : "lisi",
+			"level":"4",
+			"date" : "2016-01-23"
+		},
+		{
+			"UniqueId": "000005",
+			"UserName": "wangwu",
+			"e-mail" : "wangwu@123.com",
+			"Password": "123456",
+			"CNName" : "wangwu",
+			"level":"5",
+			"date" : "2016-01-23"
+		}
+	]
+}

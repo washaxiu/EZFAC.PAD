@@ -1,0 +1,213 @@
+﻿<Page
+    x:Class="EZFAC.PAD.CheckRecord"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EZFAC.PAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <Style TargetType="Border">
+                <Setter Property="BorderBrush" Value="Black"></Setter>
+                <Setter Property="BorderThickness" Value="1"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="58" />
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="65" />
+            <RowDefinition Height="55" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+        <Border Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+        <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+
+
+        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Run FontSize="30"  Foreground="Blue" Text="DC工程机械定期（三个月）点检记录表" FontFamily="Segoe UI Black" FontWeight="Bold" />
+        </TextBlock>
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
+        </TextBlock>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBlock x:Name="UserNameTag" FontSize="25" Text="点检人：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBox x:Name="username" HorizontalAlignment="Left"  FontSize="20" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="25" Text="点检日期" VerticalAlignment="Center" MinWidth="200" Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBox x:Name="date" HorizontalAlignment="Right"  FontSize="25" Text="2017-06-16" VerticalAlignment="Center" MinWidth="200" MinHeight="49" Foreground="#FF16325A"/>
+        </Border>
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" >
+            <TextBlock x:Name="MachineGroupTag" Margin="20,0,10,0" FontSize="25" Text="机 组：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="7" Orientation="Horizontal" >
+            <RadioButton GroupName="MachineGroup" x:Name="groupa" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged" IsChecked="True" Content="压轴线A" Width="135" />
+            <RadioButton GroupName="MachineGroup" x:Name="groupb" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"  Content="压轴线B" Width="135" />
+            <RadioButton GroupName="MachineGroup" x:Name="groupc" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"   Content="压轴线C" Width="135" />
+            <RadioButton GroupName="MachineGroup" x:Name="groupd" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"   Content="压轴线D" Width="135" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Orientation="Horizontal" >
+            <TextBlock x:Name="MachineIdTag" Margin="20,0,10,0" FontSize="25" Text="机 番：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line01" Content="A-01" IsChecked="True"/>
+            <RadioButton GroupName="MachineId" Name="line03" Content="A-03" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line05" Content="A-05" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line07" Content="A-07" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line09" Content="A-09" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line11" Content="A-11" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line13" Content="A-13" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line15" Content="A-15" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="9" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line02" Content="A-02" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line04" Content="A-04" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line06" Content="A-06" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line08" Content="A-08" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line10" Content="A-10" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line12" Content="A-12" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line14" Content="A-14" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line16" Content="A-16" Click="OnLineChecked" />
+        </StackPanel>
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <Run FontSize="22"  Foreground="Green" Text="点检内容" />
+        </TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="16"  Foreground="Green" Text="1 铸机温调针运转状况" />
+        </TextBlock>
+        <StackPanel Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Margin="20,0,0,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="97">
+                <Run Text="             绿" FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="Temp1" OffContent="否" OnContent="良"/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Margin="20,0,0,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="77">
+                <Run Text="        黄" FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="Temp2"  OffContent="否" OnContent="良" />
+        </StackPanel>
+        <StackPanel Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2" Margin="20,0,0,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="68">
+                <Run Text="   修 理 " FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="Temp3" OffContent="否" OnContent="良" />
+        </StackPanel>
+        <StackPanel Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="77">
+                <Run Text="一键判定" FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="Temp4"  HorizontalAlignment="Right" OffContent="否" OnContent="良" Toggled="Temp4_Toggled"  />
+        </StackPanel>
+        <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="16"  Foreground="Green" Text="2 铸机主副回路设定压力" />
+        </TextBlock>
+        <StackPanel Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Margin="20,0,0,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center"  Width="97">
+                <Run Text="      主回路" FontSize="18"></Run>
+                <LineBreak/>
+                <Run Text="        (60kgf/c㎡)" FontSize="13"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="Loop1" AutomationProperties.LiveSetting="Polite" OffContent="否" OnContent="良"/>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" Margin="20,0,0,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="77">
+                <Run Text="   高 压" FontSize="18" />
+                <LineBreak/>
+                <Run Text="(150kgf/c㎡)" FontSize="13"/>
+            </TextBlock>
+            <ToggleSwitch x:Name="Loop2" OffContent="否" OnContent="良" AutomationProperties.LiveSetting="Polite" />
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="2" Margin="20,0,0,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="69">
+                <Run Text=" 射出压" FontSize="18"/>
+                <LineBreak/>
+                <Run Text="(40kgf/c㎡)" FontSize="13"/>
+            </TextBlock>
+            <ToggleSwitch x:Name="Loop3" OffContent="否" OnContent="良" AutomationProperties.LiveSetting="Polite" />
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="77">
+                <Run Text="一键判定" FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="Loop4"  OffContent="否" OnContent="良" Toggled="Loop4_Toggled" AutomationProperties.LiveSetting="Polite" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="16"  Foreground="Green" Text="3 自动研磨选别机" />
+        </TextBlock>
+        <StackPanel Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Margin="20,0,0,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="97">
+                <Run Text="齿轮油更换" FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="select1" OffContent="否" OnContent="良" />
+        </StackPanel>
+        <StackPanel Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="77">
+                <Run Text="一键判定" FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="select4" HorizontalAlignment="Right" OffContent="否" OnContent="良" Toggled="select4_Toggled" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="16"  Foreground="Green" Text="4 制御盘内" />
+        </TextBlock>
+        <StackPanel Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="6" Margin="20,0,0,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="97">
+                <Run Text="         除 尘" FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="Plat1" OffContent="否" OnContent="良" />
+        </StackPanel>
+        <StackPanel Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+            <TextBlock  VerticalAlignment="Center" Width="77">
+                <Run Text="一键判定" FontSize="18"></Run>
+            </TextBlock>
+            <ToggleSwitch x:Name="Plat4" HorizontalAlignment="Right" OffContent="否" OnContent="良" Toggled="Plat4_Toggled"  />
+        </StackPanel>
+
+        <TextBlock Grid.Row="10" Grid.Column="0" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="18"  Foreground="Red" Text="备注" />
+        </TextBlock>
+        <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="7" BorderThickness="0">
+            <TextBox Background="White" BorderBrush="Gray" BorderThickness="2" Margin="0,14,0,10" Height="42" />
+        </Border>
+        <Border Grid.Row="11"  Grid.ColumnSpan="8" Padding="6" BorderThickness="0">
+            <Button x:Name="Return" HorizontalAlignment="Right"  Margin="0,3,0,0" MinHeight="30" Content="返  回" MinWidth="150" Foreground="Blue" Click="Return_Click" Height="35" Width="127" VerticalAlignment="Top"/>
+        </Border>
+        <Border Grid.Row="11"  Grid.ColumnSpan="10" Padding="6">
+            <Button x:Name="Confirm" HorizontalAlignment="Right"  Margin="0,3,31,3" MinHeight="30" Content="提  交" MinWidth="150" Foreground="Blue" Click="OnCommitData" Height="35" Width="127"/>
+        </Border>
+    </Grid>
+</Page>
