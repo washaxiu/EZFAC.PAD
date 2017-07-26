@@ -46,7 +46,6 @@
         <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10"></Border>
         <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="10"></Border>
         <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="10" Margin="-56,0,56,55" Grid.RowSpan="2"></Border>
         <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="10"></Border>
         <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="10" BorderThickness="0"></Border>
 

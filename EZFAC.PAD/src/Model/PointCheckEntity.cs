@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EZFAC.PAD.src.Model
 {
-    class PointCheck
+    class PointCheckEntity
     {
         //  点检人名
         public string checker { get; set; }

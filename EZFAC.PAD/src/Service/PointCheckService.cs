@@ -118,7 +118,7 @@ namespace EZFAC.PAD.src.Service
             return data;
         }
 
-        public async void mulApproval(ListView listView,string userlevel, PointCheck pointCheck,string folderName)
+        public async void mulApproval(ListView listView,string userlevel, PointCheckEntity pointCheck,string folderName)
         {
             for (int i = 0; i < listView.SelectedItems.Count; i++)
             {

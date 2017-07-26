@@ -101,7 +101,7 @@ namespace EZFAC.PAD
                             data.Add("username", jusername);
                             data.Add("authority", authority);
                             //data.Add("position", jposation);
-                            data.Add("level", jlevel);
+                            data.Add("userlevel", jlevel);
                             userLevel = jlevel;
                             isChecked = true;
                             break;

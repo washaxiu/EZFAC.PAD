@@ -87,11 +87,6 @@
         <Border Grid.Row="2" Grid.Column="0" Background="Gray">
             <TextBlock Text="审批" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>
-        <!--
-        <Border Grid.Row="2" Grid.Column="11" Background="Gray">
-            <TextBlock Text="明细检查" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </Border>
-        -->
         <Border Grid.Row="3" Grid.Column="2" Background="Gray">
             <TextBlock Text="绿" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>

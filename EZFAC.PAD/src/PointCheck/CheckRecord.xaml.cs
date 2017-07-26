@@ -28,6 +28,7 @@ namespace EZFAC.PAD
     {
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
+        private Dictionary<string, string> data = new Dictionary<string, string>();
         private string groupName = "A";
         private string lineName = "01";
 
@@ -42,9 +43,9 @@ namespace EZFAC.PAD
             if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
             {
                 // 获取导航参数
-                Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
+                data = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
-                username.Text = getdata["username"];
+                username.Text = data["username"];
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
@@ -309,7 +310,7 @@ namespace EZFAC.PAD
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LoginPage), "");
+            this.Frame.Navigate(typeof(AuthorityNavigation), data);
         }
     }
 }

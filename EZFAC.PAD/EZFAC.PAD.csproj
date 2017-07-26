@@ -116,7 +116,7 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\Model\DailyCheckNoonEntity.cs" />
-    <Compile Include="src\Model\PointCheck.cs" />
+    <Compile Include="src\Model\PointCheckEntity.cs" />
     <Compile Include="src\PointCheck\ApprovalDetail.xaml.cs">
       <DependentUpon>ApprovalDetail.xaml</DependentUpon>
     </Compile>
