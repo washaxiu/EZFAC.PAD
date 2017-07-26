@@ -103,9 +103,16 @@
     <Compile Include="src\AuthorityNavigation.xaml.cs">
       <DependentUpon>AuthorityNavigation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\DailyCheckNoon\DailyCheckNoon.xaml.cs">
+      <DependentUpon>DailyCheckNoon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\DailyCheckNoon\DailyCheckNoonList.xaml.cs">
+      <DependentUpon>DailyCheckNoonList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Model\DailyCheckNoonEntity.cs" />
     <Compile Include="src\Model\PointCheck.cs" />
     <Compile Include="src\PointCheck\ApprovalDetail.xaml.cs">
       <DependentUpon>ApprovalDetail.xaml</DependentUpon>
@@ -117,6 +124,7 @@
       <DependentUpon>CheckRecord.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Service\DailyCheckNoonService.cs" />
     <Compile Include="src\Tools\MessDialog.cs" />
     <Compile Include="src\Service\PointCheckService.cs" />
     <Compile Include="src\Tools\CommonOperation.cs" />
@@ -143,6 +151,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="src\AuthorityNavigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\DailyCheckNoon\DailyCheckNoon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\DailyCheckNoon\DailyCheckNoonList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

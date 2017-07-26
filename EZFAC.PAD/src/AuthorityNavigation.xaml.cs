@@ -31,8 +31,6 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class AuthorityNavigation : Page
     {
-        private Dictionary<string, string> data;
-
         public AuthorityNavigation()
         {
             this.InitializeComponent();
@@ -44,30 +42,52 @@ namespace EZFAC.PAD
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            data = (Dictionary<string, string>)e.Parameter;
-            string[] authority = data["authority"].Split(',');
+            Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
+            string[] authority = getdata["authority"].Split(',');
             List<String> items = new List<string>();
             for (int i = 0; i < authority.Length; i++)
             {
                 items.Add(authority[i]);
             }
             module.ItemsSource = items;
-            if(items.Count>0) module.SelectedIndex = 0;
         }
 
         private void SignIn(object sender, RoutedEventArgs e)
         {
-            string selectAuthority = module.SelectedItem.ToString();
-            string userLevel = data["level"];
-
-            // 判断是否为点检，否则为审批
-            if(userLevel == "1")
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add("username", "dfasdfa");
+            string app = module.SelectedItem.ToString();
+            if("CheckRecord".Equals(app))
             {
-                if (selectAuthority == "PointCheck") this.Frame.Navigate(typeof(CheckRecord), data);
+                this.Frame.Navigate(typeof(CheckRecord), data);
             }
-            else
+            else if ("ApprovalList".Equals(app))
             {
-                if (selectAuthority == "PointCheck") this.Frame.Navigate(typeof(ApprovalList), data);
+                this.Frame.Navigate(typeof(ApprovalList), data);
+            }
+            else if ("DailyCheckNoon".Equals(app))
+            {
+                this.Frame.Navigate(typeof(DailyCheckNoon), data);
+            }
+            else if ("DailyCheckNoonList".Equals(app))
+            {
+                this.Frame.Navigate(typeof(ApprovalList), data);
+            }
+            else if ("ApprovalList".Equals(app))
+            {
+                this.Frame.Navigate(typeof(ApprovalList), data);
+            }
+            else if ("ApprovalList".Equals(app))
+            {
+                this.Frame.Navigate(typeof(ApprovalList), data);
+            }
+            else if ("ApprovalList".Equals(app))
+            {
+                this.Frame.Navigate(typeof(ApprovalList), data);
+            }
+            else if ("ApprovalList".Equals(app))
+            {
+                this.Frame.Navigate(typeof(ApprovalList), data);
             }
 
         }

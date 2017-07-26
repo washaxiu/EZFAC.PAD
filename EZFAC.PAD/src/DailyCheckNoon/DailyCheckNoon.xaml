@@ -1,0 +1,260 @@
+﻿<Page
+    x:Class="EZFAC.PAD.DailyCheckNoon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EZFAC.PAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition />
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition />
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="12" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+            <Run FontSize="30"  Foreground="Blue" Text="压铸工程日常点检表（中班）" FontFamily="Segoe UI Black" FontWeight="Bold" />
+        </TextBlock>
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="18" Grid.ColumnSpan="6" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
+        </TextBlock>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"   Background="#0099CC">
+            <TextBlock x:Name="UserNameTag" FontSize="25" Text="点检人" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  Background="#0099CC">
+            <TextBlock x:Name="username" HorizontalAlignment="Left"  FontSize="25" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2"  Background="#0099CC">
+            <TextBlock x:Name="PositionTag" FontSize="25" Text="职位" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="3"  Background="#0099CC">
+            <TextBlock x:Name="ApprovalPosition" HorizontalAlignment="Left"  FontSize="25" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2"  Background="#0099CC">
+            <TextBlock FontSize="25" Text="班次" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2"  Background="#0099CC">
+            <TextBlock  HorizontalAlignment="Left"  FontSize="25" Text="中班" FontFamily="Segoe UI Black" VerticalAlignment="Center" Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="5"  Background="#0099CC" >
+            <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="25" Text="点检日期" VerticalAlignment="Center" Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="19" Grid.ColumnSpan="5"  Background="#0099CC" >
+            <TextBlock x:Name="date" HorizontalAlignment="Center"  FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+            <TextBlock  FontSize="25" Text="机组：" VerticalAlignment="Center" HorizontalAlignment="Right" />
+        </Border>
+        <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,4,0,4" VerticalAlignment="Center">
+            <ComboBox x:Name="MachineGroup"  SelectionChanged="MachineGroup_SelectionChanged" Width="150">
+                <x:String>压轴线A</x:String>
+                <x:String>压轴线B</x:String>
+                <x:String>压轴线C</x:String>
+                <x:String>压轴线D</x:String>
+            </ComboBox>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" >
+            <TextBlock  FontSize="25" Text="机番：" VerticalAlignment="Center" HorizontalAlignment="Right" />
+        </Border>
+        <Border Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,4,0,4" VerticalAlignment="Center">
+            <ComboBox x:Name="machineNo" Width="150" SelectionChanged="machineNo_SelectionChanged" >
+            </ComboBox>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="3" >
+            <TextBlock  FontSize="25" Text="机器型号：" VerticalAlignment="Center" HorizontalAlignment="Right" />
+        </Border>
+        <Border Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,4,0,4">
+            <TextBlock  x:Name="machineModel" FontSize="25" VerticalAlignment="Center"  HorizontalAlignment="Center" />
+        </Border>
+        <Border Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="3" >
+            <TextBlock  FontSize="25" Text="稼动情况：" VerticalAlignment="Center" HorizontalAlignment="Right" />
+        </Border>
+        <Border Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,4,0,4">
+            <ComboBox x:Name="work" Width="150">
+                <x:String>已稼动</x:String>
+                <x:String>未稼动</x:String>
+            </ComboBox>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="13" Grid.RowSpan="13" Background="#CCCC99" BorderBrush="Black" BorderThickness="1">
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" >
+            <TextBlock  FontSize="25" Text="运转确认：" VerticalAlignment="Center" HorizontalAlignment="Right" />
+        </Border>
+        <Image x:Name="image1"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" FontSize="15" Text="1：安全罩确认（PC锁针动作）"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
+            <ToggleSwitch x:Name="first" Header="" OffContent="N G" OnContent="O K"  />
+        </Border>
+        <Image x:Name="image2"  Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="2：油压配管确认（是N G漏油）"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" >
+            <ToggleSwitch x:Name="two" Header="" OffContent="N G" OnContent="O K"   />
+        </Border>
+        <Image x:Name="image3"  Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="3：型冷却水流量确认以及配管漏水确认"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="3" >
+            <ToggleSwitch x:Name="three" Header="" OffContent="N G" OnContent="O K"   />
+        </Border>
+        <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="4：射出速度是N G正确（2.0-4.5）"></TextBlock>
+        </Border>
+        <Border Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3" >
+            <ToggleSwitch x:Name="four" Header="" OffContent="N G" OnContent="O K"   />
+        </Border>
+        <Image x:Name="image5"  Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="5：分离LOSS率确认"></TextBlock>
+        </Border>
+        <Border Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="3" >
+            <ToggleSwitch x:Name="five" Header="" OffContent="N G" OnContent="O K"   />
+        </Border>
+        <Image x:Name="image6"  Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="10" Grid.Column="9" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="6：自动排除装置确认，有无异物"></TextBlock>
+        </Border>
+        <Border Grid.Row="11" Grid.Column="9" Grid.ColumnSpan="3" >
+            <ToggleSwitch x:Name="six" Header="" OffContent="N G" OnContent="O K"   />
+        </Border>
+        <Image x:Name="image7"  Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="3"  Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="7:升降机运转是N G正常，安全罩有无破损"></TextBlock>
+        </Border>
+        <Border Grid.Row="15" Grid.Column="3" Grid.ColumnSpan="3" >
+            <ToggleSwitch x:Name="seven" Header="" OffContent="N G" OnContent="O K"/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="13" Grid.ColumnSpan="11" Grid.RowSpan="13" Background="#CCFFCC" BorderBrush="Black" BorderThickness="1">
+        </Border>
+        <Image x:Name="image8"  Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="3"  Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="14" Grid.Column="7" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="8：散热风扇、过滤网是N G脏污"></TextBlock>
+        </Border>
+        <Border Grid.Row="15" Grid.Column="7" Grid.ColumnSpan="3" >
+            <ToggleSwitch x:Name="eight" Header="" OffContent="N G" OnContent="O K"   />
+        </Border>
+        <Border Grid.Row="3" Grid.Column="13" Grid.ColumnSpan="11" Grid.RowSpan="13" Background="#CCFFCC" BorderBrush="Black" BorderThickness="1">
+        </Border>
+        <Border Grid.Row="3" Grid.Column="13" Grid.ColumnSpan="9" >
+            <TextBlock  FontSize="25" Text="基准检查（参照设定基准）：" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        </Border>
+
+        <Image x:Name="image9"  Grid.Row="5" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="7" Grid.Column="14" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="9：参数设定是否正确"></TextBlock>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="14" Grid.ColumnSpan="4" >
+            <ToggleSwitch x:Name="nine" Header="" OffContent="N G" OnContent="O K"/>
+        </Border>
+        <Image x:Name="image10"  Grid.Row="5" Grid.Column="19" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="7" Grid.Column="19" Grid.ColumnSpan="4"  Grid.RowSpan="2" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="10：主回路油压压力&#x0a;20T:55-60Kg/cm2&#x0a;25T:90-95Kg/cm2"></TextBlock>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="19" Grid.ColumnSpan="4" >
+            <ToggleSwitch x:Name="ten" Header="" OffContent="N G" OnContent="O K"/>
+        </Border>
+        <Image x:Name="image11"  Grid.Row="10" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="12" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="11：负回路油压压力&#x0a;20T:40±5Kg/cm2&#x0a;20T:40±5Kg/cm2"></TextBlock>
+        </Border>
+        <Border Grid.Row="14" Grid.Column="14" Grid.ColumnSpan="4" >
+            <ToggleSwitch x:Name="eleven" Header="" OffContent="N G" OnContent="O K" />
+        </Border>
+        <Image x:Name="image12"  Grid.Row="10" Grid.Column="19" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="12" Grid.Column="19" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="12：型缔压力&#x0a;（120-200Kg/cm2）"></TextBlock>
+        </Border>
+        <Border Grid.Row="14" Grid.Column="19" Grid.ColumnSpan="4" >
+            <ToggleSwitch x:Name="twelve" Header="" OffContent="N G" OnContent="O K" />
+        </Border>
+
+        <Border Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="24" Grid.RowSpan="5" Background="#FFFFCC" BorderBrush="Black" BorderThickness="1">
+        </Border>
+        <Border Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="3" >
+            <TextBlock  FontSize="25" Text="6S确认：" VerticalAlignment="Center" HorizontalAlignment="Right" />
+        </Border>
+
+        <Image x:Name="image14"  Grid.Row="17" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="19" Grid.Column="2" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="13：地面散落制品清扫确认"></TextBlock>
+        </Border>
+        <Border Grid.Row="20" Grid.Column="2" Grid.ColumnSpan="4" >
+            <ToggleSwitch x:Name="fourteen" Header="" OffContent="N G" OnContent="O K"/>
+        </Border>
+        <Image x:Name="image15"  Grid.Row="17" Grid.Column="7" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="19" Grid.Column="7" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="14：地沟废油清扫确认"></TextBlock>
+        </Border>
+        <Border Grid.Row="20" Grid.Column="7" Grid.ColumnSpan="4" >
+            <ToggleSwitch x:Name="fifteen" Header="" OffContent="N G" OnContent="O K"/>
+        </Border>
+        <Image x:Name="image16"  Grid.Row="17" Grid.Column="12" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="19" Grid.Column="12" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="15：检查工具摆放确认"></TextBlock>
+        </Border>
+        <Border Grid.Row="20" Grid.Column="12" Grid.ColumnSpan="4" >
+            <ToggleSwitch x:Name="sixteen" Header="" OffContent="N G" OnContent="O K" />
+        </Border>
+        <Image x:Name="image17"  Grid.Row="17" Grid.Column="17" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="Images/1.jpg" Stretch="Fill" />
+        <Border Grid.Row="19" Grid.Column="17" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="16：油压配管确认（是否漏油）"></TextBlock>
+        </Border>
+        <Border Grid.Row="20" Grid.Column="17" Grid.ColumnSpan="4" >
+            <ToggleSwitch x:Name="seventeen" Header="" OffContent="N G" OnContent="O K" />
+        </Border>
+        <Border Grid.Row="21" Grid.Column="16" Grid.ColumnSpan="4" Padding="6" >
+            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="提   交"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="OnCommitData" />
+        </Border>
+    </Grid>
+</Page>

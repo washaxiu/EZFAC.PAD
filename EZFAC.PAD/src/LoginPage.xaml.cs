@@ -41,7 +41,7 @@ namespace EZFAC.PAD
             //username.Text = "用户名/员工号/邮箱地址";
             username.Text = "000002";
             password.Password = "123456";
-            timetag.Text = DateTime.Now.ToString();
+            timetag.Text = DateTime.Now.ToString(); 
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -93,7 +93,7 @@ namespace EZFAC.PAD
                     string jlevel = userObject["level"].GetString();
                     string authority = userObject["authority"].GetString();
                     //string jposation = userObject["Password"].GetString();                 
-                    if ((username.Text == juserid) || (username.Text == jusername) || (username.Text == jusermail))
+                    if ((username.Text == juserid)|| (username.Text == jusername)|| (username.Text == jusermail))
                     {
                         isValidUser = true;
                         if (password.Password == jpassword)
