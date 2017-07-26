@@ -128,6 +128,12 @@
     <Compile Include="src\Tools\MessDialog.cs" />
     <Compile Include="src\Service\PointCheckService.cs" />
     <Compile Include="src\Tools\CommonOperation.cs" />
+    <Compile Include="src\UnqualifiedReport\UnqualifiedReport.xaml.cs">
+      <DependentUpon>UnqualifiedReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UnqualifiedReport\UnqualifiedReportList.xaml.cs">
+      <DependentUpon>UnqualifiedReportList.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -177,6 +183,14 @@
     <Page Include="src\PointCheck\CheckRecord.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\UnqualifiedReport\UnqualifiedReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\UnqualifiedReport\UnqualifiedReportList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup />

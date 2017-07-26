@@ -77,7 +77,7 @@ namespace EZFAC.PAD
                 this.Frame.Navigate(typeof(ApprovalList), data);
             }
 
-            // 中班和检查和审批界面 
+            // 中班的检查和审批界面 
             else if ("DailyCheckNoon".Equals(app))
             {
                 this.Frame.Navigate(typeof(DailyCheckNoon), data);
@@ -86,6 +86,16 @@ namespace EZFAC.PAD
             {
                 this.Frame.Navigate(typeof(ApprovalList), data);
             }
+            // 不合格报告的检查和审批界面 
+            else if ("UnqualifiedReport".Equals(app))
+            {
+                this.Frame.Navigate(typeof(UnqualifiedReport), data);
+            }
+            else if ("UnqualifiedReportList".Equals(app))
+            {
+                this.Frame.Navigate(typeof(UnqualifiedReportList), data);
+            }
+            
         }
 
         private void loginOut_Click(object sender, RoutedEventArgs e)
