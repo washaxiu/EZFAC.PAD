@@ -51,7 +51,6 @@ namespace EZFAC.PAD
             {
                 items.Add(authority[i]);
             }
-            
             module.ItemsSource = items;
             if(items.Count>0) module.SelectedIndex = 0;
         }
