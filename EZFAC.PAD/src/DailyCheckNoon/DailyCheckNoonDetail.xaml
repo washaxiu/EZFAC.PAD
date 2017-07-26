@@ -67,27 +67,12 @@
         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"   Background="#0099CC">
             <TextBlock x:Name="UserNameTag" FontSize="25" Text="点检人" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  Background="#0099CC">
+        <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="32"  Background="#0099CC">
             <TextBlock x:Name="username" HorizontalAlignment="Left"  FontSize="25" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2"  Background="#0099CC">
-            <TextBlock x:Name="PositionTag" FontSize="25" Text="职位" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
-        </Border>
-        <Border Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="3"  Background="#0099CC">
-            <TextBlock x:Name="ApprovalPosition" HorizontalAlignment="Left"  FontSize="25" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
-        </Border>
-        <Border Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2"  Background="#0099CC">
-            <TextBlock FontSize="25" Text="班次" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
-        </Border>
-        <Border Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2"  Background="#0099CC">
-            <TextBlock  HorizontalAlignment="Left"  FontSize="25" Text="中班" FontFamily="Segoe UI Black" VerticalAlignment="Center" Foreground="#FF16325A"/>
-        </Border>
-        <Border Grid.Row="1" Grid.Column="14" Grid.ColumnSpan="5"  Background="#0099CC" >
-            <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="25" Text="点检日期" VerticalAlignment="Center" Foreground="#FF16325A"/>
-        </Border>
-        <Border Grid.Row="1" Grid.Column="19" Grid.ColumnSpan="5"  Background="#0099CC" >
-            <TextBlock x:Name="date" HorizontalAlignment="Center"  FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Foreground="#FF16325A"/>
-        </Border>
+        
+       
+      
         <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
             <TextBlock  FontSize="25" Text="机组：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>

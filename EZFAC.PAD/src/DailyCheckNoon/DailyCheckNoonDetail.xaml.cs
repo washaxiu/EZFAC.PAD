@@ -43,11 +43,8 @@ namespace EZFAC.PAD
                 Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
                 username.Text = getdata["username"];
-                ApprovalPosition.Text = getdata["username"];
-
 
             }
-            date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void OnCommitData(object sender, RoutedEventArgs e)
@@ -56,7 +53,7 @@ namespace EZFAC.PAD
             JsonObject checkRecordData = commonOperation.initJsonObject();
             // 设置各字段的值
             checkRecordData["checker"] = JsonValue.CreateStringValue("");
-            checkRecordData["date"] = JsonValue.CreateStringValue(date.Text);
+            checkRecordData["date"] = JsonValue.CreateStringValue(DateTime.Now.ToString("yyyy-MM-dd"));
             checkRecordData["group"] = JsonValue.CreateStringValue(MachineGroup.SelectedItem.ToString());
             checkRecordData["line"] = JsonValue.CreateStringValue(machineNo.SelectedItem.ToString());
 
@@ -80,7 +77,7 @@ namespace EZFAC.PAD
             checkRecordData["sixteen"] = sixteen.IsOn == true ? good : bad;
             checkRecordData["seventeen"] = seventeen.IsOn == true ? good : bad;
 
-            string fileName = "ykk_record_" + MachineGroup.SelectedItem.ToString() + "_" + machineNo.SelectedItem.ToString() + "_" + date.Text + ".ykk";
+            string fileName = "ykk_record_" + MachineGroup.SelectedItem.ToString() + "_" + machineNo.SelectedItem.ToString() + "_" + DateTime.Now.ToString("yyyy-MM-dd") + ".ykk";
             // 将json数据写入对应文件中
             commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "DailyCheckNoon");
             // 设置提示框
