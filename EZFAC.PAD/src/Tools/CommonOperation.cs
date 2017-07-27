@@ -13,34 +13,51 @@ namespace EZFAC.PAD.src.Tools
 {
     class CommonOperation
     {
-
+        private int userLevelCount = 5;
         public string good = "○";
         public string bad = "×";
 
-        /*
-          * 初始化JsonObject并设置用户级别信息
-          */
         public JsonObject initJsonObject()
         {
-            JsonObject checkRecordData = new JsonObject();
-            // 设置用户级别
-            checkRecordData["level2check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level2edit"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level2date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level2approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level3check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level3edit"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level3date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level3approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level4check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level4edit"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level4date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level4approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level5check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level5edit"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level5date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level5approvaler"] = JsonValue.CreateStringValue("");
-            return checkRecordData;
+            JsonObject s = new JsonObject();
+            return s;
+        }
+
+        /*
+          * 初始化检查的json信息
+          * @param检查类型 检查内容分类信息
+          */
+        public JsonArray initCheckJsonArray(string type, string group, string number)
+        {
+            JsonArray checkerInfo = new JsonArray();
+            JsonObject checker = new JsonObject();
+            checker["type"] = JsonValue.CreateStringValue(type);
+            checker["group"] = JsonValue.CreateStringValue(group);
+            checker["number"] = JsonValue.CreateStringValue(number);
+            checkerInfo.Add(checker);
+            return checkerInfo;
+        }
+
+        /*
+          * 初始化各级别用户的json信息
+          * @param 点检人姓名(level=1) 检查时间 备注
+          */
+        public JsonArray initCheckerJsonArray(string userName,string date, string comments)
+        {
+            JsonArray checkerInfo = new JsonArray();
+
+            for(int i=1;i<= userLevelCount; i++)
+            {
+                JsonObject checker = new JsonObject();
+                checker["name"] = i == 1 ? JsonValue.CreateStringValue(userName) : JsonValue.CreateStringValue("");
+                checker["level"] = JsonValue.CreateStringValue(Convert.ToString(i));
+                checker["check"] = i == 1 ? JsonValue.CreateStringValue("1") : JsonValue.CreateStringValue("0");
+                checker["edit"] = JsonValue.CreateStringValue("0");
+                checker["date"] = i == 1 ? JsonValue.CreateStringValue(date) : JsonValue.CreateStringValue("");
+                checker["comments"] = i == 1 ? JsonValue.CreateStringValue(comments) : JsonValue.CreateStringValue("");
+                checkerInfo.Add(checker);
+            }
+            return checkerInfo;
         }
 
         /*
@@ -49,69 +66,93 @@ namespace EZFAC.PAD.src.Tools
          */
         public async void writeJsonToFile(JsonObject content,String fileName, StorageFolder record_folder,string folderName)
         {
-            // 显示JSON对象的字符串表示形式
-            string jstr = content.Stringify();
+            // 从json数据里面提前对应的json数组
+            string[] jsonString = {  "checkInfo",content["checkInfo"].Stringify(),
+                                "content",content["content"].Stringify(),
+                                "checkerInfo",content["checkerInfo"].Stringify()
+                              };
             StorageFolder newFolder = await record_folder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
             StorageFile record_file = await newFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
             using (Stream file = await record_file.OpenStreamForWriteAsync())
             {
                 using (StreamWriter write = new StreamWriter(file))
                 {
-                    string[] strs = jstr.Split(',');
-                    for (int i = 0; i < strs.Length; i++)
+                    write.Write("{");
+                    write.WriteLine();
+                    // 将数组中数据写入对应文件中
+                    for (int i= 0;i< jsonString.Length;i+=2)
                     {
-                        if (i == 0)
+                        string[] strs = jsonString[i+1].Replace("[","").Replace("]","").Split(',');
+                        // 一个json数组的开始
+                        write.Write("   \"" + jsonString[i] + "\":[");
+                        write.WriteLine();
+                        for (int j = 0; j < strs.Length; j++)
                         {
-                            write.Write(strs[i].Substring(0, 1));
-                            write.WriteLine();
-                            write.Write("   " + strs[i].Substring(1, strs[i].Length - 1)+",");
-                            write.WriteLine();
+                            // 数据的开始点
+                            if (strs[j][0] == '{')
+                            {
+                                write.Write("       {");
+                                write.WriteLine();
+                                write.Write("           " + strs[j].Substring(1, strs[j].Length - 1) + ",");
+                                write.WriteLine();
+                            }
+                            // 数据的结束点
+                            else if (strs[j][strs[j].Length - 1] == '}')
+                            {
+                                if (strs[j].Contains("comments"))
+                                {
+                                    strs[j] = strs[j].Replace("+", ",");
+                                }
+                                write.Write("           " + strs[j].Substring(0, strs[j].Length - 1));
+                                write.WriteLine();
+                                //  若为最后一条数据，则}后面不加,
+                                string isAdd1 = j == strs.Length - 1 ? "" : ",";
+                                write.Write("       }"+ isAdd1);
+                                write.WriteLine();
+                            }
+                            else
+                            {
+                                write.Write("           " + strs[j] + ",");
+                                write.WriteLine();
+                            }
                         }
-                        else if (i == strs.Length - 1)
-                        {
-                            write.Write("   " + strs[i].Substring(0, strs[i].Length - 1));
-                            write.WriteLine();
-                            write.Write(strs[i].Substring(strs[i].Length - 1, 1));
-                            write.WriteLine();
-                        }
-                        else
-                        {
-                            write.Write("   " + strs[i]+",");
-                            write.WriteLine();
-                        }
+                        // 一个json数组的结束,若为最后一个json数据，则]后面不加,
+                        string isAdd2 = i == jsonString.Length - 2 ? "" : ",";
+                        write.Write("   ]" + isAdd2);
+                        write.WriteLine();
                     }
+                    write.Write("}");
                 }
             }
-
         }
 
         /*
          * 判断当前用户的下级是否审批过信息，若没有则返回false
          */
-        public bool isJudged(JsonObject jsonObject,string userlevel)
+        public bool isJudged(JsonArray jsonArray, string userlevel)
         {
-            string checked_flag;
-            string lowlevel_flag;
+            string checked_flag = "0";
+            string lowlevel_flag = "0";
 
             if (userlevel == "2")
             {
                 lowlevel_flag = "1";
-                checked_flag = jsonObject["level2check"].GetString();
+                checked_flag = jsonArray[1].GetObject()["check"].GetString();
             }
             else if (userlevel == "3")
             {
-                lowlevel_flag = jsonObject["level2check"].GetString();
-                checked_flag = jsonObject["level3check"].GetString();
+                lowlevel_flag = jsonArray[1].GetObject()["check"].GetString();
+                checked_flag = jsonArray[2].GetObject()["check"].GetString();
             }
             else if (userlevel == "4")
             {
-                lowlevel_flag = jsonObject["level3check"].GetString();
-                checked_flag = jsonObject["level4check"].GetString();
+                lowlevel_flag = jsonArray[2].GetObject()["check"].GetString();
+                checked_flag = jsonArray[3].GetObject()["check"].GetString();
             }
             else if (userlevel == "5")
             {
-                lowlevel_flag = jsonObject["level4check"].GetString();
-                checked_flag = jsonObject["level5check"].GetString();
+                lowlevel_flag = jsonArray[3].GetObject()["check"].GetString();
+                checked_flag = jsonArray[4].GetObject()["check"].GetString();
             }
             else
             {
@@ -129,22 +170,22 @@ namespace EZFAC.PAD.src.Tools
         /*
         * 判断当前用户的下级是否修改过信息，若没有则返回false
         */
-        public string getEditContent(JsonObject jsonObject, string userlevel)
+        public bool isEditContent(JsonArray jsonArray, string userlevel)
         {
             string lowlevel_edit = "0";
             if (userlevel == "3")
             {
-                lowlevel_edit = jsonObject["level2edit"].GetString();
+                lowlevel_edit = jsonArray[1].GetObject()["edit"].GetString();
             }
             else if (userlevel == "4")
             {
-                lowlevel_edit = jsonObject["level3edit"].GetString();
+                lowlevel_edit = jsonArray[2].GetObject()["edit"].GetString();
             }
             else if (userlevel == "5")
             {
-                lowlevel_edit = jsonObject["level4edit"].GetString();
+                lowlevel_edit = jsonArray[3].GetObject()["edit"].GetString();
             }
-            return lowlevel_edit;
+            return lowlevel_edit.Equals("1");
         }
 
         /*
@@ -182,7 +223,7 @@ namespace EZFAC.PAD.src.Tools
         }
 
          /*
-          * 获取各级用户的审批信息
+          * 获取改用户等级以下的用户的审批信息
           * @param 信息显示文本 用户等级  文件名 文件所在目录
           */
         public async void getStateText(TextBox reviewInfor,String userLevel,string checkfilename,string folderName)
@@ -191,70 +232,34 @@ namespace EZFAC.PAD.src.Tools
             StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
-                // 获取目录下的文件列表
-                var subFiles = await folder.GetFilesAsync();
-                // 向ListView中添加文件
-                foreach (StorageFile file in subFiles)
+                StorageFile file = await folder.CreateFileAsync(checkfilename, CreationCollisionOption.OpenIfExists);
+                if (file != null)
                 {
-                    string extensionname = Path.GetExtension(file.Name);
-                    if (file.Name == checkfilename)
+                    var jsonText = await FileIO.ReadTextAsync(file);
+                    JsonObject jsonObject = JsonObject.Parse(jsonText);
+                    // 获取用户信息
+                    JsonArray checkerInfo = jsonObject["checkerInfo"].GetArray();
+
+                    reviewInfor.Text = "点检人：" + checkerInfo[0].GetObject()["name"].GetString() + ", "+ checkerInfo[0].GetObject()["date"].GetString() + " 提交\n";
+                    if (userLevel == "2") return;
+
+                    for(int i=1;i< userLevelCount; i++)
                     {
-                        
-                        string jsonText = await FileIO.ReadTextAsync(file);
-                        JsonObject jsonObject = JsonObject.Parse(jsonText);
-
-                        reviewInfor.Text = "点检人：" + jsonObject["checker"].GetString()+", "+ jsonObject["date"].GetString()+" 提交\n";
-                        if (userLevel == "2") return;
-
-                        string level2edit = jsonObject["level2edit"].GetString();
-                        string level2approvaler = jsonObject["level2approvaler"].GetString();
-                        string level2date = jsonObject["level2date"].GetString();
-
-                        reviewInfor.Text = reviewInfor.Text + getJobByLevel("2") + "：" + level2approvaler + ", " + level2date;
-                        if (level2edit == "0")
+                        string level = Convert.ToString(i+1);
+                        //  若等级与当前等级相等，则退出
+                        if (level == userLevel) return;
+                        reviewInfor.Text = reviewInfor.Text + getJobByLevel(level) + "：" + checkerInfo[i].GetObject()["name"].GetString() + ", " + checkerInfo[i].GetObject()["date"].GetString();
+                        if (checkerInfo[i].GetObject()["edit"].GetString() == "0")
                         {
-                            reviewInfor.Text = reviewInfor.Text + " 提交\n";
+                            reviewInfor.Text = reviewInfor.Text + " 确认\n";
                         }
                         else
                         {
-                            reviewInfor.Text = reviewInfor.Text + " 修改并提交\n";
+                            reviewInfor.Text = reviewInfor.Text + " 修改并确认\n";
                         }
-                        if (userLevel == "3") return;
-                        
-                        string level3edit = jsonObject["level3edit"].GetString();
-                        string level3approvaler = jsonObject["level3approvaler"].GetString();
-                        string level3date = jsonObject["level3date"].GetString();
-
-                        reviewInfor.Text = reviewInfor.Text + getJobByLevel("3") + "：" + level3approvaler + ", " + level3date;
-                        if (level3edit == "0")
-                        {
-                            reviewInfor.Text = reviewInfor.Text + " 提交\n";
-                        }
-                        else
-                        {
-                            reviewInfor.Text = reviewInfor.Text + " 修改并提交\n";
-                        }
-                        if (userLevel == "4") return;
-
-                        string level4edit = jsonObject["level4edit"].GetString();
-                        string level4approvaler = jsonObject["level4approvaler"].GetString();
-                        string level4date = jsonObject["level4date"].GetString();
-
-                        reviewInfor.Text = reviewInfor.Text + getJobByLevel("4") + "：" + level4approvaler + ", " + level4date;
-                        if (level4edit == "0")
-                        {
-                            reviewInfor.Text = reviewInfor.Text + " 提交\n";
-                        }
-                        else
-                        {
-                            reviewInfor.Text = reviewInfor.Text  + " 修改并提交\n";
-                        }
-                        if (userLevel == "5") return;
                     }
                 }
             }
         }
-
-        
     }
 }

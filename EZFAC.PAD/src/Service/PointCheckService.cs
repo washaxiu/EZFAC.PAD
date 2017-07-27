@@ -40,40 +40,49 @@ namespace EZFAC.PAD.src.Service
                     if (extensionname == ".ykk")
                     {
                         var jsonText = await FileIO.ReadTextAsync(file);
-                        jsonText = jsonText.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "");
                         JsonObject jsonObject = JsonObject.Parse(jsonText);
-                        string color = "Black";
-
+                        // 获取检查信息
+                        JsonArray checkInfo = jsonObject["checkInfo"].GetArray();
+                        // 获取检查内容
+                        JsonArray content = jsonObject["content"].GetArray();
+                        // 获取用户信息
+                        JsonArray checkerInfo = jsonObject["checkerInfo"].GetArray();
+                        string color = "Black",contentEdit = null;
                         // 判断当前用户的下级是否审批过信息
-                        if (commonOperation.isJudged(jsonObject, userlevel) == false)
+                        if (commonOperation.isJudged(checkerInfo, userlevel) == false)
                         {
                             continue;
                         }
-                        string editContent = commonOperation.getEditContent(jsonObject, userlevel);
                         // 判断当前用户的下级是否修改过信息
-                        if (!editContent.Equals("0"))
+                        if (commonOperation.isEditContent(checkerInfo, userlevel))
                         {
                             color = "Red";
                         }
-
+                        // 获取检查内容修改信息
+                        for (int i=0;i< content.Count; i++)
+                        {
+                            contentEdit = contentEdit + content[i].GetObject()["edit"].GetString();
+                        }
                         lvFiles.Items.Add(new
                         {
-                            Group = jsonObject["group"].GetString(),
-                            Line = jsonObject["line"].GetString(),
-                            MachineName = "压铸线" + jsonObject["group"].GetString() + "-" + jsonObject["line"].GetString(),
-                            Temp1Name = jsonObject["temp1"].GetString() == "good" ? good : bad,
-                            Temp2Name = jsonObject["temp2"].GetString() == "good" ? good : bad,
-                            Temp3Name = jsonObject["temp3"].GetString() == "good" ? good : bad,
-                            Loop1Name = jsonObject["loop1"].GetString() == "good" ? good : bad,
-                            Loop2Name = jsonObject["loop2"].GetString() == "good" ? good : bad,
-                            Loop3Name = jsonObject["loop3"].GetString() == "good" ? good : bad,
-                            Select1Name = jsonObject["select1"].GetString() == "good" ? good : bad,
-                            Plat1Name = jsonObject["plat1"].GetString() == "good" ? good : bad,
-                            CheckerName = jsonObject["checker"].GetString(),
-                            CheckDate = jsonObject["date"].GetString(),
+                            // 设置检查信息
+                            Group = checkInfo[0].GetObject()["group"].GetString(),
+                            Line = checkInfo[0].GetObject()["number"].GetString(),
+                            MachineName = "压铸线" + checkInfo[0].GetObject()["group"].GetString() + "-" + checkInfo[0].GetObject()["number"].GetString(),
+                            // 设置检查内容
+                            Temp1Name = content[0].GetObject()["status"].GetString() == "good" ? good : bad,
+                            Temp2Name = content[1].GetObject()["status"].GetString() == "good" ? good : bad,
+                            Temp3Name = content[2].GetObject()["status"].GetString() == "good" ? good : bad,
+                            Loop1Name = content[3].GetObject()["status"].GetString() == "good" ? good : bad,
+                            Loop2Name = content[4].GetObject()["status"].GetString() == "good" ? good : bad,
+                            Loop3Name = content[5].GetObject()["status"].GetString() == "good" ? good : bad,
+                            Select1Name = content[6].GetObject()["status"].GetString() == "good" ? good : bad,
+                            Plat1Name = content[7].GetObject()["status"].GetString() == "good" ? good : bad,
+                            // 设置用户信息
+                            CheckerName = checkerInfo[0].GetObject()["name"].GetString(),
+                            CheckDate = checkerInfo[0].GetObject()["date"].GetString(),
+                            ContentEdit = contentEdit,
                             Count = Convert.ToString(count++),
-                            CheckerLevel = userlevel,
-                            EditContent = editContent,
                             Color = color
                         });
                     }
@@ -83,48 +92,83 @@ namespace EZFAC.PAD.src.Service
 
         /*
         * 获取点检审批信息详情
-        * @param 信息详情json字符串 审批人名 审批人等级
+        * @param 信息详情json字符串
         */
-        public Dictionary<string,string> getDetail(String jsonText,string username,string userlevel)
+        public Dictionary<string,string> getDetail(String jsonText)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
-
             // 将信息字符串转换成字符串数组
             string[] strs = jsonText.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "").Split("{,=}".ToCharArray());
-
-            // 将点检信息写入
+            // 获取组 ，机番, 时间信息
             for (int i = 1; i < strs.Length-1; i += 2)
             {
-                string msg = null;
-                if (strs[i].Equals("CheckerName")) msg = "checker";
-                if (strs[i].Equals("CheckDate")) msg = "date";
-                if (strs[i].Equals("Group")) msg = "group";
-                if (strs[i].Equals("Line")) msg = "line";
-                if (strs[i].Equals("MachineName")) msg = "MachineName";
-                if (strs[i].Equals("Temp1Name")) msg = "temp1";
-                if (strs[i].Equals("Temp2Name")) msg = "temp2";
-                if (strs[i].Equals("Temp3Name")) msg = "temp3";
-                if (strs[i].Equals("Loop1Name")) msg = "loop1";
-                if (strs[i].Equals("Loop2Name")) msg = "loop2";
-                if (strs[i].Equals("Loop3Name")) msg = "loop3";
-                if (strs[i].Equals("Select1Name")) msg = "select1";
-                if (strs[i].Equals("Plat1Name")) msg = "plat1";
-                if (strs[i].Equals("EditContent")) msg = "editContent";
-                if (msg!=null) data.Add(msg, strs[i+1]);
+                if (strs[i].Equals("Group"))
+                {
+                    data.Add("group",strs[i + 1]);
+                }
+                else if (strs[i].Equals("Line"))
+                {
+                    data.Add("line", strs[i + 1]);
+                }
+                else if (strs[i].Equals("CheckDate"))
+                {
+                    data.Add("date", strs[i + 1]); 
+                }
+                else if (strs[i].Equals("CheckerName"))
+                {
+                    data.Add("checker", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Temp1Name"))
+                {
+                    data.Add("temp1", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Temp2Name"))
+                {
+                    data.Add("temp2", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Temp3Name"))
+                {
+                    data.Add("temp3", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Loop1Name"))
+                {
+                    data.Add("loop1", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Loop2Name"))
+                {
+                    data.Add("loop2", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Loop3Name"))
+                {
+                    data.Add("loop3", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Select1Name"))
+                {
+                    data.Add("select1", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Plat1Name"))
+                {
+                    data.Add("plat1", strs[i + 1]);
+                }
+                else if (strs[i].Equals("ContentEdit"))
+                {
+                    data.Add("contentEdit", strs[i + 1]);
+                }
             }
-           
-            data.Add("username", username);
-            data.Add("userlevel", userlevel);
             return data;
         }
 
-        public async void mulApproval(ListView listView,string userlevel, PointCheckEntity pointCheck,string folderName)
+      /*
+       * 审批多条信息
+       * @param 信息详情列表 审批人信息 文件所在目录
+       */
+        public async void mulApproval(ListView listView, CheckerInfoEntity checkerInfoEntity, string folderName)
         {
             for (int i = 0; i < listView.SelectedItems.Count; i++)
             {
-                string content = listView.SelectedItems[i].ToString();
+                string itemContent = listView.SelectedItems[i].ToString();
                 string groupName = null, lineName = null, date = null;
-                string[] strs = content.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "").Split("{,=}".ToCharArray());
+                string[] strs = itemContent.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "").Split("{,=}".ToCharArray());
                 for (int j = 1; j < strs.Length - 1; j += 2)
                 {
                     if (strs[j].Equals("CheckDate")) date = strs[j + 1];
@@ -139,20 +183,26 @@ namespace EZFAC.PAD.src.Service
                     if(file != null)
                     {
                         var jsonText = await FileIO.ReadTextAsync(file);
-                        jsonText = jsonText.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "");
                         JsonObject jsonObject = JsonObject.Parse(jsonText);
+                        // 获取用户信息
+                        JsonArray checkerInfo = jsonObject["checkerInfo"].GetArray();
 
-                        string levelCheck = "level" + userlevel + "check";
-                        string levelDate = "level" + userlevel + "date";
-                        string levelApprovaler = "level" + userlevel + "approvaler";
+                        JsonObject item = new JsonObject();
+                        item["name"] =  JsonValue.CreateStringValue(checkerInfoEntity.name);
+                        item["level"] = JsonValue.CreateStringValue(checkerInfoEntity.level);
+                        item["check"] = JsonValue.CreateStringValue(checkerInfoEntity.check);
+                        item["edit"] =  JsonValue.CreateStringValue(checkerInfoEntity.edit);
+                        item["date"] =  JsonValue.CreateStringValue(checkerInfoEntity.date);
+                        item["comments"] =  JsonValue.CreateStringValue(checkerInfoEntity.comments);
 
-                        jsonObject.Remove(levelCheck);
-                        jsonObject.Remove(levelDate);
-                        jsonObject.Remove(levelApprovaler);
-
-                        jsonObject.Add(levelCheck, JsonValue.CreateStringValue("1"));
-                        jsonObject.Add(levelDate, JsonValue.CreateStringValue(pointCheck.date));
-                        jsonObject.Add(levelApprovaler, JsonValue.CreateStringValue(pointCheck.checker));
+                        for(int j=0;j< checkerInfo.Count; j++)
+                        {
+                            string level = Convert.ToString(j + 1);
+                            if(level == checkerInfoEntity.level)
+                            {
+                                checkerInfo[j] = item;
+                            }
+                        }
                         commonOperation.writeJsonToFile(jsonObject, fileName, KnownFolders.PicturesLibrary, folderName);
                     }
                 }

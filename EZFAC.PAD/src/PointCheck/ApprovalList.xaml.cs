@@ -84,8 +84,10 @@ namespace EZFAC.PAD
             // 获取当前所在行
             int courrent = Convert.ToInt32(btn.CommandParameter);
             // 获取信息详情
-            Dictionary<string, string> getData = pointCheckService.getDetail(lvFiles.Items[courrent].ToString(), data["username"], data["userlevel"]);
+            Dictionary<string, string> getData = pointCheckService.getDetail(lvFiles.Items[courrent].ToString());
             getData.Add("authority", data["authority"]);
+            getData.Add("username", data["username"]);
+            getData.Add("userlevel", data["userlevel"]);
             // 导航并传递参数
             this.Frame.Navigate(typeof(ApprovalDetail), getData);
         }
@@ -94,11 +96,9 @@ namespace EZFAC.PAD
         {
             if (lvFiles.SelectedItems.Count > 0)
             {
-                PointCheckEntity pointCheck = new PointCheckEntity();
-                pointCheck.checker = ApprovalListUser.Text;
-                pointCheck.date = date.Text;
+                CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text,userlevel,"1","0",date.Text,"");
                 //  审批所选信息
-                pointCheckService.mulApproval(lvFiles, userlevel, pointCheck, "PointCheck");
+                pointCheckService.mulApproval(lvFiles, checkerInfo, "PointCheck");
                 // 设置提示框
                 ContentDialog dialog = new ContentDialog()
                 {
@@ -111,7 +111,7 @@ namespace EZFAC.PAD
             }
             else
             {
-                messDialog.showDialog("请至少选择一天数据进行审批！");
+                messDialog.showDialog("请至少选择一条数据进行审批！");
             }
         }
 

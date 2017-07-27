@@ -201,7 +201,7 @@
             <Run FontSize="18"  Foreground="Red" Text="备注" />
         </TextBlock>
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="7" BorderThickness="0">
-            <TextBox Background="White" BorderBrush="Gray" BorderThickness="2" Margin="0,14,0,10" Height="42" />
+            <TextBox x:Name="comments" Background="White" BorderBrush="Gray" BorderThickness="2" Margin="0,14,0,10" Height="42" />
         </Border>
         <Border Grid.Row="11"  Grid.ColumnSpan="8" Padding="6" BorderThickness="0">
             <Button x:Name="Return" HorizontalAlignment="Right"  Margin="0,3,0,0" MinHeight="30" Content="返  回" MinWidth="150" Foreground="Blue" Click="Return_Click" Height="35" Width="127" VerticalAlignment="Top"/>

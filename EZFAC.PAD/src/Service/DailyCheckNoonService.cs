@@ -23,8 +23,9 @@ namespace EZFAC.PAD.src.Service
         * 获取当前用户的压铸工程日常点检审批信息
         * @param 显示信息列表  用户等级
         */
+        
         public async void getApprovalList(ListView lvFiles, string userlevel)
-        {
+        {/*
             lvFiles.Items.Clear();
             StorageFolder record_folder = KnownFolders.PicturesLibrary;
             StorageFolder folder = await record_folder.CreateFolderAsync("DailyCheckNoon", CreationCollisionOption.OpenIfExists);
@@ -86,7 +87,7 @@ namespace EZFAC.PAD.src.Service
                         });
                     }
                 }
-            }
+            }*/
         }
 
         /*

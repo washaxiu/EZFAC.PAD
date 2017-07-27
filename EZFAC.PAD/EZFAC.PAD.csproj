@@ -115,8 +115,10 @@
     <Compile Include="src\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Model\CheckContentEntity.cs" />
+    <Compile Include="src\Model\CheckerInfoEntity.cs" />
+    <Compile Include="src\Model\CheckInfoEntity.cs" />
     <Compile Include="src\Model\DailyCheckNoonEntity.cs" />
-    <Compile Include="src\Model\PointCheckEntity.cs" />
     <Compile Include="src\PointCheck\ApprovalDetail.xaml.cs">
       <DependentUpon>ApprovalDetail.xaml</DependentUpon>
     </Compile>
