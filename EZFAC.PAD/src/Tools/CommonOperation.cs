@@ -61,10 +61,10 @@ namespace EZFAC.PAD.src.Tools
         }
 
         /*
-         * 将json数据写入对应文件中
-         * @param Json数据 文件名 文件所在目录 文件夹名
-         */
-        public async void writeJsonToFile(JsonObject content,String fileName, StorageFolder record_folder,string folderName)
+        * 将json数据写入对应文件中
+        * @param Json数据 文件名 文件所在目录 文件夹名
+        */
+        public async void writeJsonToFile(JsonObject content, String fileName, StorageFolder record_folder, string folderName)
         {
             // 从json数据里面提前对应的json数组
             string[] jsonString = {  "checkInfo",content["checkInfo"].Stringify(),
@@ -80,41 +80,42 @@ namespace EZFAC.PAD.src.Tools
                     write.Write("{");
                     write.WriteLine();
                     // 将数组中数据写入对应文件中
-                    for (int i= 0;i< jsonString.Length;i+=2)
+                    for (int i = 0; i < jsonString.Length; i += 2)
                     {
-                        string[] strs = jsonString[i+1].Replace("[","").Replace("]","").Split(',');
                         // 一个json数组的开始
                         write.Write("   \"" + jsonString[i] + "\":[");
                         write.WriteLine();
-                        for (int j = 0; j < strs.Length; j++)
+                        //  循环数组内容
+                        string strs = jsonString[i + 1];
+                        int count = 2; // tab次数
+                        // 去掉头尾的中括号
+                        for (int j = 1; j < strs.Length-1; j++)
                         {
-                            // 数据的开始点
-                            if (strs[j][0] == '{')
+                            // 统计双引号的个数
+                            int num = 0;
+                            for (int k = 0; k < count; k++)
                             {
-                                write.Write("       {");
-                                write.WriteLine();
-                                write.Write("           " + strs[j].Substring(1, strs[j].Length - 1) + ",");
-                                write.WriteLine();
+                                write.Write("   ");
                             }
-                            // 数据的结束点
-                            else if (strs[j][strs[j].Length - 1] == '}')
+                            while (true)
                             {
-                                if (strs[j].Contains("comments"))
+                                char str = strs[j];
+                                write.Write(str);
+                                count = str == '{' ? count + 1 : count;
+                                num = str == '\"' ? num + 1 : num;
+                                if (str == '{' || str == '}' || num >= 4)
                                 {
-                                    strs[j] = strs[j].Replace("+", ",");
+                                    if (strs[j + 1] == ',')
+                                    {
+                                        j++;
+                                        write.Write(strs[j]);
+                                    }
+                                    count = strs[j + 1] == '}' ? count - 1 : count;
+                                    break;
                                 }
-                                write.Write("           " + strs[j].Substring(0, strs[j].Length - 1));
-                                write.WriteLine();
-                                //  若为最后一条数据，则}后面不加,
-                                string isAdd1 = j == strs.Length - 1 ? "" : ",";
-                                write.Write("       }"+ isAdd1);
-                                write.WriteLine();
+                                j++;
                             }
-                            else
-                            {
-                                write.Write("           " + strs[j] + ",");
-                                write.WriteLine();
-                            }
+                            write.WriteLine();
                         }
                         // 一个json数组的结束,若为最后一个json数据，则]后面不加,
                         string isAdd2 = i == jsonString.Length - 2 ? "" : ",";
@@ -165,7 +166,6 @@ namespace EZFAC.PAD.src.Tools
             }
             return true;
         }
-
 
         /*
         * 判断当前用户的下级是否修改过信息，若没有则返回false
@@ -258,6 +258,72 @@ namespace EZFAC.PAD.src.Tools
                             reviewInfor.Text = reviewInfor.Text + " 修改并确认\n";
                         }
                     }
+                }
+            }
+        }
+
+        /*
+         * 将json数据写入对应文件中
+         * @param Json数据 文件名 文件所在目录 文件夹名
+         */
+        public async void old_writeJsonToFile(JsonObject content, String fileName, StorageFolder record_folder, string folderName)
+        {
+            // 从json数据里面提前对应的json数组
+            string[] jsonString = {  "checkInfo",content["checkInfo"].Stringify(),
+                                "content",content["content"].Stringify(),
+                                "checkerInfo",content["checkerInfo"].Stringify()
+                              };
+            StorageFolder newFolder = await record_folder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
+            StorageFile record_file = await newFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+            using (Stream file = await record_file.OpenStreamForWriteAsync())
+            {
+                using (StreamWriter write = new StreamWriter(file))
+                {
+                    write.Write("{");
+                    write.WriteLine();
+                    // 将数组中数据写入对应文件中
+                    for (int i = 0; i < jsonString.Length; i += 2)
+                    {
+                        string[] strs = jsonString[i + 1].Replace("[", "").Replace("]", "").Split(',');
+                        // 一个json数组的开始
+                        write.Write("   \"" + jsonString[i] + "\":[");
+                        write.WriteLine();
+                        for (int j = 0; j < strs.Length; j++)
+                        {
+                            // 数据的开始点
+                            if (strs[j][0] == '{')
+                            {
+                                write.Write("       {");
+                                write.WriteLine();
+                                write.Write("           " + strs[j].Substring(1, strs[j].Length - 1) + ",");
+                                write.WriteLine();
+                            }
+                            // 数据的结束点
+                            else if (strs[j][strs[j].Length - 1] == '}')
+                            {
+                                if (strs[j].Contains("comments"))
+                                {
+                                    strs[j] = strs[j].Replace("+", ",");
+                                }
+                                write.Write("           " + strs[j].Substring(0, strs[j].Length - 1));
+                                write.WriteLine();
+                                //  若为最后一条数据，则}后面不加,
+                                string isAdd1 = j == strs.Length - 1 ? "" : ",";
+                                write.Write("       }" + isAdd1);
+                                write.WriteLine();
+                            }
+                            else
+                            {
+                                write.Write("           " + strs[j] + ",");
+                                write.WriteLine();
+                            }
+                        }
+                        // 一个json数组的结束,若为最后一个json数据，则]后面不加,
+                        string isAdd2 = i == jsonString.Length - 2 ? "" : ",";
+                        write.Write("   ]" + isAdd2);
+                        write.WriteLine();
+                    }
+                    write.Write("}");
                 }
             }
         }

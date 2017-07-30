@@ -82,7 +82,7 @@
             <TextBlock x:Name="MachineIdTag" Margin="20,0,10,0" FontSize="25" Text="机 番：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9" Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line01" Content="A-01" IsChecked="True"/>
+            <RadioButton GroupName="MachineId" Name="line01" Content="A-01" IsChecked="True" Click="OnLineChecked"/>
             <RadioButton GroupName="MachineId" Name="line03" Content="A-03" Click="OnLineChecked" />
             <RadioButton GroupName="MachineId" Name="line05" Content="A-05" Click="OnLineChecked" />
             <RadioButton GroupName="MachineId" Name="line07" Content="A-07" Click="OnLineChecked" />

@@ -35,7 +35,6 @@ namespace EZFAC.PAD
         private PointCheckService pointCheckService = new PointCheckService();
         private MessDialog messDialog = new MessDialog();
         private Dictionary<string, string> data = new Dictionary<string, string>();
-        private string userlevel = "2";
 
         public ApprovalList()
         {
@@ -96,7 +95,7 @@ namespace EZFAC.PAD
         {
             if (lvFiles.SelectedItems.Count > 0)
             {
-                CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text,userlevel,"1","0",date.Text,"");
+                CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text, data["userlevel"], "1","0",date.Text,"");
                 //  审批所选信息
                 pointCheckService.mulApproval(lvFiles, checkerInfo, "PointCheck");
                 // 设置提示框
@@ -118,7 +117,7 @@ namespace EZFAC.PAD
         public void primaryButtonClick1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             // 获取审批信息列表
-            pointCheckService.getApprovalList(lvFiles, userlevel);
+            pointCheckService.getApprovalList(lvFiles, data["userlevel"]);
             checkBox.Content = "全选";
             checkBox.IsChecked = false;
         }
