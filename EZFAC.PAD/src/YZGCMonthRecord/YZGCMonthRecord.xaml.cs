@@ -63,7 +63,7 @@ namespace EZFAC.PAD
             }
         }
 
-        private async void OnCommitData(object sender, RoutedEventArgs e)
+        private void OnCommitData(object sender, RoutedEventArgs e)
         {
             JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
