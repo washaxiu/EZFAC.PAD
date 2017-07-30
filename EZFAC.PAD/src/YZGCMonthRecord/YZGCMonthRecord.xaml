@@ -39,7 +39,7 @@
         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
             <Run FontSize="30"  Foreground="Blue" Text="压铸工程月度机械漏油点检记录表" FontFamily="Segoe UI Black" FontWeight="Bold" />
         </TextBlock>
-        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="4" Margin="0,4,10,2" HorizontalAlignment="Right" VerticalAlignment="Center" >
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32"/>
         </TextBlock>
         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Padding="6" Background="#0099CC">
@@ -143,7 +143,7 @@
         <StackPanel Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
             <ToggleSwitch x:Name="Temp7"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <TextBlock Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20"   Text="其他油、水配管情况" />
         </TextBlock>
         <StackPanel Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="6" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -157,8 +157,11 @@
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="9" Margin="0,10,0,10">
             <TextBox x:Name="reviewInfor" Background="White" />
         </Border>
+        <Border Grid.Row="11" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
+            <Button x:Name="Return"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="返   回" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Click="Return_Click"/>
+        </Border>
         <Border Grid.Row="11" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
-            <Button x:Name="Confirm"  HorizontalAlignment="Left" Margin="0,0,20,0" Content="提   交" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="OnCommitData" />
+            <Button x:Name="Confirm"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="提   交" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Click="OnCommitData" />
         </Border>
     </Grid>
 </Page>
