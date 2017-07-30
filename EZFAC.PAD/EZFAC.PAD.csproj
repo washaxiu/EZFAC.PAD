@@ -100,6 +100,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml.cs">
+      <DependentUpon>SemiFinishedCheck.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\AuthorityNavigation.xaml.cs">
       <DependentUpon>AuthorityNavigation.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,9 @@
     <Compile Include="src\UnqualifiedReport\UnqualifiedReportList.xaml.cs">
       <DependentUpon>UnqualifiedReportList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\YZGCMonthRecord\YZGCMonthRecord.xaml.cs">
+      <DependentUpon>YZGCMonthRecord.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -161,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="src\AuthorityNavigation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -200,6 +210,10 @@
     <Page Include="src\UnqualifiedReport\UnqualifiedReportList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\YZGCMonthRecord\YZGCMonthRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup />
