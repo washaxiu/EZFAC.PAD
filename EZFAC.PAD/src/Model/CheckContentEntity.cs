@@ -12,7 +12,7 @@ namespace EZFAC.PAD.src.Model
         public string name { get; set; }
         // 检查内容的状态
         public string status { get; set; }
-        // 内容状态是否被修改
+        // 内容状态是否修改
         public string edit { get; set; }
     }
 }
