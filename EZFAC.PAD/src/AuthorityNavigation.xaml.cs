@@ -98,13 +98,12 @@ namespace EZFAC.PAD
             // 压铸工程月度机械漏油点检记录表的检查和审批界面 
             else if ("YZGCMonthRecord".Equals(app))
             {
-                this.Frame.Navigate(typeof(UnqualifiedReport), data);
+                this.Frame.Navigate(typeof(YZGCMonthRecord), data);
             }
             else if ("YZGCMonthRecordList".Equals(app))
             {
                 this.Frame.Navigate(typeof(UnqualifiedReportList), data);
             }
-            
         }
 
         private void loginOut_Click(object sender, RoutedEventArgs e)
