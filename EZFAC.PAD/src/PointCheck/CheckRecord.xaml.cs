@@ -71,8 +71,7 @@ namespace EZFAC.PAD
             }
             checkRecordData.Add("content", content);
             // 初始化各级别用户的json信息
-            checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text,date.Text, comments.Text.Replace(",","+")));
-
+            checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text,date.Text, comments.Text));
             string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date.Text + ".ykk";
             // 将json数据写入对应文件中
             commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "PointCheck");

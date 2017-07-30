@@ -96,7 +96,7 @@ namespace EZFAC.PAD
         private void back_Click(object sender, RoutedEventArgs e)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add("username", ApprovalPosition.Text);
+            data.Add("username", ApprovalUser.Text);
             data.Add("userlevel", userLevel);
             data.Add("authority", authority);
             this.Frame.Navigate(typeof(ApprovalList), data);
