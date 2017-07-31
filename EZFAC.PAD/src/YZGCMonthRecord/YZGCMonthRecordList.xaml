@@ -142,11 +142,11 @@
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="2" Text="{Binding Path=Temp1Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="3" Text="{Binding Path=Temp2Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="4" Text="{Binding Path=Temp3Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=Loop1Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=Loop2Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=Loop3Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=Select1Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="9" Text="{Binding Path=Plat1Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=Temp4Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=Temp5Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=Temp6Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=Temp7Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="9" Text="{Binding Path=Temp8Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="10" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="11" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <StackPanel Grid.Column="12"  Margin="10,0,0,0" Orientation="Horizontal">

@@ -1,4 +1,5 @@
 ﻿using EZFAC.PAD.src.Model;
+using EZFAC.PAD.src.Service;
 using EZFAC.PAD.src.Tools;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,8 @@ namespace EZFAC.PAD
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
         JsonValue good = JsonValue.CreateStringValue("good");
         JsonValue bad = JsonValue.CreateStringValue("bad");
+        private YZGCMonthRecordService yZGCMonthRecordService = new YZGCMonthRecordService();
+
         public YZGCMonthRecordDetail()
         {
             this.InitializeComponent();
@@ -55,16 +58,16 @@ namespace EZFAC.PAD
                 // 显示内容
                 username.Text = getdata["username"];
                 userLevel = getdata["userlevel"];
+                authority = getdata["authority"];
                 checkdate = getdata["date"];
                 checker = getdata["checker"];
                 checkgroup = getdata["group"];
                 checkline = getdata["line"];
-                authority = getdata["authority"];
-
+                
                 ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
                 TextBlock[] toggleText = { Temp1Text, Temp2Text, Temp3Text, Temp4Text, Temp5Text, Temp6Text, Temp7Text, Temp8Text };
-                string[] contents = { getdata["temp1"] , getdata["temp2"] , getdata["temp3"] , getdata["Temp4"],
-                                      getdata["Temp5"] , getdata["Temp6"] , getdata["Temp7"] , getdata["Temp8"]
+                string[] contents = { getdata["temp1"] , getdata["temp2"] , getdata["temp3"] , getdata["temp4"],
+                                      getdata["temp5"] , getdata["temp6"] , getdata["temp7"] , getdata["temp8"]
                                     };
                 string contentEdit = getdata["contentEdit"];
                 // 获取职位
@@ -85,7 +88,7 @@ namespace EZFAC.PAD
                     toggleSwitch[i].IsOn = contents[i] == "○" ? true : false;
                 }
                 // 获取审批信息并显示在多行Texkbox
-                commonOperation.getStateText(reviewInfor, userLevel, checkfilename, "PointCheck");
+                commonOperation.getStateText(reviewInfor, userLevel, checkfilename, "YZGCMonthRecord");
             }
         }
         /*
