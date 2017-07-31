@@ -9,43 +9,112 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="55" />
-            <RowDefinition Height="30"  />
+            <RowDefinition Height="50"  />
+            <RowDefinition Height="100"/>
             <RowDefinition/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="50"/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="40" />
             <RowDefinition Height="30"  />
             <RowDefinition Height="55" />
         </Grid.RowDefinitions>
 
         <Button x:Name="loginOut" FontSize="22" Content="退   出" HorizontalAlignment="Left"  Grid.Row="0" VerticalAlignment="Center" MinWidth="100" MinHeight="40"  Foreground="Blue" Click="loginOut_Click" Margin="24,0,0,0" />
+        
+        
 
-
-        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="30"  Foreground="Blue" Text="2017-06-19 21:40:32" />
         </TextBlock>
-        <Rectangle Grid.Row="1" Grid.Column="0" Fill="Green"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom"  >
-            <Run FontSize="40"  Foreground="#FF008FFF" Text="上海吉田拉链有限公司" />
-        </TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom"  >
-            <Run FontSize="40"  Foreground="#FF008FFF" Text="质量点检平板终端" />
-        </TextBlock>
-        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" BorderBrush="Black"  HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ComboBox x:Name="module" Width="150">
-            </ComboBox>
+
+        <Border Grid.Row="1" Grid.Column="0"  Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBlock x:Name="UserNameTag" FontSize="25" Text="点检人：" VerticalAlignment="Center" FontFamily="Segoe UI Black" Margin="20,0,0,0"/>
         </Border>
-        <TextBlock  x:Name="username" Visibility="Collapsed"></TextBlock>
-        <TextBlock  x:Name="level" Visibility="Collapsed"></TextBlock>
-        <TextBlock x:Name="information" FontSize="15" Grid.Row="6" HorizontalAlignment="Center"/>
-        <Button x:Name="button" FontSize="30" Content="进    入" HorizontalAlignment="Center"  Grid.Row="7" VerticalAlignment="Top" MinWidth="200" MinHeight="60" Background="#FF00D5FF" Foreground="White" Click="SignIn"/>
-        <Border Grid.Row="8" Padding="6" Background="Green">
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBox x:Name="username" HorizontalAlignment="Left"  FontSize="20" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="4"  Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="25" Text="点检日期 : " VerticalAlignment="Center"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="5" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBox x:Name="date" HorizontalAlignment="Right"  FontSize="25" Text="2017-06-16" VerticalAlignment="Center" MinWidth="180" MinHeight="49" Foreground="#FF16325A"/>
+        </Border>
+
+        <TextBlock  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="60,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Run x:Name="menu" FontSize="35"  Foreground="Blue" Text="检 查 菜 单" FontFamily="Segoe UI Black" FontWeight="Bold"/>
+        </TextBlock>
+        
+        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" x:Name="line01" FontSize="25" IsChecked="True" Click="OnLineChecked" Margin="103,0,0,0" />
+        </StackPanel>
+        <TextBlock x:Name="lineBlock01" Tapped="lineBlock01_Tapped" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Run  x:Name="lineText01" FontSize="25" Text="DC工程机械定期（三个月）点检"></Run>
+        </TextBlock>
+        
+        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line02" Content="" Click="OnLineChecked" Margin="103,0,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="lineBlock02" Tapped="lineBlock02_Tapped" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Run  x:Name="lineText02" FontSize="25" Text="不合格品报告书(压铸工程内)"></Run>
+        </TextBlock>
+
+        <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal"  BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line03" Click="OnLineChecked"  Margin="103,0,0,0"/>
+        </StackPanel>
+        <TextBlock  x:Name="lineBlock03" Tapped="lineBlock03_Tapped" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Run x:Name="lineText03" FontSize="25" Text="DC品质异常报告书"></Run>
+        </TextBlock>
+        
+        <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Horizontal"  BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line04" Click="OnLineChecked" Margin="103,0,0,0" />
+        </StackPanel>
+        <TextBlock  x:Name="lineBlock04" Tapped="lineBlock04_Tapped" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Run x:Name="lineText04" FontSize="25" Text="DC研磨前半制品检查"></Run>
+        </TextBlock>
+
+        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line05" Click="OnLineChecked" Margin="103,0,0,0" />
+        </StackPanel>
+        <TextBlock  x:Name="lineBlock05" Tapped="lineBlock05_Tapped" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Run x:Name="lineText05" FontSize="25" Text="压铸工程日常点检（早班）"></Run>
+        </TextBlock>
+        
+        <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line06"  Click="OnLineChecked" Margin="103,0,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="lineBlock06" Tapped="lineBlock06_Tapped" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Run x:Name="lineText06" FontSize="25" Text="压铸工程日常点检（中班）"></Run>
+        </TextBlock>
+        
+        <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line07"  Click="OnLineChecked" Margin="103,0,0,0"/>
+        </StackPanel>
+        <TextBlock  x:Name="lineBlock07" Tapped="lineBlock07_Tapped" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Run x:Name="lineText07" FontSize="25" Text="压铸工程型维修记录表"></Run>
+        </TextBlock>
+        
+        <StackPanel Grid.Row="6" Grid.Column="3" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line08" Click="OnLineChecked" Margin="103,0,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="lineBlock08" Tapped="lineBlock08_Tapped" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Run x:Name="lineText08" FontSize="25" Text="压铸工程月度机械漏油点检"></Run>
+        </TextBlock>
+        
+        <Button  Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6" x:Name="button" FontSize="30" Content="进    入" HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="200" MinHeight="60" Background="#FF00D5FF" Foreground="White" Click="SignIn"/>
+
+        <Border Grid.Row="10" Padding="6" Grid.Column="0" Grid.ColumnSpan="6" Background="Green">
             <TextBlock x:Name="tbRes" FontSize="12" Foreground="White" Margin="0,0,10,0" Text="Andon系统 版本号：R1.01.B001" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         </Border>
     </Grid>

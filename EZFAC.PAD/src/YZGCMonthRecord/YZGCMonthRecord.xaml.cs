@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using EZFAC.PAD.src.Tools;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -25,388 +26,155 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class YZGCMonthRecord : Page
     {
-        private JsonObject checkRecordData = new JsonObject();
-        private StorageFile record_file;//UWP 采用StorageFile来读写文件
-        private StorageFolder record_folder;//folder来读写文件夹        
+        //private JsonObject checkRecordData = new JsonObject();
+       // private StorageFile record_file;//UWP 采用StorageFile来读写文件
+        //private StorageFolder record_folder;//folder来读写文件夹        
         private string groupName = "A";
         private string lineName = "01";
+        private CommonOperation commonOperation = new CommonOperation();
+        private string type = "YZGCMonthRecord";
+        private Dictionary<string, string> data = new Dictionary<string, string>();
+        private JsonValue good = JsonValue.CreateStringValue("good");
+        private JsonValue bad = JsonValue.CreateStringValue("bad");
+        private MessDialog messDialog = new MessDialog();
         public YZGCMonthRecord()
         {
             this.InitializeComponent();
             timetag.Text = DateTime.Now.ToString();
         }
 
+        
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
-            {
+            {           
+                // 获取导航参数
+                data = (Dictionary<string, string>)e.Parameter;
+                // 显示内容
+                username.Text = data["username"];
+
+                ApprovalPosition.Text = commonOperation.getJobByLevel(data["userlevel"]);
+                date.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 // 获取导航参数
                 Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
-                // 显示内容
-                string level = getdata["level"];
-                if (level == "1")
-                {
-                    ApprovalPosition.Text = "员工";
-                }
-                else if (level == "2")
-                {
-                    ApprovalPosition.Text = "出班长";
-                }
-                else if (level == "3")
-                {
-                    ApprovalPosition.Text = "保全";
-                }
-                else if (level == "4")
-                {
-                    ApprovalPosition.Text = "课长";
-                }
-                else if (level == "5")
-                {
-                    ApprovalPosition.Text = "部门长";
-                }
-                else
-                {
-                    ApprovalPosition.Text = "未知";
-                }
-                username.Text = getdata["username"];
+                // 显示内容          
+               
             }
-            date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private async void OnCommitData(object sender, RoutedEventArgs e)
+        private void OnCommitData(object sender, RoutedEventArgs e)
         {
-            // 实例化JsonObject对象
-            // 设置各字段的值
-            checkRecordData["checker"] = JsonValue.CreateStringValue(username.Text);
-            checkRecordData["date"] = JsonValue.CreateStringValue(date.Text);
-            checkRecordData["group"] = JsonValue.CreateStringValue(groupName);
-            checkRecordData["line"] = JsonValue.CreateStringValue(lineName);
-
-
-            if (Temp1.IsOn == true)
+            JsonObject checkRecordData = new JsonObject();
+            ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
+            // 初始化检查的json信息
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
+            // 设置检查内容的json信息
+            JsonArray content = new JsonArray();
+            foreach (ToggleSwitch item in toggleSwitch)
             {
-                checkRecordData["temp1"] = JsonValue.CreateStringValue("good");
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
+                contentItem["status"] = item.IsOn == true ? good : bad;
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
             }
-            else
-            {
-                checkRecordData["temp1"] = JsonValue.CreateStringValue("bad");
-            }
-            if (Temp2.IsOn == true)
-            {
-                checkRecordData["temp2"] = JsonValue.CreateStringValue("good");
-            }
-            else
-            {
-                checkRecordData["temp2"] = JsonValue.CreateStringValue("bad");
-            }
-            if (Temp3.IsOn == true)
-            {
-                checkRecordData["temp3"] = JsonValue.CreateStringValue("good");
-            }
-            else
-            {
-                checkRecordData["temp3"] = JsonValue.CreateStringValue("bad");
-            }
-            if (Temp4.IsOn == true)
-            {
-                checkRecordData["temp1"] = JsonValue.CreateStringValue("good");
-            }
-            else
-            {
-                checkRecordData["temp1"] = JsonValue.CreateStringValue("bad");
-            }
-            if (Temp5.IsOn == true)
-            {
-                checkRecordData["temp2"] = JsonValue.CreateStringValue("good");
-            }
-            else
-            {
-                checkRecordData["temp2"] = JsonValue.CreateStringValue("bad");
-            }
-            if (Temp6.IsOn == true)
-            {
-                checkRecordData["temp3"] = JsonValue.CreateStringValue("good");
-            }
-            else
-            {
-                checkRecordData["temp3"] = JsonValue.CreateStringValue("bad");
-            }
-            if (Temp7.IsOn == true)
-            {
-                checkRecordData["temp3"] = JsonValue.CreateStringValue("good");
-            }
-            else
-            {
-                checkRecordData["temp3"] = JsonValue.CreateStringValue("bad");
-            }
-            if (Temp8.IsOn == true)
-            {
-                checkRecordData["temp3"] = JsonValue.CreateStringValue("good");
-            }
-            else
-            {
-                checkRecordData["temp3"] = JsonValue.CreateStringValue("bad");
-            }
-
-            checkRecordData["level2check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level2date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level2approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level3check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level3date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level3approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level4check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level4date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level4approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level5check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level5date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level5approvaler"] = JsonValue.CreateStringValue("");
-
-            // 显示JSON对象的字符串表示形式
-            string jstr = checkRecordData.Stringify();
-            record_folder = KnownFolders.PicturesLibrary;
-            record_file = await record_folder.CreateFileAsync("ykk_YZGCMonthRecord_" + groupName + "_" + lineName + "_" + date.Text + ".ykk", CreationCollisionOption.ReplaceExisting);
-            using (Stream file = await record_file.OpenStreamForWriteAsync())
-            {
-                using (StreamWriter write = new StreamWriter(file))
-                {
-                    write.Write(jstr);
-                }
-            }
+            checkRecordData.Add("content", content);
+            // 初始化各级别用户的json信息
+            checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, reviewInfor.Text));
+            string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date.Text + ".ykk";
+            // 将json数据写入对应文件中
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "YZGCMonthRecord");
+            // 设置提示框
+            messDialog.showDialog("点检成功！");
         }
 
         private void OnMachineGroupChanged(object sender, RoutedEventArgs e)
         {
+            //  初始化线数组
+            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,
+                                          line09,line10,line11,line12,line13,line14,line15,line16
+                                        };
+            ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4,Temp5,Temp6,Temp7,Temp8};
+            line01.IsChecked = true;
+            //  根据机组选定情况设置groupName的值
             if (groupa.IsChecked == true)
             {
                 groupName = "A";
-                line01.Content = "A-01";
-                line02.Content = "A-02";
-                line03.Content = "A-03";
-                line04.Content = "A-04";
-                line05.Content = "A-05";
-                line06.Content = "A-06";
-                line07.Content = "A-07";
-                line08.Content = "A-08";
-                line09.Content = "A-09";
-                line10.Content = "A-10";
-                line11.Content = "A-11";
-                line12.Content = "A-12";
-                line13.Content = "A-13";
-                line14.Content = "A-14";
-                line15.Content = "A-15";
-                line16.Content = "A-16";
-                line01.IsEnabled = true;
-                line02.IsEnabled = true;
-                line03.IsEnabled = true;
-                line04.IsEnabled = true;
-                line05.IsEnabled = true;
-                line06.IsEnabled = true;
-                line07.IsEnabled = true;
-                line08.IsEnabled = true;
-                line09.IsEnabled = true;
-                line10.IsEnabled = true;
-                line11.IsEnabled = true;
-                line12.IsEnabled = true;
-                line13.IsEnabled = true;
-                line14.IsEnabled = true;
-                line15.IsEnabled = true;
-                line16.IsEnabled = true;
+                for (int i = 10; i < radioButton.Length; i++)
+                {
+                    radioButton[i].IsEnabled = true;
+                }
             }
             else if (groupb.IsChecked == true)
             {
                 groupName = "B";
-                line01.Content = "B-01";
-                line02.Content = "B-02";
-                line03.Content = "B-03";
-                line04.Content = "B-04";
-                line05.Content = "B-05";
-                line06.Content = "B-06";
-                line07.Content = "B-07";
-                line08.Content = "B-08";
-                line09.Content = "B-09";
-                line10.Content = "B-10";
-                line11.Content = "B-11";
-                line12.Content = "B-12";
-                line13.Content = "B-13";
-                line14.Content = "B-14";
-                line15.Content = "B-15";
-                line16.Content = "B-16";
-                line01.IsEnabled = true;
-                line02.IsEnabled = true;
-                line03.IsEnabled = true;
-                line04.IsEnabled = true;
-                line05.IsEnabled = true;
-                line06.IsEnabled = true;
-                line07.IsEnabled = true;
-                line08.IsEnabled = true;
-                line09.IsEnabled = true;
-                line10.IsEnabled = true;
-                line11.IsEnabled = true;
-                line12.IsEnabled = true;
-                line13.IsEnabled = true;
-                line14.IsEnabled = true;
-                line15.IsEnabled = true;
-                line16.IsEnabled = true;
+                for (int i = 10; i < radioButton.Length; i++)
+                {
+                    radioButton[i].IsEnabled = true;
+                }
             }
             else if (groupc.IsChecked == true)
             {
                 groupName = "C";
-                line01.Content = "C-01";
-                line02.Content = "C-02";
-                line03.Content = "C-03";
-                line04.Content = "C-04";
-                line05.Content = "C-05";
-                line06.Content = "C-06";
-                line07.Content = "C-07";
-                line08.Content = "C-08";
-                line09.Content = "C-09";
-                line10.Content = "C-10";
-                line11.Content = "C-11";
-                line12.Content = "C-12";
-                line13.Content = "C-13";
-                line14.Content = "C-14";
-                line15.Content = "C-15";
-                line16.Content = "C-16";
-                line01.IsEnabled = true;
-                line02.IsEnabled = true;
-                line03.IsEnabled = true;
-                line04.IsEnabled = true;
-                line05.IsEnabled = true;
-                line06.IsEnabled = true;
-                line07.IsEnabled = true;
-                line08.IsEnabled = true;
-                line09.IsEnabled = true;
-                line10.IsEnabled = true;
-                line11.IsEnabled = true;
-                line12.IsEnabled = true;
-                line13.IsEnabled = true;
-                line14.IsEnabled = true;
-                line15.IsEnabled = true;
-                line16.IsEnabled = true;
+                for (int i = 10; i < radioButton.Length; i++)
+                {
+                    radioButton[i].IsEnabled = false;
+                }
             }
             else if (groupd.IsChecked == true)
             {
                 groupName = "D";
-                line01.Content = "D-01";
-                line02.Content = "D-02";
-                line03.Content = "D-03";
-                line04.Content = "D-04";
-                line05.Content = "D-05";
-                line06.Content = "D-06";
-                line07.Content = "D-07";
-                line08.Content = "D-08";
-                line09.Content = "D-09";
-                line10.Content = "D-10";
-                line11.Content = "D-11";
-                line12.Content = "D-12";
-                line13.Content = "D-13";
-                line14.Content = "D-14";
-                line15.Content = "D-15";
-                line16.Content = "D-16";
-                line01.IsEnabled = true;
-                line02.IsEnabled = true;
-                line03.IsEnabled = true;
-                line04.IsEnabled = true;
-                line05.IsEnabled = true;
-                line06.IsEnabled = true;
-                line07.IsEnabled = true;
-                line08.IsEnabled = true;
-                line09.IsEnabled = true;
-                line10.IsEnabled = true;
-                line11.IsEnabled = true;
-                line12.IsEnabled = true;
-                line13.IsEnabled = true;
-                line14.IsEnabled = true;
-                line15.IsEnabled = true;
-                line16.IsEnabled = true;
+                for (int i = 10; i < radioButton.Length; i++)
+                {
+                    radioButton[i].IsEnabled = false;
+                }
             }
-
-            Temp1.IsOn = false;
-            Temp2.IsOn = false;
-            Temp3.IsOn = false;
-            Temp4.IsOn = false;
-            Temp5.IsOn = false;
-            Temp6.IsOn = false;
-            Temp7.IsOn = false;
-            Temp8.IsOn = false;
-
+            //  根据机组设置机番名称
+            for (int i = 0; i < radioButton.Length; i++)
+            {
+                //  若（i+1）为个位数则在前面加个0
+                string num = (i + 1) < 10 ? "0" + Convert.ToString(i + 1) : Convert.ToString(i + 1);
+                radioButton[i].Content = groupName + "-" + num;
+            }
+            // 初始化点检内容
+            for (int i = 0; i < toggleSwitch.Length; i++)
+            {
+                toggleSwitch[i].IsOn = false;
+            }
+            reviewInfor.Text = "";
 
         }
 
         private void OnLineChecked(object sender, RoutedEventArgs e)
         {
-            if (line01.IsChecked == true)
+            //  初始化线数组
+            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,
+                                          line09,line10,line11,line12,line13,line14,line15,line16
+                                        };
+            //  初始化内容数组
+            ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4,Temp5,Temp6,Temp7,Temp8};
+            //  根据机番选定情况设置lineName的值
+            for (int i = 0; i < radioButton.Length; i++)
             {
-                lineName = "01";
+                if (radioButton[i].IsChecked == true)
+                {
+                    //  若（i+1）为个位数则在前面加个0
+                    lineName = (i + 1) < 10 ? "0" + Convert.ToString(i + 1) : Convert.ToString(i + 1);
+                }
             }
-            else if (line02.IsChecked == true)
+            // 初始化点检内容
+            for (int i = 0; i < toggleSwitch.Length; i++)
             {
-                lineName = "02";
+                toggleSwitch[i].IsOn = false;
             }
-            else if (line03.IsChecked == true)
-            {
-                lineName = "03";
-            }
-            else if (line04.IsChecked == true)
-            {
-                lineName = "04";
-            }
-            else if (line05.IsChecked == true)
-            {
-                lineName = "05";
-            }
-            else if (line06.IsChecked == true)
-            {
-                lineName = "06";
-            }
-            else if (line07.IsChecked == true)
-            {
-                lineName = "07";
-            }
-            else if (line08.IsChecked == true)
-            {
-                lineName = "08";
-            }
-            else if (line09.IsChecked == true)
-            {
-                lineName = "09";
-            }
-            else if (line10.IsChecked == true)
-            {
-                lineName = "10";
-            }
-            else if (line11.IsChecked == true)
-            {
-                lineName = "11";
-            }
-            else if (line12.IsChecked == true)
-            {
-                lineName = "12";
-            }
-            else if (line13.IsChecked == true)
-            {
-                lineName = "13";
-            }
-            else if (line14.IsChecked == true)
-            {
-                lineName = "14";
-            }
-            else if (line15.IsChecked == true)
-            {
-                lineName = "15";
-            }
-            else if (line16.IsChecked == true)
-            {
-                lineName = "16";
-            }
-            Temp1.IsOn = false;
-            Temp2.IsOn = false;
-            Temp3.IsOn = false;
-            Temp4.IsOn = false;
-            Temp5.IsOn = false;
-            Temp6.IsOn = false;
-            Temp7.IsOn = false;
-            Temp8.IsOn = false;
+            reviewInfor.Text = "";
         }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AuthorityNavigation), data);
+        }
+
     }
 }
