@@ -69,7 +69,6 @@ namespace EZFAC.PAD
                 information.Text = "请输入密码";
                 isChecked = false;
             }
-            await folder_demonstration.CreateFolderAsync("ttt", CreationCollisionOption.ReplaceExisting);
             file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
             if (file == null)
             {
