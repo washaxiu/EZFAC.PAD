@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace EZFAC.PAD.src.Service
 {
-    class DailyCheckNoonService
+    class DailyCheckMorningService
     {
         public string good = "○";
         public string bad = "×";
@@ -32,7 +32,7 @@ namespace EZFAC.PAD.src.Service
         {
             lvFiles.Items.Clear();
             StorageFolder record_folder = KnownFolders.PicturesLibrary;
-            StorageFolder folder = await record_folder.CreateFolderAsync("DailyCheckNoon", CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await record_folder.CreateFolderAsync("DailyCheckMorning", CreationCollisionOption.OpenIfExists);
             int count = 0;
 
             if (folder != null)
@@ -77,9 +77,11 @@ namespace EZFAC.PAD.src.Service
                                 break;
                             }
                         }
-                        flag2 = content[9].GetObject()["status"].GetString() == "good";
 
-                        for (int i = 10; i < 14; i++)
+                        flag2 = content[9].GetObject()["status"].GetString() == "good";
+                        
+
+                        for (int i = 15; i < 20; i++)
                         {
                             if (content[i].GetObject()["status"].GetString() == "bad")
                             {
@@ -113,16 +115,16 @@ namespace EZFAC.PAD.src.Service
                             six = content[6].GetObject()["status"].GetString(),
                             seven = content[7].GetObject()["status"].GetString(),
                             eight = content[8].GetObject()["status"].GetString(),
-                            nine = content[9].GetObject()["status"].GetString(),
                             fourteen = content[10].GetObject()["status"].GetString(),
                             fifteen = content[11].GetObject()["status"].GetString(),
                             sixteen = content[12].GetObject()["status"].GetString(),
                             seventeen = content[13].GetObject()["status"].GetString(),
                             four = content[14].GetObject()["status"].GetString(),
-                            ten = content[15].GetObject()["status"].GetString(),
-                            eleven  = content[16].GetObject()["status"].GetString(),
-                            twelve  = content[17].GetObject()["status"].GetString()
-
+                            zhouqi = content[9].GetObject()["status"].GetString(),
+                            nozzleTemp = content[15].GetObject()["status"].GetString(),
+                            GOOSENECKTemp = content[16].GetObject()["status"].GetString(),
+                            fuTemp1 = content[17].GetObject()["status"].GetString(),
+                            fuTemp2 = content[17].GetObject()["status"].GetString()
                         });
                     }
                 }
@@ -197,21 +199,25 @@ namespace EZFAC.PAD.src.Service
                 {
                     data.Add("eight", strs[i + 1]);
                 }
-                else if (strs[i].Equals("nine"))
+                else if (strs[i].Equals("zhouqi"))
                 {
-                    data.Add("nine", strs[i + 1]);
+                    data.Add("zhouqi", strs[i + 1]);
                 }
-                else if (strs[i].Equals("ten"))
+                else if (strs[i].Equals("nozzleTemp"))
                 {
-                    data.Add("ten", strs[i + 1]);
+                    data.Add("nozzleTemp", strs[i + 1]);
                 }
-                else if (strs[i].Equals("eleven"))
+                else if (strs[i].Equals("GOOSENECKTemp"))
                 {
-                    data.Add("eleven", strs[i + 1]);
+                    data.Add("GOOSENECKTemp", strs[i + 1]);
                 }
-                else if (strs[i].Equals("twelve"))
+                else if (strs[i].Equals("fuTemp1"))
                 {
-                    data.Add("twelve", strs[i + 1]);
+                    data.Add("fuTemp1", strs[i + 1]);
+                }
+                else if (strs[i].Equals("fuTemp2"))
+                {
+                    data.Add("fuTemp2", strs[i + 1]);
                 }
                 else if (strs[i].Equals("fourteen"))
                 {
@@ -228,6 +234,10 @@ namespace EZFAC.PAD.src.Service
                 else if (strs[i].Equals("seventeen"))
                 {
                     data.Add("seventeen", strs[i + 1]);
+                }
+                else if (strs[i].Equals("eighteen"))
+                {
+                    data.Add("eighteen", strs[i + 1]);
                 }
                 else if (strs[i].Equals("ContentEdit"))
                 {

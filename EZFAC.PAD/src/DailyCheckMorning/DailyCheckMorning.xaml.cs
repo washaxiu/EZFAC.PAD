@@ -24,7 +24,7 @@ namespace EZFAC.PAD
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class DailyCheckNoon : Page
+    public sealed partial class DailyCheckMorning : Page
     {
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
@@ -35,7 +35,7 @@ namespace EZFAC.PAD
         private string groupName = "A";
         private string lineName = "01";
 
-        public DailyCheckNoon()
+        public DailyCheckMorning()
         {
             this.InitializeComponent();
             timetag.Text = DateTime.Now.ToString();
@@ -48,17 +48,17 @@ namespace EZFAC.PAD
                 // 获取导航参数
                 data = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
-                   username.Text = data["username"];
-                  ApprovalPosition.Text = data["username"];
+                username.Text = data["username"];
+                ApprovalPosition.Text = data["username"];
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private void OnCommitData(object sender, RoutedEventArgs e)
+        private async void OnCommitData(object sender, RoutedEventArgs e)
         {
             JsonObject checkRecordData = new JsonObject();
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
-            TextBox[] textBox = { four, ten, eleven, twelve };
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen };
+            TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             // 初始化检查的json信息
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
             // 设置检查内容的json信息
@@ -88,7 +88,7 @@ namespace EZFAC.PAD
             {
                 JsonObject contentItem = new JsonObject();
                 contentItem["name"] = JsonValue.CreateStringValue(text.Name);
-                contentItem["status"] = JsonValue.CreateStringValue(text.Text);            
+                contentItem["status"] = JsonValue.CreateStringValue(text.Text);
                 contentItem["edit"] = JsonValue.CreateStringValue("0");
                 content.Add(contentItem);
             }
@@ -97,18 +97,18 @@ namespace EZFAC.PAD
             checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, ""));
             string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date.Text + ".ykk";
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "DailyCheckNoon");
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "DailyCheckMorning");
             // 设置提示框
             messDialog.showDialog("点检成功！");
         }
 
-        private void MachineGroup_SelectionChanged(object sender, RoutedEventArgs e)
+        private void MachineGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string contnet = (String)MachineGroup.SelectedItem;
-            groupName = contnet[contnet.Length - 1] + "";
+
             if ((String)MachineGroup.SelectedItem == "压轴线A")
             {
-
+                string contnet = (String)MachineGroup.SelectedItem;
+                groupName = contnet[contnet.Length - 1] + "";
                 List<String> items = new List<string>();
                 items.Add("A - 01");
                 items.Add("A - 02");
@@ -120,7 +120,7 @@ namespace EZFAC.PAD
                 items.Add("A - 08");
                 items.Add("A - 09");
                 machineNo.ItemsSource = items;
-
+           
             }
             else if ((String)MachineGroup.SelectedItem == "压轴线B")
             {
@@ -166,8 +166,9 @@ namespace EZFAC.PAD
                 items.Add("D - 09");
                 machineNo.ItemsSource = items;
             }
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
-            TextBox[] textBox = { four, ten, eleven, twelve };
+
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen };
+            TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             // 初始化点检内容
             for (int i = 0; i < toggleSwitch.Length; i++)
             {
@@ -181,10 +182,8 @@ namespace EZFAC.PAD
 
         private void machineNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string content = machineNo.SelectedItem.ToString();
-            lineName = content.Substring(content.Length - 2, 2);
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
-            TextBox[] textBox = { four, ten, eleven, twelve };
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen };
+            TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             // 初始化点检内容
             for (int i = 0; i < toggleSwitch.Length; i++)
             {
@@ -195,9 +194,15 @@ namespace EZFAC.PAD
                 textBox[i].Text = "";
             }
         }
+
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(AuthorityNavigation), data);
+        }
+
+        private void Click_Img(Image  img)
+        {
+            
         }
     }
 }

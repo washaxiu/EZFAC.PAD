@@ -100,6 +100,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\DailyCheckMorning\DailyCheckMorning.xaml.cs">
+      <DependentUpon>DailyCheckMorning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\DailyCheckMorning\DailyCheckMorningDetail.xaml.cs">
+      <DependentUpon>DailyCheckMorningDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\DailyCheckMorning\DailyCheckMorningList.xaml.cs">
+      <DependentUpon>DailyCheckMorningList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Service\DailyCheckMorningService.cs" />
     <Compile Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml.cs">
       <DependentUpon>SemiFinishedCheck.xaml</DependentUpon>
     </Compile>
@@ -175,6 +185,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="src\DailyCheckMorning\DailyCheckMorning.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\DailyCheckMorning\DailyCheckMorningDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\DailyCheckMorning\DailyCheckMorningList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
