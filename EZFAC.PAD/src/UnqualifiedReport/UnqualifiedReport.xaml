@@ -65,7 +65,7 @@
             <TextBlock x:Name="UserNameTag" FontSize="22" Text="     工程长 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" />
         </Border>
         <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
-            <TextBox x:Name="username" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBox x:Name="username" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="120"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
             <TextBlock FontSize="22" Text="    担当人 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
@@ -121,7 +121,7 @@
             <Run FontSize="22" Text="   ⑥发现日期:" />
         </TextBlock>
         <Border Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="5" Padding="1" Margin="0,0,25,0" BorderThickness="0">
-            <CalendarDatePicker x:Name="foundDate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <CalendarDatePicker x:Name="foundDate"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Border>
         
         <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
@@ -144,7 +144,7 @@
             <Run FontSize="22" Text="  ④ 混 入 率 :" />
         </TextBlock>
         <StackPanel Grid.Row="7" Grid.Column="2"  Orientation="Horizontal" >
-            <RadioButton GroupName="messRate" x:Name="groupa" FontSize="15" FontFamily="Segoe UI Black" IsChecked="True" Content="100%" />
+            <RadioButton GroupName="messRate" Name="groupa" FontSize="15" FontFamily="Segoe UI Black" IsChecked="True" Content="100%" />
         </StackPanel>
         <StackPanel Grid.Row="7" Grid.Column="3"  Orientation="Horizontal" >
             <RadioButton GroupName="messRate" Name="groupb" FontSize="15" FontFamily="Segoe UI Black" >75%</RadioButton>
@@ -171,13 +171,13 @@
 
         <Border Grid.Row="8" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
-                <TextBox x:Name="ExceptionDiscription" AcceptsReturn="True" Background="White" Text="【异常状况说明】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="ExceptionDiscription" AcceptsReturn="True" Background="White" ToolTipService.ToolTip="【异常状况说明】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch" />
             </ScrollViewer>
         </Border>
 
         <Border Grid.Row="8" Grid.RowSpan="2" Grid.Column="7" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
-                <TextBox x:Name="ExceptionObject" AcceptsReturn="True" Background="White" Text="【异常样品】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="ExceptionObject" AcceptsReturn="True" Background="White" ToolTipService.ToolTip="【异常样品】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
             </ScrollViewer>
         </Border>
 
@@ -213,13 +213,13 @@
             <RadioButton GroupName="4M" Name="group4M1" FontSize="20" FontFamily="Segoe UI Black" IsChecked="True" >人</RadioButton>
         </StackPanel>
         <StackPanel Grid.Row="12" Grid.Column="10" Grid.ColumnSpan="2" Orientation="Horizontal" >
-            <RadioButton GroupName="4M" Name="group4M4" FontSize="20" FontFamily="Segoe UI Black" >材料方法</RadioButton>
+            <RadioButton GroupName="4M" Name="group4M2" FontSize="20" FontFamily="Segoe UI Black" >材料方法</RadioButton>
         </StackPanel>
         <StackPanel Grid.Row="12" Grid.Column="12"  Orientation="Horizontal" >
-            <RadioButton GroupName="4M" Name="group4M2" FontSize="20" FontFamily="Segoe UI Black" >机械</RadioButton>
+            <RadioButton GroupName="4M" Name="group4M3" FontSize="20" FontFamily="Segoe UI Black" >机械</RadioButton>
         </StackPanel>
         <StackPanel Grid.Row="12" Grid.Column="13"  Orientation="Horizontal" >
-            <RadioButton GroupName="4M" Name="group4M3" FontSize="20" FontFamily="Segoe UI Black" >金型</RadioButton>
+            <RadioButton GroupName="4M" Name="group4M4" FontSize="20" FontFamily="Segoe UI Black" >金型</RadioButton>
         </StackPanel>
         
         <TextBlock Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
@@ -249,17 +249,21 @@
 
         <Border Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
-                <TextBox x:Name="reason" AcceptsReturn="True" Background="White" Text="【原因】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="reason" AcceptsReturn="True" Background="White" ToolTipService.ToolTip="【原因】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
             </ScrollViewer>
         </Border>
         <Border Grid.Row="15" Grid.Column="7" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
-                <TextBox x:Name="solution" AcceptsReturn="True" Background="White" Text="【对策（正确处理）】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="solution" AcceptsReturn="True" Background="White" ToolTipService.ToolTip="【对策（正确处理）】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
             </ScrollViewer>
         </Border>
 
-        <Border Grid.Row="16" Grid.Column="11" Grid.ColumnSpan="3" Padding="6" BorderThickness="0" CornerRadius="18,3,18,3">
-            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="提   交" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="OnCommitData" />
+        <Border Grid.Row="16" Grid.Column="8" Grid.ColumnSpan="3" BorderThickness="0" CornerRadius="18,3,18,3">
+            <Button x:Name="back"  HorizontalAlignment="Right"  Content="返   回" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="back_Click" />
+        </Border>
+        
+        <Border Grid.Row="16" Grid.Column="11" Grid.ColumnSpan="3"  BorderThickness="0" CornerRadius="18,3,18,3">
+            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,30,0"  Content="提   交" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="Confirm_Click" />
         </Border>
     </Grid>
 </Page>

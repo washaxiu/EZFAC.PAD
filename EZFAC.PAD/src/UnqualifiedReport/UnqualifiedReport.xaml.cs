@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using EZFAC.PAD.src.Tools;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -26,10 +27,10 @@ namespace EZFAC.PAD
     public sealed partial class UnqualifiedReport : Page
     {
         private JsonObject checkRecordData = new JsonObject();
-        private StorageFile record_file;//UWP 采用StorageFile来读写文件
-        private StorageFolder record_folder;//folder来读写文件夹        
-        private string groupName = "A";
-        private string lineName = "01";
+        private Dictionary<string, string> data = new Dictionary<string, string>();
+        private CommonOperation commonOperation = new CommonOperation();
+        private MessDialog messDialog = new MessDialog();
+
         public UnqualifiedReport()
         {
             this.InitializeComponent();
@@ -41,145 +42,102 @@ namespace EZFAC.PAD
             if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
             {
                 // 获取导航参数
-                Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
+                data = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
-                username.Text = getdata["username"];
-
+                username.Text = data["username"];
+                underTaker.Text = data["username"];
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private async void OnCommitData(object sender, RoutedEventArgs e)
-        {
-            // 实例化JsonObject对象
-            // 设置各字段的值
-            checkRecordData["checker"] = JsonValue.CreateStringValue("");
-            checkRecordData["date"] = JsonValue.CreateStringValue(date.Text);
-            checkRecordData["group"] = JsonValue.CreateStringValue(groupName);
-            checkRecordData["line"] = JsonValue.CreateStringValue(lineName);
-
-
-
-            checkRecordData["level2check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level2date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level2approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level3check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level3date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level3approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level4check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level4date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level4approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level5check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level5date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level5approvaler"] = JsonValue.CreateStringValue("");
-
-
-            checkRecordData["unqualifiedContent"] = JsonValue.CreateStringValue(unqualifiedContent.Text);
-            checkRecordData["classificationNo"] = JsonValue.CreateStringValue(classificationNo.Text);
-            checkRecordData["description"] = JsonValue.CreateStringValue(description.Text);
-            String messRateValue = "";
-            if (groupa.IsChecked == true)
-            {
-                messRateValue = (String)groupa.Content;
-            }
-            else if(groupb.IsChecked == true)
-            {
-                messRateValue = (String)groupb.Content;
-            }
-            else if (groupc.IsChecked == true)
-            {
-                messRateValue = (String)groupc.Content;
-            }
-            else if (groupd.IsChecked == true)
-            {
-                messRateValue = (String)groupd.Content;
-            }
-            else if (groupe.IsChecked == true)
-            {
-                messRateValue = (String)groupe.Content;
-            }
-            else if (groupf.IsChecked == true)
-            {
-                messRateValue = (String)groupf.Content;
-            }
-            checkRecordData["messRate"] = JsonValue.CreateStringValue(messRateValue);
-            checkRecordData["material"] = JsonValue.CreateStringValue(material.Text);
-            checkRecordData["finish"] = JsonValue.CreateStringValue(finish.Text);
-            checkRecordData["weight"] = JsonValue.CreateStringValue(weight.Text);
-            checkRecordData["foundDate"] = JsonValue.CreateStringValue(foundDate.Date.ToString());
-            String foundProjectValue = "";
-            if (group1.IsChecked == true)
-            {
-                foundProjectValue = (String)group1.Content;
-            }
-            else if (group2.IsChecked == true)
-            {
-                foundProjectValue = (String)group2.Content;
-            }
-            else if (group3.IsChecked == true)
-            {
-                foundProjectValue = (String)group3.Content;
-            }
-            checkRecordData["foundProject"] = JsonValue.CreateStringValue(foundProjectValue);
-            checkRecordData["founder"] = JsonValue.CreateStringValue(founder.Text);
-            checkRecordData["ExceptionDiscription"] = JsonValue.CreateStringValue(ExceptionDiscription.Text);
-            checkRecordData["ExceptionObject"] = JsonValue.CreateStringValue(ExceptionObject.Text);
-            checkRecordData["reasonProcess"] = JsonValue.CreateStringValue(reasonProcess.Text);
-            String workValue = "";
-            if (groupWork1.IsChecked == true)
-            {
-                workValue = (String)groupWork1.Content;
-            }
-            else if (groupWork2.IsChecked == true)
-            {
-                workValue = (String)groupWork2.Content;
-            }
-            checkRecordData["workValue"] = JsonValue.CreateStringValue(workValue);
-            checkRecordData["badProductDate"] = JsonValue.CreateStringValue(badProductDate.Date.ToString());
-            String _4MValue = "";
-            if (group4M1.IsChecked == true)
-            {
-                _4MValue = (String)group4M1.Content;
-            }
-            else if (group4M2.IsChecked == true)
-            {
-                _4MValue = (String)group4M2.Content;
-            }
-            else if (group4M3.IsChecked == true)
-            {
-                _4MValue = (String)group4M3.Content;
-            }
-            checkRecordData["4M"] = JsonValue.CreateStringValue(_4MValue);
-            checkRecordData["machineNo"] = JsonValue.CreateStringValue(machineNo.Text);
-            checkRecordData["unfitNo"] = JsonValue.CreateStringValue(unfitNo.Text);
-            checkRecordData["modelNo"] = JsonValue.CreateStringValue(modelNo.Text);
-            checkRecordData["signInDate"] = JsonValue.CreateStringValue(signInDate.Date.ToString());
-            checkRecordData["reason"] = JsonValue.CreateStringValue(reason.Text);
-            checkRecordData["solution"] = JsonValue.CreateStringValue(solution.Text);
-
-
-
-            // 显示JSON对象的字符串表示形式
-            string jstr = checkRecordData.Stringify();
-            record_folder = KnownFolders.PicturesLibrary;
-            record_file = await record_folder.CreateFileAsync("ykk_UnqualifiedReport_" + groupName + "_" + lineName + "_" + date.Text + ".ykk", CreationCollisionOption.ReplaceExisting);
-            using (Stream file = await record_file.OpenStreamForWriteAsync())
-            {
-                using (StreamWriter write = new StreamWriter(file))
-                {
-                    write.Write(jstr);
-                }
-            }
-        }
-
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            // 初始化文本数组
+            TextBox[] textBox = { unqualifiedContent, classificationNo, description, material, finish, weight,
+                                  founder, ExceptionDiscription,ExceptionObject,reasonProcess,machineNo,modelNo,
+                                  unfitNo,reason,solution};
+            // 初始化日期选择数组
+            CalendarDatePicker[] calendarDatePicker = { foundDate, badProductDate, signInDate };
+            // 初始化单选数组
+            RadioButton[] radioButton = { groupa, groupb, groupc, groupd, groupe, groupf,
+                                          group1,group2,group3,
+                                          groupWork1,groupWork2,
+                                          group4M1,group4M2,group4M3,group4M4};
+       /*     if (!isOK(textBox, calendarDatePicker))
+            {
+                messDialog.showDialog("请完善表格！");
+                return;
+            }*/
 
+            JsonObject checkRecordData = new JsonObject();
+            // 初始化检查的json信息
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray("UnqualifiedReport", "", ""));
+
+            // 设置检查内容的json信息
+            JsonArray content = new JsonArray();
+            // 初始化文本内容
+            foreach (TextBox item in textBox)
+            {
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
+                contentItem["status"] = JsonValue.CreateStringValue(item.Text);
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
+            }
+            // 初始化日期选择内容
+            foreach (CalendarDatePicker item in calendarDatePicker)
+            {
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
+                contentItem["status"] = JsonValue.CreateStringValue(item.Date.ToString().Split(' ')[0]);
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
+            }
+            // 初始化单选内容
+            foreach (RadioButton item in radioButton)
+            {
+                if(item.IsChecked == true)
+                {
+                    JsonObject contentItem = new JsonObject();
+                    contentItem["name"] = JsonValue.CreateStringValue(item.GroupName);
+                    contentItem["status"] = JsonValue.CreateStringValue(item.Name);
+                    contentItem["edit"] = JsonValue.CreateStringValue("0");
+                    content.Add(contentItem);
+                }
+            }
+            checkRecordData.Add("content", content);
+            // 初始化各级别用户的json信息
+            checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, ""));
+            string fileName = "UnqualifiedReport_" + classificationNo.Text + "_" + date.Text + ".ykk";
+            // 将json数据写入对应文件中
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "UnqualifiedReport");
+            // 设置提示框
+            messDialog.showDialog("点检成功！");
         }
 
-        private void group4M1_Checked(object sender, RoutedEventArgs e)
+        private void back_Click(object sender, RoutedEventArgs e)
         {
+            this.Frame.Navigate(typeof(AuthorityNavigation), data);
+        }
 
+        //  判断常规文本和时间文本是否填入值
+        private bool isOK(TextBox[] textBox, CalendarDatePicker[] calendarDatePicker)
+        {
+            for(int i = 0; i < textBox.Length; i++)
+            {
+                if ("".Equals(textBox[i].Text.Trim()))
+                {
+                    return false;
+                }
+            }
+            for (int i = 0; i < calendarDatePicker.Length; i++)
+            {
+                if ("".Equals(calendarDatePicker[i].Date.ToString().Trim()))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
