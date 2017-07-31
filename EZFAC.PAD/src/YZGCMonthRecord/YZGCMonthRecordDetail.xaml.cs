@@ -165,7 +165,7 @@ namespace EZFAC.PAD
             data.Add("username", username.Text);
             data.Add("userlevel", userLevel);
             data.Add("authority", authority);
-            this.Frame.Navigate(typeof(ApprovalList), data);
+            this.Frame.Navigate(typeof(YZGCMonthRecordList), data);
         }
         private async void OnCommitData(object sender, RoutedEventArgs e)
         {
@@ -248,7 +248,7 @@ namespace EZFAC.PAD
             }
             checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "PointCheck");
+            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "YZGCMonthRecord");
             // 设置提示框
             messDialog.showDialog("审批成功！");
         }
