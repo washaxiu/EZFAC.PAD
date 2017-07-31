@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Tools;
+using EZFAC.PAD.src.Model;
+using Windows.UI;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -26,8 +29,20 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class DailyCheckNoonDetail : Page
     {
+        private JsonObject checkRecordData = new JsonObject();
+        private string type = "DieCasting";
+        private string checkfilename = "Unknown";
+        private string checkgroup = "A";
+        private string checkline = "01";
+        private string checkdate = "2017-06-10";
+        private string userLevel = "2";
+        private string checker = "zhaoyi";
+        private string authority = null;
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
+        private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        JsonValue good = JsonValue.CreateStringValue("good");
+        JsonValue bad = JsonValue.CreateStringValue("bad");
 
         public DailyCheckNoonDetail()
         {
@@ -37,149 +52,148 @@ namespace EZFAC.PAD
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
-            {
-                // 获取导航参数
-                Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
-                // 显示内容
-                username.Text = getdata["username"];
+            // 获取导航参数
+            Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
+            // 显示内容
+            ApprovalUser.Text = getdata["username"];
+            userLevel = getdata["userlevel"];
+            checkgroup = getdata["group"];
+            checkline = getdata["line"];
+            authority = getdata["authority"];
 
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
+            TextBox[] textBox = { four, ten, eleven, twelve };
+            string[] toggleContents = { getdata["first"] , getdata["two"] , getdata["three"] , 
+                                  getdata["five"] , getdata["six"] , getdata["seven"] , getdata["eight"],getdata["nine"] ,
+                                  getdata["fourteen"] , getdata["fifteen"] , getdata["sixteen"] , getdata["seventeen"]
+                                    };
+            string[] textBoxContents = { getdata["four"], getdata["ten"] , getdata["eleven"] , getdata["twelve"] };
+            string contentEdit = getdata["contentEdit"];
+            // 获取职位
+            ApprovalPosition.Text = commonOperation.getJobByLevel(userLevel);
+            date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+            // 确定内容，并将修改的内容标红
+            for (int i = 0; i < toggleContents.Length; i++)
+            {
+                toggleSwitch[i].IsOn = toggleContents[i] == "good";
+            }
+            for (int i = 0; i < textBoxContents.Length; i++)
+            {
+                textBox[i].Text = textBoxContents[i] ;
             }
         }
 
-        private void OnCommitData(object sender, RoutedEventArgs e)
+        private void back_Click(object sender, RoutedEventArgs e)
         {
-            // 实例化JsonObject对象并设置用户级别信息
-            JsonObject checkRecordData = commonOperation.initJsonObject();
-            // 设置各字段的值
-            checkRecordData["checker"] = JsonValue.CreateStringValue("");
-            checkRecordData["date"] = JsonValue.CreateStringValue(DateTime.Now.ToString("yyyy-MM-dd"));
-            checkRecordData["group"] = JsonValue.CreateStringValue(MachineGroup.SelectedItem.ToString());
-            checkRecordData["line"] = JsonValue.CreateStringValue(machineNo.SelectedItem.ToString());
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add("username", ApprovalUser.Text);
+            data.Add("userlevel", userLevel);
+            data.Add("authority", authority);
+            this.Frame.Navigate(typeof(DailyCheckNoonList), data);
+        }
 
-            JsonValue good = JsonValue.CreateStringValue("good");
-            JsonValue bad = JsonValue.CreateStringValue("bad");
+        private async void OnCommitData(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
+            List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
+            string oldEdit = null, newEdit = null;
+            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync("DailyCheckNoon", CreationCollisionOption.OpenIfExists);
+            if (folder != null)
+            {
+                StorageFile file = await folder.CreateFileAsync(checkfilename, CreationCollisionOption.OpenIfExists);
+                if (file != null)
+                {
+                    var jsonText = await FileIO.ReadTextAsync(file);
+                    JsonObject jsonObject = JsonObject.Parse(jsonText);
+                    // 获取检查信息
+                    JsonArray checkInfo = jsonObject["checkInfo"].GetArray();
+                    // 获取检查内容
+                    JsonArray content = jsonObject["content"].GetArray();
+                    // 获取用户信息
+                    JsonArray checkerInfo = jsonObject["checkerInfo"].GetArray();
+                    // 判断信息是否被更改并集成为字符串
+                    newEdit = editContnet(content);
+                    for (int i = 0; i < content.Count; i++)
+                    {
+                        oldEdit = oldEdit + content[i].GetObject()["edit"].GetString();
+                    }
+                    // 获取各级用户信息
+                    for (int i = 0; i < checkerInfo.Count; i++)
+                    {
+                        checkerList.Add(new CheckerInfoEntity(
+                                 checkerInfo[i].GetObject()["name"].GetString(),
+                                 checkerInfo[i].GetObject()["level"].GetString(),
+                                 checkerInfo[i].GetObject()["check"].GetString(),
+                                 checkerInfo[i].GetObject()["edit"].GetString(),
+                                 checkerInfo[i].GetObject()["date"].GetString(),
+                                 checkerInfo[i].GetObject()["comments"].GetString()
+                            ));
+                    }
+                }
+            }
+            // 设置检查信息的json信息
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, checkgroup, checkline));
 
-            checkRecordData["first"] = first.IsOn == true ? good : bad;
-            checkRecordData["two"] = two.IsOn == true ? good : bad;
-            checkRecordData["three"] = three.IsOn == true ? good : bad;
-            checkRecordData["four"] = four.IsOn == true ? good : bad;
-            checkRecordData["five"] = five.IsOn == true ? good : bad;
-            checkRecordData["six"] = six.IsOn == true ? good : bad;
-            checkRecordData["seven"] = seven.IsOn == true ? good : bad;
-            checkRecordData["eight"] = eight.IsOn == true ? good : bad;
-            checkRecordData["nine"] = nine.IsOn == true ? good : bad;
-            checkRecordData["ten"] = ten.IsOn == true ? good : bad;
-            checkRecordData["eleven"] = eleven.IsOn == true ? good : bad;
-            checkRecordData["twelve"] = twelve.IsOn == true ? good : bad;
-            checkRecordData["fourteen"] = fourteen.IsOn == true ? good : bad;
-            checkRecordData["fifteen"] = fifteen.IsOn == true ? good : bad;
-            checkRecordData["sixteen"] = sixteen.IsOn == true ? good : bad;
-            checkRecordData["seventeen"] = seventeen.IsOn == true ? good : bad;
+            // 设置检查内容的json信息
+            JsonArray newContent = new JsonArray();
+            // 用户是否修改过内容
+            string flag = "0";
+            for (int i = 0; i < toggleSwitch.Length; i++)
+            {
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(toggleSwitch[i].Name);
+                contentItem["status"] = toggleSwitch[i].IsOn == true ? good : bad;
+                //  判断内容是否被修改,若修改则设为1，否则等于原来的值
+                if (newEdit[i] == '1')
+                {
+                    flag = "1";
+                    contentItem["edit"] = JsonValue.CreateStringValue("1");
+                }
+                else
+                {
+                    contentItem["edit"] = JsonValue.CreateStringValue(oldEdit[i] + "");
+                }
+                newContent.Add(contentItem);
+            }
+            checkRecordData.Add("content", newContent);
 
-            string fileName = "ykk_record_" + MachineGroup.SelectedItem.ToString() + "_" + machineNo.SelectedItem.ToString() + "_" + DateTime.Now.ToString("yyyy-MM-dd") + ".ykk";
+            // 设置各级别用户的json信息
+            JsonArray newCheckerInfo = new JsonArray();
+            for (int i = 0; i < checkerList.Count; i++)
+            {
+                string level = Convert.ToString(i + 1);
+                JsonObject item = new JsonObject();
+                item["name"] = level == userLevel ? JsonValue.CreateStringValue(ApprovalUser.Text) : JsonValue.CreateStringValue(checkerList[i].name);
+                item["level"] = level == userLevel ? JsonValue.CreateStringValue(level) : JsonValue.CreateStringValue(checkerList[i].level);
+                item["check"] = level == userLevel ? JsonValue.CreateStringValue("1") : JsonValue.CreateStringValue(checkerList[i].check);
+                item["edit"] = level == userLevel ? JsonValue.CreateStringValue(flag) : JsonValue.CreateStringValue(checkerList[i].edit);
+                item["date"] = level == userLevel ? JsonValue.CreateStringValue(date.Text) : JsonValue.CreateStringValue(checkerList[i].date);
+                item["comments"] = level == userLevel ? JsonValue.CreateStringValue("") : JsonValue.CreateStringValue(checkerList[i].comments);
+                newCheckerInfo.Add(item);
+            }
+            checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "DailyCheckNoon");
+            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "PointCheck");
             // 设置提示框
-            messDialog.showDialog("点检成功！");
+            messDialog.showDialog("审批成功！");
         }
 
-        private void MachineGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*
+         * 判断点检信息是否被更改并集成为字符串
+        */
+        private string editContnet(JsonArray content)
         {
-
-            if ((String)MachineGroup.SelectedItem == "压轴线A")
+            string edit = null;
+            //  初始化内容数组
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
+            for (int i = 0; i < toggleSwitch.Length; i++)
             {
-                List<String> items = new List<string>();
-                items.Add("A - 01");
-                items.Add("A - 02");
-                items.Add("A - 03");
-                items.Add("A - 04");
-                items.Add("A - 05");
-                items.Add("A - 06");
-                items.Add("A - 07");
-                items.Add("A - 08");
-                items.Add("A - 09");
-                machineNo.ItemsSource = items;
-
+                bool flag = content[i].GetObject()["status"].GetString().Equals("good");
+                string msg = flag == toggleSwitch[i].IsOn ? "0" : "1";
+                edit = edit + msg;
             }
-            else if ((String)MachineGroup.SelectedItem == "压轴线B")
-            {
-                List<String> items = new List<string>();
-                items.Add("B - 01");
-                items.Add("B - 02");
-                items.Add("B - 03");
-                items.Add("B - 04");
-                items.Add("B - 05");
-                items.Add("B - 06");
-                items.Add("B - 07");
-                items.Add("B - 08");
-                items.Add("B - 09");
-                machineNo.ItemsSource = items;
-
-            }
-            else if ((String)MachineGroup.SelectedItem == "压轴线C")
-            {
-                List<String> items = new List<string>();
-                items.Add("C - 01");
-                items.Add("C - 02");
-                items.Add("C - 03");
-                items.Add("C - 04");
-                items.Add("C - 05");
-                items.Add("C - 06");
-                items.Add("C - 07");
-                items.Add("C - 08");
-                items.Add("C - 09");
-                machineNo.ItemsSource = items;
-
-            }
-            else if ((String)MachineGroup.SelectedItem == "压轴线D")
-            {
-                List<String> items = new List<string>();
-                items.Add("D - 01");
-                items.Add("D - 02");
-                items.Add("D - 03");
-                items.Add("D - 04");
-                items.Add("D - 05");
-                items.Add("D - 06");
-                items.Add("D - 07");
-                items.Add("D - 08");
-                items.Add("D - 09");
-                machineNo.ItemsSource = items;
-            }
-            first.IsOn = false;
-            two.IsOn = false;
-            three.IsOn = false;
-            four.IsOn = false;
-            six.IsOn = false;
-            seven.IsOn = false;
-            eight.IsOn = false;
-            nine.IsOn = false;
-            ten.IsOn = false;
-            eleven.IsOn = false;
-            twelve.IsOn = false;
-            fourteen.IsOn = false;
-            fifteen.IsOn = false;
-            sixteen.IsOn = false;
-            seventeen.IsOn = false;
-        }
-
-        private void machineNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            first.IsOn = false;
-            two.IsOn = false;
-            three.IsOn = false;
-            four.IsOn = false;
-            six.IsOn = false;
-            seven.IsOn = false;
-            eight.IsOn = false;
-            nine.IsOn = false;
-            ten.IsOn = false;
-            eleven.IsOn = false;
-            twelve.IsOn = false;
-            fourteen.IsOn = false;
-            fifteen.IsOn = false;
-            sixteen.IsOn = false;
-            seventeen.IsOn = false;
+            return edit;
         }
     }
 }

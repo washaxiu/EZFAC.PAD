@@ -28,6 +28,12 @@ namespace EZFAC.PAD
     {
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
+        private Dictionary<string, string> data = new Dictionary<string, string>();
+        private JsonValue good = JsonValue.CreateStringValue("good");
+        private JsonValue bad = JsonValue.CreateStringValue("bad");
+        private string type = "DieCasting";
+        private string groupName = "A";
+        private string lineName = "01";
 
         public DailyCheckNoon()
         {
@@ -40,58 +46,70 @@ namespace EZFAC.PAD
             if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
             {
                 // 获取导航参数
-                Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
+                data = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
-                username.Text = getdata["username"];
-                ApprovalPosition.Text = getdata["username"];
-
-
+                   username.Text = data["username"];
+                  ApprovalPosition.Text = data["username"];
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+           // MachineGroup.SelectedIndex = 0;
         }
 
         private void OnCommitData(object sender, RoutedEventArgs e)
         {
-            // 实例化JsonObject对象并设置用户级别信息
-            JsonObject checkRecordData = commonOperation.initJsonObject();
-            // 设置各字段的值
-            checkRecordData["checker"] = JsonValue.CreateStringValue("");
-            checkRecordData["date"] = JsonValue.CreateStringValue(date.Text);
-            checkRecordData["group"] = JsonValue.CreateStringValue(MachineGroup.SelectedItem.ToString());
-            checkRecordData["line"] = JsonValue.CreateStringValue(machineNo.SelectedItem.ToString());
+            JsonObject checkRecordData = new JsonObject();
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
+            TextBox[] textBox = { four, ten, eleven, twelve };
+            // 初始化检查的json信息
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
+            // 设置检查内容的json信息
+            JsonArray content = new JsonArray();
 
-            JsonValue good = JsonValue.CreateStringValue("good");
-            JsonValue bad = JsonValue.CreateStringValue("bad");
+            JsonObject contentItem1 = new JsonObject();
+            contentItem1["name"] = JsonValue.CreateStringValue(machineModel.Name);
+            contentItem1["status"] = JsonValue.CreateStringValue(machineModel.SelectedItem.ToString());
+            contentItem1["edit"] = JsonValue.CreateStringValue("0");
+            content.Add(contentItem1);
 
-            checkRecordData["first"] = first.IsOn == true ? good : bad;
-            checkRecordData["two"] = two.IsOn == true ? good : bad;
-            checkRecordData["three"] = three.IsOn == true ? good : bad;
-            checkRecordData["four"] = four.IsOn == true ? good : bad;
-            checkRecordData["five"] = five.IsOn == true ? good : bad;
-            checkRecordData["six"] = six.IsOn == true ? good : bad;
-            checkRecordData["seven"] = seven.IsOn == true ? good : bad;
-            checkRecordData["eight"] = eight.IsOn == true ? good : bad;
-            checkRecordData["nine"] = nine.IsOn == true ? good : bad;
-            checkRecordData["ten"] = ten.IsOn == true ? good : bad;
-            checkRecordData["eleven"] = eleven.IsOn == true ? good : bad;
-            checkRecordData["twelve"] = twelve.IsOn == true ? good : bad;
-            checkRecordData["fourteen"] = fourteen.IsOn == true ? good : bad;
-            checkRecordData["fifteen"] = fifteen.IsOn == true ? good : bad;
-            checkRecordData["sixteen"] = sixteen.IsOn == true ? good : bad;
-            checkRecordData["seventeen"] = seventeen.IsOn == true ? good : bad;
+            JsonObject contentItem2 = new JsonObject();
+            contentItem2["name"] = JsonValue.CreateStringValue(work.Name);
+            contentItem2["status"] = JsonValue.CreateStringValue(work.SelectedItem.ToString());
+            contentItem2["edit"] = JsonValue.CreateStringValue("0");
+            content.Add(contentItem2);
 
-            string fileName = "ykk_record_" + MachineGroup.SelectedItem.ToString() + "_" + machineNo.SelectedItem.ToString() + "_" + date.Text + ".ykk";
+            foreach (ToggleSwitch item in toggleSwitch)
+            {
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
+                contentItem["status"] = item.IsOn == true ? good : bad;
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
+            }
+            foreach (TextBox text in textBox)
+            {
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(text.Name);
+                contentItem["status"] = JsonValue.CreateStringValue(text.Text);            
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
+            }
+            checkRecordData.Add("content", content);
+            // 初始化各级别用户的json信息
+            checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, ""));
+            string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date.Text + ".ykk";
             // 将json数据写入对应文件中
             commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "DailyCheckNoon");
             // 设置提示框
             messDialog.showDialog("点检成功！");
         }
 
-        private void MachineGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void MachineGroup_SelectionChanged(object sender, RoutedEventArgs e)
         {
-
+            string contnet = (String)MachineGroup.SelectedItem;
+            groupName = contnet[contnet.Length - 1] + "";
             if ((String)MachineGroup.SelectedItem == "压轴线A")
             {
+
                 List<String> items = new List<string>();
                 items.Add("A - 01");
                 items.Add("A - 02");
@@ -149,40 +167,38 @@ namespace EZFAC.PAD
                 items.Add("D - 09");
                 machineNo.ItemsSource = items;
             }
-            first.IsOn = false;
-            two.IsOn = false;
-            three.IsOn = false;
-            four.IsOn = false;
-            six.IsOn = false;
-            seven.IsOn = false;
-            eight.IsOn = false;
-            nine.IsOn = false;
-            ten.IsOn = false;
-            eleven.IsOn = false;
-            twelve.IsOn = false;
-            fourteen.IsOn = false;
-            fifteen.IsOn = false;
-            sixteen.IsOn = false;
-            seventeen.IsOn = false;
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
+            TextBox[] textBox = { four, ten, eleven, twelve };
+            // 初始化点检内容
+            for (int i = 0; i < toggleSwitch.Length; i++)
+            {
+                toggleSwitch[i].IsOn = false;
+            }
+            for (int i = 0; i < textBox.Length; i++)
+            {
+                textBox[i].Text = "";
+            }
         }
 
         private void machineNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            first.IsOn = false;
-            two.IsOn = false;
-            three.IsOn = false;
-            four.IsOn = false;
-            six.IsOn = false;
-            seven.IsOn = false;
-            eight.IsOn = false;
-            nine.IsOn = false;
-            ten.IsOn = false;
-            eleven.IsOn = false;
-            twelve.IsOn = false;
-            fourteen.IsOn = false;
-            fifteen.IsOn = false;
-            sixteen.IsOn = false;
-            seventeen.IsOn = false;
+            string content = machineNo.SelectedItem.ToString();
+            lineName = content.Substring(content.Length - 2, 2);
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
+            TextBox[] textBox = { four, ten, eleven, twelve };
+            // 初始化点检内容
+            for (int i = 0; i < toggleSwitch.Length; i++)
+            {
+                toggleSwitch[i].IsOn = false;
+            }
+            for (int i = 0; i < textBox.Length; i++)
+            {
+                textBox[i].Text = "";
+            }
+        }
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AuthorityNavigation), data);
         }
     }
 }

@@ -10,8 +10,7 @@ namespace EZFAC.PAD.src.Model
     {
         //  点检人名
         public string checker { get; set; }
-        //  点检日期
-        public string date { get; set; }
+
 
 
         public string group { get; set; }
@@ -34,22 +33,17 @@ namespace EZFAC.PAD.src.Model
         public string sixteen { get; set; }
         public string seventeen { get; set; }
 
-        // 用户级别信息
-        public string level2check { get; set; }
-        public string level2edit { get; set; }
-        public string level2date { get; set; }
-        public string level2approvaler { get; set; }
-        public string level3check { get; set; }
-        public string level3edit { get; set; }
-        public string level3date { get; set; }
-        public string level3approvaler { get; set; }
-        public string level4check { get; set; }
-        public string level4edit { get; set; }
-        public string level4date { get; set; }
-        public string level4approvaler { get; set; }
-        public string level5check { get; set; }
-        public string level5edit { get; set; }
-        public string level5date { get; set; }
-        public string level5approvaler { get; set; }
+        //  用户姓名
+        public string name { get; set; }
+        // 用户等级
+        public string level { get; set; }
+        // 用户是否检查或审批过
+        public string check { get; set; }
+        // 用户是否对内容进行过修改
+        public string edit { get; set; }
+        // 用户检查或审批时间
+        public string date { get; set; }
+        // 用户备注信息
+        public string comments { get; set; }
     }
 }
