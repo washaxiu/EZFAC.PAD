@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using EZFAC.PAD.src.Tools;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -25,11 +26,15 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class SemiFinishedCheck : Page
     {
-        private JsonObject checkRecordData = new JsonObject();
+        private Dictionary<string, string> data = new Dictionary<string, string>();
+        private CommonOperation commonOperation = new CommonOperation();
         private StorageFile record_file;//UWP 采用StorageFile来读写文件
         private StorageFolder record_folder;//folder来读写文件夹        
         private string groupName = "A";
         private string lineName = "01";
+        private JsonValue good = JsonValue.CreateStringValue("good");
+        private JsonValue bad = JsonValue.CreateStringValue("bad");
+        private MessDialog messDialog = new MessDialog();
         public SemiFinishedCheck()
         {
             this.InitializeComponent();
@@ -41,127 +46,68 @@ namespace EZFAC.PAD
             if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
             {
                 // 获取导航参数
-                Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
+                data = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
-                string level = getdata["level"];
-               
+                string level = data["userlevel"];
+                username.Text = data["username"];
+
+
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private async void OnCommitData(object sender, RoutedEventArgs e)
+        private void OnCommitData(object sender, RoutedEventArgs e)
         {
-            // 实例化JsonObject对象
-            // 设置各字段的值
-            checkRecordData["checker"] = JsonValue.CreateStringValue("");
-            checkRecordData["date"] = JsonValue.CreateStringValue(date.Text);
-            checkRecordData["group"] = JsonValue.CreateStringValue(groupName);
-            checkRecordData["line"] = JsonValue.CreateStringValue(lineName);
-            checkRecordData["level2check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level2date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level2approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level3check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level3date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level3approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level4check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level4date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level4approvaler"] = JsonValue.CreateStringValue("");
-            checkRecordData["level5check"] = JsonValue.CreateStringValue("0");
-            checkRecordData["level5date"] = JsonValue.CreateStringValue("");
-            checkRecordData["level5approvaler"] = JsonValue.CreateStringValue("");
+            //初始化下拉框
+            ComboBox[] comboBox = { separateStatus, gneck };
+            //初始化文本框
+            TextBox[] textBox = { item , personInCharge , HS_Num , remark };
+            //初始化转换框
+            ToggleSwitch[] toggleSwitch = { surface , damage_SB171 , PINDamage ,
+                damage_SB251 , filling , xingpian , b3_b4_b5_b7 , b6 , c8_c9_c10 , coreWash};
 
+            JsonObject checkRecordData = new JsonObject();
+            // 初始化检查的json信息
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray("SemiFinishedCheck", groupName, lineName));
 
-            if (surface.IsOn)
+            // 设置检查内容的json信息
+            JsonArray content = new JsonArray();
+            // 初始化文本内容
+            foreach (TextBox item in textBox)
             {
-                checkRecordData["surface"] = JsonValue.CreateStringValue(surface.OnContent.ToString());
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
+                contentItem["status"] = JsonValue.CreateStringValue(item.Text);
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
             }
-            else
+            // 初始化下拉框
+            foreach (ComboBox item in comboBox)
             {
-                checkRecordData["surface"] = JsonValue.CreateStringValue(surface.OffContent.ToString());
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
+                contentItem["status"] = JsonValue.CreateStringValue(item.SelectedItem.ToString());
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
             }
-            if (damage_SB171.IsOn)
+            // 初始化转换框
+            foreach (ToggleSwitch item in toggleSwitch)
             {
-                checkRecordData["damage_SB171"] = JsonValue.CreateStringValue(damage_SB171.OnContent.ToString());
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
+                contentItem["status"] = item.IsOn == true ? good : bad ;
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
             }
-            else
-            {
-                checkRecordData["damage_SB171"] = JsonValue.CreateStringValue(damage_SB171.OffContent.ToString());
-            }
-            if (PINDamage.IsOn)
-            {
-                checkRecordData["PINDamage"] = JsonValue.CreateStringValue(PINDamage.OnContent.ToString());
-            }
-            else
-            {
-                checkRecordData["PINDamage"] = JsonValue.CreateStringValue(PINDamage.OffContent.ToString());
-            }
-            if (damage_SB251.IsOn)
-            {
-                checkRecordData["damage_SB251"] = JsonValue.CreateStringValue(damage_SB251.OnContent.ToString());
-            }
-            else
-            {
-                checkRecordData["damage_SB251"] = JsonValue.CreateStringValue(damage_SB251.OffContent.ToString());
-            }
-            if (filling.IsOn)
-            {
-                checkRecordData["filling"] = JsonValue.CreateStringValue(filling.OnContent.ToString());
-            }
-            else
-            {
-                checkRecordData["filling"] = JsonValue.CreateStringValue(filling.OffContent.ToString());
-            }
-            if (xingpian.IsOn)
-            {
-                checkRecordData["xingpian"] = JsonValue.CreateStringValue(xingpian.OnContent.ToString());
-            }
-            else
-            {
-                checkRecordData["xingpian"] = JsonValue.CreateStringValue(xingpian.OffContent.ToString());
-            }
-            if (b3_b4_b5_b7.IsOn)
-            {
-                checkRecordData["b3_b4_b5_b7"] = JsonValue.CreateStringValue(b3_b4_b5_b7.OnContent.ToString());
-            }
-            else
-            {
-                checkRecordData["b3_b4_b5_b7"] = JsonValue.CreateStringValue(b3_b4_b5_b7.OffContent.ToString());
-            }
-            if (b6.IsOn)
-            {
-                checkRecordData["b6"] = JsonValue.CreateStringValue(b6.OnContent.ToString());
-            }
-            else
-            {
-                checkRecordData["b6"] = JsonValue.CreateStringValue(b6.OffContent.ToString());
-            }
-            if (c8_c9_c10.IsOn)
-            {
-                checkRecordData["c8_c9_c10"] = JsonValue.CreateStringValue(c8_c9_c10.OnContent.ToString());
-            }
-            else
-            {
-                checkRecordData["c8_c9_c10"] = JsonValue.CreateStringValue(c8_c9_c10.OffContent.ToString());
-            }
-            if (b6.IsOn)
-            {
-                checkRecordData["coreWash"] = JsonValue.CreateStringValue(coreWash.OnContent.ToString());
-            }
-            else
-            {
-                checkRecordData["coreWash"] = JsonValue.CreateStringValue(coreWash.OffContent.ToString());
-            }
-            // 显示JSON对象的字符串表示形式
-            string jstr = checkRecordData.Stringify();
-            record_folder = KnownFolders.PicturesLibrary;
-            record_file = await record_folder.CreateFileAsync("ykk_SemiFinishedCheck_" + groupName + "_" + lineName + "_" + date.Text + ".ykk", CreationCollisionOption.ReplaceExisting);
-            using (Stream file = await record_file.OpenStreamForWriteAsync())
-            {
-                using (StreamWriter write = new StreamWriter(file))
-                {
-                    write.Write(jstr);
-                }
-            }
+            checkRecordData.Add("content", content);
+            // 初始化各级别用户的json信息
+            checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, ""));
+            string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date.Text + ".ykk";
+            // 将json数据写入对应文件中
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "SemiFinishedCheck");
+            // 设置提示框
+            messDialog.showDialog("点检成功！");
+
         }
         private void MachineGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -179,6 +125,7 @@ namespace EZFAC.PAD
                 items.Add("A - 08");
                 items.Add("A - 09");
                 machineNo.ItemsSource = items;
+                groupName = "A";
 
             }
             else if ((String)MachineGroup.SelectedItem == "压轴线B")
@@ -194,7 +141,7 @@ namespace EZFAC.PAD
                 items.Add("B - 08");
                 items.Add("B - 09");
                 machineNo.ItemsSource = items;
-
+                groupName = "B";
             }
             else if ((String)MachineGroup.SelectedItem == "压轴线C")
             {
@@ -209,6 +156,7 @@ namespace EZFAC.PAD
                 items.Add("C - 08");
                 items.Add("C - 09");
                 machineNo.ItemsSource = items;
+                groupName = "C";
 
             }
             else if ((String)MachineGroup.SelectedItem == "压轴线D")
@@ -224,6 +172,7 @@ namespace EZFAC.PAD
                 items.Add("D - 08");
                 items.Add("D - 09");
                 machineNo.ItemsSource = items;
+                groupName = "D";
             }
             surface.IsOn = false;
             damage_SB171.IsOn = false;
@@ -240,6 +189,8 @@ namespace EZFAC.PAD
 
         private void machineNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string content = machineNo.SelectedItem.ToString();
+            lineName = content.Substring(content.Length-2,2);
             surface.IsOn = false;
             damage_SB171.IsOn = false;
             PINDamage.IsOn = false;
@@ -250,6 +201,11 @@ namespace EZFAC.PAD
             b6.IsOn = false;
             c8_c9_c10.IsOn = false;
             coreWash.IsOn = false;
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AuthorityNavigation), data);
         }
     }
 }

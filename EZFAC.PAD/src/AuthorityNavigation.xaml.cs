@@ -40,7 +40,7 @@ namespace EZFAC.PAD
         private string[] checkMenus = {  "CheckRecord",
                                     "UnqualifiedReport",
                                     "",
-                                    "",
+                                    "SemiFinishedCheck",
                                     "",
                                     "DailyCheckNoon",
                                     "",
@@ -49,7 +49,7 @@ namespace EZFAC.PAD
         private string[] approvalcMenus = {  "ApprovalList",
                                              "UnqualifiedReportList",
                                              "",
-                                             "",
+                                             "SemiFinishedCheckList",
                                              "",
                                              "DailyCheckNoonList",
                                              "",
@@ -167,7 +167,14 @@ namespace EZFAC.PAD
             // DC研磨前半制品的检查和审批界面 
             else if (line04.IsChecked == true)
             {
-
+                if (level == "1")
+                {
+                    this.Frame.Navigate(typeof(SemiFinishedCheck), data);
+                }
+                else
+                {
+                    this.Frame.Navigate(typeof(SemiFinishedCheck), data);
+                }
             }
             // 压铸工程日常点检（早班）的检查和审批界面 
             else if (line05.IsChecked == true)

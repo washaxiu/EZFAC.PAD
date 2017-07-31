@@ -9,13 +9,13 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -55,7 +55,7 @@
             <Run FontSize="25" Text="机组：" FontWeight="Bold"/>
         </TextBlock>
         <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,2,0,2" VerticalAlignment="Center">
-            <ComboBox x:Name="MachineGroup"  SelectionChanged="MachineGroup_SelectionChanged" Width="150">
+            <ComboBox x:Name="MachineGroup" SelectionChanged="MachineGroup_SelectionChanged" Width="120">
                 <x:String>压轴线A</x:String>
                 <x:String>压轴线B</x:String>
                 <x:String>压轴线C</x:String>
@@ -66,13 +66,13 @@
             <Run FontSize="25" Text="机番：" FontWeight="Bold"/>
         </TextBlock>
         <Border Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,2,0,2" VerticalAlignment="Center">
-            <ComboBox x:Name="machineNo" Width="150" SelectionChanged="machineNo_SelectionChanged">
+            <ComboBox x:Name="machineNo" Width="120" SelectionChanged="machineNo_SelectionChanged">
             </ComboBox>
         </Border>
         <TextBlock Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
             <Run FontSize="25" Text="ITEM：" FontWeight="Bold"/>
         </TextBlock>
-        <Border Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,2,0,2">
+        <Border Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,2,5,2">
             <TextBox x:Name="item"  FontSize="25"    Foreground="#000000"/>
         </Border>
         <TextBlock Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
@@ -85,7 +85,7 @@
             <Run FontSize="25" Text="分离状态：" FontWeight="Bold"/>
         </TextBlock>
         <Border Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,2,0,2" VerticalAlignment="Center">
-            <ComboBox x:Name="separateStatus"  Width="150" SelectedIndex="1">
+            <ComboBox x:Name="separateStatus"  Width="120" SelectedIndex="0">
                 <x:String>OK</x:String>
                 <x:String>NG</x:String>
             </ComboBox>
@@ -94,7 +94,7 @@
             <Run FontSize="25" Text="G.NECK：" FontWeight="Bold"/>
         </TextBlock>
         <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,2,0,2" VerticalAlignment="Center"  >
-            <ComboBox x:Name="gneck" Width="150" SelectedIndex="1" >
+            <ComboBox x:Name="gneck" Width="120" SelectedIndex="0" >
                 <x:String>OK</x:String>
                 <x:String>NG</x:String>
             </ComboBox>
@@ -102,13 +102,13 @@
         <TextBlock Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
             <Run FontSize="25" Text="回数：" FontWeight="Bold"/>
         </TextBlock>
-        <Border Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1">
+        <Border Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,2,5,5">
             <TextBox x:Name="HS_Num"  FontSize="25"    Foreground="#000000"/>
         </Border>
         <TextBlock Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
             <Run FontSize="25" Text="备注：" FontWeight="Bold"/>
         </TextBlock>
-        <Border Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,2,5,2">
+        <Border Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,2,5,5">
             <TextBox x:Name="remark"  FontSize="25"  Foreground="#000000"/>
         </Border>
         <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="10" BorderBrush="Black" BorderThickness="0,1,0,1">
@@ -117,54 +117,54 @@
             <Run FontSize="25"  Foreground="Green" Text="点检内容" />
         </TextBlock>
         <TextBlock TextWrapping="Wrap" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
-            <Run FontSize="20" Text="外观&#x0a;" FontWeight="Bold"></Run>
-            <Run FontSize="18" Text="（无毛刺损伤）"></Run>
+            <Run FontSize="18" Text="     外观" FontWeight="Bold" ></Run><LineBreak></LineBreak>
+            <Run FontSize="16" Text="（无毛刺损伤）"></Run>
         </TextBlock>
         <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="surface" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
         </StackPanel>
         <TextBlock TextWrapping="Wrap" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center"  >
-            <Run FontSize="20" Text="型破损&#x0a;" FontWeight="Bold"></Run>
-            <Run FontSize="18" Text="（SB171/172）"></Run>
+            <Run FontSize="18" Text="     型破损" FontWeight="Bold"></Run><LineBreak></LineBreak>
+            <Run FontSize="16" Text="（SB171/172）"></Run>
         </TextBlock>
         <StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="damage_SB171" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
         </StackPanel>
         <TextBlock Grid.Row="5" TextWrapping="Wrap" Grid.Column="4" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Run FontSize="18" Text="PIN沟破损/PIN断;" FontWeight="Bold"/>
+            <Run FontSize="18" Text="PIN沟破损/PIN断" FontWeight="Bold"/>
         </TextBlock>
         <StackPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="PINDamage" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
         </StackPanel>
-        <TextBlock TextWrapping="Wrap" Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center"  >
-            <Run FontSize="20" Text="型破损" FontWeight="Bold"></Run>
-            <Run FontSize="18" Text="（加缔部/SB251）"></Run>
+        <TextBlock Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="18" Text="      型破损" FontWeight="Bold"></Run><LineBreak></LineBreak>
+            <Run FontSize="16" Text="（加缔部/SB251）"></Run>
         </TextBlock>
         <StackPanel Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="damage_SB251" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O" />
         </StackPanel>
         <TextBlock Grid.Row="6" TextWrapping="Wrap" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Run FontSize="20" Text="充型不良" FontWeight="Bold"/>
+            <Run FontSize="18" Text="充型不良" FontWeight="Bold"/>
         </TextBlock>
         <StackPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="filling" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O" />
         </StackPanel>
-        <TextBlock TextWrapping="Wrap" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center"  >
-            <Run FontSize="20" Text="型偏" FontWeight="Bold"></Run>
+        <TextBlock TextWrapping="Wrap" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="18" Text="型偏" FontWeight="Bold"></Run>
         </TextBlock>
         <StackPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="xingpian" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O" />
         </StackPanel>
         <TextBlock Grid.Row="6" TextWrapping="Wrap" Grid.Column="4" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
             <Run FontSize="18" Text="分离机异物混入" FontWeight="Bold"/>
-            <Run FontSize="15" Text="（B3/B4/B5/B7）"></Run>
+            <Run FontSize="16" Text="（B3/B4/B5/B7）"></Run>
         </TextBlock>
         <StackPanel Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="b3_b4_b5_b7" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
         </StackPanel>
-        <TextBlock TextWrapping="Wrap" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center"  >
-            <Run FontSize="18" Text="排出管道异物混入" FontWeight="Bold"></Run>
-            <Run FontSize="18" Text="（B6）"></Run>
+        <TextBlock Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center"  >
+            <Run FontSize="18" Text="排出管道异物混入" FontWeight="Bold"></Run><LineBreak></LineBreak>
+            <Run FontSize="16" Text="（B6）"></Run>
         </TextBlock>
         <StackPanel Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="b6" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
@@ -176,7 +176,7 @@
         <StackPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
             <ToggleSwitch x:Name="c8_c9_c10" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O" />
         </StackPanel>
-        <TextBlock TextWrapping="Wrap" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock TextWrapping="Wrap" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
             <Run FontSize="20" Text="CORE洗净" FontWeight="Bold"></Run>
         </TextBlock>
         <StackPanel Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
@@ -210,8 +210,11 @@
                 <Run FontSize="20" Text="  *项目点检完成或无异常用“o”表示，发现异常用“x”表示，并及时处理和联络并且注明在备考栏中。如机器处于未嫁动状态直接在备考栏中注明“未嫁动”"></Run>
             </TextBlock>
         </Border>
+        <Border Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" CornerRadius="18,3,18,3">
+            <Button x:Name="Back"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="返   回"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" FontWeight="Bold" Click="Back_Click" />
+        </Border>
         <Border Grid.Row="12" Grid.Column="6" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" CornerRadius="18,3,18,3">
-            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="提   交"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="OnCommitData" />
+            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="提   交"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" FontWeight="Bold" Click="OnCommitData" />
         </Border>
     </Grid>
 </Page>
