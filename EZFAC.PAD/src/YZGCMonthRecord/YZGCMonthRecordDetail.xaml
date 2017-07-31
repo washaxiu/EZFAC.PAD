@@ -1,0 +1,167 @@
+﻿<Page
+    x:Class="EZFAC.PAD.YZGCMonthRecordDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EZFAC.PAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55" />
+            <RowDefinition Height="50"  />
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+            <Run FontSize="30"  Foreground="Blue" Text="压铸工程月度机械漏油点检记录表" FontFamily="Segoe UI Black" FontWeight="Bold" />
+        </TextBlock>
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32"/>
+        </TextBlock>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Padding="6" Background="#0099CC">
+            <TextBlock x:Name="UserNameTag" FontSize="25" Text="担当者:" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right" />
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBox x:Name="username" TextWrapping="Wrap" FontSize="20" MinWidth="100" Text="张三" Margin="0,0,105,0"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" Padding="6" HorizontalAlignment="Left" Background="#0099CC">
+            <TextBlock x:Name="PositionTag" FontSize="25" Text="职位：" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3" Padding="6" Background="#0099CC">
+            <TextBox x:Name="ApprovalPosition" TextWrapping="Wrap" FontSize="20" Text="员工" MinWidth="100" Margin="0,0,105,0"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" Background="#0099CC">
+            <TextBlock x:Name="DateTag" FontSize="25" Text="点检日期:" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" >
+            <TextBox x:Name="date" HorizontalAlignment="Left"  FontSize="25" Text="2017-06-11" VerticalAlignment="Center"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,0,0,1">
+        </Border>
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" >
+            <TextBlock x:Name="MachineGroupTag" Margin="20,0,10,0" FontSize="25" Text="机 组：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="7" Orientation="Horizontal" >
+            <RadioButton GroupName="MachineGroup" Name="groupa" FontSize="20" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged" IsChecked="True" >压铸线A</RadioButton>
+            <RadioButton GroupName="MachineGroup" Name="groupb" FontSize="20" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged">压铸线B</RadioButton>
+            <RadioButton GroupName="MachineGroup" Name="groupc" FontSize="20" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged">压铸线C</RadioButton>
+            <RadioButton GroupName="MachineGroup" Name="groupd" FontSize="20" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged">压铸线D</RadioButton>
+        </StackPanel>
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,0,0,1">
+        </Border>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Orientation="Horizontal" >
+            <TextBlock x:Name="MachineIdTag" Margin="20,0,10,0" FontSize="25" Text="机 番：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="12" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line01" Content="A-01" Click="OnLineChecked" IsChecked="True"/>
+            <RadioButton GroupName="MachineId" Name="line03" Content="A-03" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line05" Content="A-05" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line07" Content="A-07" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line09" Content="A-09" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line11" Content="A-11" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line13" Content="A-13" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line15" Content="A-15" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="12" Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line02" Content="A-02" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line04" Content="A-04" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line06" Content="A-06" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line08" Content="A-08" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line10" Content="A-10" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line12" Content="A-12" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line14" Content="A-14" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line16" Content="A-16" Click="OnLineChecked" />
+        </StackPanel>
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,0,0,1">
+        </Border>
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="7" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <Run FontSize="25" Foreground="Green"  Text="点检内容" />
+        </TextBlock>
+        <TextBlock x:Name="Temp1Text" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="机械可动侧LC部位漏油否" />
+        </TextBlock>
+        <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ToggleSwitch x:Name="Temp1"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" Margin="0,5,0,4" Width="118" />
+        </StackPanel>
+        <TextBlock x:Name="Temp2Text" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="作动油油量表（1/2上X）" />
+        </TextBlock>
+        <StackPanel Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="Temp2" OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="Temp3Text" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="压动系统的PC装置漏油X" />
+        </TextBlock>
+        <StackPanel Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="Temp3"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="Temp4Text" Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="机械油温（50℃以上X）" />
+        </TextBlock>
+        <StackPanel Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="Temp4"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="Temp5Text" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="中心顶轴的EC部位漏油X" />
+        </TextBlock>
+        <StackPanel Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ToggleSwitch x:Name="Temp5"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="Temp6Text" Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="冷却水管（15℃以下X）" />
+        </TextBlock>
+        <StackPanel Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="6" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ToggleSwitch x:Name="Temp6"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="Temp7Text" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="齿轮传动的CP部位漏油X" />
+        </TextBlock>
+        <StackPanel Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ToggleSwitch x:Name="Temp7"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="Temp8Text" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="20"   Text="其他油、水配管情况" />
+        </TextBlock>
+        <StackPanel Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="6" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ToggleSwitch x:Name="Temp8"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        </StackPanel>
+        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,1,0,1">
+        </Border>
+        <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="1" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="25"  FontWeight="Bold" Foreground="Red" Text="备注" />
+        </TextBlock>
+        <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="9" Margin="0,10,0,10">
+            <TextBox x:Name="reviewInfor" Background="White" />
+        </Border>
+        <Border Grid.Row="11" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
+            <Button x:Name="Return"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="返   回" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Click="Return_Click"/>
+        </Border>
+        <Border Grid.Row="11" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
+            <Button x:Name="Confirm"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="提   交" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Click="OnCommitData" />
+        </Border>
+    </Grid>
+</Page>

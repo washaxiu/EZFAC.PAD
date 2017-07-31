@@ -200,7 +200,7 @@ namespace EZFAC.PAD
                 }
                 else
                 {
-                    this.Frame.Navigate(typeof(YZGCMonthRecord), data);
+                    this.Frame.Navigate(typeof(YZGCMonthRecordList), data);
                 }
             }
         }
