@@ -32,6 +32,7 @@ namespace EZFAC.PAD
         private string groupName = "A";
         private string lineName = "01";
         private CommonOperation commonOperation = new CommonOperation();
+        private CommomSetting commomSetting = new CommomSetting();
         private string type = "YZGCMonthRecord";
         private Dictionary<string, string> data = new Dictionary<string, string>();
         private JsonValue good = JsonValue.CreateStringValue("good");
@@ -101,42 +102,21 @@ namespace EZFAC.PAD
             if (groupa.IsChecked == true)
             {
                 groupName = "A";
-                for (int i = 10; i < radioButton.Length; i++)
-                {
-                    radioButton[i].IsEnabled = true;
-                }
             }
             else if (groupb.IsChecked == true)
             {
                 groupName = "B";
-                for (int i = 10; i < radioButton.Length; i++)
-                {
-                    radioButton[i].IsEnabled = true;
-                }
             }
             else if (groupc.IsChecked == true)
             {
                 groupName = "C";
-                for (int i = 10; i < radioButton.Length; i++)
-                {
-                    radioButton[i].IsEnabled = false;
-                }
             }
             else if (groupd.IsChecked == true)
             {
                 groupName = "D";
-                for (int i = 10; i < radioButton.Length; i++)
-                {
-                    radioButton[i].IsEnabled = false;
-                }
             }
-            //  根据机组设置机番名称
-            for (int i = 0; i < radioButton.Length; i++)
-            {
-                //  若（i+1）为个位数则在前面加个0
-                string num = (i + 1) < 10 ? "0" + Convert.ToString(i + 1) : Convert.ToString(i + 1);
-                radioButton[i].Content = groupName + "-" + num;
-            }
+            // 根据组名确定显示的机番以及其名称
+            commomSetting.setLineByGroup(groupName, radioButton);
             // 初始化点检内容
             for (int i = 0; i < toggleSwitch.Length; i++)
             {
