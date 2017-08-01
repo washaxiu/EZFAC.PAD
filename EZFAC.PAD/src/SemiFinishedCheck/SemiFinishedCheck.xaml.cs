@@ -27,9 +27,7 @@ namespace EZFAC.PAD
     public sealed partial class SemiFinishedCheck : Page
     {
         private Dictionary<string, string> data = new Dictionary<string, string>();
-        private CommonOperation commonOperation = new CommonOperation();
-        private StorageFile record_file;//UWP 采用StorageFile来读写文件
-        private StorageFolder record_folder;//folder来读写文件夹        
+        private CommonOperation commonOperation = new CommonOperation();    
         private string groupName = "A";
         private string lineName = "01";
         private JsonValue good = JsonValue.CreateStringValue("good");

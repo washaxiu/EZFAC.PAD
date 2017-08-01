@@ -129,28 +129,28 @@
         <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" >
             <TextBlock  FontSize="23" Text="运转确认：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
-        <Image x:Name="image1"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning1.png" Stretch="Fill" />
+        <Image x:Name="image1"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning1.png" Stretch="Fill" PointerPressed="Image_Click" />
         <Border Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock TextWrapping="Wrap" FontSize="15" Text="1：马达运转有无异常音"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
             <ToggleSwitch x:Name="first" Header="" OffContent="N G" OnContent="O K"  />
         </Border>
-        <Image x:Name="image2"  Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning2.png" Stretch="Fill" />
+        <Image x:Name="image2"  Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning2.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock TextWrapping="Wrap" Text="2：离型剂喷雾角度，大小确认"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="two" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
-        <Image x:Name="image3"  Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning3.png" Stretch="Fill" />
+        <Image x:Name="image3"  Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning3.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock TextWrapping="Wrap" Text="3：PISTON加压状态确认"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="three" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
-        <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning4.png" Stretch="Fill" />
+        <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning4.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock TextWrapping="Wrap" Text="4：油温针温度确认（40℃以下）"></TextBlock>
         </Border>

@@ -110,9 +110,9 @@
             <TextBlock  FontSize="25" Text="机器型号：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
         <Border Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="3"  Margin="0,4,0,4">
-            <ComboBox  x:Name="machineModel" FontSize="25" VerticalAlignment="Center"  >
-                <x:String>A</x:String>
-                <x:String>B</x:String>
+            <ComboBox  x:Name="machineModel" FontSize="15" MinWidth="100" VerticalAlignment="Center" SelectedIndex="0">
+                <x:String>Adsfewa</x:String>
+                <x:String>Basdfasdf</x:String>
             </ComboBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="3" >

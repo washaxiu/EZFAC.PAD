@@ -109,6 +109,9 @@
     <Compile Include="src\DailyCheckMorning\DailyCheckMorningList.xaml.cs">
       <DependentUpon>DailyCheckMorningList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\ShowImage.xaml.cs">
+      <DependentUpon>ShowImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Service\DailyCheckMorningService.cs" />
     <Compile Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml.cs">
       <DependentUpon>SemiFinishedCheck.xaml</DependentUpon>
@@ -230,6 +233,10 @@
     <Page Include="src\DailyCheckMorning\DailyCheckMorningList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\ShowImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml">
       <Generator>MSBuild:Compile</Generator>

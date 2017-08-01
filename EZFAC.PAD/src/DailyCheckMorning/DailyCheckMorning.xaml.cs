@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Tools;
+using EZFAC.PAD.src;
+using Windows.UI.Xaml.Media.Imaging;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -202,9 +204,21 @@ namespace EZFAC.PAD
             this.Frame.Navigate(typeof(AuthorityNavigation), data);
         }
 
-        private void Click_Img(Image  img)
+
+        private async void Image_Click(object sender, PointerRoutedEventArgs e)
         {
-            
+            Image image = new Image();
+            Image image1 = (Image)sender;
+            image.Source = image1.Source;
+            ContentDialog showImage = new ContentDialog()
+            {
+                Title = "消息提示",
+                Content = image,
+                PrimaryButtonText = "确定",
+                SecondaryButtonText = "取消",
+                FullSizeDesired = false,
+            };
+            await showImage.ShowAsync();
         }
     }
 }
