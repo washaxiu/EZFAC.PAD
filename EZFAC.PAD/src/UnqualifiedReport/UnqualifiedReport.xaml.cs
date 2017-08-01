@@ -53,7 +53,7 @@ namespace EZFAC.PAD
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             // 初始化文本数组
-            TextBox[] textBox = { unqualifiedContent, classificationNo, description, material, finish, weight,
+            TextBox[] textBox = { underTaker, unqualifiedContent, classificationNo, description, material, finish, weight,
                                   founder, ExceptionDiscription,ExceptionObject,reasonProcess,machineNo,modelNo,
                                   unfitNo,reason,solution};
             // 初始化日期选择数组
