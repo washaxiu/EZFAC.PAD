@@ -151,6 +151,20 @@ namespace EZFAC.PAD
 
             // 设置检查内容的json信息
             JsonArray newContent = new JsonArray();
+
+            // 设置机器的型号以及稼动情况  审批时这两个字段不可更改
+            JsonObject contentItem1 = new JsonObject();
+            contentItem1["name"] = JsonValue.CreateStringValue(machineModel.Name);
+            contentItem1["status"] = JsonValue.CreateStringValue(machineModel.Text.ToString());
+            contentItem1["edit"] = JsonValue.CreateStringValue("0");
+            newContent.Add(contentItem1);
+
+            JsonObject contentItem2 = new JsonObject();
+            contentItem2["name"] = JsonValue.CreateStringValue(work.Name);
+            contentItem2["status"] = JsonValue.CreateStringValue(work.Text.ToString());
+            contentItem2["edit"] = JsonValue.CreateStringValue("0");
+            newContent.Add(contentItem2);
+
             // 用户是否修改过内容
             string flag = "0";
             for (int i = 0; i < toggleSwitch.Length; i++)
@@ -170,7 +184,6 @@ namespace EZFAC.PAD
                 }
                 newContent.Add(contentItem);
             }
-            flag = "0";
             for (int i = 0; i < textBox.Length; i++)
             {
                 JsonObject contentItem = new JsonObject();
@@ -228,7 +241,7 @@ namespace EZFAC.PAD
             }
             for (int i = 0; i < textBox.Length; i++)
             {
-                String flag = content[i+13].GetObject()["status"].GetString();
+                String flag = content[i+14].GetObject()["status"].GetString();
                 string msg = flag == textBox[i].Text ? "0" : "1";
                 edit = edit + msg;
             }

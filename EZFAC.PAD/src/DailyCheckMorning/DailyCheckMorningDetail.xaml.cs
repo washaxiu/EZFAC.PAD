@@ -66,13 +66,13 @@ namespace EZFAC.PAD
             checkline = getdata["line"];
             authority = getdata["authority"];
 
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
-            TextBox[] textBox = { four, ten, eleven, twelve };
-            string[] toggleContents = { getdata["first"] , getdata["two"] , getdata["three"] , 
-                                  getdata["five"] , getdata["six"] , getdata["seven"] , getdata["eight"],getdata["nine"] ,
-                                  getdata["fourteen"] , getdata["fifteen"] , getdata["sixteen"] , getdata["seventeen"]
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
+            TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
+            string[] toggleContents = { getdata["first"] , getdata["two"] , getdata["three"] , getdata["five"] ,
+                                        getdata["six"] , getdata["seven"] , getdata["eight"],  getdata["fourteen"] ,
+                                        getdata["fifteen"] , getdata["sixteen"] , getdata["seventeen"],getdata["eighteen"]
                                     };
-            string[] textBoxContents = { getdata["four"], getdata["ten"] , getdata["eleven"] , getdata["twelve"] };
+            string[] textBoxContents = { getdata["four"], getdata["zhouqi"] , getdata["nozzleTemp"] , getdata["GOOSENECKTemp"], getdata["fuTemp1"], getdata["fuTemp2"] };
             string contentEdit = getdata["contentEdit"];
             // 获取职位
             ApprovalPosition.Text = commonOperation.getJobByLevel(userLevel);
@@ -108,11 +108,11 @@ namespace EZFAC.PAD
 
         private async void OnCommitData(object sender, RoutedEventArgs e)
         {
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
-            TextBox[] textBox = { four, ten, eleven, twelve };
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
+            TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
-            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync("DailyCheckNoon", CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync("DailyCheckMorning", CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
                 StorageFile file = await folder.CreateFileAsync(checkfilename, CreationCollisionOption.OpenIfExists);
@@ -148,9 +148,22 @@ namespace EZFAC.PAD
             }
             // 设置检查信息的json信息
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, checkgroup, checkline));
-
             // 设置检查内容的json信息
             JsonArray newContent = new JsonArray();
+
+            // 设置机器的型号以及稼动情况  审批时这两个字段不可更改
+            JsonObject contentItem1 = new JsonObject();
+            contentItem1["name"] = JsonValue.CreateStringValue(machineModel.Name);
+            contentItem1["status"] = JsonValue.CreateStringValue(machineModel.Text.ToString());
+            contentItem1["edit"] = JsonValue.CreateStringValue("0");
+            newContent.Add(contentItem1);
+
+            JsonObject contentItem2 = new JsonObject();
+            contentItem2["name"] = JsonValue.CreateStringValue(work.Name);
+            contentItem2["status"] = JsonValue.CreateStringValue(work.Text.ToString());
+            contentItem2["edit"] = JsonValue.CreateStringValue("0");
+            newContent.Add(contentItem2);
+
             // 用户是否修改过内容
             string flag = "0";
             for (int i = 0; i < toggleSwitch.Length; i++)
@@ -170,7 +183,6 @@ namespace EZFAC.PAD
                 }
                 newContent.Add(contentItem);
             }
-            flag = "0";
             for (int i = 0; i < textBox.Length; i++)
             {
                 JsonObject contentItem = new JsonObject();
@@ -206,7 +218,7 @@ namespace EZFAC.PAD
             }
             checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "DailyCheckNoon");
+            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "DailyCheckMorning");
             // 设置提示框
             messDialog.showDialog("审批成功！");
         }
@@ -218,8 +230,8 @@ namespace EZFAC.PAD
         {
             string edit = null;
             //  初始化内容数组
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
-            TextBox[] textBox = { four, ten, eleven, twelve };
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
+            TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             for (int i = 0; i < toggleSwitch.Length; i++)
             {
                 bool flag = content[i+2].GetObject()["status"].GetString().Equals("good");
@@ -228,7 +240,7 @@ namespace EZFAC.PAD
             }
             for (int i = 0; i < textBox.Length; i++)
             {
-                String flag = content[i+13].GetObject()["status"].GetString();
+                String flag = content[i+14].GetObject()["status"].GetString();
                 string msg = flag == textBox[i].Text ? "0" : "1";
                 edit = edit + msg;
             }
