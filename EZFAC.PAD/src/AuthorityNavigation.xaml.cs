@@ -173,7 +173,7 @@ namespace EZFAC.PAD
                 }
                 else
                 {
-                    this.Frame.Navigate(typeof(SemiFinishedCheck), data);
+                    this.Frame.Navigate(typeof(SemiFinishedCheckList), data);
                 }
             }
             // 压铸工程日常点检（早班）的检查和审批界面 
