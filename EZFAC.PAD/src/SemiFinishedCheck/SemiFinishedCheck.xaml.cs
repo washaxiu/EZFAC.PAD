@@ -70,21 +70,21 @@ namespace EZFAC.PAD
 
             // 设置检查内容的json信息
             JsonArray content = new JsonArray();
-            // 初始化文本内容
-            foreach (TextBox item in textBox)
-            {
-                JsonObject contentItem = new JsonObject();
-                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
-                contentItem["status"] = JsonValue.CreateStringValue(item.Text);
-                contentItem["edit"] = JsonValue.CreateStringValue("0");
-                content.Add(contentItem);
-            }
             // 初始化下拉框
             foreach (ComboBox item in comboBox)
             {
                 JsonObject contentItem = new JsonObject();
                 contentItem["name"] = JsonValue.CreateStringValue(item.Name);
                 contentItem["status"] = JsonValue.CreateStringValue(item.SelectedItem.ToString());
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
+            }
+            // 初始化文本内容
+            foreach (TextBox item in textBox)
+            {
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
+                contentItem["status"] = JsonValue.CreateStringValue(item.Text);
                 contentItem["edit"] = JsonValue.CreateStringValue("0");
                 content.Add(contentItem);
             }
