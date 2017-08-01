@@ -1,16 +1,16 @@
 {
-	"Users": [
-		{
-			"UniqueId": "000001",
-			"UserName": "zhaoyi",
-			"e-mail" : "zhaoyi@123.com",
-			"Password": "123456",
-			"CNName": "zhaoyi",
-			"level":"1",
-			"date" : "2016-01-23",
-			"authority" : "CheckRecord,DailyCheckNoon,UnqualifiedReport,YZGCMonthRecord,SemiFinishedCheck"
-		},
-		{
+	  "Users": [
+      {
+        "UniqueId": "000001",
+        "UserName": "zhaoyi",
+        "e-mail": "zhaoyi@123.com",
+        "Password": "123456",
+        "CNName": "zhaoyi",
+        "level": "1",
+        "date": "2016-01-23",
+        "authority": "CheckRecord,DailyCheckNoon,UnqualifiedReport,YZGCMonthRecord"
+      },
+  		{
 			"UniqueId": "000002",
 			"UserName": "chener",
 			"e-mail" : "chener@123.com",
