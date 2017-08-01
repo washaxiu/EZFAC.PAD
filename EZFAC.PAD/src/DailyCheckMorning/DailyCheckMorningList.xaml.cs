@@ -87,7 +87,7 @@ namespace EZFAC.PAD
             getData.Add("username", data["username"]);
             getData.Add("userlevel", data["userlevel"]);
             // 导航并传递参数
-            this.Frame.Navigate(typeof(DailyCheckNoonDetail), getData);
+            this.Frame.Navigate(typeof(DailyCheckMorningDetail), getData);
         }
 
         private async void Confirm_Click(object sender, RoutedEventArgs e)

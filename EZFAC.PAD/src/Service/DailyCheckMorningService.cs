@@ -68,20 +68,30 @@ namespace EZFAC.PAD.src.Service
                         {
                             contentEdit = contentEdit + content[i].GetObject()["edit"].GetString();
                         }
+
                         bool flag1 = true, flag2 = true, flag3 = true;
-                        for (int i = 2; i < 9; i++)
+                        double soilTemp = Convert.ToDouble(content[14].GetObject()["status"].GetString());
+                        if (soilTemp > 40)
                         {
-                            if (content[i].GetObject()["status"].GetString() == "bad")
+                            flag1 = false;
+                        }else
+                        {
+                            for (int i = 2; i < 8; i++)
                             {
-                                flag1 = false;
-                                break;
+                                if (content[i].GetObject()["status"].GetString() == "bad")
+                                {
+                                    flag1 = false;
+                                    break;
+                                }
                             }
                         }
 
-                        flag2 = content[9].GetObject()["status"].GetString() == "good";
-                        
+                        if (content[8].GetObject()["status"].GetString() == "bad")
+                        {
+                            flag2 = false;
+                        }
 
-                        for (int i = 15; i < 20; i++)
+                        for (int i = 9; i < 14; i++)
                         {
                             if (content[i].GetObject()["status"].GetString() == "bad")
                             {
@@ -115,16 +125,17 @@ namespace EZFAC.PAD.src.Service
                             six = content[6].GetObject()["status"].GetString(),
                             seven = content[7].GetObject()["status"].GetString(),
                             eight = content[8].GetObject()["status"].GetString(),
-                            fourteen = content[10].GetObject()["status"].GetString(),
-                            fifteen = content[11].GetObject()["status"].GetString(),
-                            sixteen = content[12].GetObject()["status"].GetString(),
-                            seventeen = content[13].GetObject()["status"].GetString(),
+                            fourteen = content[9].GetObject()["status"].GetString(),
+                            fifteen = content[10].GetObject()["status"].GetString(),
+                            sixteen = content[11].GetObject()["status"].GetString(),
+                            seventeen = content[12].GetObject()["status"].GetString(),
+                            eighteen = content[13].GetObject()["status"].GetString(),
                             four = content[14].GetObject()["status"].GetString(),
-                            zhouqi = content[9].GetObject()["status"].GetString(),
-                            nozzleTemp = content[15].GetObject()["status"].GetString(),
-                            GOOSENECKTemp = content[16].GetObject()["status"].GetString(),
-                            fuTemp1 = content[17].GetObject()["status"].GetString(),
-                            fuTemp2 = content[17].GetObject()["status"].GetString()
+                            zhouqi = content[15].GetObject()["status"].GetString(),
+                            nozzleTemp = content[16].GetObject()["status"].GetString(),
+                            GOOSENECKTemp = content[17].GetObject()["status"].GetString(),
+                            fuTemp1 = content[18].GetObject()["status"].GetString(),
+                            fuTemp2 = content[19].GetObject()["status"].GetString()
                         });
                     }
                 }
@@ -247,10 +258,10 @@ namespace EZFAC.PAD.src.Service
             }
             return data;
         }
-      /*
-       * 审批多条信息
-       * @param 信息详情列表 审批人信息 文件所在目录
-       */
+        /*
+         * 审批多条信息
+         * @param 信息详情列表 审批人信息 文件所在目录
+         */
         public async void mulApproval(ListView listView, CheckerInfoEntity checkerInfoEntity, string folderName)
         {
             for (int i = 0; i < listView.SelectedItems.Count; i++)

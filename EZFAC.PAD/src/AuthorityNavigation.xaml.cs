@@ -41,7 +41,7 @@ namespace EZFAC.PAD
                                     "UnqualifiedReport",
                                     "",
                                     "SemiFinishedCheck",
-                                    "",
+                                    "DailyCheckMorning",
                                     "DailyCheckNoon",
                                     "",
                                     "YZGCMonthRecord"
@@ -50,7 +50,7 @@ namespace EZFAC.PAD
                                              "UnqualifiedReportList",
                                              "",
                                              "SemiFinishedCheckList",
-                                             "",
+                                             "DailyCheckMorningList",
                                              "DailyCheckNoonList",
                                              "",
                                              "YZGCMonthRecordList"
@@ -179,7 +179,14 @@ namespace EZFAC.PAD
             // 压铸工程日常点检（早班）的检查和审批界面 
             else if (line05.IsChecked == true)
             {
-
+                if (level == "1")
+                {
+                    this.Frame.Navigate(typeof(DailyCheckMorning), data);
+                }
+                else
+                {
+                    this.Frame.Navigate(typeof(DailyCheckMorningList), data);
+                }
             }
             // 压铸工程日常点检（中班)的检查和审批界面 
             else if (line06.IsChecked == true)

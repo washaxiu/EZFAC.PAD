@@ -54,10 +54,10 @@ namespace EZFAC.PAD
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private async void OnCommitData(object sender, RoutedEventArgs e)
+        private void OnCommitData(object sender, RoutedEventArgs e)
         {
             JsonObject checkRecordData = new JsonObject();
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen };
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             // 初始化检查的json信息
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
@@ -105,10 +105,10 @@ namespace EZFAC.PAD
         private void MachineGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+            string contnet = (String)MachineGroup.SelectedItem;
+            groupName = contnet[contnet.Length - 1] + "";
             if ((String)MachineGroup.SelectedItem == "压轴线A")
             {
-                string contnet = (String)MachineGroup.SelectedItem;
-                groupName = contnet[contnet.Length - 1] + "";
                 List<String> items = new List<string>();
                 items.Add("A - 01");
                 items.Add("A - 02");
@@ -167,7 +167,7 @@ namespace EZFAC.PAD
                 machineNo.ItemsSource = items;
             }
 
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen };
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             // 初始化点检内容
             for (int i = 0; i < toggleSwitch.Length; i++)
@@ -182,7 +182,9 @@ namespace EZFAC.PAD
 
         private void machineNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen };
+            string content = machineNo.SelectedItem.ToString();
+            lineName = content.Substring(content.Length - 2, 2);
+            ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             // 初始化点检内容
             for (int i = 0; i < toggleSwitch.Length; i++)
