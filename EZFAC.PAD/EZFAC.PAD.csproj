@@ -93,6 +93,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="document\字段注释表.xlsx" />
     <None Include="json\user.json" />
     <None Include="project.json" />
   </ItemGroup>

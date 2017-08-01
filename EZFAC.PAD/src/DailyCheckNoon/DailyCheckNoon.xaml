@@ -138,7 +138,7 @@
         </Border>
         <Image x:Name="image2"  Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/noon2.png" Stretch="Fill" />
         <Border Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
-            <TextBlock TextWrapping="Wrap" Text="2：油压配管确认（是N G漏油）"></TextBlock>
+            <TextBlock TextWrapping="Wrap" Text="2：油压配管确认（是否漏油）"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="two" Header="" OffContent="N G" OnContent="O K"   />
@@ -152,7 +152,7 @@
         </Border>
         <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/noon4.png" Stretch="Fill" />
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
-            <TextBlock TextWrapping="Wrap" Text="4：射出速度是N G正确（2.0-4.5）"></TextBlock>
+            <TextBlock TextWrapping="Wrap" Text="4：射出速度是否正确（2.0-4.5）"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="速度"></TextBlock>
@@ -176,7 +176,7 @@
         </Border>
         <Image x:Name="image7"  Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="3"  Grid.RowSpan="2" Source="ms-appx:///Images/morning8.png" Stretch="Fill" />
         <Border Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
-            <TextBlock TextWrapping="Wrap" Text="7:升降机运转是N G正常，安全罩有无破损"></TextBlock>
+            <TextBlock TextWrapping="Wrap" Text="7:升降机运转是否正常，安全罩有无破损"></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="3" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="seven" Header="" OffContent="N G" OnContent="O K"/>
