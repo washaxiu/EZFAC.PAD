@@ -115,15 +115,15 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="90"/>
-                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
@@ -155,10 +155,10 @@
             </TextBlock>
         </StackPanel>
 
-        <TextBlock Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Margin="-14,-4,10,0"  VerticalAlignment="Center" >
+        <TextBlock Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Margin="14,0,0,0"  VerticalAlignment="Center" HorizontalAlignment="Left">
             <Run FontSize="22"  Foreground="Green" Text="颜色说明" />
         </TextBlock>
-        <StackPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Margin="25,7,10,0" Orientation="Vertical" >
+        <StackPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Margin="25,7,10,0" Orientation="Vertical" >
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20" Foreground="Black" Text="黑 -- 未修改" />
             </TextBlock>
@@ -167,10 +167,10 @@
             </TextBlock>
         </StackPanel>
 
-        <Border Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
-            <Button x:Name="back" HorizontalAlignment="Left" Margin="-7,0,0,3" MinHeight="50" Content="返  回" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="back_Click" VerticalAlignment="Bottom" Width="135" />
+        <Border Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
+            <Button x:Name="back" HorizontalAlignment="Right" Margin="-7,0,0,3" MinHeight="50" Content="返  回" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="back_Click" VerticalAlignment="Bottom" Width="135" />
         </Border>
-        <Border Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
+        <Border Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
             <Button x:Name="Confirm" HorizontalAlignment="Right" Margin="-5,3,3,3" MinHeight="50" Content="确 认" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Width="140" Click="Confirm_Click" />
         </Border>
     </Grid>
