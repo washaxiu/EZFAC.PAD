@@ -97,7 +97,7 @@ namespace EZFAC.PAD
             {
                 CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text, data["userlevel"], "1", "0", date.Text, "");
                 //  审批所选信息
-                dailyCheckMorningService.mulApproval(lvFiles, checkerInfo, "DailyCehckNoon");
+                dailyCheckMorningService.mulApproval(lvFiles, checkerInfo, "DailyCehckMorning");
                 // 设置提示框
                 ContentDialog dialog = new ContentDialog()
                 {

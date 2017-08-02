@@ -119,7 +119,7 @@
             <TextBlock  FontSize="25" Text="稼动情况：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
         <Border Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,4,0,4">
-            <ComboBox x:Name="work" Width="150">
+            <ComboBox x:Name="work" Width="150" SelectedIndex="0">
                 <x:String>已稼动</x:String>
                 <x:String>未稼动</x:String>
             </ComboBox>
