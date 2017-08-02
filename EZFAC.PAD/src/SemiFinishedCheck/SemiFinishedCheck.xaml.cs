@@ -27,12 +27,15 @@ namespace EZFAC.PAD
     public sealed partial class SemiFinishedCheck : Page
     {
         private Dictionary<string, string> data = new Dictionary<string, string>();
-        private CommonOperation commonOperation = new CommonOperation();    
+        private CommonOperation commonOperation = new CommonOperation();
+        private CommomSetting commomSetting = new CommomSetting();
         private string groupName = "A";
         private string lineName = "01";
         private JsonValue good = JsonValue.CreateStringValue("good");
         private JsonValue bad = JsonValue.CreateStringValue("bad");
         private MessDialog messDialog = new MessDialog();
+        private JsonObject group = new JsonObject();
+
         public SemiFinishedCheck()
         {
             this.InitializeComponent();
@@ -48,10 +51,12 @@ namespace EZFAC.PAD
                 // 显示内容
                 string level = data["userlevel"];
                 username.Text = data["username"];
-
-
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            group = commomSetting.getGroupAndLine();
+            string[] groupList = group["group"].ToString().Replace("\"", "").Split(',');
+            MachineGroup.ItemsSource = groupList;
+            MachineGroup.SelectedIndex = 0;
         }
 
         private void OnCommitData(object sender, RoutedEventArgs e)
@@ -109,96 +114,51 @@ namespace EZFAC.PAD
         }
         private void MachineGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string contnet = (String)MachineGroup.SelectedItem;
+            groupName = contnet[contnet.Length - 1] + "";
+            string[] line = group[groupName].ToString().Replace("\"", "").Split(',');
+            machineNo.ItemsSource = line;
+            machineNo.SelectedIndex = 0;
 
-            if ((String)MachineGroup.SelectedItem == "压轴线A")
-            {
-                List<String> items = new List<string>();
-                items.Add("A - 01");
-                items.Add("A - 02");
-                items.Add("A - 03");
-                items.Add("A - 04");
-                items.Add("A - 05");
-                items.Add("A - 06");
-                items.Add("A - 07");
-                items.Add("A - 08");
-                items.Add("A - 09");
-                machineNo.ItemsSource = items;
-                groupName = "A";
+            //初始化文本框
+            TextBox[] textBox = { item, personInCharge, HS_Num, remark };
+            //初始化转换框
+            ToggleSwitch[] toggleSwitch = { surface , damage_SB171 , PINDamage ,
+                damage_SB251 , filling , xingpian , b3_b4_b5_b7 , b6 , c8_c9_c10 , coreWash};
 
-            }
-            else if ((String)MachineGroup.SelectedItem == "压轴线B")
+            foreach (TextBox item in textBox)
             {
-                List<String> items = new List<string>();
-                items.Add("B - 01");
-                items.Add("B - 02");
-                items.Add("B - 03");
-                items.Add("B - 04");
-                items.Add("B - 05");
-                items.Add("B - 06");
-                items.Add("B - 07");
-                items.Add("B - 08");
-                items.Add("B - 09");
-                machineNo.ItemsSource = items;
-                groupName = "B";
+                item.Text = "";
             }
-            else if ((String)MachineGroup.SelectedItem == "压轴线C")
+            foreach(ToggleSwitch item in toggleSwitch)
             {
-                List<String> items = new List<string>();
-                items.Add("C - 01");
-                items.Add("C - 02");
-                items.Add("C - 03");
-                items.Add("C - 04");
-                items.Add("C - 05");
-                items.Add("C - 06");
-                items.Add("C - 07");
-                items.Add("C - 08");
-                items.Add("C - 09");
-                machineNo.ItemsSource = items;
-                groupName = "C";
-
+                item.IsOn = false;
             }
-            else if ((String)MachineGroup.SelectedItem == "压轴线D")
-            {
-                List<String> items = new List<string>();
-                items.Add("D - 01");
-                items.Add("D - 02");
-                items.Add("D - 03");
-                items.Add("D - 04");
-                items.Add("D - 05");
-                items.Add("D - 06");
-                items.Add("D - 07");
-                items.Add("D - 08");
-                items.Add("D - 09");
-                machineNo.ItemsSource = items;
-                groupName = "D";
-            }
-            surface.IsOn = false;
-            damage_SB171.IsOn = false;
-            PINDamage.IsOn = false;
-            damage_SB251.IsOn = false;
-            filling.IsOn = false;
-            xingpian.IsOn = false;
-            b3_b4_b5_b7.IsOn = false;
-            b6.IsOn = false;
-            c8_c9_c10.IsOn = false;
-            coreWash.IsOn = false;
-
         }
 
         private void machineNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string content = machineNo.SelectedItem.ToString();
+            if (machineNo.SelectedItem == null)
+            {
+                machineNo.SelectedIndex = 0;
+            }
+            string content = machineNo.SelectedValue.ToString();
             lineName = content.Substring(content.Length-2,2);
-            surface.IsOn = false;
-            damage_SB171.IsOn = false;
-            PINDamage.IsOn = false;
-            damage_SB251.IsOn = false;
-            filling.IsOn = false;
-            xingpian.IsOn = false;
-            b3_b4_b5_b7.IsOn = false;
-            b6.IsOn = false;
-            c8_c9_c10.IsOn = false;
-            coreWash.IsOn = false;
+
+            //初始化文本框
+            TextBox[] textBox = { item, personInCharge, HS_Num, remark };
+            //初始化转换框
+            ToggleSwitch[] toggleSwitch = { surface , damage_SB171 , PINDamage ,
+                damage_SB251 , filling , xingpian , b3_b4_b5_b7 , b6 , c8_c9_c10 , coreWash};
+
+            foreach (TextBox item in textBox)
+            {
+                item.Text = "";
+            }
+            foreach (ToggleSwitch item in toggleSwitch)
+            {
+                item.IsOn = false;
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

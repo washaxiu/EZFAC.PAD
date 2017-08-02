@@ -17,20 +17,54 @@ namespace EZFAC.PAD.src.Tools
         public int[] gruopD = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
         /*
+        * 将数字转换成对应的字符串
+        * @param 数字
+        */
+        public string numTostring(int num)
+        {
+            if (num > 10) return Convert.ToString(num);
+            return "0" + Convert.ToString(num);
+        }
+        
+        /*
         * 根据组名确定显示的机番以及其名称
         * @param 组名 机番数组
         */
         public JsonObject getGroupAndLine()
         {
             JsonObject group = new JsonObject();
-            string groupName = "压轴线A,压轴线B,压轴线C";
-            string A = "A-01,A-02,A-03,A-04,A-05,A-06,A-07,A-08,A-09,A-10";
-            string B = "B-01,B-02,B-03,B-04,B-05,B-06";
-            string C = "C-01,C-02,C-03,C-04,C-05,C-06,C-07,C-08";
+            string groupName = "压轴线A,压轴线B,压轴线C,压轴线D";
+            string A = null, B = null, C = null, D = null;
+            // 初始化机番A
+            for(int i=0;i< gruopA.Length; i++)
+            {
+                if (i != 0) A = A + ",";
+                A = A + "A-" + numTostring(gruopA[i]);
+            }
+            // 初始化机番B
+            for (int i = 0; i < gruopB.Length; i++)
+            {
+                if (i != 0) B = B + ",";
+                B = B + "B-" + numTostring(gruopB[i]);
+            }
+            // 初始化机番C
+            for (int i = 0; i < gruopC.Length; i++)
+            {
+                if (i != 0) C = C + ",";
+                C = C + "C-" + numTostring(gruopC[i]);
+            }
+            // 初始化机番D
+            for (int i = 0; i < gruopD.Length; i++)
+            {
+                if (i != 0) D = D + ",";
+                D = D + "D-" + numTostring(gruopD[i]);
+            }
+
             group["group"] = JsonValue.CreateStringValue(groupName);
-            group["A"] = JsonValue.CreateStringValue(A.ToString());
-            group["B"] = JsonValue.CreateStringValue(B.ToString());
-            group["C"] = JsonValue.CreateStringValue(C.ToString());
+            group["A"] = JsonValue.CreateStringValue(A);
+            group["B"] = JsonValue.CreateStringValue(B);
+            group["C"] = JsonValue.CreateStringValue(C);
+            group["D"] = JsonValue.CreateStringValue(D);
             return group;
         }
 
