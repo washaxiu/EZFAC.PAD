@@ -106,7 +106,7 @@
             <TextBlock  FontSize="25" Text="机器型号：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
         <Border Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="3"  Margin="0,4,0,4">
-            <ComboBox  x:Name="machineModel" FontSize="25" VerticalAlignment="Center" MinWidth="120" >
+            <ComboBox  x:Name="machineModel" FontSize="15" SelectedIndex="0" VerticalAlignment="Center" MinWidth="120" >
                 <x:String>Afasdfasdf</x:String>
                 <x:String>Bfeae23asdf</x:String>
             </ComboBox>
@@ -115,7 +115,7 @@
             <TextBlock  FontSize="25" Text="稼动情况：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
         <Border Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="3"  Margin="0,4,0,4">
-            <ComboBox x:Name="work" MinWidth="120">
+            <ComboBox x:Name="work" MinWidth="120" SelectedIndex="0">
                 <x:String>已稼动</x:String>
                 <x:String>未稼动</x:String>
             </ComboBox>

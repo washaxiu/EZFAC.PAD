@@ -138,7 +138,7 @@ namespace EZFAC.PAD
                 machineNo.SelectedIndex = 0;
             }
             string content = machineNo.SelectedValue.ToString();
-            lineName = content.Substring(1, 3);
+            lineName = content.Substring(2, 2);
 
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
             TextBox[] textBox = { four, ten, eleven, twelve };

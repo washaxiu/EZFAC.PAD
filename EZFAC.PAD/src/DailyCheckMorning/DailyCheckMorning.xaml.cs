@@ -140,7 +140,7 @@ namespace EZFAC.PAD
                 machineNo.SelectedIndex = 0;
             }
             string content = machineNo.SelectedValue.ToString();
-            lineName = content.Substring(1,3);
+            lineName = content.Substring(2,2);
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             // 初始化点检内容
