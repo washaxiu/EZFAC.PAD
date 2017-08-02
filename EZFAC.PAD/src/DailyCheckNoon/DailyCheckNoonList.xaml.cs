@@ -55,6 +55,11 @@ namespace EZFAC.PAD
                 dailyCheckNoonService.getApprovalList(lvFiles, data["userlevel"]);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+            foreach (TextBlock textBlock in lvFiles.Items)
+            {
+                textBlock.Width = 70;
+            }
         }
 
         private void back_Click(object sender, RoutedEventArgs e)

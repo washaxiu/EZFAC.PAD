@@ -68,6 +68,8 @@ namespace EZFAC.PAD
 
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
             TextBox[] textBox = { four, ten, eleven, twelve };
+            TextBlock[] toggleText = { firstText, twoText, threeText, fiveText, sixText, sevenText, eightText, nineText, fourteenText, fifteenText, sixteenText, seventeenText };
+            TextBlock[] textBlock = { fourText, tenText, elevenText, twelveText };
             string[] toggleContents = { getdata["first"] , getdata["two"] , getdata["three"] , 
                                   getdata["five"] , getdata["six"] , getdata["seven"] , getdata["eight"],getdata["nine"] ,
                                   getdata["fourteen"] , getdata["fifteen"] , getdata["sixteen"] , getdata["seventeen"]
@@ -85,7 +87,7 @@ namespace EZFAC.PAD
                 toggleSwitch[i].IsOn = toggleContents[i] == "good";
                 if (contentEdit[i] == '1')
                 {
-                    toggleSwitch[i].Foreground = red;
+                    toggleText[i].Foreground = red;
                 }
             }
             for (int i = 0; i < textBoxContents.Length; i++)
@@ -93,7 +95,7 @@ namespace EZFAC.PAD
                 textBox[i].Text = textBoxContents[i] ;
                 if (contentEdit[i] == '1')
                 {
-                    textBox[i].Foreground = red;                       }
+                    textBlock[i].Foreground = red;                       }
                 }
             }
 

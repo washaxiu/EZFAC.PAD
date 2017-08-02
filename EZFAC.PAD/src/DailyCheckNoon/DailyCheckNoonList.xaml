@@ -125,14 +125,14 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=MachineName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="2" Text="{Binding Path=machineModel}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="3" Text="{Binding Path=work}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="4" Text="{Binding Path=workConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=baseCheck}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=_6sConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="MachineName" Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=MachineName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="machineModel" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="2" Text="{Binding Path=machineModel}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="work" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="3" Text="{Binding Path=work}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="workConfirm" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="4" Text="{Binding Path=workConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="baseCheck" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=baseCheck}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="_6sConfirm" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=_6sConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="CheckerName" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="CheckDate" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <StackPanel Grid.Column="9"  Margin="10,0,0,0" Orientation="Horizontal">
                             <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick"></Button>
                         </StackPanel>
