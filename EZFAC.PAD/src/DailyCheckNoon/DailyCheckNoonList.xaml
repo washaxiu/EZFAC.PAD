@@ -16,15 +16,15 @@
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="64"/>
-            <ColumnDefinition/>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="112"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="55" />
@@ -113,16 +113,16 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30"/>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="64"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition Width="112"/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Name="MachineName" Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=MachineName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
