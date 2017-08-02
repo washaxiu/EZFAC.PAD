@@ -38,6 +38,7 @@ namespace EZFAC.PAD
         private JsonValue good = JsonValue.CreateStringValue("good");
         private JsonValue bad = JsonValue.CreateStringValue("bad");
         private MessDialog messDialog = new MessDialog();
+
         public YZGCMonthRecord()
         {
             this.InitializeComponent();
@@ -54,7 +55,6 @@ namespace EZFAC.PAD
                 data = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
                 username.Text = data["username"];
-
                 ApprovalPosition.Text = commonOperation.getJobByLevel(data["userlevel"]);
                 date.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 // 获取导航参数
@@ -69,7 +69,7 @@ namespace EZFAC.PAD
             JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
             // 初始化检查的json信息
-            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, username.Text, lineName));
             // 设置检查内容的json信息
             JsonArray content = new JsonArray();
             foreach (ToggleSwitch item in toggleSwitch)

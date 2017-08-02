@@ -196,7 +196,14 @@ namespace EZFAC.PAD
             // 压铸工程型维修记录表的检查和审批界面 
             else if (line07.IsChecked == true)
             {
-
+                if (level == "1")
+                {
+                    this.Frame.Navigate(typeof(MaintenanceLog), data);
+                }
+                else
+                {
+                    this.Frame.Navigate(typeof(MaintenanceLogList), data);
+                }
             }
             // 压铸工程月度机械漏油点检记录表的检查和审批界面 
             else if (line08.IsChecked == true)

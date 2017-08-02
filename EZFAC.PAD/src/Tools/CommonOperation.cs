@@ -36,8 +36,7 @@ namespace EZFAC.PAD.src.Tools
             checker["number"] = JsonValue.CreateStringValue(number);
             checkerInfo.Add(checker);
             return checkerInfo;
-        }
-
+        }      
         /*
           * 初始化各级别用户的json信息
           * @param 点检人姓名(level=1) 检查时间 备注
@@ -327,5 +326,6 @@ namespace EZFAC.PAD.src.Tools
                 }
             }
         }
+
     }
 }

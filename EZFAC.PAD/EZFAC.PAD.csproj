@@ -100,6 +100,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\MaintenanceLog\MaintenanceLogList.xaml.cs">
+      <DependentUpon>MaintenanceLogList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\MaintenanceLog\MaintenanceLogDetail.xaml.cs">
+      <DependentUpon>MaintenanceLogDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\MaintenanceLog\MaintenanceLog.xaml.cs">
+      <DependentUpon>MaintenanceLog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\DailyCheckMorning\DailyCheckMorning.xaml.cs">
       <DependentUpon>DailyCheckMorning.xaml</DependentUpon>
     </Compile>
@@ -108,9 +117,6 @@
     </Compile>
     <Compile Include="src\DailyCheckMorning\DailyCheckMorningList.xaml.cs">
       <DependentUpon>DailyCheckMorningList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="src\MaintenanceLog\MaintenanceLog.xaml.cs">
-      <DependentUpon>MaintenanceLog.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\Service\DailyCheckMorningService.cs" />
     <Compile Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml.cs">
@@ -146,6 +152,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Service\DailyCheckNoonService.cs" />
+    <Compile Include="src\Service\MaintenanceLogService.cs" />
     <Compile Include="src\Service\YGGCMonthRecordService.cs" />
     <Compile Include="src\Tools\CommomSetting.cs" />
     <Compile Include="src\Tools\MessDialog.cs" />
@@ -188,6 +195,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="src\MaintenanceLog\MaintenanceLogList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\MaintenanceLog\MaintenanceLogDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\MaintenanceLog\MaintenanceLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\DailyCheckMorning\DailyCheckMorning.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -199,10 +218,6 @@
     <Page Include="src\DailyCheckMorning\DailyCheckMorningList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="src\MaintenanceLog\MaintenanceLog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml">
       <Generator>MSBuild:Compile</Generator>
