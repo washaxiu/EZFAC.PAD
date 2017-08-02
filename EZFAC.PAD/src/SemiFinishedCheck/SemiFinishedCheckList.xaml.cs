@@ -93,7 +93,7 @@ namespace EZFAC.PAD
             getData.Add("username", data["username"]);
             getData.Add("userlevel", data["userlevel"]);
             // 导航并传递参数
-            this.Frame.Navigate(typeof(src.UnqualifiedReport.UnqualifiedReportDetail), getData);
+            this.Frame.Navigate(typeof(SemiFinishedCheckDetail), getData);
         }
 
         private async void Confirm_Click(object sender, RoutedEventArgs e)
@@ -102,7 +102,7 @@ namespace EZFAC.PAD
             {
                 CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text, data["userlevel"], "1", "0", date.Text, "");
                 //  审批所选信息
-               // semiFinishedCheckService.mulApproval(lvFiles, checkerInfo, "UnqualifiedReport");
+                semiFinishedCheckService.mulApproval(lvFiles, checkerInfo, "SemiFinishedCheck");
                 // 设置提示框
                 ContentDialog dialog = new ContentDialog()
                 {
@@ -122,7 +122,7 @@ namespace EZFAC.PAD
         public void primaryButtonClick1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             // 获取审批信息列表
-          //  semiFinishedCheckService.getApprovalList(lvFiles, data["userlevel"], "UnqualifiedReport");
+            semiFinishedCheckService.getApprovalList(lvFiles, data["userlevel"], "SemiFinishedCheck");
             checkBox.Content = "全选";
             checkBox.IsChecked = false;
         }

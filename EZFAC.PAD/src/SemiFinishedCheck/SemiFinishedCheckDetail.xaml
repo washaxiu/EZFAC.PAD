@@ -8,6 +8,206 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2.1*"/>
+            <RowDefinition Height="3.1*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+            <Run FontSize="30"  Foreground="Blue" Text="压铸工程 DC研磨前半制品检查表" FontFamily="Segoe UI Black" FontWeight="Bold" />
+        </TextBlock>
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="center"  Margin="0,0,10,0" >
+            <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
+        </TextBlock>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"  Background="#0099CC">
+            <TextBlock x:Name="UserNameTag" FontSize="25" Text="审批人：" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Padding="6"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"  Background="#0099CC">
+            <TextBox x:Name="username" Text="张三" HorizontalAlignment="Left"  FontSize="20" VerticalAlignment="Center"   Foreground="#000000" Width="150"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3"  Background="#0099CC" >
+            <TextBlock x:Name="DateTag" FontSize="22" Text="审批日期："  VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2"  Background="#0099CC">
+            <TextBox x:Name="date" HorizontalAlignment="Left"  Margin="20,0,0,0" FontSize="20" Text="2017-06-16" VerticalAlignment="Center"  Foreground="#FF16325A"/>
+        </Border>
+        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
+            <Run FontSize="25" Text="机组：" FontWeight="Bold"/>
+        </TextBlock>
+        <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,2,0,2" VerticalAlignment="Center">
+            <TextBox x:Name="MachineGroup"  FontSize="20"    Foreground="#000000"/>
+        </Border>
+        <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
+            <Run FontSize="25" Text="机番：" FontWeight="Bold"/>
+        </TextBlock>
+        <Border Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,2,0,2" VerticalAlignment="Center">
+            <TextBox x:Name="machineNo"  FontSize="20"    Foreground="#000000"/>
+        </Border>
+        <TextBlock Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
+            <Run FontSize="25" Text="ITEM：" FontWeight="Bold"/>
+        </TextBlock>
+        <Border Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,2,5,2">
+            <TextBox x:Name="item"  FontSize="20"    Foreground="#000000"/>
+        </Border>
+        <TextBlock Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
+            <Run FontSize="25" Text="担当者：" FontWeight="Bold"/>
+        </TextBlock>
+        <Border Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,2,5,2">
+            <TextBox x:Name="personInCharge"  FontSize="20"  Foreground="#000000"/>
+        </Border>
+        <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
+            <Run FontSize="25" Text="分离状态：" FontWeight="Bold"/>
+        </TextBlock>
+        <Border Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,2,0,2" VerticalAlignment="Center">
+            <TextBox x:Name="separateStatus"  FontSize="20"    Foreground="#000000"/>
+        </Border>
+        <TextBlock Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
+            <Run FontSize="25" Text="G.NECK：" FontWeight="Bold"/>
+        </TextBlock>
+        <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,2,0,2" VerticalAlignment="Center"  >
+            <TextBox x:Name="gneck"  FontSize="20"    Foreground="#000000"/>
+        </Border>
+        <TextBlock Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
+            <Run FontSize="25" Text="回数：" FontWeight="Bold"/>
+        </TextBlock>
+        <Border Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,2,5,5">
+            <TextBox x:Name="HS_Num"  FontSize="20"    Foreground="#000000"/>
+        </Border>
+        <TextBlock Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
+            <Run FontSize="25" Text="备注：" FontWeight="Bold"/>
+        </TextBlock>
+        <Border Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,2,5,5">
+            <TextBox x:Name="remark"  FontSize="20"  Foreground="#000000"/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="10" BorderBrush="Black" BorderThickness="0,1,0,1">
+        </Border>
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="7" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <Run FontSize="25"  Foreground="Green" Text="点检内容" />
+        </TextBlock>
+        <TextBlock x:Name="surfaceText" TextWrapping="Wrap" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="18" Text="     外观" FontWeight="Bold" ></Run><LineBreak></LineBreak>
+            <Run FontSize="16" Text="（无毛刺损伤）"></Run>
+        </TextBlock>
+        <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="surface" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
+        </StackPanel>
+        <TextBlock x:Name="damageText" TextWrapping="Wrap" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="18" Text="     型破损" FontWeight="Bold"></Run><LineBreak></LineBreak>
+            <Run FontSize="16" Text="（SB171/172）"></Run>
+        </TextBlock>
+        <StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="damage_SB171" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
+        </StackPanel>
+        <TextBlock x:Name="PINDamageText" Grid.Row="5" TextWrapping="Wrap" Grid.Column="4" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Run FontSize="18" Text="PIN沟破损/PIN断" FontWeight="Bold"/>
+        </TextBlock>
+        <StackPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="PINDamage" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
+        </StackPanel>
+        <TextBlock x:Name="damage_SB251Text" Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="18" Text="      型破损" FontWeight="Bold"></Run><LineBreak></LineBreak>
+            <Run FontSize="16" Text="（加缔部/SB251）"></Run>
+        </TextBlock>
+        <StackPanel Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="damage_SB251" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="fillingText" Grid.Row="6" TextWrapping="Wrap" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Run FontSize="18" Text="充型不良" FontWeight="Bold"/>
+        </TextBlock>
+        <StackPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="filling" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="xingpianText" TextWrapping="Wrap" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="18" Text="型偏" FontWeight="Bold"></Run>
+        </TextBlock>
+        <StackPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="xingpian" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="b3_b4_b5_b7Text" Grid.Row="6" TextWrapping="Wrap" Grid.Column="4" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Run FontSize="18" Text="分离机异物混入" FontWeight="Bold"/>
+            <Run FontSize="16" Text="（B3/B4/B5/B7）"></Run>
+        </TextBlock>
+        <StackPanel Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="b3_b4_b5_b7" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
+        </StackPanel>
+        <TextBlock x:Name="b6Text" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center"  >
+            <Run FontSize="18" Text="排出管道异物混入" FontWeight="Bold"></Run><LineBreak></LineBreak>
+            <Run FontSize="16" Text="         （B6）"></Run>
+        </TextBlock>
+        <StackPanel Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="b6" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
+        </StackPanel>
+        <TextBlock x:Name="c8_c9_c10Text" Grid.Row="7" TextWrapping="Wrap" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Run FontSize="18" Text="升降机异物混入&#x0a;" FontWeight="Bold"></Run>
+            <Run FontSize="15" Text="（C8/C9/C10)"></Run>
+        </TextBlock>
+        <StackPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="c8_c9_c10" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O" />
+        </StackPanel>
+        <TextBlock x:Name="coreWashText" TextWrapping="Wrap" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Run FontSize="20" Text="CORE洗净" FontWeight="Bold"></Run>
+        </TextBlock>
+        <StackPanel Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,0,20,0" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="coreWash" Header="" FontSize="25" FontWeight="Bold" HorizontalAlignment="Right" OffContent="X" OnContent="O"/>
+        </StackPanel>
+        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="0,1,0,1">
+        </Border>
+        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="8" BorderThickness="1,1,1,0" BorderBrush="Black">
+            <TextBlock  HorizontalAlignment="Left" TextWrapping="Wrap"  FontSize="25" Margin="15,0,0,0" Foreground="#FF16325A">
+                <Run FontSize="22" Text="说明&#x0a;" FontWeight="Bold" Foreground="Red"></Run>
+                <Run FontSize="16" Text="   *检查回数：常规制品及特殊制品大订单--1表示开机或接班的首件检查，2 表示生产1斗记录1次依类推荐；特殊制品--切替一个ITEM记录一次&#x0a;"></Run>
+                <Run FontSize="16" Text="    *模具更换时，对异物残留的混入检查"></Run>
+            </TextBlock>
+        </Border>
+        <Image x:Name="image1"  Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished1.png"  Margin="10,0,10,0" />
+        <Image x:Name="image2"  Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished2.png" Margin="10,0,10,0"/>
+        <Image x:Name="image3"  Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished3.png" Margin="10,0,10,0"/>
+        <Image x:Name="image4"  Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished4.png" Margin="10,0,10,0"/>
+        <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="16" Text="图1：整体地图&#x0a;"></Run>
+        </TextBlock>
+        <TextBlock Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="15" Text="图2：A、B部医务混入检查的位置"></Run><LineBreak></LineBreak>
+            <Run FontSize="15" Text="检查方法：A1~B5目视;B6用气枪吹"></Run>
+        </TextBlock>
+        <TextBlock Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="15" Text="图3：B分离机内球及制品残留检查"></Run><LineBreak></LineBreak>
+            <Run FontSize="15" Text="  方法：采用手电筒照并手摸一下"></Run>
+        </TextBlock>
+        <TextBlock Grid.Row="10" Grid.Column="6" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <Run FontSize="15" Text="图4：C部(升降机)异物混入检查"></Run><LineBreak></LineBreak>
+            <Run FontSize="15" Text="方法：采用手电筒照并且手摸一下"></Run>
+        </TextBlock>
+        <Border Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="8" BorderThickness="0,0,0,1" BorderBrush="Black">
+            <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="15,0,0,0" FontSize="25"   Foreground="#FF16325A">
+                <Run FontSize="15" Text="  *项目点检完成或无异常用o表示，发现异常用x表示，并及时处理和联络并且注明在备考栏中。如机器处于未嫁动状态直接在备考栏中注明未嫁动。"></Run>
+            </TextBlock>
+        </Border>
+        <Border Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" CornerRadius="18,3,18,3">
+            <Button x:Name="Back"  HorizontalAlignment="Right" Content="返   回"  MinHeight="40"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="Back_Click" Width="140" />
+        </Border>
+        <Border Grid.Row="12" Grid.Column="6" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" CornerRadius="18,3,18,3">
+            <Button x:Name="Confirm"  HorizontalAlignment="Center" Margin="0,0,20,0" MinHeight="40" Content="提   交"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black"  Width="140" FontSize="25" FontWeight="Bold" Click="Confirm_Click" />
+        </Border>
     </Grid>
 </Page>

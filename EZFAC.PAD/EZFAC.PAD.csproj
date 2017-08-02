@@ -216,6 +216,10 @@
     <Content Include="Images\noon7.png" />
     <Content Include="Images\noon8.png" />
     <Content Include="Images\noon9.png" />
+    <Content Include="Images\SemiFinished1.png" />
+    <Content Include="Images\SemiFinished2.png" />
+    <Content Include="Images\SemiFinished3.png" />
+    <Content Include="Images\SemiFinished4.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
