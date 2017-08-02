@@ -29,6 +29,7 @@ namespace EZFAC.PAD
     public sealed partial class DailyCheckMorning : Page
     {
         private CommonOperation commonOperation = new CommonOperation();
+        private CommomSetting commomSetting = new CommomSetting();
         private MessDialog messDialog = new MessDialog();
         private Dictionary<string, string> data = new Dictionary<string, string>();
         private JsonValue good = JsonValue.CreateStringValue("good");
@@ -36,6 +37,8 @@ namespace EZFAC.PAD
         private string type = "DieCasting";
         private string groupName = "A";
         private string lineName = "01";
+        private JsonObject group = new JsonObject();
+        List<string[]> lineList = new List<string[]>();
 
         public DailyCheckMorning()
         {
@@ -54,6 +57,11 @@ namespace EZFAC.PAD
                 ApprovalPosition.Text = data["username"];
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+            group = commomSetting.getGroupAndLine();
+            string [] groupList = group["group"].ToString().Replace("\"","").Split(',');
+            MachineGroup.ItemsSource = groupList;
+            MachineGroup.SelectedIndex = 0;                  
         }
 
         private void OnCommitData(object sender, RoutedEventArgs e)
@@ -106,68 +114,11 @@ namespace EZFAC.PAD
 
         private void MachineGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             string contnet = (String)MachineGroup.SelectedItem;
             groupName = contnet[contnet.Length - 1] + "";
-            if ((String)MachineGroup.SelectedItem == "压轴线A")
-            {
-                List<String> items = new List<string>();
-                items.Add("A - 01");
-                items.Add("A - 02");
-                items.Add("A - 03");
-                items.Add("A - 04");
-                items.Add("A - 05");
-                items.Add("A - 06");
-                items.Add("A - 07");
-                items.Add("A - 08");
-                items.Add("A - 09");
-                machineNo.ItemsSource = items;
-           
-            }
-            else if ((String)MachineGroup.SelectedItem == "压轴线B")
-            {
-                List<String> items = new List<string>();
-                items.Add("B - 01");
-                items.Add("B - 02");
-                items.Add("B - 03");
-                items.Add("B - 04");
-                items.Add("B - 05");
-                items.Add("B - 06");
-                items.Add("B - 07");
-                items.Add("B - 08");
-                items.Add("B - 09");
-                machineNo.ItemsSource = items;
-
-            }
-            else if ((String)MachineGroup.SelectedItem == "压轴线C")
-            {
-                List<String> items = new List<string>();
-                items.Add("C - 01");
-                items.Add("C - 02");
-                items.Add("C - 03");
-                items.Add("C - 04");
-                items.Add("C - 05");
-                items.Add("C - 06");
-                items.Add("C - 07");
-                items.Add("C - 08");
-                items.Add("C - 09");
-                machineNo.ItemsSource = items;
-
-            }
-            else if ((String)MachineGroup.SelectedItem == "压轴线D")
-            {
-                List<String> items = new List<string>();
-                items.Add("D - 01");
-                items.Add("D - 02");
-                items.Add("D - 03");
-                items.Add("D - 04");
-                items.Add("D - 05");
-                items.Add("D - 06");
-                items.Add("D - 07");
-                items.Add("D - 08");
-                items.Add("D - 09");
-                machineNo.ItemsSource = items;
-            }
+            string[] line = group[groupName].ToString().Replace("\"", "").Split(',');
+            machineNo.ItemsSource = line;
+            machineNo.SelectedIndex = 0;
 
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
@@ -184,8 +135,12 @@ namespace EZFAC.PAD
 
         private void machineNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string content = machineNo.SelectedItem.ToString();
-            lineName = content.Substring(content.Length - 2, 2);
+            if (machineNo.SelectedItem == null)
+            {
+                machineNo.SelectedIndex = 0;
+            }
+            string content = machineNo.SelectedValue.ToString();
+            lineName = content.Substring(1,3);
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             // 初始化点检内容

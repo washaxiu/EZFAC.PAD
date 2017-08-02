@@ -16,7 +16,7 @@
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="64"/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
@@ -34,7 +34,7 @@
             <RowDefinition />
             <RowDefinition Height="70"  />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="9" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Run FontSize="30"  Foreground="Blue" Text="压铸工程日常点检审批表" FontFamily="Segoe UI Black" FontWeight="Bold" />
         </TextBlock>
         <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="3" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
@@ -92,8 +92,6 @@
         <StackPanel Grid.Row="3" Grid.Column="0"  Margin="4,0,0,0" Orientation="Horizontal">
             <CheckBox x:Name="checkBox" Content="全选"  Click="checkBox_Changed" Margin="0,-3,0,-4"/>
         </StackPanel>
-
-
         <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="12"  Background="Gray">
             <TextBlock Text="明细检查" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>
@@ -113,27 +111,28 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=MachineName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="2" Text="{Binding Path=machineModel}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="3" Text="{Binding Path=work}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="4" Text="{Binding Path=workConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=baseCheck}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=_6sConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel Grid.Column="9"  Margin="10,0,0,0" Orientation="Horizontal">
+                        <TextBlock Name="machineModel" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="2" Text="{Binding Path=machineModel}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="work" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="3" Text="{Binding Path=work}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="workConfirm" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="4" Text="{Binding Path=workConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="baseCheck" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=baseCheck}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="_6sConfirm" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=_6sConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="CheckerName" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Name="CheckDate" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Width="Auto" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="9"  Margin="10,0,0,0" Orientation="Horizontal" Width="Auto">
                             <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick"></Button>
                         </StackPanel>
                     </Grid>

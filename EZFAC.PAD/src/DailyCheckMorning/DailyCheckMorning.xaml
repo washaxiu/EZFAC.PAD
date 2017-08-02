@@ -93,10 +93,6 @@
         </Border>
         <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Margin="0,4,0,4">
             <ComboBox x:Name="MachineGroup"  SelectionChanged="MachineGroup_SelectionChanged" Width="150">
-                <x:String>压轴线A</x:String>
-                <x:String>压轴线B</x:String>
-                <x:String>压轴线C</x:String>
-                <x:String>压轴线D</x:String>
             </ComboBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" >

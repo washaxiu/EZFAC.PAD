@@ -55,6 +55,7 @@ namespace EZFAC.PAD
                 dailyCheckMorningService.getApprovalList(lvFiles, data["userlevel"]);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
