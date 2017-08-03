@@ -16,15 +16,15 @@
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="64"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="112"/>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="55" />
@@ -113,7 +113,7 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="64"/>
+                            <ColumnDefinition Width="20"/>
                             <ColumnDefinition Width="106"/>
                             <ColumnDefinition Width="106"/>
                             <ColumnDefinition Width="106"/>
@@ -122,7 +122,8 @@
                             <ColumnDefinition Width="106"/>
                             <ColumnDefinition Width="106"/>
                             <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="112"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Name="MachineName" Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=MachineName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>

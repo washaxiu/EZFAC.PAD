@@ -93,7 +93,7 @@ namespace EZFAC.PAD
             for (int i = 0; i < textBoxContents.Length; i++)
             {
                 textBox[i].Text = textBoxContents[i] ;
-                if (contentEdit[i] == '1')
+                if (contentEdit[i+12] == '1')
                 {
                     textBlock[i].Foreground = red;                       }
                 }
@@ -105,7 +105,7 @@ namespace EZFAC.PAD
             data.Add("username", ApprovalUser.Text);
             data.Add("userlevel", userLevel);
             data.Add("authority", authority);
-            this.Frame.Navigate(typeof(DailyCheckNoonList), data);
+            this.Frame.Navigate(typeof(DailyCheckMorningList), data);
         }
 
         private async void OnCommitData(object sender, RoutedEventArgs e)
@@ -130,7 +130,7 @@ namespace EZFAC.PAD
                     JsonArray checkerInfo = jsonObject["checkerInfo"].GetArray();
                     // 判断信息是否被更改并集成为字符串
                     newEdit = editContnet(content);
-                    for (int i = 0; i < content.Count; i++)
+                    for (int i = 2; i < content.Count; i++)
                     {
                         oldEdit = oldEdit + content[i].GetObject()["edit"].GetString();
                     }
@@ -191,7 +191,7 @@ namespace EZFAC.PAD
                 contentItem["name"] = JsonValue.CreateStringValue(textBox[i].Name);
                 contentItem["status"] = JsonValue.CreateStringValue(textBox[i].Text);
                 //  判断内容是否被修改,若修改则设为1，否则等于原来的值
-                if (newEdit[i] == '1')
+                if (newEdit[i+12] == '1')
                 {
                     flag = "1";
                     contentItem["edit"] = JsonValue.CreateStringValue("1");
