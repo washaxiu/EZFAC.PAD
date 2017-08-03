@@ -62,22 +62,22 @@
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
         </TextBlock>
         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
-            <TextBlock x:Name="UserNameTag" FontSize="22" Text="     审批人 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" />
+            <TextBlock x:Name="UserNameTag" Margin="45,0,0,0" FontSize="22" Text="审批人 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" />
         </Border>
         <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
-            <TextBox x:Name="ApprovalListUser" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="120"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="ApprovalListUser" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="120"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
-            <TextBlock FontSize="22" Text="    职位 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+            <TextBlock FontSize="22" Margin="50,0,0,0" Text="职位 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Padding="6" Background="#0099CC" BorderThickness="0">
-            <TextBox x:Name="ApprovalListPosition" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="ApprovalListPosition" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
-            <TextBlock x:Name="DateTag" FontSize="22" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
+            <TextBlock x:Name="DateTag" Margin="-2,0,0,0" FontSize="22" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0" >
-            <TextBox x:Name="date" HorizontalAlignment="Left"  Text="2017-06-16" FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="date" HorizontalAlignment="Left" Margin="2,0,0,2" Text="2017-06-16" FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >

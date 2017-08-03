@@ -59,7 +59,7 @@
             <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="20" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0">
-            <TextBlock x:Name="date" HorizontalAlignment="Left" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
+            <TextBlock x:Name="date" Margin="10,0,0,2" HorizontalAlignment="Left" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Background="Gray">
             <TextBlock Text="审批" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />

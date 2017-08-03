@@ -44,19 +44,19 @@
             <TextBlock x:Name="UserNameTag" FontSize="20" Text="审批人" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right" Margin="-2,2,-6,2"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0">
-            <TextBox x:Name="ApprovalListUser" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="ApprovalListUser" Margin="10,0,0,2" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="3" Padding="6" Background="#FF0080FF"  BorderThickness="0">
             <TextBlock x:Name="PositionTag" FontSize="20" Text="职位" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF"  BorderThickness="0">
-            <TextBox x:Name="ApprovalListPosition" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="ApprovalListPosition" Margin="10,0,0,2" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="7"  Padding="6" Background="#FF0080FF"  BorderThickness="0" >
             <TextBlock x:Name="DateTag" HorizontalAlignment="Center"  FontSize="20" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0">
-            <TextBox x:Name="date" HorizontalAlignment="Left" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
+            <TextBlock x:Name="date" HorizontalAlignment="Left" Margin="7,0,0,2" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="2" Grid.Column="0" Background="Gray">
             <TextBlock Text="审批" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>

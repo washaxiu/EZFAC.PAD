@@ -40,16 +40,16 @@
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
         </TextBlock>
         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"  Background="#0099CC">
-            <TextBlock x:Name="UserNameTag" FontSize="25" Text="点检人：" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Padding="6"/>
+            <TextBlock x:Name="UserNameTag" Margin="32,0,0,0" FontSize="25" Text="点检人：" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" Padding="6"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"  Background="#0099CC">
-            <TextBox x:Name="username" Text="张三" HorizontalAlignment="Left"  FontSize="20" VerticalAlignment="Center"   Foreground="#000000" Width="150"/>
+            <TextBlock x:Name="username" Margin="0,0,0,2" Text="张三" HorizontalAlignment="Left"  FontSize="20" VerticalAlignment="Center"   Foreground="#000000" Width="150"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3"  Background="#0099CC" >
             <TextBlock x:Name="DateTag" FontSize="22" Text="发现日期："  VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2"  Background="#0099CC">
-            <TextBox x:Name="date" HorizontalAlignment="Left"  Margin="20,0,0,0" FontSize="20" Text="2017-06-16" VerticalAlignment="Center"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="date" HorizontalAlignment="Left"  Margin="20,0,0,2" FontSize="20" Text="2017-06-16" VerticalAlignment="Center"  Foreground="#FF16325A"/>
         </Border>
         <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center"  >
             <Run FontSize="25" Text="机组：" FontWeight="Bold"/>

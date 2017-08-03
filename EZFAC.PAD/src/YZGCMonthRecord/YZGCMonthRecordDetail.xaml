@@ -43,22 +43,22 @@
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32"/>
         </TextBlock>
         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Padding="6" Background="#0099CC">
-            <TextBlock x:Name="UserNameTag" FontSize="25" Text="担当者:" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right" />
+            <TextBlock x:Name="UserNameTag" FontSize="23" Text="审批人:" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right" />
         </Border>
-        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="6" Background="#FF0080FF" BorderThickness="0">
-            <TextBox x:Name="username" TextWrapping="Wrap" FontSize="20" MinWidth="100" Text="张三" Margin="0,0,105,0"/>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="6" Background="#0099CC" BorderThickness="0">
+            <TextBlock x:Name="username"  FontSize="20" MinWidth="100" Text="张三" Margin="10,0,0,3" VerticalAlignment="Center"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" Padding="6" HorizontalAlignment="Left" Background="#0099CC">
             <TextBlock x:Name="PositionTag" FontSize="25" Text="职位：" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3" Padding="6" Background="#0099CC">
-            <TextBox x:Name="ApprovalPosition" TextWrapping="Wrap" FontSize="20" Text="员工" MinWidth="100" Margin="0,0,105,0"/>
+            <TextBlock x:Name="ApprovalPosition" VerticalAlignment="Center" FontSize="20" Text="员工" MinWidth="100" Margin="0,0,0,3"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" Background="#0099CC">
-            <TextBlock x:Name="DateTag" FontSize="25" Text="点检日期:" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
+            <TextBlock x:Name="DateTag" FontSize="25" Text="审批日期:" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" >
-            <TextBox x:Name="date" HorizontalAlignment="Left"  FontSize="25" Text="2017-06-11" VerticalAlignment="Center"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="date" Margin="10,0,0,2" HorizontalAlignment="Left"  FontSize="25" Text="2017-06-11" VerticalAlignment="Center"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,0,0,1">
         </Border>
@@ -149,22 +149,22 @@
         <StackPanel Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="6" HorizontalAlignment="Left" VerticalAlignment="Center">
             <ToggleSwitch x:Name="Temp8"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0">
+        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,1,0,0">
         </Border>
-        <TextBlock Grid.Row="10"  Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="15,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+        <TextBlock Grid.Row="10"  Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="15,17,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Run FontSize="18"  Foreground="Black" Text="审批信息" />
         </TextBlock>
-        <Border Grid.Row="10" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
+        <Border Grid.Row="10" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="9" Padding="6" BorderThickness="0">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
                 <TextBox x:Name="reviewInfor" AcceptsReturn="True" Background="White" Text="reviewed" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
             </ScrollViewer>
         </Border>
 
-        <Border Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
-            <Button x:Name="Return"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="返   回" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Click="Return_Click"/>
+        <Border Grid.Row="10" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
+            <Button x:Name="Return"  HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="50" Content="返  回" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" Click="Return_Click"/>
         </Border>
-        <Border Grid.Row="11" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
-            <Button x:Name="Confirm"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="提   交" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Click="OnCommitData" />
+        <Border Grid.Row="11" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
+            <Button x:Name="Confirm"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="确   认"  MinHeight="50" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" Click="OnCommitData" />
         </Border>
     </Grid>
 </Page>

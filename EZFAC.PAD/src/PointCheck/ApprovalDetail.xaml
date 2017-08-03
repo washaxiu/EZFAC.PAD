@@ -59,18 +59,18 @@
             <TextBlock x:Name="UserNameTag" FontSize="20" Text="审批人" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
-            <TextBox x:Name="ApprovalUser" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="ApprovalUser" Margin="0,0,0,2" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="3" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="PositionTag" FontSize="20" Text="职位" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
-            <TextBox x:Name="ApprovalPosition" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="ApprovalPosition" Margin="10,0,0,2" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF"  BorderThickness="0" ></Border>
         <StackPanel Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="3" Orientation="Horizontal" >
-            <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="20" Text="          审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" Foreground="#FF16325A" Margin="0,11,0,10" Width="154"/>
-            <TextBox x:Name="date" HorizontalAlignment="Right" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
+            <TextBlock x:Name="DateTag" HorizontalAlignment="Right"   FontSize="20" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" Foreground="#FF16325A" Margin="92,11,0,10" />
+            <TextBlock x:Name="date" Margin="20,0,0,2" HorizontalAlignment="Right" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" >
             <TextBlock x:Name="MachineGroupTag" Margin="20,0,10,0" FontSize="25" Text="机 组：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
