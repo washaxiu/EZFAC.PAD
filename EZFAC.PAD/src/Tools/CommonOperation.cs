@@ -36,7 +36,23 @@ namespace EZFAC.PAD.src.Tools
             checker["number"] = JsonValue.CreateStringValue(number);
             checkerInfo.Add(checker);
             return checkerInfo;
-        }      
+        }
+        /*
+         * MaintenanceOperation checkInfo内容
+         * @param检查类型 检查内容分类信息
+         */
+
+        public JsonArray initCheckJsonArray(string type, string lineName, string elementName, String SHOTNumber)
+        {
+            JsonArray checkerInfo = new JsonArray();
+            JsonObject checker = new JsonObject();
+            checker["type"] = JsonValue.CreateStringValue(type);
+            checker["lineName"] = JsonValue.CreateStringValue(lineName);
+            checker["elementName"] = JsonValue.CreateStringValue(elementName);
+            checker["SHOTNumber"] = JsonValue.CreateStringValue(SHOTNumber);
+            checkerInfo.Add(checker);
+            return checkerInfo;
+        }
         /*
           * 初始化各级别用户的json信息
           * @param 点检人姓名(level=1) 检查时间 备注

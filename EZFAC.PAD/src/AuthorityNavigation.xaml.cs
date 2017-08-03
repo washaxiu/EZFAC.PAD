@@ -43,7 +43,7 @@ namespace EZFAC.PAD
                                     "SemiFinishedCheck",
                                     "",
                                     "DailyCheckNoon",
-                                    "",
+                                    "MaintenanceLog",
                                     "YZGCMonthRecord"
                                  };
         private string[] approvalcMenus = {  "ApprovalList",
@@ -52,7 +52,7 @@ namespace EZFAC.PAD
                                              "SemiFinishedCheckList",
                                              "",
                                              "DailyCheckNoonList",
-                                             "",
+                                             "MaintenanceLogList",
                                              "YZGCMonthRecordList"
                                            };
 
