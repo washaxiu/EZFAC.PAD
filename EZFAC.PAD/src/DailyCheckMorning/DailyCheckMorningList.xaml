@@ -16,15 +16,15 @@
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="64"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="106"/>
-            <ColumnDefinition Width="112"/>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="55" />
@@ -52,10 +52,10 @@
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF"  BorderThickness="0">
             <TextBlock x:Name="ApprovalListPosition" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0" >
+        <Border Grid.Row="1" Grid.Column="8"  Padding="6" Background="#FF0080FF"  BorderThickness="0" >
             <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="20" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="9" Padding="6" Background="#FF0080FF"  BorderThickness="0">
             <TextBlock x:Name="date" HorizontalAlignment="Left" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Background="Gray">
@@ -111,7 +111,7 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="64"/>
+                            <ColumnDefinition Width="20"/>
                             <ColumnDefinition Width="106"/>
                             <ColumnDefinition Width="106"/>
                             <ColumnDefinition Width="106"/>
@@ -120,7 +120,8 @@
                             <ColumnDefinition Width="106"/>
                             <ColumnDefinition Width="106"/>
                             <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="112"/>
+                            <ColumnDefinition Width="106"/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=MachineName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -132,7 +133,7 @@
                         <TextBlock Name="CheckerName" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Name="CheckDate" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Width="Auto" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel Grid.Column="9"  Margin="10,0,0,0" Orientation="Horizontal" Width="Auto">
+                        <StackPanel Grid.Column="9"  Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto">
                             <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick"></Button>
                         </StackPanel>
                     </Grid>
