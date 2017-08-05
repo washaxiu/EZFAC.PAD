@@ -35,7 +35,7 @@
             <RowDefinition Height="70"  />
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Run FontSize="30"  Foreground="Blue" Text="不合格产品报告书（压铸工程内）审批" FontFamily="Segoe UI Black" FontWeight="Bold" />
+            <Run FontSize="30"  Foreground="Blue" Text="压铸工程 DC研磨前半制品检查表审批" FontFamily="Segoe UI Black" FontWeight="Bold" />
         </TextBlock>
         <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
