@@ -35,7 +35,7 @@
             <RowDefinition Height="70"  />
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Run FontSize="30"  Foreground="Blue" Text="不合格产品报告书（压铸工程内）审批" FontFamily="Segoe UI Black" FontWeight="Bold" />
+            <Run FontSize="30"  Foreground="Blue" Text="压铸工程 DC研磨前半制品检查表审批" FontFamily="Segoe UI Black" FontWeight="Bold" />
         </TextBlock>
         <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
@@ -110,21 +110,25 @@
         <Border Grid.Row="4" Grid.Column="9" />
 
         <ListView Name="lvFiles" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="13" SelectionMode="Multiple">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Foreground="{Binding Path=Color}"  FontSize="16" Grid.Column="1" Text="{Binding Path=group}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -133,9 +137,9 @@
                         <TextBlock Foreground="{Binding Path=Color}"  FontSize="16" Grid.Column="4" Text="{Binding Path=separateStatus}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Foreground="{Binding Path=Color}"  FontSize="16" Grid.Column="5" Text="{Binding Path=gneck}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Foreground="{Binding Path=Color}"  FontSize="16" Grid.Column="6" Text="{Binding Path=personInCharge}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}"  FontSize="16" Grid.Column="7" Text="{Binding Path=checkName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}"  FontSize="16" Grid.Column="8" Text="{Binding Path=checkDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel Grid.Column="9"  Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Foreground="{Binding Path=Color}"  FontSize="16" Grid.Column="7" Text="{Binding Path=checkName}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        <TextBlock Foreground="{Binding Path=Color}"  FontSize="16" Grid.Column="8" Text="{Binding Path=checkDate}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <StackPanel Grid.Column="9" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center">
                             <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick"></Button>
                         </StackPanel>
                     </Grid>

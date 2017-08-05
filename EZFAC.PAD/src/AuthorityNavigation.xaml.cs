@@ -63,6 +63,7 @@ namespace EZFAC.PAD
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             //username.Text = "用户名/员工号/邮箱地址";
             timetag.Text = DateTime.Now.ToString();
+            date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -235,7 +236,7 @@ namespace EZFAC.PAD
 
         private void loginOut_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LoginPage), "");
+            this.Frame.Navigate(typeof(LoginPage), data);
         }
 
         private void lineBlock01_Tapped(object sender, TappedRoutedEventArgs e)

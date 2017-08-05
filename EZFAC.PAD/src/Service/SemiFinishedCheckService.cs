@@ -67,8 +67,8 @@ namespace EZFAC.PAD.src.Service
                             group = "压轴线"+checkInfo[0].GetObject()["group"].GetString(),
                             line = checkInfo[0].GetObject()["group"].GetString() + " - " + checkInfo[0].GetObject()["number"].GetString(),
                             // 下拉框内容
-                            separateStatus = content[0].GetObject()["status"].GetString(),
-                            gneck = content[1].GetObject()["status"].GetString(),
+                            separateStatus = content[0].GetObject()["status"].GetString() == "OK"?good:bad,
+                            gneck = content[1].GetObject()["status"].GetString() == "OK" ? good : bad,
                             // 文本内容
                             item = content[2].GetObject()["status"].GetString(),
                             personInCharge = content[3].GetObject()["status"].GetString(),

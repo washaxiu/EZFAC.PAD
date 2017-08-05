@@ -41,11 +41,27 @@ namespace EZFAC.PAD
             //username.Text = "用户名/员工号/邮箱地址";
             username.Text = "000002";
             password.Password = "123456";
+            information.Text = "";
             timetag.Text = DateTime.Now.ToString(); 
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
+            {
+                // 获取导航参数
+                Dictionary<string, string> data = (Dictionary<string, string>)e.Parameter;
+
+                if (data.ContainsKey("loginError"))
+                {
+                    information.Text = data["loginError"];
+                }
+                else
+                {
+                    information.Text = "";
+                }
+            }
+            
             //password.ClearValue(PasswordBox.PasswordProperty);
         }
 
@@ -55,25 +71,25 @@ namespace EZFAC.PAD
             Dictionary<string, string> data = new Dictionary<string, string>();
             bool isValidUser = false;
             bool isChecked = false;
-            string userLevel = "1";
+            string userLevel = "1",msg = null;
             StorageFolder folder_demonstration = KnownFolders.PicturesLibrary;
             //folder_demonstration = await DownloadsFolder.CreateFolderAsync(folderName);
             StorageFile file;
 
             if (username.Text == "")
             {
-                information.Text = "请输入用户名";
+                msg = "请输入用户名";
                 isChecked = false;
             }
             if (password.Password == "")
             {
-                information.Text = "请输入密码";
+                msg = "请输入密码";
                 isChecked = false;
             }
             file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
             if (file == null)
             {
-                information.Text = "用户配置文件不存在";
+                msg = "用户配置文件不存在";
                 isChecked = false;
             }
             else
@@ -107,7 +123,7 @@ namespace EZFAC.PAD
                         }
                         else
                         {
-                            information.Text = "密码不正确";
+                            msg = "密码不正确";
                             isChecked = false;
                             break;
                         }
@@ -117,12 +133,13 @@ namespace EZFAC.PAD
 
             if (!isValidUser)
             {
-                information.Text = "用户名不存在";
+                msg = "用户名不存在";
                 isChecked = false;
             }
             // 导航并传递参数
             if (!isChecked)
             {
+                data["loginError"] = msg;
                 this.Frame.Navigate(typeof(LoginPage), data);
             }
             else
