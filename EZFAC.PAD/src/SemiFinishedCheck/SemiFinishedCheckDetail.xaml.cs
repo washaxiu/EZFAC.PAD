@@ -60,7 +60,7 @@ namespace EZFAC.PAD
                 TextBlock[] textBlock = { surfaceText,damageText,PINDamageText,damage_SB251Text,fillingText,
                     xingpianText,b3_b4_b5_b7Text,b6Text,c8_c9_c10Text,coreWashText};
                 // 获取审批信息并回填
-                semiFinishedCheckService.getApprovalDetail("SemiFinishedCheck", data["fileName"], textBox, toggleSwitch, textBlock);
+                semiFinishedCheckService.getApprovalDetail(data["floderName"], data["fileName"], textBox, toggleSwitch, textBlock);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
@@ -79,7 +79,7 @@ namespace EZFAC.PAD
                     damage_SB251 , filling , xingpian , b3_b4_b5_b7 , b6 , c8_c9_c10 , coreWash};
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
-            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync("SemiFinishedCheck", CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(data["floderName"], CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
                 StorageFile file = await folder.CreateFileAsync(data["fileName"], CreationCollisionOption.OpenIfExists);
@@ -116,7 +116,9 @@ namespace EZFAC.PAD
            
             JsonObject checkRecordData = new JsonObject();
             // 设置检查信息的json信息
-            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray("SemiFinishedCheck", MachineGroup.Text, machineNo.Text));
+            string groupName = MachineGroup.Text[MachineGroup.Text.Length - 1] + "";
+            string lineName = machineNo.Text.Substring(machineNo.Text.Length - 2, 2);
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray("SemiFinishedCheck", groupName, lineName));
             
             // 设置检查内容的json信息
             JsonArray newContent = new JsonArray();
@@ -166,7 +168,7 @@ namespace EZFAC.PAD
             }
             checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, data["fileName"], KnownFolders.PicturesLibrary, "SemiFinishedCheck");
+            commonOperation.writeJsonToFile(checkRecordData, data["fileName"], KnownFolders.PicturesLibrary, data["floderName"]);
             // 设置提示框
             messDialog.showDialog("审批成功！");
         }

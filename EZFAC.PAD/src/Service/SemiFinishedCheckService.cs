@@ -64,8 +64,8 @@ namespace EZFAC.PAD.src.Service
                         lvFiles.Items.Add(new
                         {
                             // 设置文本内容
-                            group = checkInfo[0].GetObject()["group"].GetString(),
-                            line = checkInfo[0].GetObject()["number"].GetString(),
+                            group = "压轴线"+checkInfo[0].GetObject()["group"].GetString(),
+                            line = checkInfo[0].GetObject()["group"].GetString() + " - " + checkInfo[0].GetObject()["number"].GetString(),
                             // 下拉框内容
                             separateStatus = content[0].GetObject()["status"].GetString(),
                             gneck = content[1].GetObject()["status"].GetString(),
