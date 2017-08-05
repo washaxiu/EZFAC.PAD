@@ -236,7 +236,7 @@ namespace EZFAC.PAD
 
         private void loginOut_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LoginPage), "");
+            this.Frame.Navigate(typeof(LoginPage), data);
         }
 
         private void lineBlock01_Tapped(object sender, TappedRoutedEventArgs e)
