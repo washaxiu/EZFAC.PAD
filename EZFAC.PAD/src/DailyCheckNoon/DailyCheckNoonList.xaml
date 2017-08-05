@@ -109,21 +109,25 @@
         <Border Grid.Row="4" Grid.Column="9" />
 
         <ListView Name="lvFiles" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="13" SelectionMode="Multiple">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition Width="106"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Name="MachineName" Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=MachineName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -133,8 +137,8 @@
                         <TextBlock Name="baseCheck" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=baseCheck}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Name="_6sConfirm" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=_6sConfirm}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <TextBlock Name="CheckerName" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Name="CheckDate" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel Grid.Column="9"  Margin="10,0,0,0" Orientation="Horizontal">
+                        <TextBlock Name="CheckDate" Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Margin="15,0,0,0" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="9"  Margin="10,0,0,0" HorizontalAlignment="Center">
                             <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick"></Button>
                         </StackPanel>
                     </Grid>
@@ -166,11 +170,11 @@
             </TextBlock>
         </StackPanel>
 
-        <Border Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
-            <Button x:Name="back" HorizontalAlignment="Left" Margin="-7,0,0,3" MinHeight="50" Content="返  回" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="back_Click" VerticalAlignment="Bottom" Width="135" />
+        <Border Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2" Padding="10" BorderThickness="0">
+            <Button x:Name="back" HorizontalAlignment="Right"  MinHeight="50" Content="返  回" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="back_Click" VerticalAlignment="Center" Width="135" />
         </Border>
-        <Border Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
-            <Button x:Name="Confirm" HorizontalAlignment="Right" Margin="-5,3,3,3" MinHeight="50" Content="确 认" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Width="140" Click="Confirm_Click" />
+        <Border Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" Padding="10" BorderThickness="0">
+            <Button x:Name="Confirm" HorizontalAlignment="Right"  MinHeight="50" Content="确 认" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Width="140" Click="Confirm_Click" />
         </Border>
     </Grid>
 </Page>

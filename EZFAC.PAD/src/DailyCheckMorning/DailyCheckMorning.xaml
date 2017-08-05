@@ -37,7 +37,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1.2*"/>
             <RowDefinition />
-            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="1.4*"/>
             <RowDefinition />
             <RowDefinition Height="1.2*"/>
             <RowDefinition />
@@ -91,21 +91,21 @@
         <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
             <TextBlock  FontSize="25" Text="机组：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
-        <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Margin="0,4,0,4">
+        <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Margin="0,2,0,2" VerticalAlignment="Center">
             <ComboBox x:Name="MachineGroup" FontSize="16" SelectionChanged="MachineGroup_SelectionChanged" Width="130">
             </ComboBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" >
             <TextBlock  FontSize="25" Text="机番：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
-        <Border Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="3" Margin="0,4,0,4">
+        <Border Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="3" Margin="0,2,0,2" VerticalAlignment="Center">
             <ComboBox x:Name="machineNo" FontSize="16" Width="130" SelectionChanged="machineNo_SelectionChanged">
             </ComboBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="3" >
             <TextBlock  FontSize="25" Text="机器型号：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
-        <Border Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="3"  Margin="0,4,0,4">
+        <Border Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="3"  Margin="0,2,0,2">
             <ComboBox  x:Name="machineModel" FontSize="16" VerticalAlignment="Center" MinWidth="120" SelectedIndex="0" >
                 <x:String>Afasdfasdf</x:String>
                 <x:String>Bfeae23asdf</x:String>
@@ -114,7 +114,7 @@
         <Border Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="3" >
             <TextBlock  FontSize="25" Text="稼动情况：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
-        <Border Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="3"  Margin="0,4,0,4">
+        <Border Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="3"  Margin="0,2,0,2" VerticalAlignment="Center">
             <ComboBox x:Name="work" MinWidth="120" FontSize="16" SelectedIndex="0">
                 <x:String>已稼动</x:String>
                 <x:String>未稼动</x:String>

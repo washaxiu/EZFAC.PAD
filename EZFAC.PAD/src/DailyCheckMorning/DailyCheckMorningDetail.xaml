@@ -114,28 +114,28 @@
         </Border>
         <Image x:Name="image1"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning1.png" Stretch="Fill" />
         <Border Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
-            <TextBlock x:Name="firstText" TextWrapping="Wrap" FontSize="15" Text="1：马达运转有无异常音"></TextBlock>
+            <TextBlock x:Name="firstText" TextWrapping="Wrap" FontSize="13" Text="1：马达运转有无异常音"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
             <ToggleSwitch x:Name="first" Header="" OffContent="N G" OnContent="O K"/>
         </Border>
         <Image x:Name="image2"  Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning2.png" Stretch="Fill" />
         <Border Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
-            <TextBlock x:Name="twoText" TextWrapping="Wrap" Text="2：离型剂喷雾角度，大小确认"></TextBlock>
+            <TextBlock FontSize="13" x:Name="twoText" TextWrapping="Wrap" Text="2：离型剂喷雾角度，大小确认"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="two" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
         <Image x:Name="image3"  Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning3.png" Stretch="Fill" />
         <Border Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="4"  VerticalAlignment="Top">
-            <TextBlock x:Name="threeText" TextWrapping="Wrap" Text="3：PISTON加压状态确认"></TextBlock>
+            <TextBlock FontSize="13" x:Name="threeText" TextWrapping="Wrap" Text="3：PISTON加压状态确认"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="three" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
         <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning4.png" Stretch="Fill" />
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
-            <TextBlock x:Name="fourText" TextWrapping="Wrap" Text="4：油温针温度确认（40℃以下）"></TextBlock>
+            <TextBlock FontSize="13" x:Name="fourText" TextWrapping="Wrap" Text="4：油温针温度确认（40℃以下）"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="油压"></TextBlock>
@@ -148,21 +148,21 @@
         </Border>
         <Image x:Name="image5"  Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning5.png" Stretch="Fill" />
         <Border Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
-            <TextBlock x:Name="fiveText" TextWrapping="Wrap" Text="5：PC冷却装置温度手感确认"></TextBlock>
+            <TextBlock FontSize="13" x:Name="fiveText" TextWrapping="Wrap" Text="5：PC冷却装置温度手感确认"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="five" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
         <Image x:Name="image6"  Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning6.png" Stretch="Fill" />
-        <Border Grid.Row="10" Grid.Column="9" Grid.ColumnSpan="4"  VerticalAlignment="Bottom">
-            <TextBlock x:Name="sixText" TextWrapping="Wrap" Text="6：注油确认（LC润滑油）"></TextBlock>
+        <Border Grid.Row="10" Grid.Column="9" Grid.ColumnSpan="4"  VerticalAlignment="Top">
+            <TextBlock FontSize="13" x:Name="sixText" TextWrapping="Wrap" Text="6：注油确认（LC润滑油）"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="9" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="six" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
         <Image x:Name="image7"  Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="3"  Grid.RowSpan="2" Source="ms-appx:///Images/morning7.png" Stretch="Fill" />
-        <Border Grid.Row="14" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
-            <TextBlock x:Name="sevenText" TextWrapping="Wrap" Text="7:离型剂管漏油确认"></TextBlock>
+        <Border Grid.Row="14" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Top">
+            <TextBlock FontSize="13" x:Name="sevenText" TextWrapping="Wrap" Text="7:离型剂管漏油确认"></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="seven" Header="" OffContent="N G" OnContent="O K"/>
@@ -178,7 +178,7 @@
 
         <Image x:Name="image8"  Grid.Row="4" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="3" Source="ms-appx:///Images/morning8.png" Stretch="Fill" />
         <Border Grid.Row="7" Grid.Column="14" Grid.ColumnSpan="4"  VerticalAlignment="Top">
-            <TextBlock x:Name="eightText" TextWrapping="Wrap" Text="8：品名ITEM确认"></TextBlock>
+            <TextBlock FontSize="13" x:Name="eightText" TextWrapping="Wrap" Text="8：品名ITEM确认"></TextBlock>
         </Border>
         <Border Grid.Row="8" Grid.Column="14" Grid.ColumnSpan="4" >
             <ToggleSwitch x:Name="eight" Header="" OffContent="N G" OnContent="O K" />
@@ -195,7 +195,7 @@
         <Border Grid.Row="6" Grid.Column="21" Grid.ColumnSpan="1" VerticalAlignment="Center">
             <TextBlock Text=" S"></TextBlock>
         </Border>
-        <TextBlock x:Name="nozzleTempText" TextWrapping="Wrap" Grid.Row="7" Grid.Column="19" Grid.ColumnSpan="4"  HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock FontSize="13" x:Name="nozzleTempText" TextWrapping="Wrap" Grid.Row="7" Grid.Column="19" Grid.ColumnSpan="4"  HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Run FontSize="15" Text="10：NOZZLE运转温度&#x0a;"></Run>
         </TextBlock>
         <Border Grid.Row="8" Grid.Column="19" Grid.ColumnSpan="1" VerticalAlignment="Center">
