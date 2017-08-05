@@ -123,11 +123,13 @@ namespace EZFAC.PAD.src.MaintenanceLog
             data.Add("username", username.Text);
             data.Add("userlevel", userLevel);
             data.Add("authority", authority);
+            data.Add("folderName", folderName);
             this.Frame.Navigate(typeof(MaintenanceLogList), data);
         }
 
         private async void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            JsonObject checkRecordData = new JsonObject();
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
 
