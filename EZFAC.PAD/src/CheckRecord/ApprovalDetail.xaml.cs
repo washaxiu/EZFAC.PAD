@@ -29,7 +29,6 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class ApprovalDetail : Page
     {
-        private JsonObject checkRecordData = new JsonObject();
         private string type = "DieCasting";
         private string checkfilename = "Unknown";
         private string checkgroup = "A";
@@ -144,6 +143,7 @@ namespace EZFAC.PAD
                     }
                 }
             }
+            JsonObject checkRecordData = new JsonObject();
             // 设置检查信息的json信息
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, checkgroup, checkline));
 
