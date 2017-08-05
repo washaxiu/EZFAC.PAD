@@ -38,6 +38,7 @@ namespace EZFAC.PAD
         private string userLevel = "2";
         private string checker = "zhaoyi";
         private string authority = null;
+        private string folderName = null;
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
@@ -65,6 +66,7 @@ namespace EZFAC.PAD
             checkdate = getdata["date"];
             checkline = getdata["line"];
             authority = getdata["authority"];
+            folderName = getdata["folderName"];
 
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
@@ -74,7 +76,7 @@ namespace EZFAC.PAD
                                         getdata["six"] , getdata["seven"] , getdata["eight"],  getdata["fourteen"] ,
                                         getdata["fifteen"] , getdata["sixteen"] , getdata["seventeen"],getdata["eighteen"]
                                     };
-            string[] textBoxContents = { getdata["four"], getdata["zhouqi"] , getdata["nozzleTemp"] , getdata["GOOSENECKTemp"], getdata["fuTemp1"], getdata["fuTemp2"] };
+            string[] textBoxContents = { getdata["four"], getdata["zhouqi"], getdata["nozzleTemp"], getdata["GOOSENECKTemp"], getdata["fuTemp1"], getdata["fuTemp2"] };
             string contentEdit = getdata["contentEdit"];
             // 获取职位
             ApprovalPosition.Text = commonOperation.getJobByLevel(userLevel);
@@ -92,12 +94,13 @@ namespace EZFAC.PAD
             }
             for (int i = 0; i < textBoxContents.Length; i++)
             {
-                textBox[i].Text = textBoxContents[i] ;
-                if (contentEdit[i+12] == '1')
+                textBox[i].Text = textBoxContents[i];
+                if (contentEdit[i + 12] == '1')
                 {
-                    textBlock[i].Foreground = red;                       }
+                    textBlock[i].Foreground = red;
                 }
             }
+        }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
@@ -105,6 +108,7 @@ namespace EZFAC.PAD
             data.Add("username", ApprovalUser.Text);
             data.Add("userlevel", userLevel);
             data.Add("authority", authority);
+            data.Add("folderName", folderName);
             this.Frame.Navigate(typeof(DailyCheckMorningList), data);
         }
 
@@ -114,7 +118,7 @@ namespace EZFAC.PAD
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
-            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync("DailyCheckMorning", CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
                 StorageFile file = await folder.CreateFileAsync(checkfilename, CreationCollisionOption.OpenIfExists);
@@ -220,7 +224,7 @@ namespace EZFAC.PAD
             }
             checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "DailyCheckMorning");
+            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, folderName);
             // 设置提示框
             messDialog.showDialog("审批成功！");
         }

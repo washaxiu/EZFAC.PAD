@@ -60,7 +60,7 @@ namespace EZFAC.PAD.src.UnqualifiedReport
                                           groupWork1,groupWork2,
                                           group4M1,group4M2,group4M3,group4M4};
                 // 获取审批信息并回填
-                unqualifiedReportService.getApprovalDetail(data["floderName"], data["fileName"], textBox, calendarDatePicker, radioButton);
+                unqualifiedReportService.getApprovalDetail(data["folderName"], data["fileName"], textBox, calendarDatePicker, radioButton);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
@@ -72,7 +72,7 @@ namespace EZFAC.PAD.src.UnqualifiedReport
 
         private async void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(data["floderName"], CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(data["folderName"], CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
                 StorageFile file = await folder.CreateFileAsync(data["fileName"], CreationCollisionOption.OpenIfExists);
@@ -99,7 +99,7 @@ namespace EZFAC.PAD.src.UnqualifiedReport
                             checkerInfo[j] = item;
                         }
                     }
-                    commonOperation.writeJsonToFile(jsonObject, data["fileName"], KnownFolders.PicturesLibrary, data["floderName"]);
+                    commonOperation.writeJsonToFile(jsonObject, data["fileName"], KnownFolders.PicturesLibrary, data["folderName"]);
                 }
             }
             messDialog.showDialog("审批成功！");

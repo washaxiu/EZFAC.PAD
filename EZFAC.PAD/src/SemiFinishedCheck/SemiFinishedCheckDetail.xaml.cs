@@ -60,7 +60,7 @@ namespace EZFAC.PAD
                 TextBlock[] textBlock = { surfaceText,damageText,PINDamageText,damage_SB251Text,fillingText,
                     xingpianText,b3_b4_b5_b7Text,b6Text,c8_c9_c10Text,coreWashText};
                 // 获取审批信息并回填
-                semiFinishedCheckService.getApprovalDetail(data["floderName"], data["fileName"], textBox, toggleSwitch, textBlock);
+                semiFinishedCheckService.getApprovalDetail(data["folderName"], data["fileName"], textBox, toggleSwitch, textBlock);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
@@ -79,7 +79,7 @@ namespace EZFAC.PAD
                     damage_SB251 , filling , xingpian , b3_b4_b5_b7 , b6 , c8_c9_c10 , coreWash};
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
-            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(data["floderName"], CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(data["folderName"], CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
                 StorageFile file = await folder.CreateFileAsync(data["fileName"], CreationCollisionOption.OpenIfExists);
@@ -168,7 +168,7 @@ namespace EZFAC.PAD
             }
             checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, data["fileName"], KnownFolders.PicturesLibrary, data["floderName"]);
+            commonOperation.writeJsonToFile(checkRecordData, data["fileName"], KnownFolders.PicturesLibrary, data["folderName"]);
             // 设置提示框
             messDialog.showDialog("审批成功！");
         }
