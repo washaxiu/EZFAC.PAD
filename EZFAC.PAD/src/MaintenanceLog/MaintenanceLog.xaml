@@ -27,13 +27,13 @@
             <RowDefinition  Height="*"/>
             <RowDefinition  Height="*"/>
             <RowDefinition  Height="*"/>
-            <RowDefinition  Height="1.2*"/>
-            <RowDefinition  Height="1.2*"/>
             <RowDefinition  Height="*"/>
             <RowDefinition  Height="*"/>
             <RowDefinition  Height="*"/>
-            <RowDefinition  Height="*"/>
-            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="0.7*"/>
+            <RowDefinition  Height="0.7*"/>
+            <RowDefinition  Height="0.7*"/>
+            <RowDefinition  Height="0.7*"/>
             <RowDefinition  Height="1.5*"/>
             <RowDefinition  Height="1.2*"/>
         </Grid.RowDefinitions>
@@ -46,20 +46,20 @@
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Background="#FF0088FF" BorderThickness="0,1,0,1">
             <TextBlock x:Name="usernameTag" Text="维修员:" FontSize="25" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" Margin="6,0,170,0"/>
         </Border>
-        <Border Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="8">
+        <Border Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"  Margin="8,5,8,5">
             <TextBlock x:Name="username" Text="zhang" FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" Margin="10,3,30,3"/>
         </Border>
         <Border Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Background="#FF0088FF" BorderThickness="0,1,0,1">
             <TextBlock x:Name="positionTag" Text="职位:" FontSize="25" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" Margin="13,0,170,0"/>
         </Border>
-        <Border Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="8">
+        <Border Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"  Margin="8,5,8,5">
             <TextBlock x:Name="position" Text="员工" FontSize="18" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" Margin="8" HorizontalAlignment="Left"/>
         </Border>
         <Border Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="6" Background="#FF0088FF" BorderThickness="0,1,0,1">
-            <TextBlock x:Name="dateTag" Text="维修日期:" FontSize="25" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0,0,180,0"/>
+            <TextBlock x:Name="dateTag" Text="维修日期:" FontSize="25" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0,0,185,0"/>
         </Border>
-        <Border Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="8">
-            <TextBlock x:Name="date" Text="2017-08-01" FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Margin="8" Width="130" HorizontalAlignment="Center"/>
+        <Border Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"  Margin="8,5,8,5">
+            <TextBlock x:Name="date" Text="2017-08-01" FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Margin="8" Width="130" HorizontalAlignment="Left"/>
         </Border>
         <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4">
             <TextBlock x:Name="jiFanTag" Text="机  番:" FontSize="25" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" Margin="50,0,200,0"/>
@@ -86,74 +86,74 @@
         <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="8,0,0,0">
             <TextBlock x:Name="element1Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB171:"/>
         </Border>
-        <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element1" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2">
             <TextBlock x:Name="element2Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB172:"/>
         </Border>
-        <Border Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element2" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" >
             <TextBlock x:Name="element3Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB241:"/>
         </Border>
-        <Border Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element3" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2">
             <TextBlock x:Name="element4Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB242:"/>
         </Border>
-        <Border Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element4"  Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="2">
             <TextBlock x:Name="element5Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB243:"/>
         </Border>
-        <Border Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element5" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="4" Grid.Column="10" Grid.ColumnSpan="2">
             <TextBlock x:Name="element6Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB244:"/>
         </Border>
-        <Border Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element6" FontSize="25" Text="1" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
 
-        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="8,0,0,0">
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="8,5,0,5">
             <TextBlock x:Name="element7Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB245:"/>
         </Border>
-        <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element7" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2">
             <TextBlock x:Name="element8Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB251:"/>
         </Border>
-        <Border Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element8" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2">
             <TextBlock x:Name="element9Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB252:"/>
         </Border>
-        <Border Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element9" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2">
             <TextBlock x:Name="element10Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB253:"/>
         </Border>
-        <Border Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element10" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2">
             <TextBlock x:Name="element11Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB254:"/>
         </Border>
-        <Border Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="1" Margin="0,0,20,0">
+        <Border Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="1" Margin="0,5,20,5">
             <TextBox  x:Name="element11" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="5" Grid.Column="10" Grid.ColumnSpan="2">
             <TextBlock x:Name="element12Tag" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Text="SB255:"/>
         </Border>
-        <Border Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="1"  Margin="0,0,20,0">
+        <Border Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="1"  Margin="0,5,20,5">
             <TextBox  x:Name="element12" Text="1" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="12" BorderThickness="0,1,0,1" BorderBrush="Black">
