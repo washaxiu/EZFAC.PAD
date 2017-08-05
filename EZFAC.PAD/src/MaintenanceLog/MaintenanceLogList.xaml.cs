@@ -47,7 +47,7 @@ namespace EZFAC.PAD
                 // 获取职位
                 ApprovalListPosition.Text = commonOperation.getJobByLevel(data["userlevel"]);
                 // 获取审批信息列表
-                MaintenanceLogService.getMaintenanceLogList(lvFiles, data["userlevel"]);
+                MaintenanceLogService.getMaintenanceLogList(lvFiles, data["userlevel"], data["folderName"]);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
@@ -74,7 +74,7 @@ namespace EZFAC.PAD
             {
                 CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text, data["userlevel"], "1", "0", date.Text, "");
                 //  审批所选信息
-                MaintenanceLogService.mulMaintenanceLog(lvFiles, checkerInfo, "MaintenanceLog");
+                MaintenanceLogService.mulMaintenanceLog(lvFiles, checkerInfo, data["folderName"]);
                 // 设置提示框
                 ContentDialog dialog = new ContentDialog()
                 {
@@ -93,7 +93,7 @@ namespace EZFAC.PAD
         public void primaryButtonClick1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             // 获取审批信息列表
-            MaintenanceLogService.getMaintenanceLogList(lvFiles, data["userlevel"]);
+            MaintenanceLogService.getMaintenanceLogList(lvFiles, data["userlevel"], data["folderName"]);
             checkBox.Content = "全选";
             checkBox.IsChecked = false;
         }
@@ -107,6 +107,7 @@ namespace EZFAC.PAD
             getData.Add("authority", data["authority"]);
             getData.Add("username", data["username"]);
             getData.Add("userlevel", data["userlevel"]);
+            getData.Add("folderName", data["folderName"]);
             // 导航并传递参数
             this.Frame.Navigate(typeof(MaintenanceLogDetail), getData);
         }

@@ -83,7 +83,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, reviewInfor.Text));
             string fileName = "ykk_record_" + jiFan.Text + "_" + pinMing.Text + "_" + date.Text + ".ykk";
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "MaintenanceLog");
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, data["folderName"]);
             // 设置提示框
             messDialog.showDialog("提交成功！");
 

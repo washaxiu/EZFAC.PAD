@@ -23,11 +23,11 @@ namespace EZFAC.PAD.src.Service
         * 获取当前用户的点检审批信息
         * @param 显示信息列表  用户等级
         */
-        public async void getYZGCMonthList(ListView lvFiles, string userlevel)
+        public async void getYZGCMonthList(ListView lvFiles, string userlevel, string folderName)
         {
             lvFiles.Items.Clear();
             StorageFolder record_folder = KnownFolders.PicturesLibrary;
-            StorageFolder folder = await record_folder.CreateFolderAsync("YZGCMonthRecord", CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await record_folder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
             int count = 0;
 
             if (folder != null)

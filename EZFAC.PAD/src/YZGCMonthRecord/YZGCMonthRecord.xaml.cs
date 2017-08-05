@@ -69,7 +69,7 @@ namespace EZFAC.PAD
             JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
             // 初始化检查的json信息
-            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, username.Text, lineName));
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
             // 设置检查内容的json信息
             JsonArray content = new JsonArray();
             foreach (ToggleSwitch item in toggleSwitch)
@@ -85,7 +85,7 @@ namespace EZFAC.PAD
             checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, reviewInfor.Text));
             string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date.Text + ".ykk";
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "YZGCMonthRecord");
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, data["folderName"]);
             // 设置提示框
             messDialog.showDialog("点检成功！");
         }

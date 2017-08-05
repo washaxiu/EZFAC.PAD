@@ -37,6 +37,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
         private string userLevel = "2";
         private string checker = "zhaoyi";
         private string authority = null;
+        private string folderName = null;
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
@@ -62,6 +63,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
                 jifan.Text = getdata["jifan"];
                 pinming.Text = getdata["pinming"];
                 SHOT.Text = getdata["SHOT"];
+                folderName = getdata["folderName"];
                 element1.Text = getdata["record1"];
                 element2.Text = getdata["record2"];
                 element3.Text = getdata["record3"];
@@ -112,7 +114,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
                 }
 
                 // 获取审批信息并显示在多行Texkbox
-                commonOperation.getStateText(approvalreviewInfor, userLevel, checkfilename, "MaintenanceLog");
+                commonOperation.getStateText(approvalreviewInfor, userLevel, checkfilename, folderName);
             }
         }
         private void back_Click(object sender, RoutedEventArgs e)
@@ -129,7 +131,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
 
-            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync("MaintenanceLog", CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
                 StorageFile file = await folder.CreateFileAsync(checkfilename, CreationCollisionOption.OpenIfExists);
@@ -264,7 +266,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             }
             checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "MaintenanceLog");
+            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, folderName);
             // 设置提示框
             messDialog.showDialog("审批成功！");
         }
