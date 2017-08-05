@@ -46,19 +46,19 @@
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Background="#FF0088FF" BorderThickness="0,1,0,1">
             <TextBlock x:Name="usernameTag" Text="维修员:" FontSize="25" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" Margin="6,0,170,0"/>
         </Border>
-        <Border Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"  Margin="8,5,8,5">
+        <Border Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0"  Margin="8,5,8,5">
             <TextBlock x:Name="username" Text="zhang" FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" Margin="10,3,30,3"/>
         </Border>
         <Border Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Background="#FF0088FF" BorderThickness="0,1,0,1">
             <TextBlock x:Name="positionTag" Text="职位:" FontSize="25" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" Margin="13,0,170,0"/>
         </Border>
-        <Border Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"  Margin="8,5,8,5">
+        <Border Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0"  Margin="8,5,8,5">
             <TextBlock x:Name="position" Text="员工" FontSize="18" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" Margin="8" HorizontalAlignment="Left"/>
         </Border>
         <Border Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="6" Background="#FF0088FF" BorderThickness="0,1,0,1">
             <TextBlock x:Name="dateTag" Text="维修日期:" FontSize="25" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0,0,185,0"/>
         </Border>
-        <Border Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1"  Margin="8,5,8,5">
+        <Border Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0"  Margin="8,5,8,5">
             <TextBlock x:Name="date" Text="2017-08-01" FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Margin="8" Width="130" HorizontalAlignment="Left"/>
         </Border>
         <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4">
@@ -202,11 +202,11 @@
                 <x:String>NO</x:String>
             </ComboBox>
         </Border>
-        <Border Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
-            <Button x:Name="Return"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="返   回" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Click="Return_Click"/>
+        <Border Grid.Row="12" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
+            <Button x:Name="Return"  HorizontalAlignment="Right" VerticalAlignment="Center" Content="返   回" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" Click="Return_Click"/>
         </Border>
-        <Border Grid.Row="12" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
-            <Button x:Name="Confirm"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="提   交" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" Click="OnCommitData" />
+        <Border Grid.Row="12" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" >
+            <Button x:Name="Confirm"  HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Content="提   交" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" Click="OnCommitData" />
         </Border>
     </Grid>
 </Page>

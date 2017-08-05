@@ -156,10 +156,10 @@
         </ListView>
 
 
-        <TextBlock Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Margin="-14,-4,10,0"  VerticalAlignment="Center" >
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"   VerticalAlignment="Center" HorizontalAlignment="Right" >
             <Run FontSize="22"  Foreground="Green" Text="颜色说明" />
         </TextBlock>
-        <StackPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Margin="25,7,10,0" Orientation="Vertical" >
+        <StackPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="25,7,10,0" Orientation="Vertical" >
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20" Foreground="Black" Text="黑 -- 未修改" />
             </TextBlock>

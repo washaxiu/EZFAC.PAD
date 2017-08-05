@@ -160,7 +160,7 @@
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=Temp7Name}" HorizontalAlignment="Center" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="9" Text="{Binding Path=Temp8Name}" HorizontalAlignment="Center" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="10" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="11" Margin="15,0,0,0" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="13" Grid.Column="11" Margin="12,0,0,0" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         <StackPanel Grid.Column="12"  Margin="10,0,0,0" HorizontalAlignment="Right">
                             <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick"></Button>
                         </StackPanel>
