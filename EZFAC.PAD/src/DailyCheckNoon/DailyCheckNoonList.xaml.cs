@@ -55,6 +55,11 @@ namespace EZFAC.PAD
                 dailyCheckNoonService.getApprovalList(lvFiles, data["userlevel"]);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+            foreach (TextBlock textBlock in lvFiles.Items)
+            {
+                textBlock.Width = 70;
+            }
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -96,7 +101,7 @@ namespace EZFAC.PAD
             {
                 CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text, data["userlevel"], "1", "0", date.Text, "");
                 //  审批所选信息
-                dailyCheckNoonService.mulApproval(lvFiles, checkerInfo, "DailyCehckNoon");
+                dailyCheckNoonService.mulApproval(lvFiles, checkerInfo, "DailyCheckNoon");
                 // 设置提示框
                 ContentDialog dialog = new ContentDialog()
                 {

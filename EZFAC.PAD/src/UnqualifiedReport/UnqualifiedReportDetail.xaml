@@ -1,0 +1,269 @@
+﻿<Page
+    x:Class="EZFAC.PAD.src.UnqualifiedReport.UnqualifiedReportDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EZFAC.PAD.src.UnqualifiedReport"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <Style TargetType="Border">
+                <Setter Property="BorderBrush" Value="Black"></Setter>
+                <Setter Property="BorderThickness" Value="1"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2.3*"/>
+            <RowDefinition Height="2.3*"/>
+            <RowDefinition Height="2.3*"/>
+            <RowDefinition Height="2.3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2.3*"/>
+            <RowDefinition Height="2.3*"/>
+            <RowDefinition Height="2.3*"/>
+            <RowDefinition Height="2.3*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="14"></Border>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="14"></Border>
+        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="14"></Border>
+        <Border Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="14"></Border>
+
+        <TextBlock Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="8" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Run FontSize="30"  Foreground="Blue" Text="不合格产品报告书（压铸工程内）" FontFamily="Segoe UI Black" FontWeight="Bold" />
+        </TextBlock>
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="11" Grid.ColumnSpan="3" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
+        </TextBlock>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
+            <TextBlock x:Name="UserNameTag" Margin="45,0,0,0" FontSize="22" Text="审批人 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" />
+        </Border>
+        <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
+            <TextBlock x:Name="ApprovalListUser" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="120"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
+            <TextBlock FontSize="22" Margin="50,0,0,0" Text="职位 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Padding="6" Background="#0099CC" BorderThickness="0">
+            <TextBlock x:Name="ApprovalListPosition" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
+            <TextBlock x:Name="DateTag" Margin="-2,0,0,0" FontSize="22" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0" >
+            <TextBlock x:Name="date" HorizontalAlignment="Left" Margin="2,0,0,2" Text="2017-06-16" FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+        </Border>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="25" Text="   不适合品内容：" />
+        </TextBlock>
+        <Border Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="unqualifiedContent"  VerticalAlignment="Center" />
+        </Border>
+        <TextBlock Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="25" Text="    分类番号:" />
+        </TextBlock>
+        <Border Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="5" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="classificationNo"  VerticalAlignment="Center"/>
+        </Border>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="25" Text="   发现事项记入：" />
+        </TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="  ① 品     名：" />
+        </TextBlock>
+        <Border Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="description"  VerticalAlignment="Center" />
+        </Border>
+
+        <TextBlock Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="   ⑤发生重量:" />
+        </TextBlock>
+        <Border Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="5" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="weight"  VerticalAlignment="Center"/>
+        </Border>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="  ② 材     质：" />
+        </TextBlock>
+        <Border Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="material"  VerticalAlignment="Center" />
+        </Border>
+
+        <TextBlock Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="   ⑥发现日期:" />
+        </TextBlock>
+        <Border Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="5" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <CalendarDatePicker x:Name="foundDate"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Border>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="  ③ 仕     上：" />
+        </TextBlock>
+        <Border Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="finish"  VerticalAlignment="Center" />
+        </Border>
+
+        <TextBlock Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="   ⑦发现工程:" />
+        </TextBlock>
+        <StackPanel Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="5" Orientation="Horizontal" >
+            <RadioButton GroupName="foundProject" x:Name="group1" FontSize="20" FontFamily="Segoe UI Black" IsChecked="True" Content="压铸"/>
+            <RadioButton GroupName="foundProject" x:Name="group2" FontSize="20" FontFamily="Segoe UI Black" Content="电镀" />
+            <RadioButton GroupName="foundProject" x:Name="group3" FontSize="20" FontFamily="Segoe UI Black" Content="组立" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="  ④ 混 入 率 :" />
+        </TextBlock>
+        <StackPanel Grid.Row="7" Grid.Column="2"  Orientation="Horizontal" >
+            <RadioButton GroupName="messRate" Name="groupa" FontSize="15" FontFamily="Segoe UI Black" IsChecked="True" Content="100%" />
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="3"  Orientation="Horizontal" >
+            <RadioButton GroupName="messRate" Name="groupb" FontSize="15" FontFamily="Segoe UI Black" >75%</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="4"  Orientation="Horizontal" >
+            <RadioButton GroupName="messRate" Name="groupc" FontSize="15" FontFamily="Segoe UI Black" >50%</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="5"  Orientation="Horizontal" >
+            <RadioButton GroupName="messRate" Name="groupd" FontSize="15" FontFamily="Segoe UI Black" >25%</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="6"  Orientation="Horizontal" >
+            <RadioButton GroupName="messRate" Name="groupe" FontSize="15" FontFamily="Segoe UI Black" >5%</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2"  Orientation="Horizontal" >
+            <RadioButton GroupName="messRate" Name="groupf" FontSize="15" FontFamily="Segoe UI Black" >1%以下</RadioButton>
+        </StackPanel>
+
+        <TextBlock Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="      ⑧发现者:" />
+        </TextBlock>
+        <Border Grid.Row="7" Grid.Column="10" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="founder" VerticalAlignment="Center" />
+        </Border>
+
+        <Border Grid.Row="8" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                <TextBox x:Name="ExceptionDiscription" AcceptsReturn="True" Background="White" ToolTipService.ToolTip="【异常状况说明】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch" />
+            </ScrollViewer>
+        </Border>
+
+        <Border Grid.Row="8" Grid.RowSpan="2" Grid.Column="7" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                <TextBox x:Name="ExceptionObject" AcceptsReturn="True" Background="White" ToolTipService.ToolTip="【异常样品】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+            </ScrollViewer>
+        </Border>
+
+        <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="25" Text="   原因内容计入：" />
+        </TextBlock>
+
+        <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="  ① 原 因 工 序：" />
+        </TextBlock>
+        <Border Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="reasonProcess" VerticalAlignment="Center"/>
+        </Border>
+
+        <TextBlock Grid.Row="11" Grid.Column="7" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="   ⑤稼动情况:" />
+        </TextBlock>
+        <StackPanel Grid.Row="11" Grid.Column="10" Grid.ColumnSpan="6" Orientation="Horizontal" >
+            <RadioButton GroupName="work" Name="groupWork1" FontSize="20" FontFamily="Segoe UI Black" IsChecked="True" >有人</RadioButton>
+            <RadioButton GroupName="work" Name="groupWork2" FontSize="20" FontFamily="Segoe UI Black" >无人</RadioButton>
+        </StackPanel>
+
+        <TextBlock Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="  ② 不良生产日：" />
+        </TextBlock>
+        <Border Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <CalendarDatePicker x:Name="badProductDate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Border>
+        <TextBlock Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="   ⑥4M：" />
+        </TextBlock>
+        <StackPanel Grid.Row="12" Grid.Column="9"  Orientation="Horizontal" >
+            <RadioButton GroupName="4M" Name="group4M1" FontSize="20" FontFamily="Segoe UI Black" IsChecked="True" >人</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="12" Grid.Column="10" Grid.ColumnSpan="2" Orientation="Horizontal" >
+            <RadioButton GroupName="4M" Name="group4M2" FontSize="20" FontFamily="Segoe UI Black" >材料方法</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="12" Grid.Column="12"  Orientation="Horizontal" >
+            <RadioButton GroupName="4M" Name="group4M3" FontSize="20" FontFamily="Segoe UI Black" >机械</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="12" Grid.Column="13"  Orientation="Horizontal" >
+            <RadioButton GroupName="4M" Name="group4M4" FontSize="20" FontFamily="Segoe UI Black" >金型</RadioButton>
+        </StackPanel>
+
+        <TextBlock Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="  ③ 机 械 型 号：" />
+        </TextBlock>
+        <Border Grid.Row="13" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="machineNo" VerticalAlignment="Center" />
+        </Border>
+        <TextBlock Grid.Row="13" Grid.Column="7" Grid.ColumnSpan="4"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="   ⑦不适合品报告书番号：" />
+        </TextBlock>
+        <Border Grid.Row="13" Grid.Column="11" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="unfitNo" VerticalAlignment="Center" />
+        </Border>
+        <TextBlock Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="  ④ 型         番：" />
+        </TextBlock>
+        <Border Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <TextBox x:Name="modelNo" VerticalAlignment="Center" />
+        </Border>
+        <TextBlock Grid.Row="14" Grid.Column="7" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="22" Text="   ⑧记入日期:" />
+        </TextBlock>
+        <Border Grid.Row="14" Grid.Column="9" Grid.ColumnSpan="5" Padding="1" Margin="0,0,25,0" BorderThickness="0">
+            <CalendarDatePicker x:Name="signInDate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Border>
+
+        <Border Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                <TextBox x:Name="reason" AcceptsReturn="True" Background="White" ToolTipService.ToolTip="【原因】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+            </ScrollViewer>
+        </Border>
+        <Border Grid.Row="15" Grid.Column="7" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                <TextBox x:Name="solution" AcceptsReturn="True" Background="White" ToolTipService.ToolTip="【对策（正确处理）】" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+            </ScrollViewer>
+        </Border>
+
+        <Border Grid.Row="16" Grid.Column="8" Grid.ColumnSpan="3" BorderThickness="0" CornerRadius="18,3,18,3">
+            <Button x:Name="back"  HorizontalAlignment="Right"  Content="返   回" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="back_Click" />
+        </Border>
+
+        <Border Grid.Row="16" Grid.Column="11" Grid.ColumnSpan="3"  BorderThickness="0" CornerRadius="18,3,18,3">
+            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,30,0"  Content="提   交" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="Confirm_Click" />
+        </Border>
+    </Grid>
+</Page>

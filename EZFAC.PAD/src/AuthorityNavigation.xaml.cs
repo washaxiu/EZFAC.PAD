@@ -41,18 +41,18 @@ namespace EZFAC.PAD
                                     "UnqualifiedReport",
                                     "",
                                     "SemiFinishedCheck",
-                                    "",
+                                    "DailyCheckMorning",
                                     "DailyCheckNoon",
-                                    "MaintenanceLog",
+                                    "",
                                     "YZGCMonthRecord"
                                  };
         private string[] approvalcMenus = {  "ApprovalList",
                                              "UnqualifiedReportList",
                                              "",
                                              "SemiFinishedCheckList",
-                                             "",
+                                             "DailyCheckMorningList",
                                              "DailyCheckNoonList",
-                                             "MaintenanceLogList",
+                                             "",
                                              "YZGCMonthRecordList"
                                            };
 
@@ -123,13 +123,6 @@ namespace EZFAC.PAD
                 }
             }
             username.Text = data["username"];
-          /*  List<String> items = new List<string>();
-            for (int i = 0; i < authority.Length; i++)
-            {
-                items.Add(authority[i]);
-            }
-            module.ItemsSource = items;
-            if (authority.Length > 0) module.SelectedIndex = 0;*/
         }
 
         private void SignIn(object sender, RoutedEventArgs e)
@@ -138,7 +131,8 @@ namespace EZFAC.PAD
             //  点检的检查和审批界面
             if (line01.IsChecked == true)
             {
-                if(level == "1")
+                data["floderName"] = checkMenus[0];
+                if (level == "1")
                 {
                     this.Frame.Navigate(typeof(CheckRecord), data);
                 }
@@ -150,6 +144,7 @@ namespace EZFAC.PAD
             // 不合格报告的检查和审批界面 
             else if (line02.IsChecked == true)
             {
+                data["floderName"] = checkMenus[1];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(UnqualifiedReport), data);
@@ -162,28 +157,38 @@ namespace EZFAC.PAD
             // DC品质异常报告书的检查和审批界面 
             else if(line03.IsChecked == true)
             {
-
+                data["floderName"] = checkMenus[2];
             }
             // DC研磨前半制品的检查和审批界面 
             else if (line04.IsChecked == true)
             {
+                data["floderName"] = checkMenus[3];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(SemiFinishedCheck), data);
                 }
                 else
                 {
-                    this.Frame.Navigate(typeof(SemiFinishedCheck), data);
+                    this.Frame.Navigate(typeof(SemiFinishedCheckList), data);
                 }
             }
             // 压铸工程日常点检（早班）的检查和审批界面 
             else if (line05.IsChecked == true)
             {
-
+                data["floderName"] = checkMenus[4];
+                if (level == "1")
+                {
+                    this.Frame.Navigate(typeof(DailyCheckMorning), data);
+                }
+                else
+                {
+                    this.Frame.Navigate(typeof(DailyCheckMorningList), data);
+                }
             }
             // 压铸工程日常点检（中班)的检查和审批界面 
             else if (line06.IsChecked == true)
             {
+                data["floderName"] = checkMenus[5];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(DailyCheckNoon), data);
@@ -196,18 +201,12 @@ namespace EZFAC.PAD
             // 压铸工程型维修记录表的检查和审批界面 
             else if (line07.IsChecked == true)
             {
-                if (level == "1")
-                {
-                    this.Frame.Navigate(typeof(MaintenanceLog), data);
-                }
-                else
-                {
-                    this.Frame.Navigate(typeof(MaintenanceLogList), data);
-                }
+                data["floderName"] = checkMenus[6];
             }
             // 压铸工程月度机械漏油点检记录表的检查和审批界面 
             else if (line08.IsChecked == true)
             {
+                data["floderName"] = checkMenus[7];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(YZGCMonthRecord), data);

@@ -37,6 +37,7 @@ namespace EZFAC.PAD
         private string checkdate = "2017-06-10";
         private string userLevel = "2";
         private string checker = "zhaoyi";
+        private string floderName = null;
         private string authority = null;
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
@@ -64,6 +65,7 @@ namespace EZFAC.PAD
                 checkgroup = getdata["group"];
                 checkline = getdata["line"];
                 authority = getdata["authority"];
+                floderName = getdata["floderName"];
 
                 ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Loop1, Loop2, Loop3, Select1, Plat1 };
                 TextBlock[] toggleText = { Temp1Text, Temp2Text, Temp3Text, Loop1Text, Loop2Text, Loop3Text, Select1Text, Plat1Text };
@@ -89,7 +91,7 @@ namespace EZFAC.PAD
                     toggleSwitch[i].IsOn = contents[i] == "○" ? true : false;
                 }
                 // 获取审批信息并显示在多行Texkbox
-               commonOperation.getStateText(reviewInfor, userLevel, checkfilename, "PointCheck");
+               commonOperation.getStateText(reviewInfor, userLevel, checkfilename, floderName);
             }
         }
 
@@ -99,6 +101,7 @@ namespace EZFAC.PAD
             data.Add("username", ApprovalUser.Text);
             data.Add("userlevel", userLevel);
             data.Add("authority", authority);
+            data.Add("floderName", floderName);
             this.Frame.Navigate(typeof(ApprovalList), data);
         }
 
@@ -107,7 +110,7 @@ namespace EZFAC.PAD
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Loop1, Loop2, Loop3, Select1, Plat1 };
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
-            StorageFolder folder =await KnownFolders.PicturesLibrary.CreateFolderAsync("PointCheck",CreationCollisionOption.OpenIfExists);
+            StorageFolder folder =await KnownFolders.PicturesLibrary.CreateFolderAsync(floderName,CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
                 StorageFile file = await folder.CreateFileAsync(checkfilename, CreationCollisionOption.OpenIfExists);
@@ -183,7 +186,7 @@ namespace EZFAC.PAD
             }
             checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "PointCheck");
+            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, floderName);
             // 设置提示框
             messDialog.showDialog("审批成功！");
         }

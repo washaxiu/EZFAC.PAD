@@ -32,7 +32,7 @@ namespace EZFAC.PAD
     {
 
         private CommonOperation commonOperation = new CommonOperation();
-        private PointCheckService pointCheckService = new PointCheckService();
+        private CheckRecordService pointCheckService = new CheckRecordService();
         private MessDialog messDialog = new MessDialog();
         private Dictionary<string, string> data = new Dictionary<string, string>();
 
@@ -53,7 +53,7 @@ namespace EZFAC.PAD
                 // 获取职位
                 ApprovalListPosition.Text = commonOperation.getJobByLevel(data["userlevel"]);
                 // 获取审批信息列表
-                pointCheckService.getApprovalList(lvFiles, data["userlevel"]);
+                pointCheckService.getApprovalList(lvFiles, data["userlevel"],data["floderName"]);
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
@@ -87,6 +87,7 @@ namespace EZFAC.PAD
             getData.Add("authority", data["authority"]);
             getData.Add("username", data["username"]);
             getData.Add("userlevel", data["userlevel"]);
+            getData.Add("floderName",data["floderName"]);
             // 导航并传递参数
             this.Frame.Navigate(typeof(ApprovalDetail), getData);
         }
@@ -97,7 +98,7 @@ namespace EZFAC.PAD
             {
                 CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text, data["userlevel"], "1","0",date.Text,"");
                 //  审批所选信息
-                pointCheckService.mulApproval(lvFiles, checkerInfo, "PointCheck");
+                pointCheckService.mulApproval(lvFiles, checkerInfo, data["floderName"]);
                 // 设置提示框
                 ContentDialog dialog = new ContentDialog()
                 {
@@ -117,7 +118,7 @@ namespace EZFAC.PAD
         public void primaryButtonClick1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             // 获取审批信息列表
-            pointCheckService.getApprovalList(lvFiles, data["userlevel"]);
+            pointCheckService.getApprovalList(lvFiles, data["userlevel"], data["floderName"]);
             checkBox.Content = "全选";
             checkBox.IsChecked = false;
         }

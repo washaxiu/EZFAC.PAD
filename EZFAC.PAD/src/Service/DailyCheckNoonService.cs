@@ -69,15 +69,26 @@ namespace EZFAC.PAD.src.Service
                             contentEdit = contentEdit + content[i].GetObject()["edit"].GetString();
                         }
                         bool flag1 = true, flag2 = true, flag3 = true;
-                        for (int i = 2; i < 9; i++)
+                        double speed = Convert.ToDouble(content[14].GetObject()["status"].GetString());
+                        if (speed < 2 || speed > 4.5)
                         {
-                            if (content[i].GetObject()["status"].GetString() == "bad")
+                            flag1 = false;
+                        }else
+                        {
+                            for (int i = 2; i < 9; i++)
                             {
-                                flag1 = false;
-                                break;
+                                if (content[i].GetObject()["status"].GetString() == "bad")
+                                {
+                                    flag1 = false;
+                                    break;
+                                }
                             }
                         }
-                        flag2 = content[9].GetObject()["status"].GetString() == "good";
+                       
+                        if(content[9].GetObject()["status"].GetString() == "bad")
+                        {
+                            flag2 = false;
+                        }
 
                         for (int i = 10; i < 14; i++)
                         {

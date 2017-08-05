@@ -54,7 +54,7 @@
         <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="14"></Border>
         <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="14"></Border>
         <Border Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="14"></Border>
-        
+
         <TextBlock Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="8" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Run FontSize="30"  Foreground="Blue" Text="不合格产品报告书（压铸工程内）" FontFamily="Segoe UI Black" FontWeight="Bold" />
         </TextBlock>
@@ -62,12 +62,12 @@
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
         </TextBlock>
         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
-            <TextBlock x:Name="UserNameTag" FontSize="22" Text="     工程长 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" />
+            <TextBlock x:Name="UserNameTag" Margin="45,0,0,0" FontSize="22" Text="工程长 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left" />
         </Border>
         <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
-            <TextBox x:Name="username" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="120"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="username" HorizontalAlignment="Left"  FontSize="18" Text="张三" VerticalAlignment="Center" MinWidth="120"  Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0" Height="44" VerticalAlignment="Top">
             <TextBlock FontSize="22" Text="    担当人 :" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Padding="6" Background="#0099CC" BorderThickness="0">
@@ -77,7 +77,7 @@
             <TextBlock x:Name="DateTag" FontSize="22" Text="报告日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2" Padding="6" Background="#0099CC" BorderThickness="0" >
-            <TextBox x:Name="date" HorizontalAlignment="Left"  Text="2017-06-16" FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="date" Margin="4,0,0,2" HorizontalAlignment="Left"  Text="2017-06-16" FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A" />
         </Border>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
@@ -123,7 +123,7 @@
         <Border Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="5" Padding="1" Margin="0,0,25,0" BorderThickness="0">
             <CalendarDatePicker x:Name="foundDate"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Border>
-        
+
         <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="22" Text="  ③ 仕     上：" />
         </TextBlock>
@@ -191,7 +191,7 @@
         <Border Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="4" Padding="1" Margin="0,0,25,0" BorderThickness="0">
             <TextBox x:Name="reasonProcess" VerticalAlignment="Center"/>
         </Border>
-        
+
         <TextBlock Grid.Row="11" Grid.Column="7" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="22" Text="   ⑤稼动情况:" />
         </TextBlock>
@@ -221,7 +221,7 @@
         <StackPanel Grid.Row="12" Grid.Column="13"  Orientation="Horizontal" >
             <RadioButton GroupName="4M" Name="group4M4" FontSize="20" FontFamily="Segoe UI Black" >金型</RadioButton>
         </StackPanel>
-        
+
         <TextBlock Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="22" Text="  ③ 机 械 型 号：" />
         </TextBlock>
@@ -261,7 +261,7 @@
         <Border Grid.Row="16" Grid.Column="8" Grid.ColumnSpan="3" BorderThickness="0" CornerRadius="18,3,18,3">
             <Button x:Name="back"  HorizontalAlignment="Right"  Content="返   回" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="back_Click" />
         </Border>
-        
+
         <Border Grid.Row="16" Grid.Column="11" Grid.ColumnSpan="3"  BorderThickness="0" CornerRadius="18,3,18,3">
             <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,30,0"  Content="提   交" MinWidth="150" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="Confirm_Click" />
         </Border>

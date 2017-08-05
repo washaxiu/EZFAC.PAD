@@ -68,6 +68,8 @@ namespace EZFAC.PAD
 
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
             TextBox[] textBox = { four, ten, eleven, twelve };
+            TextBlock[] toggleText = { firstText, twoText, threeText, fiveText, sixText, sevenText, eightText, nineText, fourteenText, fifteenText, sixteenText, seventeenText };
+            TextBlock[] textBlock = { fourText, tenText, elevenText, twelveText };
             string[] toggleContents = { getdata["first"] , getdata["two"] , getdata["three"] , 
                                   getdata["five"] , getdata["six"] , getdata["seven"] , getdata["eight"],getdata["nine"] ,
                                   getdata["fourteen"] , getdata["fifteen"] , getdata["sixteen"] , getdata["seventeen"]
@@ -85,15 +87,15 @@ namespace EZFAC.PAD
                 toggleSwitch[i].IsOn = toggleContents[i] == "good";
                 if (contentEdit[i] == '1')
                 {
-                    toggleSwitch[i].Foreground = red;
+                    toggleText[i].Foreground = red;
                 }
             }
             for (int i = 0; i < textBoxContents.Length; i++)
             {
                 textBox[i].Text = textBoxContents[i] ;
-                if (contentEdit[i] == '1')
+                if (contentEdit[i+12] == '1')
                 {
-                    textBox[i].Foreground = red;                       }
+                    textBlock[i].Foreground = red;                       }
                 }
             }
 
@@ -128,7 +130,7 @@ namespace EZFAC.PAD
                     JsonArray checkerInfo = jsonObject["checkerInfo"].GetArray();
                     // 判断信息是否被更改并集成为字符串
                     newEdit = editContnet(content);
-                    for (int i = 0; i < content.Count; i++)
+                    for (int i = 2; i < content.Count; i++)
                     {
                         oldEdit = oldEdit + content[i].GetObject()["edit"].GetString();
                     }
@@ -151,6 +153,20 @@ namespace EZFAC.PAD
 
             // 设置检查内容的json信息
             JsonArray newContent = new JsonArray();
+
+            // 设置机器的型号以及稼动情况  审批时这两个字段不可更改
+            JsonObject contentItem1 = new JsonObject();
+            contentItem1["name"] = JsonValue.CreateStringValue(machineModel.Name);
+            contentItem1["status"] = JsonValue.CreateStringValue(machineModel.Text.ToString());
+            contentItem1["edit"] = JsonValue.CreateStringValue("0");
+            newContent.Add(contentItem1);
+
+            JsonObject contentItem2 = new JsonObject();
+            contentItem2["name"] = JsonValue.CreateStringValue(work.Name);
+            contentItem2["status"] = JsonValue.CreateStringValue(work.Text.ToString());
+            contentItem2["edit"] = JsonValue.CreateStringValue("0");
+            newContent.Add(contentItem2);
+
             // 用户是否修改过内容
             string flag = "0";
             for (int i = 0; i < toggleSwitch.Length; i++)
@@ -170,14 +186,13 @@ namespace EZFAC.PAD
                 }
                 newContent.Add(contentItem);
             }
-            flag = "0";
             for (int i = 0; i < textBox.Length; i++)
             {
                 JsonObject contentItem = new JsonObject();
                 contentItem["name"] = JsonValue.CreateStringValue(textBox[i].Name);
                 contentItem["status"] = JsonValue.CreateStringValue(textBox[i].Text);
                 //  判断内容是否被修改,若修改则设为1，否则等于原来的值
-                if (newEdit[i] == '1')
+                if (newEdit[i+12] == '1')
                 {
                     flag = "1";
                     contentItem["edit"] = JsonValue.CreateStringValue("1");
@@ -228,7 +243,7 @@ namespace EZFAC.PAD
             }
             for (int i = 0; i < textBox.Length; i++)
             {
-                String flag = content[i+13].GetObject()["status"].GetString();
+                String flag = content[i+14].GetObject()["status"].GetString();
                 string msg = flag == textBox[i].Text ? "0" : "1";
                 edit = edit + msg;
             }

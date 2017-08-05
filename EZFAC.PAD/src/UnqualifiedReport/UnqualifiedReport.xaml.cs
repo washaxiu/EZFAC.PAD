@@ -53,7 +53,7 @@ namespace EZFAC.PAD
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             // 初始化文本数组
-            TextBox[] textBox = { unqualifiedContent, classificationNo, description, material, finish, weight,
+            TextBox[] textBox = { underTaker, unqualifiedContent, classificationNo, description, material, finish, weight,
                                   founder, ExceptionDiscription,ExceptionObject,reasonProcess,machineNo,modelNo,
                                   unfitNo,reason,solution};
             // 初始化日期选择数组
@@ -110,7 +110,7 @@ namespace EZFAC.PAD
             checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, ""));
             string fileName = "UnqualifiedReport_" + classificationNo.Text + "_" + date.Text + ".ykk";
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "UnqualifiedReport");
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, data["floderName"]);
             // 设置提示框
             messDialog.showDialog("点检成功！");
         }

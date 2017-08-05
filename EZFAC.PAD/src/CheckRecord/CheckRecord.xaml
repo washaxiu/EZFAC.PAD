@@ -61,13 +61,13 @@
             <TextBlock x:Name="UserNameTag" FontSize="25" Text="点检人：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
-            <TextBox x:Name="username" HorizontalAlignment="Left"  FontSize="20" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="username" Margin="10,0,2,0" HorizontalAlignment="Left"  FontSize="20" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="25" Text="点检日期" VerticalAlignment="Center" MinWidth="200" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
-            <TextBox x:Name="date" HorizontalAlignment="Right"  FontSize="25" Text="2017-06-16" VerticalAlignment="Center" MinWidth="200" MinHeight="49" Foreground="#FF16325A"/>
+            <TextBlock x:Name="date" Margin="12,0,0,0"  FontSize="25" Text="2017-06-16" VerticalAlignment="Center"  Foreground="#FF16325A"/>
         </Border>
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" >
             <TextBlock x:Name="MachineGroupTag" Margin="20,0,10,0" FontSize="25" Text="机 组：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>

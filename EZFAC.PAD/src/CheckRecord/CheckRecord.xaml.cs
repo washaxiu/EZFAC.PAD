@@ -75,7 +75,7 @@ namespace EZFAC.PAD
             checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text,date.Text, comments.Text));
             string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date.Text + ".ykk";
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, "PointCheck");
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, data["floderName"]);
             // 设置提示框
             messDialog.showDialog("点检成功！");
         }
