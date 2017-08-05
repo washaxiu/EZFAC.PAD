@@ -28,7 +28,7 @@ namespace EZFAC.PAD
     /// </summary>
     public sealed partial class YZGCMonthRecordDetail : Page
     {
-        private JsonObject checkRecordData = new JsonObject();
+        
         private string type = "YZGCMonthRecord";
         private string checkfilename = "Unknown";
         private string checkgroup = "A";
@@ -37,6 +37,7 @@ namespace EZFAC.PAD
         private string userLevel = "2";
         private string checker = "zhaoyi";
         private string authority = null;
+        private string folderName = null;
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
@@ -63,7 +64,8 @@ namespace EZFAC.PAD
                 checker = getdata["checker"];
                 checkgroup = getdata["group"];
                 checkline = getdata["line"];
-                
+                folderName = getdata["folderName"];
+
                 ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
                 TextBlock[] toggleText = { Temp1Text, Temp2Text, Temp3Text, Temp4Text, Temp5Text, Temp6Text, Temp7Text, Temp8Text };
                 string[] contents = { getdata["temp1"] , getdata["temp2"] , getdata["temp3"] , getdata["temp4"],
@@ -88,7 +90,7 @@ namespace EZFAC.PAD
                     toggleSwitch[i].IsOn = contents[i] == "○" ? true : false;
                 }
                 // 获取审批信息并显示在多行Texkbox
-                commonOperation.getStateText(reviewInfor, userLevel, checkfilename, "YZGCMonthRecord");
+                commonOperation.getStateText(reviewInfor, userLevel, checkfilename, folderName);
             }
         }
         /*
@@ -165,14 +167,16 @@ namespace EZFAC.PAD
             data.Add("username", username.Text);
             data.Add("userlevel", userLevel);
             data.Add("authority", authority);
+            data.Add("folderName", folderName);
             this.Frame.Navigate(typeof(YZGCMonthRecordList), data);
         }
         private async void OnCommitData(object sender, RoutedEventArgs e)
         {
+            JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
-            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync("YZGCMonthRecord", CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
             if (folder != null)
             {
                 StorageFile file = await folder.CreateFileAsync(checkfilename, CreationCollisionOption.OpenIfExists);
@@ -248,7 +252,7 @@ namespace EZFAC.PAD
             }
             checkRecordData.Add("checkerInfo", newCheckerInfo);
             // 将json数据写入对应文件中
-            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, "YZGCMonthRecord");
+            commonOperation.writeJsonToFile(checkRecordData, checkfilename, KnownFolders.PicturesLibrary, folderName);
             // 设置提示框
             messDialog.showDialog("审批成功！");
         }

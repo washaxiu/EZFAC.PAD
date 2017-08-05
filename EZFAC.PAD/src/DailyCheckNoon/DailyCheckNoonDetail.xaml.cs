@@ -116,6 +116,7 @@ namespace EZFAC.PAD
 
         private async void OnCommitData(object sender, RoutedEventArgs e)
         {
+            JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
             TextBox[] textBox = { four, ten, eleven, twelve };
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();

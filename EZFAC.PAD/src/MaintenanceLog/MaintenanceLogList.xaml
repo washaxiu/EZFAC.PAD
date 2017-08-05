@@ -40,19 +40,19 @@
             <TextBlock x:Name="UserNameTag" FontSize="20" Text="审批人" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right" Margin="-2,2,-6,2"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0">
-            <TextBox x:Name="ApprovalListUser" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="ApprovalListUser" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="3" Padding="6" Background="#FF0080FF"  BorderThickness="0">
             <TextBlock x:Name="PositionTag" FontSize="20" Text="职位" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF"  BorderThickness="0">
-            <TextBox x:Name="ApprovalListPosition" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+            <TextBlock x:Name="ApprovalListPosition" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0" >
             <TextBlock x:Name="DateTag" HorizontalAlignment="Left"  FontSize="20" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0">
-            <TextBox x:Name="date" Margin="-80,0,0,0" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
+            <TextBlock x:Name="date" Margin="-80,0,0,0" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Background="Gray" BorderBrush="Black" BorderThickness="0,0,1,0">
             <TextBlock Text="型番"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -63,7 +63,7 @@
         <Border Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Background="Gray" BorderBrush="Black" BorderThickness="0,0,1,0">
             <TextBlock Text="SHOT数"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="3" Background="Gray" BorderBrush="Black" BorderThickness="0,0,1,0">
+        <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="3" Background="Gray" BorderBrush="Black" BorderThickness="0,0,1,1">
             <TextBlock Text="部品记录（个）" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>
         <Border Grid.Row="3" Grid.Column="4" Background="Gray" BorderBrush="Black" BorderThickness="0,0,1,0">
@@ -139,18 +139,18 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=lineName}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="2" Text="{Binding Path=elementName}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="3" Text="{Binding Path=SHOTNumber}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="4" Text="{Binding Path=record1}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=record2}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=record3}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=reason}" HorizontalAlignment="Left" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="1" Text="{Binding Path=lineName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="2" Text="{Binding Path=elementName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="3" Text="{Binding Path=SHOTNumber}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="4" Text="{Binding Path=record1}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="5" Text="{Binding Path=record2}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="6" Text="{Binding Path=record3}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="7" Text="{Binding Path=reason}" HorizontalAlignment="Center" VerticalAlignment="Center" TextTrimming="WordEllipsis"/>
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="8" Text="{Binding Path=result}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="9" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{Binding Path=Color}" FontSize="16" Grid.Column="9" Text="{Binding Path=CheckerName}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         <TextBlock Foreground="{Binding Path=Color}" FontSize="14" Grid.Column="10" Text="{Binding Path=CheckDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <StackPanel Grid.Column="11"  Margin="10,0,0,0" Orientation="Horizontal">
-                            <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick"></Button>
+                            <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -169,7 +169,8 @@
             <Run FontSize="20" Foreground="Red" Text="红 -- 已修改" />
             </TextBlock>
         </StackPanel>
-
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,1,0,0">
+        </Border>
         <Border Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
             <Button x:Name="back" HorizontalAlignment="Left" Margin="-7,0,0,3" MinHeight="50" Content="返  回" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Width="135" Click="back_Click" />
         </Border>
