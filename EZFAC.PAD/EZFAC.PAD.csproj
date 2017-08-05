@@ -142,13 +142,13 @@
     <Compile Include="src\Model\CheckerInfoEntity.cs" />
     <Compile Include="src\Model\CheckInfoEntity.cs" />
     <Compile Include="src\Model\DailyCheckNoonEntity.cs" />
-    <Compile Include="src\PointCheck\ApprovalDetail.xaml.cs">
+    <Compile Include="src\CheckRecord\ApprovalDetail.xaml.cs">
       <DependentUpon>ApprovalDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\PointCheck\ApprovalList.xaml.cs">
+    <Compile Include="src\CheckRecord\ApprovalList.xaml.cs">
       <DependentUpon>ApprovalList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\PointCheck\CheckRecord.xaml.cs">
+    <Compile Include="src\CheckRecord\CheckRecord.xaml.cs">
       <DependentUpon>CheckRecord.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,7 +158,7 @@
     <Compile Include="src\Service\YGGCMonthRecordService.cs" />
     <Compile Include="src\Tools\CommomSetting.cs" />
     <Compile Include="src\Tools\MessDialog.cs" />
-    <Compile Include="src\Service\PointCheckService.cs" />
+    <Compile Include="src\Service\CheckRecordService.cs" />
     <Compile Include="src\Tools\CommonOperation.cs" />
     <Compile Include="src\UnqualifiedReport\UnqualifiedReport.xaml.cs">
       <DependentUpon>UnqualifiedReport.xaml</DependentUpon>
@@ -282,15 +282,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\PointCheck\ApprovalDetail.xaml">
+    <Page Include="src\CheckRecord\ApprovalDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\PointCheck\ApprovalList.xaml">
+    <Page Include="src\CheckRecord\ApprovalList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\PointCheck\CheckRecord.xaml">
+    <Page Include="src\CheckRecord\CheckRecord.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
