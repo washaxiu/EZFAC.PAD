@@ -1,4 +1,5 @@
-﻿using EZFAC.PAD.src.Model;
+﻿using EZFAC.PAD.src.MaintenanceLog;
+using EZFAC.PAD.src.Model;
 using EZFAC.PAD.src.Service;
 using EZFAC.PAD.src.Tools;
 using System;
@@ -29,6 +30,7 @@ namespace EZFAC.PAD
         private MaintenanceLogService MaintenanceLogService = new MaintenanceLogService();
         private MessDialog messDialog = new MessDialog();
         private Dictionary<string, string> data = new Dictionary<string, string>();
+
         public MaintenanceLogList()
         {
             this.InitializeComponent();

@@ -18,13 +18,11 @@ using Windows.UI.Xaml.Navigation;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
-namespace EZFAC.PAD
+namespace EZFAC.PAD.src.MaintenanceLog
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    ///
-
     public sealed partial class MaintenanceLog : Page
     {
         private CommonOperation commonOperation = new CommonOperation();
@@ -38,12 +36,13 @@ namespace EZFAC.PAD
         private String elementName = "";
         private String SHOTNumber = "";
 
+
         public MaintenanceLog()
         {
             this.InitializeComponent();
             TimeLog.Text = DateTime.Now.ToString();
-        }
 
+        }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null && e.Parameter is Dictionary<string, string>)
@@ -68,9 +67,9 @@ namespace EZFAC.PAD
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, jiFan.Text, pinMing.Text, SHOT.Text));
             // 设置检查内容的json信息
             JsonArray content = new JsonArray();
-           
+
             getElement();
-            for (int i=0;i<elementNum.Count;i++)
+            for (int i = 0; i < elementNum.Count; i++)
             {
                 JsonObject contentItem = new JsonObject();
                 contentItem["name"] = JsonValue.CreateStringValue(elementNumTag[i]);
@@ -88,7 +87,7 @@ namespace EZFAC.PAD
             // 设置提示框
             messDialog.showDialog("提交成功！");
 
-           
+
         }
         private void getElement()
         {

@@ -101,6 +101,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\MaintenanceLog\MaintenanceLogDetail.xaml.cs">
+      <DependentUpon>MaintenanceLogDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\MaintenanceLog\MaintenanceLogList.xaml.cs">
+      <DependentUpon>MaintenanceLogList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\MaintenanceLog\MaintenanceLog.xaml.cs">
+      <DependentUpon>MaintenanceLog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\SemiFinishedCheck\SemiFinishedCheckDetail.xaml.cs">
       <DependentUpon>SemiFinishedCheckDetail.xaml</DependentUpon>
     </Compile>
@@ -116,6 +125,7 @@
     <Compile Include="src\DailyCheckMorning\DailyCheckMorningList.xaml.cs">
       <DependentUpon>DailyCheckMorningList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Service\MaintenanceLogService.cs" />
     <Compile Include="src\ShowImage.xaml.cs">
       <DependentUpon>ShowImage.xaml</DependentUpon>
     </Compile>
@@ -234,6 +244,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="src\MaintenanceLog\MaintenanceLogDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\MaintenanceLog\MaintenanceLogList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\MaintenanceLog\MaintenanceLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\SemiFinishedCheck\SemiFinishedCheckDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

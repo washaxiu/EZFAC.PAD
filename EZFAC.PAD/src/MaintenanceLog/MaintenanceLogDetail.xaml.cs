@@ -1,5 +1,4 @@
 ﻿using EZFAC.PAD.src.Model;
-using EZFAC.PAD.src.Service;
 using EZFAC.PAD.src.Tools;
 using System;
 using System.Collections.Generic;
@@ -22,7 +21,7 @@ using Windows.UI.Xaml.Navigation;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
-namespace EZFAC.PAD
+namespace EZFAC.PAD.src.MaintenanceLog
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
@@ -41,7 +40,6 @@ namespace EZFAC.PAD
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
-
         public MaintenanceLogDetail()
         {
             this.InitializeComponent();
@@ -56,7 +54,7 @@ namespace EZFAC.PAD
                 // 显示内容
                 username.Text = getdata["username"];
                 userLevel = getdata["userlevel"];
-                
+
                 // 获取职位
                 position.Text = commonOperation.getJobByLevel(userLevel);
 
@@ -83,7 +81,7 @@ namespace EZFAC.PAD
                 {
                     for (int j = 0; j < checkbox.Length; j++)
                     {
-                        if ((reason[i]).Equals(checkbox[j].Content)) 
+                        if ((reason[i]).Equals(checkbox[j].Content))
                         {
                             checkbox[j].IsChecked = true;
                             break;
@@ -110,9 +108,9 @@ namespace EZFAC.PAD
                     if (contentEdit[i] == '1')
                     {
                         changeColor(i);
-                    }                 
+                    }
                 }
-                        
+
                 // 获取审批信息并显示在多行Texkbox
                 commonOperation.getStateText(approvalreviewInfor, userLevel, checkfilename, "MaintenanceLog");
             }
@@ -166,7 +164,7 @@ namespace EZFAC.PAD
                 }
             }
             // 设置检查信息的json信息
-            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type,jifan.Text ,pinming.Text,SHOT.Text ));
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, jifan.Text, pinming.Text, SHOT.Text));
 
             // 设置检查内容的json信息
             JsonArray newContent = new JsonArray();
@@ -220,7 +218,7 @@ namespace EZFAC.PAD
             contentItem1 = new JsonObject();
             contentItem1["name"] = JsonValue.CreateStringValue("维修内容");
             contentItem1["status"] = JsonValue.CreateStringValue(reviewInfor.Text);
-           
+
             if (newEdit[13] == '1')
             {
                 flag = "1";
@@ -248,7 +246,7 @@ namespace EZFAC.PAD
 
             checkRecordData.Add("content", newContent);
 
-            
+
 
             // 设置各级别用户的json信息
             JsonArray newCheckerInfo = new JsonArray();
@@ -280,7 +278,7 @@ namespace EZFAC.PAD
             //  初始化内容数组
             List<string> examInfo = getElement();
             for (int i = 0; i < 12; i++)
-            {             
+            {
                 string msg1 = content[i].GetObject()["status"].GetString() == examInfo[i] ? "0" : "1";
                 edit = edit + msg1;
             }
@@ -289,14 +287,15 @@ namespace EZFAC.PAD
             String msg = "0";
             for (int i = 0; i < checkbox.Length; i++)
             {
-                for(int j = 0; j < reason1.Length; j++)
+                for (int j = 0; j < reason1.Length; j++)
                 {
-                    if(checkbox[i].Content.Equals(reason1[j]))
+                    if (checkbox[i].Content.Equals(reason1[j]))
                     {
                         if (checkbox[i].IsChecked == false)
                         {
-                            msg = "1";                           
-                        }else
+                            msg = "1";
+                        }
+                        else
                         {
                             msg = "0";
                         }
@@ -343,7 +342,7 @@ namespace EZFAC.PAD
             elementList.Add(element10.Text);
             elementList.Add(element11.Text);
             elementList.Add(element12.Text);
-            
+
             return elementList;
         }
         private List<String> getElementTag()
@@ -365,66 +364,66 @@ namespace EZFAC.PAD
         }
         private void changeColor(int i)
         {
-            if ( i == 0)
+            if (i == 0)
             {
                 element1Tag.Foreground = red;
             }
-            else if(i == 1)
+            else if (i == 1)
             {
                 element2Tag.Foreground = red;
             }
-            else if (i==2)
+            else if (i == 2)
             {
                 element3Tag.Foreground = red;
             }
-            else if (i==3)
+            else if (i == 3)
             {
                 element4Tag.Foreground = red;
             }
-            else if (i==4)
+            else if (i == 4)
             {
                 element5Tag.Foreground = red;
             }
-            else if (i==5)
+            else if (i == 5)
             {
                 element6Tag.Foreground = red;
             }
-            else if (i==6)
+            else if (i == 6)
             {
                 element7Tag.Foreground = red;
             }
-            else if (i==7)
+            else if (i == 7)
             {
                 element8Tag.Foreground = red;
             }
-            else if (i==8)
+            else if (i == 8)
             {
                 element9Tag.Foreground = red;
             }
-            else if (i==9)
+            else if (i == 9)
             {
                 element10Tag.Foreground = red;
             }
-            else if (i==10)
+            else if (i == 10)
             {
                 element11Tag.Foreground = red;
             }
-            else if (i==11)
+            else if (i == 11)
             {
                 element12Tag.Foreground = red;
             }
-            else if (i==12)
+            else if (i == 12)
             {
                 reason.Foreground = red;
             }
-            else if (i==13)
+            else if (i == 13)
             {
                 content.Foreground = red;
             }
-            else if (i==14)
+            else if (i == 14)
             {
                 result.Foreground = red;
-            }          
+            }
         }
     }
 }

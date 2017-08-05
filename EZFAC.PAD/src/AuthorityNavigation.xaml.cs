@@ -22,6 +22,7 @@ using EZFAC.PAD.src.Model;
 using EZFAC.PAD.src.Tools;
 using Windows.UI.Xaml.Documents;
 using Windows.UI;
+using EZFAC.PAD.src.MaintenanceLog;
 
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
@@ -201,7 +202,14 @@ namespace EZFAC.PAD
             // 压铸工程型维修记录表的检查和审批界面 
             else if (line07.IsChecked == true)
             {
-
+                if (level == "1")
+                {
+                    this.Frame.Navigate(typeof(MaintenanceLog), data);
+                }
+                else
+                {
+                    this.Frame.Navigate(typeof(MaintenanceLogList), data);
+                }
             }
             // 压铸工程月度机械漏油点检记录表的检查和审批界面 
             else if (line08.IsChecked == true)

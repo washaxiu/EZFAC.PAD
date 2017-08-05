@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Storage;
@@ -66,7 +65,7 @@ namespace EZFAC.PAD.src.Service
                             lineName = checkInfo[0].GetObject()["lineName"].GetString(),
                             elementName = checkInfo[0].GetObject()["elementName"].GetString(),
                             SHOTNumber = checkInfo[0].GetObject()["SHOTNumber"].GetString(),
-                            record1 = content[0].GetObject()["status"].GetString(),                           
+                            record1 = content[0].GetObject()["status"].GetString(),
                             record2 = content[1].GetObject()["status"].GetString(),
                             record3 = content[2].GetObject()["status"].GetString(),
                             record4 = content[3].GetObject()["status"].GetString(),
@@ -102,10 +101,10 @@ namespace EZFAC.PAD.src.Service
             for (int i = 0; i < listView.SelectedItems.Count; i++)
             {
                 string itemContent = listView.SelectedItems[i].ToString();
-                
+
                 string jifan = null, piming = null, date = null;
                 string[] strs = itemContent.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "").Split("{,=}".ToCharArray());
-                
+
                 for (int j = 1; j < strs.Length - 1; j += 2)
                 {
                     if (strs[j].Equals("CheckDate")) date = strs[j + 1];
@@ -165,7 +164,7 @@ namespace EZFAC.PAD.src.Service
                 else if (strs[i].Equals("elementName"))
                 {
                     data.Add("pinming", strs[i + 1]);
-                } 
+                }
                 else if (strs[i].Equals("CheckDate"))
                 {
                     data.Add("date", strs[i + 1]);
@@ -184,7 +183,7 @@ namespace EZFAC.PAD.src.Service
                 }
                 else if (strs[i].Equals("record3"))
                 {
-                    data.Add("record3",strs[i+1]);
+                    data.Add("record3", strs[i + 1]);
                 }
                 else if (strs[i].Equals("record4"))
                 {
@@ -221,7 +220,7 @@ namespace EZFAC.PAD.src.Service
                 else if (strs[i].Equals("record12"))
                 {
                     data.Add("record12", strs[i + 1]);
-                }        
+                }
                 else if (strs[i].Equals("reason"))
                 {
                     data.Add("reason", strs[i + 1]);
@@ -241,10 +240,9 @@ namespace EZFAC.PAD.src.Service
                 else if (strs[i].Equals("ContentEdit"))
                 {
                     data.Add("ContentEdit", strs[i + 1]);
-                }              
+                }
             }
             return data;
         }
-       
     }
 }
