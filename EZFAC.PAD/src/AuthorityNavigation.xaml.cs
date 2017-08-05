@@ -43,7 +43,7 @@ namespace EZFAC.PAD
                                     "SemiFinishedCheck",
                                     "DailyCheckMorning",
                                     "DailyCheckNoon",
-                                    "",
+                                    "MaintenanceLog",
                                     "YZGCMonthRecord"
                                  };
         private string[] approvalcMenus = {  "ApprovalList",
@@ -52,7 +52,7 @@ namespace EZFAC.PAD
                                              "SemiFinishedCheckList",
                                              "DailyCheckMorningList",
                                              "DailyCheckNoonList",
-                                             "",
+                                             "MaintenanceLogList",
                                              "YZGCMonthRecordList"
                                            };
 
@@ -201,7 +201,7 @@ namespace EZFAC.PAD
             // 压铸工程型维修记录表的检查和审批界面 
             else if (line07.IsChecked == true)
             {
-                data["floderName"] = checkMenus[6];
+
             }
             // 压铸工程月度机械漏油点检记录表的检查和审批界面 
             else if (line08.IsChecked == true)
