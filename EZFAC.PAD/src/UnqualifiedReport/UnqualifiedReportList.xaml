@@ -16,14 +16,12 @@
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="64"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
             <ColumnDefinition/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="70"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
@@ -55,11 +53,11 @@
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF"  BorderThickness="0">
             <TextBlock x:Name="ApprovalListPosition" HorizontalAlignment="Left" Margin="10,0,0,2" FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0" >
+        <Border Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="3" Padding="6" Background="#FF0080FF"  BorderThickness="0" >
             <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="20" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF"  BorderThickness="0">
-            <TextBlock x:Name="date" HorizontalAlignment="Left" FontSize="18" Margin="10,0,0,2" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
+        <Border Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="1" Padding="6" Background="#FF0080FF"  BorderThickness="0">
+            <TextBlock x:Name="date" HorizontalAlignment="Left" FontSize="16" Margin="0,0,0,2" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="2" Grid.Column="0" Background="Gray">
             <TextBlock Text="审批" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -72,53 +70,60 @@
         <Border Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Background="Gray">
             <TextBlock Text="分类番号"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="7" Background="Gray" BorderThickness="1">
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="5" Background="Gray" BorderThickness="1">
             <TextBlock Text="不适合品内容" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>
         
-        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="9" Background="Gray">
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="7" Background="Gray">
             <TextBlock Text="工程长" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>
-        <Border Grid.Row="2" Grid.Column="10" Grid.RowSpan="2" Background="Gray">
+        <Border Grid.Row="2" Grid.Column="8" Grid.RowSpan="2" Background="Gray">
             <TextBlock Text="担当人" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        <Border Grid.Row="2" Grid.Column="11" Grid.RowSpan="2" Background="Gray">
+        <Border Grid.Row="2" Grid.Column="9" Grid.RowSpan="2" Background="Gray">
             <TextBlock Text="报告日期" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>
-        
-
-
-        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="12"  Background="Gray">
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="10"  Background="Gray">
             <TextBlock Text="明细检查" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>
         <Border Grid.Row="4" Grid.Column="0" />
         <Border Grid.Row="4" Grid.Column="1" />
-        <Border Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="7" BorderThickness="0,1,0,1"></Border>
+        <Border Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="5" BorderThickness="0,1,0,1"></Border>
+        <Border Grid.Row="4" Grid.Column="7" />
+        <Border Grid.Row="4" Grid.Column="8"  />
         <Border Grid.Row="4" Grid.Column="9" />
-        <Border Grid.Row="4" Grid.Column="10"  />
-        <Border Grid.Row="4" Grid.Column="11" />
-        <Border Grid.Row="4" Grid.Column="12" />
+        <Border Grid.Row="4" Grid.Column="10" />
+
 
         <ListView Name="lvFiles" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="13" SelectionMode="Multiple">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="95"/>
-                            <ColumnDefinition Width="490"/>
-                            <ColumnDefinition Width="92"/>
-                            <ColumnDefinition Width="94"/>
-                            <ColumnDefinition Width="92"/>
-                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         
                         <TextBlock  FontSize="14" Grid.Column="1" Text="{Binding Path=classificationNo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock  FontSize="16" Grid.Column="2" Text="{Binding Path=unqualifiedContent}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock  FontSize="16" Grid.Column="3" Text="{Binding Path=username}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock  FontSize="16" Grid.Column="4" Text="{Binding Path=underTaker}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock  FontSize="14" Grid.Column="5" Text="{Binding Path=date}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel Grid.Column="6"  Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock  FontSize="16" Grid.Column="2" Grid.ColumnSpan="5" Text="{Binding Path=unqualifiedContent}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock  FontSize="16" Grid.Column="7" Text="{Binding Path=username}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock  FontSize="16" Grid.Column="8" Margin="10,0,0,0" Text="{Binding Path=underTaker}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock  FontSize="14" Grid.Column="9" Margin="20,0,0,0" Text="{Binding Path=date}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="10" Margin="0,0,10,0"  HorizontalAlignment="Right" VerticalAlignment="Center">
                             <Button Name="look" CommandParameter="{Binding Path=Count}" Content="查 看" Background="#FF0052FF" FontSize="15" Foreground="White" Click="onLookClick"></Button>
                         </StackPanel>
                     </Grid>
@@ -141,7 +146,7 @@
         <TextBlock Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Margin="-14,-4,10,0"  VerticalAlignment="Center" >
             <Run FontSize="22"  Foreground="Green" Text="颜色说明" />
         </TextBlock>
-        <StackPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Margin="25,7,10,0" Orientation="Vertical" >
+        <StackPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Margin="12,7,10,0" Orientation="Vertical" >
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20" Foreground="Black" Text="黑 -- 未修改" />
             </TextBlock>
@@ -150,11 +155,11 @@
             </TextBlock>
         </StackPanel>
 
-        <Border Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
-            <Button x:Name="back" HorizontalAlignment="Left" Margin="-7,0,0,3" MinHeight="50" Content="返  回" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="back_Click" VerticalAlignment="Bottom" Width="135" />
+        <Border Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
+            <Button x:Name="back" HorizontalAlignment="Left" Margin="27,0,0,3" MinHeight="50" Content="返  回" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="back_Click" VerticalAlignment="Bottom" Width="135" />
         </Border>
-        <Border Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
-            <Button x:Name="Confirm" HorizontalAlignment="Right" Margin="-5,3,3,3" MinHeight="50" Content="确 认" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Width="140" Click="Confirm_Click" />
+        <Border Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
+            <Button x:Name="Confirm" HorizontalAlignment="Right" Margin="0,3,12,3" MinHeight="50" Content="确 认" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Width="140" Click="Confirm_Click" />
         </Border>
     </Grid>
 </Page>
