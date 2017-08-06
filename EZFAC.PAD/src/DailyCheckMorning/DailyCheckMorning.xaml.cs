@@ -159,7 +159,7 @@ namespace EZFAC.PAD
             this.Frame.Navigate(typeof(AuthorityNavigation), data);
         }
 
-
+        // 点击查看大图
         private async void Image_Click(object sender, PointerRoutedEventArgs e)
         {
             Image image = new Image();

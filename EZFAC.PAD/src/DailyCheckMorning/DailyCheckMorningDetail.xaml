@@ -112,28 +112,28 @@
         <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" >
             <TextBlock  FontSize="25" Text="运转确认：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
-        <Image x:Name="image1"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning1.png" Stretch="Fill" />
+        <Image x:Name="image1"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning1.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock x:Name="firstText" TextWrapping="Wrap" FontSize="13" Text="1：马达运转有无异常音"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
             <ToggleSwitch x:Name="first" Header="" OffContent="N G" OnContent="O K"/>
         </Border>
-        <Image x:Name="image2"  Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning2.png" Stretch="Fill" />
+        <Image x:Name="image2"  Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning2.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock FontSize="13" x:Name="twoText" TextWrapping="Wrap" Text="2：离型剂喷雾角度，大小确认"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="two" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
-        <Image x:Name="image3"  Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning3.png" Stretch="Fill" />
+        <Image x:Name="image3"  Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning3.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="4"  VerticalAlignment="Top">
             <TextBlock FontSize="13" x:Name="threeText" TextWrapping="Wrap" Text="3：PISTON加压状态确认"></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="three" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
-        <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning4.png" Stretch="Fill" />
+        <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning4.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock FontSize="13" x:Name="fourText" TextWrapping="Wrap" Text="4：油温针温度确认（40℃以下）"></TextBlock>
         </Border>
@@ -146,21 +146,21 @@
         <Border Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="℃"></TextBlock>
         </Border>
-        <Image x:Name="image5"  Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning5.png" Stretch="Fill" />
+        <Image x:Name="image5"  Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning5.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock FontSize="13" x:Name="fiveText" TextWrapping="Wrap" Text="5：PC冷却装置温度手感确认"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="five" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
-        <Image x:Name="image6"  Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning6.png" Stretch="Fill" />
+        <Image x:Name="image6"  Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning6.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="10" Grid.Column="9" Grid.ColumnSpan="4"  VerticalAlignment="Top">
             <TextBlock FontSize="13" x:Name="sixText" TextWrapping="Wrap" Text="6：注油确认（LC润滑油）"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="9" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="six" Header="" OffContent="N G" OnContent="O K"   />
         </Border>
-        <Image x:Name="image7"  Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="3"  Grid.RowSpan="2" Source="ms-appx:///Images/morning7.png" Stretch="Fill" />
+        <Image x:Name="image7"  Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="3"  Grid.RowSpan="2" Source="ms-appx:///Images/morning7.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="14" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Top">
             <TextBlock FontSize="13" x:Name="sevenText" TextWrapping="Wrap" Text="7:离型剂管漏油确认"></TextBlock>
         </Border>
@@ -176,7 +176,7 @@
             <TextBlock  FontSize="25" Text="基准检查（参照设定基准）：" VerticalAlignment="Center" HorizontalAlignment="Left" />
         </Border>
 
-        <Image x:Name="image8"  Grid.Row="4" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="3" Source="ms-appx:///Images/morning8.png" Stretch="Fill" />
+        <Image x:Name="image8"  Grid.Row="4" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="3" Source="ms-appx:///Images/morning8.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="7" Grid.Column="14" Grid.ColumnSpan="4"  VerticalAlignment="Top">
             <TextBlock FontSize="13" x:Name="eightText" TextWrapping="Wrap" Text="8：品名ITEM确认"></TextBlock>
         </Border>
@@ -207,7 +207,7 @@
         <Border Grid.Row="8" Grid.Column="21" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock Text="  ℃"></TextBlock>
         </Border>
-        <Image x:Name="image11"  Grid.Row="9" Grid.Column="14" Grid.ColumnSpan="8" Grid.RowSpan="5" Source="ms-appx:///Images/morning9.png" Stretch="Fill" />
+        <Image x:Name="image11"  Grid.Row="9" Grid.Column="14" Grid.ColumnSpan="8" Grid.RowSpan="5" Source="ms-appx:///Images/morning9.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="14" Grid.Column="13" Grid.ColumnSpan="4"  VerticalAlignment="Center" HorizontalAlignment="Right">
             <TextBlock x:Name="GOOSENECKTempText" TextWrapping="Wrap" Text="11：GOOSE NECK温度"></TextBlock>
         </Border>
@@ -251,35 +251,35 @@
             <TextBlock  FontSize="25" Text="6S确认：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
 
-        <Image x:Name="image14"  Grid.Row="17" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning14.png" Stretch="Fill"/>
+        <Image x:Name="image14"  Grid.Row="17" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning14.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="19" Grid.Column="2" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock x:Name="fourteenText" TextWrapping="Wrap" Text="14：地面散落制品清扫确认"></TextBlock>
         </Border>
         <Border Grid.Row="20" Grid.Column="2" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="fourteen" Header="" OffContent="N G" OnContent="O K"/>
         </Border>
-        <Image x:Name="image15"  Grid.Row="17" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning15.png" Stretch="Fill" />
+        <Image x:Name="image15"  Grid.Row="17" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning15.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="19" Grid.Column="6" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock x:Name="fifteenText" TextWrapping="Wrap" Text="15：地沟废油清理确认"></TextBlock>
         </Border>
         <Border Grid.Row="20" Grid.Column="6" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="fifteen" Header="" OffContent="N G" OnContent="O K"/>
         </Border>
-        <Image x:Name="image16"  Grid.Row="17" Grid.Column="10" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning16.png" Stretch="Fill" />
+        <Image x:Name="image16"  Grid.Row="17" Grid.Column="10" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning16.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="19" Grid.Column="10" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock x:Name="sixteenText" TextWrapping="Wrap" Text="16：检查工具摆放确认"></TextBlock>
         </Border>
         <Border Grid.Row="20" Grid.Column="10" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="sixteen" Header="" OffContent="N G" OnContent="O K" />
         </Border>
-        <Image x:Name="image17"  Grid.Row="17" Grid.Column="14" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning17.png" Stretch="Fill" />
+        <Image x:Name="image17"  Grid.Row="17" Grid.Column="14" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning17.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="19" Grid.Column="14" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
             <TextBlock x:Name="seventeenText" TextWrapping="Wrap" Text="17：安全玻璃罩是否干净"></TextBlock>
         </Border>
         <Border Grid.Row="20" Grid.Column="14" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="seventeen" Header="" OffContent="N G" OnContent="O K"/>
         </Border>
-        <Image x:Name="image18"  Grid.Row="17" Grid.Column="18" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning18.png" Stretch="Fill" />
+        <Image x:Name="image18"  Grid.Row="17" Grid.Column="18" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning18.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="19" Grid.Column="18" Grid.ColumnSpan="3"  VerticalAlignment="Top">
             <TextBlock x:Name="eighteenText" TextWrapping="Wrap" Text="18：油烟机集油盒"></TextBlock>
         </Border>
