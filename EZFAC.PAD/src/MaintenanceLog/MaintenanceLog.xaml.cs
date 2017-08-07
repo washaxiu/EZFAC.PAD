@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -36,7 +37,6 @@ namespace EZFAC.PAD.src.MaintenanceLog
         private String elementName = "";
         private String SHOTNumber = "";
 
-
         public MaintenanceLog()
         {
             this.InitializeComponent();
@@ -53,6 +53,17 @@ namespace EZFAC.PAD.src.MaintenanceLog
                 username.Text = data["username"];
                 position.Text = commonOperation.getJobByLevel(data["userlevel"]);
                 date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                //得到部品下拉框内容
+                String productNum = getProductNum();
+                String[] productNameArray = Regex.Split(productNum, ",", RegexOptions.IgnoreCase);
+
+                ComboBox[] comboBox = { element1, element2, element3, element4, element5, element6, element7, element8, element9, element10, element11, element12 };
+                for(int i = 0; i < comboBox.Length; i++)
+                {
+                    comboBox[i].ItemsSource = productNameArray;
+                    comboBox[i].SelectedIndex = 0;
+                }
+
             }
 
         }
@@ -89,21 +100,22 @@ namespace EZFAC.PAD.src.MaintenanceLog
 
 
         }
+        //得到各个控件值
         private void getElement()
         {
 
-            elementNum.Add(element1.Text);
-            elementNum.Add(element2.Text);
-            elementNum.Add(element3.Text);
-            elementNum.Add(element4.Text);
-            elementNum.Add(element5.Text);
-            elementNum.Add(element6.Text);
-            elementNum.Add(element7.Text);
-            elementNum.Add(element8.Text);
-            elementNum.Add(element9.Text);
-            elementNum.Add(element10.Text);
-            elementNum.Add(element11.Text);
-            elementNum.Add(element12.Text);
+            elementNum.Add(element1.SelectedValue.ToString());
+            elementNum.Add(element2.SelectedValue.ToString());
+            elementNum.Add(element3.SelectedValue.ToString());
+            elementNum.Add(element4.SelectedValue.ToString());
+            elementNum.Add(element5.SelectedValue.ToString());
+            elementNum.Add(element6.SelectedValue.ToString());
+            elementNum.Add(element7.SelectedValue.ToString());
+            elementNum.Add(element8.SelectedValue.ToString());
+            elementNum.Add(element9.SelectedValue.ToString());
+            elementNum.Add(element10.SelectedValue.ToString());
+            elementNum.Add(element11.SelectedValue.ToString());
+            elementNum.Add(element12.SelectedValue.ToString());
             CheckBox[] checkbox = { maintain_A, maintain_B, maintain_C, maintain_D, maintain_E, maintain_F, maintain_G, maintain_H, maintain_J, maintain_K, maintain_M, maintain_N, maintain_P, maintain_S, maintain_T, maintain_U };
             String reason = "";
             for (int i = 0; i < checkbox.Length; i++)
@@ -134,6 +146,17 @@ namespace EZFAC.PAD.src.MaintenanceLog
             elementNumTag.Add("维修原因");
             elementNumTag.Add("维修内容");
             elementNumTag.Add("维修结果");
+        }
+        //部品下拉框赋值
+        public String getProductNum()
+        {
+            String productNum = null;
+            for (int i = 1; i <= 200; i++)
+            {
+                if (i != 1) productNum = productNum + ",";
+                productNum = productNum + i + "个";
+            }
+            return productNum;
         }
     }
 }

@@ -64,18 +64,31 @@ namespace EZFAC.PAD.src.MaintenanceLog
                 pinming.Text = getdata["pinming"];
                 SHOT.Text = getdata["SHOT"];
                 folderName = getdata["folderName"];
-                element1.Text = getdata["record1"];
-                element2.Text = getdata["record2"];
-                element3.Text = getdata["record3"];
-                element4.Text = getdata["record4"];
-                element5.Text = getdata["record5"];
-                element6.Text = getdata["record6"];
-                element7.Text = getdata["record7"];
-                element8.Text = getdata["record8"];
-                element9.Text = getdata["record9"];
-                element10.Text = getdata["record10"];
-                element11.Text = getdata["record11"];
-                element12.Text = getdata["record12"];
+                //element1.SelectedValue = getdata["record1"];
+                //element2.SelectedValue = getdata["record2"];
+                //element3.SelectedValue = getdata["record3"];
+                //element4.SelectedValue = getdata["record4"];
+                //element5.SelectedValue = getdata["record5"];
+                //element6.SelectedValue = getdata["record6"];
+                //element7.SelectedValue = getdata["record7"];
+                //element8.SelectedValue = getdata["record8"];
+                //element9.SelectedValue = getdata["record9"];
+                //element10.SelectedValue = getdata["record10"];
+                //element11.SelectedValue = getdata["record11"];
+                //element12.SelectedValue = getdata["record12"].ToString();
+                string[] value = { getdata["record1"], getdata["record2"],getdata["record3"],getdata["record4"],getdata["record5"],getdata["record6"],getdata["record7"],getdata["record8"],getdata["record9"],getdata["record10"],getdata["record11"],getdata["record12"]};
+                //得到部品下拉框内容
+                String productNum = getProductNum();
+                String[] productNameArray = Regex.Split(productNum, ",", RegexOptions.IgnoreCase);
+
+                ComboBox[] comboBox = { element1, element2, element3, element4, element5, element6, element7, element8, element9, element10, element11, element12 };
+                for (int i = 0; i < comboBox.Length; i++)
+                {
+                    comboBox[i].ItemsSource = productNameArray;
+                    string j = value[i].Substring(0, value[i].Length-1).ToString();
+                    comboBox[i].SelectedIndex = int.Parse(j)-1;
+                    
+                }
 
                 String[] reason = Regex.Split(getdata["reason"], ";", RegexOptions.IgnoreCase);
                 CheckBox[] checkbox = { maintain_A, maintain_B, maintain_C, maintain_D, maintain_E, maintain_F, maintain_G, maintain_H, maintain_J, maintain_K, maintain_M, maintain_N, maintain_P, maintain_S, maintain_T, maintain_U };
@@ -334,18 +347,18 @@ namespace EZFAC.PAD.src.MaintenanceLog
         private List<String> getElement()
         {
             List<String> elementList = new List<string>();
-            elementList.Add(element1.Text);
-            elementList.Add(element2.Text);
-            elementList.Add(element3.Text);
-            elementList.Add(element4.Text);
-            elementList.Add(element5.Text);
-            elementList.Add(element6.Text);
-            elementList.Add(element7.Text);
-            elementList.Add(element8.Text);
-            elementList.Add(element9.Text);
-            elementList.Add(element10.Text);
-            elementList.Add(element11.Text);
-            elementList.Add(element12.Text);
+            elementList.Add(element1.SelectedValue.ToString());
+            elementList.Add(element2.SelectedValue.ToString());
+            elementList.Add(element3.SelectedValue.ToString());
+            elementList.Add(element4.SelectedValue.ToString());
+            elementList.Add(element5.SelectedValue.ToString());
+            elementList.Add(element6.SelectedValue.ToString());
+            elementList.Add(element7.SelectedValue.ToString());
+            elementList.Add(element8.SelectedValue.ToString());
+            elementList.Add(element9.SelectedValue.ToString());
+            elementList.Add(element10.SelectedValue.ToString());
+            elementList.Add(element11.SelectedValue.ToString());
+            elementList.Add(element12.SelectedValue.ToString());
 
             return elementList;
         }
@@ -428,6 +441,17 @@ namespace EZFAC.PAD.src.MaintenanceLog
             {
                 result.Foreground = red;
             }
+        }
+        //部品下拉框赋值
+        public String getProductNum()
+        {
+            String productNum = null;
+            for (int i = 1; i <= 200; i++)
+            {
+                if (i != 1) productNum = productNum + ",";
+                productNum = productNum + i + "个";
+            }
+            return productNum;
         }
     }
 }

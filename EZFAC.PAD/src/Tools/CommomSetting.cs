@@ -112,6 +112,6 @@ namespace EZFAC.PAD.src.Tools
                     line[gruopD[i] - 1].IsEnabled = true;
                 }
             }
-        }
+        }      
     }
 }
