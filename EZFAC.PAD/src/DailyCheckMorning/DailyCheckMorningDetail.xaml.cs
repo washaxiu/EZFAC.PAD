@@ -161,13 +161,13 @@ namespace EZFAC.PAD
             // 设置机器的型号以及稼动情况  审批时这两个字段不可更改
             JsonObject contentItem1 = new JsonObject();
             contentItem1["name"] = JsonValue.CreateStringValue(machineModel.Name);
-            contentItem1["status"] = JsonValue.CreateStringValue(machineModel.Text.ToString());
+            contentItem1["status"] = JsonValue.CreateStringValue(machineModel.Text);
             contentItem1["edit"] = JsonValue.CreateStringValue("0");
             newContent.Add(contentItem1);
 
             JsonObject contentItem2 = new JsonObject();
             contentItem2["name"] = JsonValue.CreateStringValue(work.Name);
-            contentItem2["status"] = JsonValue.CreateStringValue(work.Text.ToString());
+            contentItem2["status"] = JsonValue.CreateStringValue(work.Text);
             contentItem2["edit"] = JsonValue.CreateStringValue("0");
             newContent.Add(contentItem2);
 

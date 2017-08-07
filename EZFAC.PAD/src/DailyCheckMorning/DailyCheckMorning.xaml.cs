@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Tools;
 using EZFAC.PAD.src;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -37,6 +38,8 @@ namespace EZFAC.PAD
         private string type = "DieCasting";
         private string groupName = "A";
         private string lineName = "01";
+        private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        private SolidColorBrush black = new SolidColorBrush(Colors.Black);
         private JsonObject group = new JsonObject();
         List<string[]> lineList = new List<string[]>();
 
@@ -69,6 +72,22 @@ namespace EZFAC.PAD
             JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, fourteen, fifteen, sixteen, seventeen, eighteen };
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
+            TextBlock[] textBlock = { fourText, zhouqiText, nozzleTempText, GOOSENECKTempText, fuTemp1Text, fuTemp2Text };
+            bool flagRequiredFields = true;
+            for (int i = 0; i < textBox.Length; i++)
+            {
+                textBlock[i].Foreground = black;
+                if ("".Equals(textBox[i].Text.Trim()))
+                {
+                    textBlock[i].Foreground = red;
+                    flagRequiredFields = false;
+                }
+            }
+            if (!flagRequiredFields)
+            {
+                messDialog.showDialog("必填项不能为空！");
+                return;
+            }
             // 初始化检查的json信息
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
             // 设置检查内容的json信息
@@ -96,6 +115,12 @@ namespace EZFAC.PAD
             }
             foreach (TextBox text in textBox)
             {
+                if ("".Equals(text.Text.Trim()))
+                {
+                    messDialog.showDialog(text.Tag + "的值不能为空！");
+                    text.Foreground = red;
+                    return;
+                }
                 JsonObject contentItem = new JsonObject();
                 contentItem["name"] = JsonValue.CreateStringValue(text.Name);
                 contentItem["status"] = JsonValue.CreateStringValue(text.Text);

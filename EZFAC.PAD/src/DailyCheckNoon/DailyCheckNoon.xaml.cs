@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Tools;
+using Windows.UI;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -35,6 +36,8 @@ namespace EZFAC.PAD
         private string type = "DieCasting";
         private string groupName = "A";
         private string lineName = "01";
+        private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        private SolidColorBrush black = new SolidColorBrush(Colors.Black);
         private JsonObject group = new JsonObject();
         List<string[]> lineList = new List<string[]>();
         public DailyCheckNoon()
@@ -66,6 +69,22 @@ namespace EZFAC.PAD
             JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
             TextBox[] textBox = { four, ten, eleven, twelve };
+            TextBlock[] textBlock = { fourText, tenText, elevenText, twelveText };
+            bool flagRequiredFields = true;
+            for (int i = 0;i < textBox.Length; i++)
+            {
+                textBlock[i].Foreground = black;
+                if ("".Equals(textBox[i].Text.Trim()))
+                {
+                    textBlock[i].Foreground = red;
+                    flagRequiredFields = false;
+                }
+            }
+            if (!flagRequiredFields)
+            {
+                messDialog.showDialog("必填项不能为空！");
+                return;
+            }
             // 初始化检查的json信息
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
             // 设置检查内容的json信息
@@ -83,6 +102,7 @@ namespace EZFAC.PAD
             contentItem2["edit"] = JsonValue.CreateStringValue("0");
             content.Add(contentItem2);
 
+            
             foreach (ToggleSwitch item in toggleSwitch)
             {
                 JsonObject contentItem = new JsonObject();

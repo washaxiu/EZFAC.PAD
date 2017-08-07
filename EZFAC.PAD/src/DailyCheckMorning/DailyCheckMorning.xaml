@@ -148,13 +148,13 @@
         </Border>
         <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/morning4.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="5"  VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock FontSize="13" Text="4：油温针温度确认(40℃以下)"></TextBlock>
+            <TextBlock x:Name="fourText" FontSize="13" Text="4：油温针温度确认(40℃以下)"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="油压"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="four"></TextBox>
+            <TextBox  x:Name="four" Tag="油温针温度"></TextBox>
         </Border>
         <Border Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="℃"></TextBlock>
@@ -193,7 +193,7 @@
         <Border Grid.Row="7" Grid.Column="14" Grid.ColumnSpan="4" >
             <ToggleSwitch x:Name="eight" Header="" OffContent="N G" OnContent="O K"  Height="48" Margin="55,-12,-52,0" />
         </Border>
-        <TextBlock FontSize="13" Grid.Row="4" Grid.Column="19" Grid.ColumnSpan="4">
+        <TextBlock x:Name="zhouqiText" FontSize="13" Grid.Row="4" Grid.Column="19" Grid.ColumnSpan="4">
                 <Run FontSize="13" Text="9：CYCLE显示周期&#x0a;"></Run>
                 <Run FontSize="13" Text="  （3.4S-5.0S）"></Run>
         </TextBlock>
@@ -201,56 +201,56 @@
             <TextBlock Text="周期："></TextBlock>
         </Border>
         <Border Grid.Row="5" Grid.Column="20" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="zhouqi"></TextBox>
+            <TextBox x:Name="zhouqi" Tag="CYCLE周期"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="21" Grid.ColumnSpan="1" VerticalAlignment="Center">
             <TextBlock Text="  S"></TextBlock>
         </Border>
-        <TextBlock Grid.Row="6" Grid.Column="19" Grid.ColumnSpan="5"  HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock x:Name="nozzleTempText" Grid.Row="6" Grid.Column="19" Grid.ColumnSpan="5"  HorizontalAlignment="Left" VerticalAlignment="Center">
                <Run FontSize="13" Text="10：NOZZLE运转温度"></Run>
         </TextBlock>
         <Border Grid.Row="7" Grid.Column="19" Grid.ColumnSpan="1" VerticalAlignment="Center">
             <TextBlock Text="温度："></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="20" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="nozzleTemp"></TextBox>
+            <TextBox x:Name="nozzleTemp" Tag="NOZZLE运转温度"></TextBox>
         </Border>
         <Border Grid.Row="7" Grid.Column="21" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock Text="  ℃"></TextBlock>
         </Border>
         <Image x:Name="image11"  Grid.Row="8" Grid.Column="14" Grid.ColumnSpan="8" Grid.RowSpan="6" Source="ms-appx:///Images/morning9.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="14" Grid.Column="13" Grid.ColumnSpan="4"  VerticalAlignment="Center" HorizontalAlignment="Right">
-            <TextBlock FontSize="13" Text="11：GOOSE NECK温度"></TextBlock>
+            <TextBlock x:Name="GOOSENECKTempText" FontSize="13" Text="11：GOOSE NECK温度"></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="14" Grid.ColumnSpan="1"  VerticalAlignment="Center">
             <TextBlock  Text="温度："></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="15" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="GOOSENECKTemp" TextWrapping="Wrap"></TextBox>
+            <TextBox x:Name="GOOSENECKTemp" TextWrapping="Wrap" Tag="GOOSE NECK温度"></TextBox>
         </Border>
         <Border Grid.Row="15" Grid.Column="16" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock TextWrapping="Wrap" Text="  ℃"></TextBlock>
         </Border>
         <Border Grid.Row="14" Grid.Column="17" Grid.ColumnSpan="3"  HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock  FontSize="13" Text="12：釜温度①"></TextBlock>
+            <TextBlock x:Name="fuTemp1Text" FontSize="13" Text="12：釜温度①"></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="18" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock  Text="温度："></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="19" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="fuTemp1"></TextBox>
+            <TextBox x:Name="fuTemp1" Tag="釜温度①"></TextBox>
         </Border>
         <Border Grid.Row="15" Grid.Column="20" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock TextWrapping="Wrap" Text="  ℃"></TextBlock>
         </Border>
         <Border Grid.Row="14" Grid.Column="20" Grid.ColumnSpan="3"  HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock FontSize="13" Text="13：釜温度②"></TextBlock>
+            <TextBlock x:Name="fuTemp2Text" FontSize="13" Text="13：釜温度②"></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="21" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock TextWrapping="Wrap" Text="温度:"></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="22" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="fuTemp2" TextWrapping="Wrap"></TextBox>
+            <TextBox x:Name="fuTemp2" TextWrapping="Wrap" Tag="釜温度②"></TextBox>
         </Border>
         <Border Grid.Row="15" Grid.Column="23" Grid.ColumnSpan="1" VerticalAlignment="Center"  >
             <TextBlock TextWrapping="Wrap" Text="  ℃"></TextBlock>

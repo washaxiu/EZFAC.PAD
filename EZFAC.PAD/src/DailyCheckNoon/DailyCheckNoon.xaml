@@ -152,13 +152,13 @@
         </Border>
         <Image x:Name="image4"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/noon4.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom">
-            <TextBlock FontSize="13" TextWrapping="Wrap" Text="4：射出速度是否正确（2.0-4.5）"></TextBlock>
+            <TextBlock x:Name="fourText" FontSize="13" TextWrapping="Wrap" Text="4：射出速度是否正确（2.0-4.5）"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="速度"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="four"></TextBox>
+            <TextBox  x:Name="four" Tag="射出速度"></TextBox>
         </Border>
         <Image x:Name="image5"  Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/noon5.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Top">
@@ -205,39 +205,39 @@
         </Border>
         <Image x:Name="image10"  Grid.Row="5" Grid.Column="19" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="ms-appx:///Images/noon10.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="7" Grid.Column="19" Grid.ColumnSpan="4"  Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <TextBlock FontSize="13" TextWrapping="Wrap" Text="10：主回路油压压力&#x0a;   20T:55-60Kg/cm2&#x0a;   25T:90-95Kg/cm2"></TextBlock>
+            <TextBlock x:Name="tenText" FontSize="13" TextWrapping="Wrap" Text="10：主回路油压压力&#x0a;   20T:55-60Kg/cm2&#x0a;   25T:90-95Kg/cm2"></TextBlock>
         </Border>
         <Border Grid.Row="9" Grid.Column="19" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock  Text="油压"></TextBlock>
         </Border>
         <Border Grid.Row="9" Grid.Column="20" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox  x:Name="ten"></TextBox>
+            <TextBox  x:Name="ten" Tag="主回路油压压力"></TextBox>
         </Border>
         <Border Grid.Row="9" Grid.Column="21" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="  kg/cm2" FontSize="13"></TextBlock>
         </Border>
         <Image x:Name="image11"  Grid.Row="10" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="ms-appx:///Images/noon11.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="12" Grid.Column="14" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <TextBlock FontSize="13" TextWrapping="Wrap" Text="11：负回路油压压力&#x0a;   20T:40±5Kg/cm2&#x0a;   20T:40±5Kg/cm2"></TextBlock>
+            <TextBlock x:Name="elevenText" FontSize="13" TextWrapping="Wrap" Text="11：负回路油压压力&#x0a;   20T:40±5Kg/cm2&#x0a;   20T:40±5Kg/cm2"></TextBlock>
         </Border>
         <Border Grid.Row="14" Grid.Column="14" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="油压"></TextBlock>
         </Border>
         <Border Grid.Row="14" Grid.Column="15" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="eleven"></TextBox>
+            <TextBox  x:Name="eleven" Tag="负回路油压压力"></TextBox>
         </Border>
         <Border Grid.Row="14" Grid.Column="16" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="  kg/cm2" FontSize="13"></TextBlock>
         </Border>
         <Image x:Name="image12"  Grid.Row="10" Grid.Column="19" Grid.ColumnSpan="4" Grid.RowSpan="2" Source="ms-appx:///Images/noon12.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="12" Grid.Column="19" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <TextBlock FontSize="13" TextWrapping="Wrap" Text="12：型缔压力&#x0a;（120-200Kg/cm2）"></TextBlock>
+            <TextBlock x:Name="twelveText" FontSize="13" TextWrapping="Wrap" Text="12：型缔压力&#x0a;（120-200Kg/cm2）"></TextBlock>
         </Border>
         <Border Grid.Row="14" Grid.Column="19" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="型压"></TextBlock>
         </Border>
         <Border Grid.Row="14" Grid.Column="20" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="twelve"></TextBox>
+            <TextBox  x:Name="twelve" Tag="型缔压力"></TextBox>
         </Border>
         <Border Grid.Row="14" Grid.Column="21" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="  kg/cm2" FontSize="13"></TextBlock>
