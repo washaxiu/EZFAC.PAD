@@ -37,7 +37,6 @@ namespace EZFAC.PAD
         private string lineName = "01";
         private JsonObject group = new JsonObject();
         List<string[]> lineList = new List<string[]>();
-
         public DailyCheckNoon()
         {
             this.InitializeComponent();
