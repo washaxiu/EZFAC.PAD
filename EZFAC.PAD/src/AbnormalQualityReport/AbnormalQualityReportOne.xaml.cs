@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Tools;
+using EZFAC.PAD.src.Service;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -27,6 +28,7 @@ namespace EZFAC.PAD
     public sealed partial class AbnormalQualityReportOne : Page
     {
         private Dictionary<string, string> data = new Dictionary<string, string>();
+        private AbnormalQualityReportService abnormalQualityReportService = new AbnormalQualityReportService();
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
         private JsonValue good = JsonValue.CreateStringValue("good");
@@ -61,13 +63,46 @@ namespace EZFAC.PAD
                     Confirm.Content = "下 一 页";
                 }
 
-                this.initial(data["userlevel"]);
+                if (data.ContainsKey("fileName"))
+                {
+                    // 初始化控件文本
+                    TextBox[] textBox = { thingName ,numberProject , other , machineNo , badContent , badRate , handle ,
+                            operater,grindMachine,grindTime,grind,DCJ_DCX,
+                            count1,founder1,slot1,pcs1,count2,founder2,slot2,pcs2,
+                            count3,founder3,slot3,pcs3,count4,founder4,slot4,pcs4,
+                            count5,founder5,slot5,pcs5,count6,founder6,slot6,pcs6,
+                            project,number,judgeReason
+                    };
+                    RadioButton[] radioButton = { groupCheckPointa, groupCheckPointb, groupCheckPointc ,
+                            groupJudgera ,groupJudgerb};
+                    ComboBox[] comboBox = { comboBox1, productShift ,
+                            card1 ,result1 ,come1 ,card2 ,result2 ,come2 ,
+                            card3 ,result3 ,come3 ,card4 ,result4 ,come4 ,
+                            card5 ,result5 ,come5 ,card6 ,result6 ,come6 ,
+                            result7 ,come7
+                    };
+                    CalendarDatePicker[] calendarDatePicker = { productDate, date1, date2, date3, date4, date5, date6 };
+                    abnormalQualityReportService.getApprovalDetailOne(data["userlevel"],data["folderName"], data["fileName"], textBox, radioButton, comboBox, calendarDatePicker);
+                }
+                else
+                {
+                    //  根据用户等级初始化界面
+                    this.initial(data["userlevel"]);
+                }
+
             }
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private  void OnCommitData(object sender, RoutedEventArgs e)
+        private void OnCommitData(object sender, RoutedEventArgs e)
         {
+            // 如果时等级高的用户，该按钮的功能为下一页
+            if (data["userlevel"] == "3" || data["userlevel"] == "4" || data["userlevel"] == "5")
+            {
+                this.Frame.Navigate(typeof(AbnormalQualityReportTwo), data);
+                return;
+            }
+
             // 初始化控件文本
             TextBox[] textBox = { thingName ,numberProject , other , machineNo , badContent , badRate , handle ,
                     operater,grindMachine,grindTime,grind,DCJ_DCX,
@@ -84,63 +119,62 @@ namespace EZFAC.PAD
                     card5 ,result5 ,come5 ,card6 ,result6 ,come6 ,
                     result7 ,come7
             };
-            CalendarDatePicker[] calendarDatePicker = { productDate , date1 , date2 , date3 , date4 , date5 , date6 };
+            CalendarDatePicker[] calendarDatePicker = { productDate, date1, date2, date3, date4, date5, date6 };
 
-            if(data["userlevel"] == "1")
+           
+
+            JsonObject checkRecordData = new JsonObject();
+            // 初始化检查的json信息
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(data["folderName"], "", ""));
+            // 设置检查内容的json信息
+            JsonArray content = new JsonArray();
+            // 初始化文本框
+            for (int i = 0; i < textBox.Length; i++)
             {
-                JsonObject checkRecordData = new JsonObject();
-                // 初始化检查的json信息
-                checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(data["folderName"], "", ""));
-                // 设置检查内容的json信息
-                JsonArray content = new JsonArray();
-                // 初始化文本框
-                for(int i = 0; i < 12; i++)
-                {
-                    JsonObject contentItem = new JsonObject();
-                    contentItem["name"] = JsonValue.CreateStringValue(textBox[i].Name);
-                    contentItem["status"] = JsonValue.CreateStringValue(textBox[i].Text);
-                    contentItem["edit"] = JsonValue.CreateStringValue("0");
-                    content.Add(contentItem);
-                }
-                // 初始化单选框
-                for (int i=0;i< radioButton.Length; i++)
-                {
-                    if(radioButton[i].IsChecked == true)
-                    {
-                        JsonObject contentItem = new JsonObject();
-                        contentItem["name"] = JsonValue.CreateStringValue(radioButton[i].GroupName);
-                        contentItem["status"] = JsonValue.CreateStringValue(radioButton[i].Name);
-                        contentItem["edit"] = JsonValue.CreateStringValue("0");
-                        content.Add(contentItem);
-                    }
-                }
-                // 初始化下拉框
-                for (int i = 0; i < 2; i++)
-                {
-                    JsonObject contentItem = new JsonObject();
-                    contentItem["name"] = JsonValue.CreateStringValue(comboBox[i].Name);
-                    contentItem["status"] = JsonValue.CreateStringValue(comboBox[i].SelectedItem.ToString());
-                    contentItem["edit"] = JsonValue.CreateStringValue("0");
-                    content.Add(contentItem);
-                }
-                // 初始化日历框
-                for (int i = 0; i < 1; i++)
-                {
-                    JsonObject contentItem = new JsonObject();
-                    contentItem["name"] = JsonValue.CreateStringValue(calendarDatePicker[i].Name);
-                    contentItem["status"] = JsonValue.CreateStringValue(calendarDatePicker[i].Date.ToString().Split(' ')[0]);
-                    contentItem["edit"] = JsonValue.CreateStringValue("0");
-                    content.Add(contentItem);
-                }
-                checkRecordData.Add("content", content);
-                checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(data["username"], date.Text, ""));
-                string time = comboBox1.SelectedIndex == 0 ? "morning" : "noon";
-                string fileName = data["folderName"]+"_" + thingName.Text + "_" + time + "_" + date.Text + ".ykk";
-                // 将json数据写入对应文件中
-                commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, data["folderName"]);
-                // 设置提示框
-                messDialog.showDialog("提交成功！");
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(textBox[i].Name);
+                contentItem["status"] = JsonValue.CreateStringValue(textBox[i].Text);
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
             }
+            // 初始化单选框
+            for (int i = 0; i < radioButton.Length; i++)
+            {
+                if (radioButton[i].IsChecked == true)
+                {
+                    JsonObject contentItem = new JsonObject();
+                    contentItem["name"] = JsonValue.CreateStringValue(radioButton[i].GroupName);
+                    contentItem["status"] = JsonValue.CreateStringValue(radioButton[i].Name);
+                    contentItem["edit"] = JsonValue.CreateStringValue("0");
+                    content.Add(contentItem);
+                }
+            }
+            // 初始化下拉框
+            for (int i = 0; i < comboBox.Length; i++)
+            {
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(comboBox[i].Name);
+                contentItem["status"] = JsonValue.CreateStringValue(comboBox[i].SelectedItem.ToString());
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
+            }
+            // 初始化日历框
+            for (int i = 0; i < calendarDatePicker.Length; i++)
+            {
+                JsonObject contentItem = new JsonObject();
+                contentItem["name"] = JsonValue.CreateStringValue(calendarDatePicker[i].Name);
+                contentItem["status"] = JsonValue.CreateStringValue(calendarDatePicker[i].Date.ToString().Split(' ')[0]);
+                contentItem["edit"] = JsonValue.CreateStringValue("0");
+                content.Add(contentItem);
+            }
+            checkRecordData.Add("content", content);
+            checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(data["username"], date.Text, ""));
+            string time = comboBox1.SelectedIndex == 0 ? "morning" : "noon";
+            string fileName = data["folderName"] + "_" + thingName.Text + "_" + time + "_" + date.Text + ".ykk";
+            // 将json数据写入对应文件中
+            commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, data["folderName"]);
+            // 设置提示框
+            messDialog.showDialog("提交成功！");
 
         }
 
@@ -157,7 +191,7 @@ namespace EZFAC.PAD
             }
             else
             {
-                this.Frame.Navigate(typeof(AuthorityNavigation), data);
+                this.Frame.Navigate(typeof(AbnormalQualityReportList), data);
             }
         }
 

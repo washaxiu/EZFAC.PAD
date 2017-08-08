@@ -134,6 +134,7 @@
     <Compile Include="src\DailyCheckMorning\DailyCheckMorningList.xaml.cs">
       <DependentUpon>DailyCheckMorningList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Service\AbnormalQualityReportService.cs" />
     <Compile Include="src\Service\MaintenanceLogService.cs" />
     <Compile Include="src\Service\DailyCheckMorningService.cs" />
     <Compile Include="src\SemiFinishedCheck\SemiFinishedCheck.xaml.cs">
