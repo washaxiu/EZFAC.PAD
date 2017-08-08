@@ -71,7 +71,7 @@ namespace EZFAC.PAD
 
             JsonObject checkRecordData = new JsonObject();
             // 初始化检查的json信息
-            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray("SemiFinishedCheck", groupName, lineName));
+            checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(data["folderName"], groupName, lineName));
 
             // 设置检查内容的json信息
             JsonArray content = new JsonArray();

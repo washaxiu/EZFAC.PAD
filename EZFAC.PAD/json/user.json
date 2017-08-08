@@ -8,7 +8,7 @@
         "CNName": "zhaoyi",
         "level": "1",
         "date": "2016-01-23",
-        "authority": "CheckRecord,DailyCheckNoon,UnqualifiedReport,YZGCMonthRecord,MaintenanceLog"
+        "authority": "CheckRecord,DailyCheckNoon,UnqualifiedReport,YZGCMonthRecord,MaintenanceLog,AbnormalQualityReport"
       },
   		{
 			"UniqueId": "000002",
@@ -18,7 +18,7 @@
 			"CNName" : "chener",
 			"level":"2",
 			"date" : "2016-01-23",
-			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList"
+			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList,AbnormalQualityReportList"
 		},
 		{
 			"UniqueId": "000003",
@@ -28,7 +28,7 @@
 			"CNName" : "zhangsan",
 			"level":"3",
 			"date" : "2016-01-23",
-			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList"
+			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList,AbnormalQualityReportList"
 		},
 		{
 			"UniqueId": "000004",
@@ -38,7 +38,7 @@
 			"CNName" : "lisi",
 			"level":"4",
 			"date" : "2016-01-23",
-			"authority" : "ApprovalList,DailyCheckNoonList"
+			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList,AbnormalQualityReportList"
 		},
 		{
 			"UniqueId": "000005",
@@ -48,7 +48,7 @@
 			"CNName" : "wangwu",
 			"level":"5",
 			"date" : "2016-01-23",
-			"authority" : "ApprovalList,DailyCheckNoonList"
+			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList,AbnormalQualityReportList"
 		}
 	]
 }

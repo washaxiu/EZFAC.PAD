@@ -40,7 +40,7 @@ namespace EZFAC.PAD
         private SolidColorBrush gray = new SolidColorBrush(Colors.Gray);
         private string[] checkMenus = {  "CheckRecord",
                                     "UnqualifiedReport",
-                                    "",
+                                    "AbnormalQualityReport",
                                     "SemiFinishedCheck",
                                     "DailyCheckMorning",
                                     "DailyCheckNoon",
@@ -49,7 +49,7 @@ namespace EZFAC.PAD
                                  };
         private string[] approvalcMenus = {  "ApprovalList",
                                              "UnqualifiedReportList",
-                                             "",
+                                             "AbnormalQualityReportList",
                                              "SemiFinishedCheckList",
                                              "DailyCheckMorningList",
                                              "DailyCheckNoonList",
@@ -160,6 +160,14 @@ namespace EZFAC.PAD
             else if(line03.IsChecked == true)
             {
                 data["folderName"] = checkMenus[2];
+                if (level == "1")
+                {
+                    this.Frame.Navigate(typeof(AbnormalQualityReportOne), data);
+                }
+                else
+                {
+                    this.Frame.Navigate(typeof(AbnormalQualityReportList), data);
+                }
             }
             // DC研磨前半制品的检查和审批界面 
             else if (line04.IsChecked == true)

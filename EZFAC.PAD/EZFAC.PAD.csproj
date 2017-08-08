@@ -98,8 +98,17 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\AbnormalQualityReport\AbnormalQualityReportList.xaml.cs">
+      <DependentUpon>AbnormalQualityReportList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\AbnormalQualityReport\AbnormalQualityReportTwo.xaml.cs">
+      <DependentUpon>AbnormalQualityReportTwo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\AbnormalQualityReport\AbnormalQualityReportOne.xaml.cs">
+      <DependentUpon>AbnormalQualityReportOne.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\MaintenanceLog\MaintenanceLogDetail.xaml.cs">
       <DependentUpon>MaintenanceLogDetail.xaml</DependentUpon>
@@ -241,6 +250,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="src\AbnormalQualityReport\AbnormalQualityReportList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\AbnormalQualityReport\AbnormalQualityReportTwo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\AbnormalQualityReport\AbnormalQualityReportOne.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="src\MaintenanceLog\MaintenanceLogDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
