@@ -141,7 +141,7 @@
             <TextBlock  Text="速度"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="four"></TextBox>
+            <TextBox  x:Name="four" Tag="射出速度" VerticalAlignment="Center"></TextBox>
         </Border>
         <Image x:Name="image5"  Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="ms-appx:///Images/noon5.png" Stretch="Fill" PointerPressed="Image_Click"/>
         <Border Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="3"  VerticalAlignment="Top">
@@ -194,7 +194,7 @@
             <TextBlock  Text="油压"></TextBlock>
         </Border>
         <Border Grid.Row="9" Grid.Column="20" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="ten"></TextBox>
+            <TextBox  x:Name="ten" Tag="主回路油压压力" VerticalAlignment="Center"></TextBox>
         </Border>
         <Border Grid.Row="9" Grid.Column="21" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="kg/cm2" FontSize="13"></TextBlock>
@@ -207,7 +207,7 @@
             <TextBlock  Text="油压"></TextBlock>
         </Border>
         <Border Grid.Row="14" Grid.Column="15" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="eleven"></TextBox>
+            <TextBox  x:Name="eleven" Tag="负回路油压压力" VerticalAlignment="Center"></TextBox>
         </Border>
         <Border Grid.Row="14" Grid.Column="16" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="kg/cm2" FontSize="13"></TextBlock>
@@ -220,7 +220,7 @@
             <TextBlock  Text="型压"></TextBlock>
         </Border>
         <Border Grid.Row="14" Grid.Column="20" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="twelve"></TextBox>
+            <TextBox  x:Name="twelve" Tag="型缔压力" VerticalAlignment="Center"></TextBox>
         </Border>
         <Border Grid.Row="14" Grid.Column="21" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="kg/cm2" FontSize="13"></TextBlock>
