@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Tools;
 using EZFAC.PAD.src.Model;
 using Windows.UI;
+using System.Text.RegularExpressions;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -42,6 +43,7 @@ namespace EZFAC.PAD
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        private SolidColorBrush black = new SolidColorBrush(Colors.Black);
         JsonValue good = JsonValue.CreateStringValue("good");
         JsonValue bad = JsonValue.CreateStringValue("bad");
 
@@ -119,6 +121,30 @@ namespace EZFAC.PAD
             JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { first, two, three, five, six, seven, eight, nine, fourteen, fifteen, sixteen, seventeen };
             TextBox[] textBox = { four, ten, eleven, twelve };
+            TextBlock[] textBlock = { fourText, tenText, elevenText, twelveText };
+            bool flagRequiredFields = true;
+            string tips = "";
+            for (int i = 0; i < textBox.Length; i++)
+            {
+                textBlock[i].Foreground = black;
+                if ("".Equals(textBox[i].Text.Trim()))
+                {
+                    tips = "必填项不能为空！";
+                    textBlock[i].Foreground = red;
+                    flagRequiredFields = false;
+                }
+                else if (!Regex.IsMatch(textBox[i].Text, @"^(\-|\+)?\d+(\.\d+)?$"))
+                {
+                    tips = "输入必须为数字!  ";
+                    textBlock[i].Foreground = red;
+                    flagRequiredFields = false;
+                }
+            }
+            if (!flagRequiredFields)
+            {
+                messDialog.showDialog(tips);
+                return;
+            }
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
             StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);

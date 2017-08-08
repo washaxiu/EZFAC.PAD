@@ -19,6 +19,7 @@ using EZFAC.PAD.src.Tools;
 using EZFAC.PAD.src;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
+using System.Text.RegularExpressions;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -74,18 +75,26 @@ namespace EZFAC.PAD
             TextBox[] textBox = { four, zhouqi, nozzleTemp, GOOSENECKTemp, fuTemp1, fuTemp2 };
             TextBlock[] textBlock = { fourText, zhouqiText, nozzleTempText, GOOSENECKTempText, fuTemp1Text, fuTemp2Text };
             bool flagRequiredFields = true;
+            string tips = "";
             for (int i = 0; i < textBox.Length; i++)
             {
                 textBlock[i].Foreground = black;
                 if ("".Equals(textBox[i].Text.Trim()))
                 {
+                    tips = "必填项不能为空！";
+                    textBlock[i].Foreground = red;
+                    flagRequiredFields = false;
+                }
+                else if (!Regex.IsMatch(textBox[i].Text, @"^(\-|\+)?\d+(\.\d+)?$"))
+                {
+                    tips = "输入必须为数字!  ";
                     textBlock[i].Foreground = red;
                     flagRequiredFields = false;
                 }
             }
             if (!flagRequiredFields)
             {
-                messDialog.showDialog("必填项不能为空！");
+                messDialog.showDialog(tips);
                 return;
             }
             // 初始化检查的json信息
