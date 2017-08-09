@@ -93,7 +93,7 @@
             <RadioButton GroupName="checkPoint" Name="groupCheckPointc" FontSize="18" FontFamily="Segoe UI Black"  >输出检查</RadioButton>
         </StackPanel>
         <Border Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="1" Margin="0,1,0,1" BorderThickness="1" BorderBrush="Black" >
-            <TextBox x:Name="numberProject"  HorizontalAlignment="Right" Text="白" Margin="0,7,0,0"  FontSize="20" VerticalAlignment="Center" BorderThickness="0"  Foreground="#FF16325A" Width="101"/>
+            <TextBox x:Name="numberProject"  HorizontalAlignment="Right" Margin="0,7,0,0"  FontSize="20" VerticalAlignment="Center" BorderThickness="0"  Foreground="#FF16325A" Width="101"/>
         </Border>
         <TextBlock Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Run FontSize="18" Text="次工程" />
@@ -102,31 +102,31 @@
             <Run FontSize="20" Text="其他:" />
         </TextBlock>
         <Border Grid.Row="3" Grid.Column="10" Grid.ColumnSpan="1" Margin="0,1,0,1" BorderThickness="1" BorderBrush="Black" >
-            <TextBox x:Name="other"   FontSize="20" VerticalAlignment="Center" BorderThickness="0" Text="白" Margin="0,7,0,0"  Foreground="#FF16325A"/>
+            <TextBox x:Name="other"   FontSize="20" VerticalAlignment="Center" BorderThickness="0" Margin="0,7,0,0"  Foreground="#FF16325A"/>
         </Border>
         <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0" >
             <Run FontSize="20" Text="制品名:" />
         </TextBlock>
         <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,1,0,1"  BorderThickness="1" BorderBrush="Black" >
-            <TextBox x:Name="thingName" FontSize="20" Background="White" Text="白" Margin="0,4,0,0" BorderThickness="0" />
+            <TextBox x:Name="thingName" FontSize="20" Background="White" Margin="0,4,0,0" BorderThickness="0" />
         </Border>
         <TextBlock Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2"  HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="20" Text="机械号码:" />
         </TextBlock>
         <Border Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="4" Margin="0,1,0,1" BorderThickness="1" BorderBrush="Black">
-            <TextBox x:Name="machineNo" FontSize="20"  Text="白" Margin="0,4,0,0" VerticalAlignment="Center" Foreground="#FF16320A" BorderThickness="0"/>
+            <TextBox x:Name="machineNo" FontSize="20"  Margin="0,4,0,0" VerticalAlignment="Center" Foreground="#FF16320A" BorderThickness="0"/>
         </Border>
         <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20" Text="不良内容:" />
         </TextBlock>
         <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"  Margin="0,1,0,1"  BorderThickness="1" BorderBrush="Black">
-            <TextBox x:Name="badContent"  Text="白" Margin="0,4,0,0" BorderThickness="0"   FontSize="20" VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A"/>
+            <TextBox x:Name="badContent"  Margin="0,4,0,0" BorderThickness="0"   FontSize="20" VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A"/>
         </Border>
         <TextBlock Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2"  HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="20" Text="不良率:" />
         </TextBlock>
         <Border Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="4" Margin="0,1,0,1"  BorderThickness="1" BorderBrush="Black">
-            <TextBox x:Name="badRate" FontSize="20"  Text="白" Margin="0,4,0,0" BorderThickness="0"  VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A"/>
+            <TextBox x:Name="badRate" FontSize="20"  Margin="0,4,0,0" BorderThickness="0"  VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A"/>
         </Border>
         <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20" Text="处理:" />
@@ -140,7 +140,7 @@
             <Run FontSize="20" Text="判断者:" />
         </TextBlock>
         <Border Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="4"  Margin="0,1,0,1"   BorderThickness="1" BorderBrush="Black">
-            <TextBox x:Name="handle"  Text="白" Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center"  Foreground="#FF16320A"/>
+            <TextBox x:Name="handle"  Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center"  Foreground="#FF16320A"/>
         </Border>
         <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20" Text="生产日期：" />
@@ -161,19 +161,19 @@
             <Run FontSize="20" Text="操作工：" />
         </TextBlock>
         <Border Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Margin="0,1,0,1"   BorderThickness="1" BorderBrush="Black">
-            <TextBox x:Name="operater" Text="白" Margin="0,4,0,0" BorderThickness="0"  FontSize="20" Foreground="#FF16320A" />
+            <TextBox x:Name="operater" Margin="0,4,0,0" BorderThickness="0"  FontSize="20" Foreground="#FF16320A" />
         </Border>
         <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20" Text="研磨机：" />
         </TextBlock>
         <Border Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,1,0,1"  BorderThickness="1" BorderBrush="Black">
-            <TextBox x:Name="grindMachine" Text="白" Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A" />
+            <TextBox x:Name="grindMachine" Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A" />
         </Border>
         <Border Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="1">
             <TextBlock FontSize="20" Text="研磨时间:" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
         </Border>
         <Border Grid.Row="8" Grid.Column="7" Grid.ColumnSpan="1" BorderBrush="Black"  BorderThickness="1">
-            <TextBox x:Name="grindTime"  Text="白" Margin="0,4,0,0" BorderThickness="0" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Width="104"/>
+            <TextBox x:Name="grindTime"  Margin="0,4,0,0" BorderThickness="0" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Width="104"/>
         </Border>
         <Border Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="1" BorderBrush="Black" >
             <TextBlock Text="：分" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -182,7 +182,7 @@
             <Run FontSize="20" Text="研磨工:" />
         </TextBlock>
         <Border Grid.Row="8" Grid.Column="10" Grid.ColumnSpan="1" Margin="0,1,0,1" BorderBrush="Black"  BorderThickness="1" >
-            <TextBox x:Name="grind"  Text="白" Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center"  Foreground="#FF16320A" />
+            <TextBox x:Name="grind"  Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center"  Foreground="#FF16320A" />
         </Border>
         <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="left" VerticalAlignment="Center" >
             <Run FontSize="23" Text="备考/编号（DCJ/DCX）：" />
@@ -226,10 +226,10 @@
             <CalendarDatePicker x:Name="date1" FontSize="15" Width="103" VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="count1" FontSize="20" Text="白" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="count1" FontSize="20" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1" >
-            <TextBox x:Name="founder1"  FontSize="20" Text="白" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="founder1"  FontSize="20" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
             <ComboBox x:Name="card1" FontSize="18" Width="150" VerticalAlignment="Center"  HorizontalAlignment="Center" SelectedIndex="0">
@@ -242,11 +242,11 @@
             </ComboBox>
         </Border>
         <Border Grid.Row="12" Grid.Column="6" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="slot1" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43" BorderThickness="1"></TextBox>
+            <TextBox x:Name="slot1" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43" BorderThickness="1"></TextBox>
         </Border>
         <TextBlock   Grid.Row="12" Grid.Column="6" FontSize="18" Text="SLOT" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
         <Border Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="pcs1" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43" BorderThickness="1"></TextBox>
+            <TextBox x:Name="pcs1" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43" BorderThickness="1"></TextBox>
         </Border>
         <TextBlock   Grid.Row="12" Grid.Column="7" Margin="0,0,4,0" FontSize="18" Text="PCS" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
 
@@ -267,10 +267,10 @@
             <CalendarDatePicker x:Name="date2" FontSize="15" Width="103" VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="count2" FontSize="20" Text="白" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="count2" FontSize="20" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="13" Grid.Column="2" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="founder2" FontSize="20" Text="白" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="founder2" FontSize="20" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
             <ComboBox x:Name="card2" FontSize="18" Width="150" VerticalAlignment="Center"  HorizontalAlignment="Center" SelectedIndex="1">
@@ -283,11 +283,11 @@
             </ComboBox>
         </Border>
         <Border Grid.Row="13" Grid.Column="6" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="slot2" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43" BorderThickness="1"></TextBox>
+            <TextBox x:Name="slot2" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43" BorderThickness="1"></TextBox>
         </Border>
         <TextBlock   Grid.Row="13" Grid.Column="6" FontSize="18" Text="SLOT" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
         <Border Grid.Row="13" Grid.Column="7" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="pcs2" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="pcs2" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="13" Grid.Column="7" Margin="0,0,4,0" FontSize="18" Text="PCS" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
 
@@ -308,10 +308,10 @@
             <CalendarDatePicker x:Name="date3" FontSize="15" Width="103" VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="count3" FontSize="20" Text="白" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="count3" FontSize="20" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="founder3" FontSize="20" Text="白" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="founder3" FontSize="20" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="14" Grid.Column="4" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
             <ComboBox x:Name="card3" FontSize="18" Width="150" VerticalAlignment="Center"  HorizontalAlignment="Center" SelectedIndex="2">
@@ -324,11 +324,11 @@
             </ComboBox>
         </Border>
         <Border Grid.Row="14" Grid.Column="6" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="slot3" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="slot3" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="14" Grid.Column="6" FontSize="18" Text="SLOT" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
         <Border Grid.Row="14" Grid.Column="7" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="pcs3" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="pcs3" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="14" Grid.Column="7" Margin="0,0,4,0" FontSize="18" Text="PCS" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
 
@@ -349,10 +349,10 @@
             <CalendarDatePicker x:Name="date4" FontSize="15" Width="103" VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="count4" FontSize="20" Text="白" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="count4" FontSize="20" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="founder4" FontSize="20" Text="白" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="founder4" FontSize="20" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="15" Grid.Column="4" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
             <ComboBox x:Name="card4" FontSize="18" Width="150" VerticalAlignment="Center"  HorizontalAlignment="Center" SelectedIndex="3">
@@ -365,11 +365,11 @@
             </ComboBox>
         </Border>
         <Border Grid.Row="15" Grid.Column="6" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="slot4" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="slot4" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="15" Grid.Column="6" FontSize="18" Text="SLOT" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
         <Border Grid.Row="15" Grid.Column="7" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="pcs4" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="pcs4" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="15" Grid.Column="7" Margin="0,0,4,0" FontSize="18" Text="PCS" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
 
@@ -390,10 +390,10 @@
             <CalendarDatePicker x:Name="date5" FontSize="15" Width="103" VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="count5" FontSize="20" Text="白" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="count5" FontSize="20" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="16" Grid.Column="2" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="founder5" FontSize="20" Text="白" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="founder5" FontSize="20" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="16" Grid.Column="4" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
             <ComboBox x:Name="card5" FontSize="18" Width="150" VerticalAlignment="Center"  HorizontalAlignment="Center" SelectedIndex="4">
@@ -406,11 +406,11 @@
             </ComboBox>
         </Border>
         <Border Grid.Row="16" Grid.Column="6" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="slot5" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="slot5" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="16" Grid.Column="6" FontSize="18" Text="SLOT" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
         <Border Grid.Row="16" Grid.Column="7" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="pcs5" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="pcs5" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="16" Grid.Column="7" Margin="0,0,4,0" FontSize="18" Text="PCS" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
 
@@ -431,10 +431,10 @@
             <CalendarDatePicker x:Name="date6" FontSize="15" Width="103" VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="count6" FontSize="20" Text="白" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="count6" FontSize="20" Margin="0,4,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="17" Grid.Column="2" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="founder6" FontSize="20" Text="白" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="founder6" FontSize="20" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
         <Border Grid.Row="17" Grid.Column="4" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
             <ComboBox x:Name="card6" FontSize="18" Width="150" VerticalAlignment="Center"  HorizontalAlignment="Center" SelectedIndex="5">
@@ -447,11 +447,11 @@
             </ComboBox>
         </Border>
         <Border Grid.Row="17" Grid.Column="6" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="slot6" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="slot6" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="17" Grid.Column="6" FontSize="18" Text="SLOT" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
         <Border Grid.Row="17" Grid.Column="7" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="pcs6" FontSize="20" Text="白" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
+            <TextBox x:Name="pcs6" FontSize="20" Margin="0,4,0,0" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="43"></TextBox>
         </Border>
         <TextBlock   Grid.Row="17" Grid.Column="7" Margin="0,0,4,0" FontSize="18" Text="PCS" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
 
@@ -472,19 +472,19 @@
         <Border Grid.Row="11" Grid.ColumnSpan="2" Grid.Column="10" Grid.RowSpan="6"  VerticalAlignment="Center">
             <TextBlock  TextWrapping = "Wrap" FontSize="16" Text="需要对自工程内发现的班次、前一个班次的制品进行确认，以及SMART后工程进程调查追溯" />
         </Border>
-        <Border Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="3">
+        <Border Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="1" BorderBrush="Black">
             <TextBlock  FontSize="20" Text="追  溯  工  程" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
         </Border>
         <Border Grid.Row="18" Grid.Column="3" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="1">
-            <TextBox x:Name="project" FontSize="22" Text="白" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
+            <TextBox x:Name="project" FontSize="22" Margin="0,4,0,0"  Width="150"  VerticalAlignment="Center"  HorizontalAlignment="Center" BorderThickness="0"/>
         </Border>
-        <Border Grid.Row="18" Grid.Column="5" Grid.ColumnSpan="1">
+        <Border Grid.Row="18" Grid.Column="5" Grid.ColumnSpan="1"  BorderThickness="1,1,0,1" BorderBrush="Black">
             <TextBlock  FontSize="20" Text="数  量" VerticalAlignment="Center"  HorizontalAlignment="Center" />
         </Border>
-        <Border Grid.Row="18" Grid.Column="6" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="0">
-            <TextBox x:Name="number" FontSize="20" Text="白" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="19,0,8,0" Width="75"></TextBox>
+        <Border Grid.Row="18" Grid.Column="6" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="0,1,0,1" >
+            <TextBox x:Name="number" FontSize="20" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="19,0,8,0" Width="75"></TextBox>
         </Border>
-        <Border Grid.Row="18" Grid.Column="7" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="0">
+        <Border Grid.Row="18" Grid.Column="7" Grid.ColumnSpan="1"  BorderBrush="Black" BorderThickness="0,1,0,1">
             <TextBlock   Grid.Row="18" Grid.Column="6" FontSize="16" Text="PCS/LOT/SLOT" VerticalAlignment="Center"  HorizontalAlignment="Right"></TextBlock>
         </Border>
 
@@ -501,11 +501,11 @@
             </ComboBox>
         </Border>
 
-        <Border Grid.Row="19"  Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2"  BorderBrush="Black" >
-            <TextBox FontSize="23" Text="判断理由说明："  Margin="0,5,0,5"/>
+        <Border Grid.Row="19"  Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2"  >
+            <TextBlock FontSize="23" Text="判断理由说明："  Margin="10,5,0,5"/>
         </Border>
         <Border Grid.Row="19" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="6"  BorderBrush="Black" >
-            <TextBox x:Name="judgeReason" TextWrapping="Wrap" Background="White" Margin="0,5,0,5"/>
+            <TextBox x:Name="judgeReason" TextWrapping="Wrap" Background="White" Margin="0,5,0,18"/>
         </Border>
         <Border Grid.Row="19" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Padding="6" BorderThickness="0" CornerRadius="18,3,18,3">
             <Button x:Name="back"  HorizontalAlignment="Right" Margin="0,0,0,0" MinHeight="50" Content="返   回" MinWidth="130" Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="back_Click" />

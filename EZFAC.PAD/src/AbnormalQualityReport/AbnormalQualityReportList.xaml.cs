@@ -1,4 +1,5 @@
-﻿using EZFAC.PAD.src.Service;
+﻿using EZFAC.PAD.src.Model;
+using EZFAC.PAD.src.Service;
 using EZFAC.PAD.src.Tools;
 using System;
 using System.Collections.Generic;
@@ -113,10 +114,36 @@ namespace EZFAC.PAD
             this.Frame.Navigate(typeof(AuthorityNavigation), data);
         }
 
-        private void Confirm_Click(object sender, RoutedEventArgs e)
+        private async void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            if (lvFiles.SelectedItems.Count > 0)
+            {
+                CheckerInfoEntity checkerInfo = new CheckerInfoEntity(ApprovalListUser.Text, data["userlevel"], "1", "0", date.Text, "");
+                //  审批所选信息
+                abnormalQualityReportService.mulApproval(lvFiles, checkerInfo, data["folderName"]);
+                // 设置提示框
+                ContentDialog dialog = new ContentDialog()
+                {
+                    Content = "审批成功！",
+                    PrimaryButtonText = "确定",
+                    SecondaryButtonText = "取消"
+                };
+                dialog.PrimaryButtonClick += primaryButtonClick1;
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                messDialog.showDialog("请至少选择一条数据进行审批！");
+            }
         }
 
-        
+        public void primaryButtonClick1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            // 获取审批信息列表
+            abnormalQualityReportService.getApprovalList(lvFiles, data["userlevel"], data["folderName"]);
+            checkBox.Content = "全选";
+            checkBox.IsChecked = false;
+        }
+
     }
 }

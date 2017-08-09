@@ -54,7 +54,7 @@ namespace EZFAC.PAD
                 comboBox1.ItemsSource = strs;
                 comboBox1.SelectedIndex = 0;
 
-                if(data["userlevel"] == "1" || data["userlevel"] == "2")
+                if (data["userlevel"] == "1" || data["userlevel"] == "2")
                 {
                     Confirm.Content = "确   认";
                 }
@@ -65,6 +65,8 @@ namespace EZFAC.PAD
 
                 if (data.ContainsKey("fileName"))
                 {
+                    DateTag.Text = "审批日期";
+                    UserNameTag.Text = "审批人";
                     // 初始化控件文本
                     TextBox[] textBox = { thingName ,numberProject , other , machineNo , badContent , badRate , handle ,
                             operater,grindMachine,grindTime,grind,DCJ_DCX,
@@ -88,10 +90,12 @@ namespace EZFAC.PAD
                 {
                     //  根据用户等级初始化界面
                     this.initial(data["userlevel"]);
+                    date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                    UserNameTag.Text = "发现人";
+                    DateTag.Text = "发现日期";
                 }
-
+                date.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
-            date.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void OnCommitData(object sender, RoutedEventArgs e)
@@ -120,8 +124,6 @@ namespace EZFAC.PAD
                     result7 ,come7
             };
             CalendarDatePicker[] calendarDatePicker = { productDate, date1, date2, date3, date4, date5, date6 };
-
-           
 
             JsonObject checkRecordData = new JsonObject();
             // 初始化检查的json信息
@@ -168,14 +170,43 @@ namespace EZFAC.PAD
                 content.Add(contentItem);
             }
             checkRecordData.Add("content", content);
-            checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(data["username"], date.Text, ""));
+            // 设置存储文件名
             string time = comboBox1.SelectedIndex == 0 ? "morning" : "noon";
-            string fileName = data["folderName"] + "_" + thingName.Text + "_" + time + "_" + date.Text + ".ykk";
+            string fileName = null;
+            if (data.ContainsKey("fileName"))
+            {
+                fileName = data["fileName"];
+            }
+            else
+            {
+                fileName = data["folderName"] + "_" + thingName.Text + "_" + time + "_" + date.Text + ".ykk";
+            }
+
+            if(data["userlevel"] == "1")
+            {
+                checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(data["username"], date.Text, ""));
+            }
+            else if (data["userlevel"] == "2")
+            {
+                JsonArray checkerInfo = new JsonArray();
+
+                for (int i = 1; i <= 5; i++)
+                {
+                    JsonObject checker = new JsonObject();
+                    checker["name"] = (i == 1 || i == 2 ) ? JsonValue.CreateStringValue(data["username"]) : JsonValue.CreateStringValue("");
+                    checker["level"] = i == 1 ? JsonValue.CreateStringValue(Convert.ToString(i + 1)) : JsonValue.CreateStringValue(Convert.ToString(i));
+                    checker["check"] = (i == 1 || i == 2) ? JsonValue.CreateStringValue("1") : JsonValue.CreateStringValue("0");
+                    checker["edit"] = JsonValue.CreateStringValue("0");
+                    checker["date"] = (i == 1 || i == 2) ? JsonValue.CreateStringValue(date.Text) : JsonValue.CreateStringValue("");
+                    checker["comments"] =  JsonValue.CreateStringValue("");
+                    checkerInfo.Add(checker);
+                }
+                checkRecordData.Add("checkerInfo", checkerInfo);
+            }
             // 将json数据写入对应文件中
             commonOperation.writeJsonToFile(checkRecordData, fileName, KnownFolders.PicturesLibrary, data["folderName"]);
             // 设置提示框
             messDialog.showDialog("提交成功！");
-
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
