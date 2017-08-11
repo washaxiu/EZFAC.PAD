@@ -188,5 +188,22 @@ namespace EZFAC.PAD
             }
             return edit;
         }
+
+        // 点击查看大图
+        private async void Image_Click(object sender, PointerRoutedEventArgs e)
+        {
+            Image image = new Image();
+            Image image1 = (Image)sender;
+            image.Source = image1.Source;
+            ContentDialog showImage = new ContentDialog()
+            {
+                Title = "消息提示",
+                Content = image,
+                PrimaryButtonText = "确定",
+                SecondaryButtonText = "取消",
+                FullSizeDesired = false,
+            };
+            await showImage.ShowAsync();
+        }
     }
 }

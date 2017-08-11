@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Service;
 using EZFAC.PAD.src.Tools;
+using System.Text.RegularExpressions;
+using Windows.UI;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -33,6 +35,8 @@ namespace EZFAC.PAD
         private MessDialog messDialog = new MessDialog();
         private JsonValue good = JsonValue.CreateStringValue("good");
         private JsonValue bad = JsonValue.CreateStringValue("bad");
+        private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        private SolidColorBrush black = new SolidColorBrush(Colors.Black);
 
         public AbnormalQualityReportTwo()
         {
@@ -72,6 +76,13 @@ namespace EZFAC.PAD
         {
             if(data["userlevel"] == "3")
             {
+                badNumText.Foreground = black;
+                if (!Regex.IsMatch(badNum.Text, @"^(\-|\+)?\d+(\.\d+)?$"))
+                {
+                    badNumText.Foreground = red;
+                    messDialog.showDialog("输入必须为数字！");
+                    return;
+                }
                 TextBox[] textLevel3 = { badNum, other, judger, personInCharge, beikao };
                 RadioButton[] radioLevel3 = { groupHandleMethoda, groupHandleMethodb };
                 abnormalQualityReportService.level3Approval(data, date, textLevel3, radioLevel3);

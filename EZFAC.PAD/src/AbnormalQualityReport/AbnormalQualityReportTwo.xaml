@@ -76,7 +76,7 @@
             <TextBlock FontSize="20" Text="品质指导员填写" />
         </Border>
         <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1,1,1,1" BorderBrush="Black">
-            <TextBlock  FontSize="25" Text="不良品数" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock x:Name="badNumText"  FontSize="25" Text="不良品数" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Border>
         <Border Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" BorderThickness="1,1,0,1" BorderBrush="Black">
             <TextBox  x:Name="badNum" FontSize="25" VerticalAlignment="Center" BorderThickness="0"  HorizontalAlignment="Center" Margin="-2,1,10,0" Width="76" />
