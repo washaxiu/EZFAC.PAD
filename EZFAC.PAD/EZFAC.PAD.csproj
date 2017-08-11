@@ -203,6 +203,7 @@
     <None Include="EZFAC.PAD_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\5-120605204024-50.png" />
     <Content Include="Images\morning1.png" />
     <Content Include="Images\morning14.png" />
     <Content Include="Images\morning15.png" />
@@ -262,6 +263,10 @@
     <Page Include="src\AbnormalQualityReport\AbnormalQualityReportOne.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\AndonPanal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\MaintenanceLog\MaintenanceLogDetail.xaml">
       <SubType>Designer</SubType>

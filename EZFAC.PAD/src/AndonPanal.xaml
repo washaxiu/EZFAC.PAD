@@ -1,0 +1,262 @@
+﻿<Page
+    x:Class="EZFAC.PAD.AndonPanal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EZFAC.PAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="18" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Run FontSize="30"  Foreground="Blue" Text="Andon系统看板-系统异常" FontFamily="Segoe UI Black" FontWeight="Bold" />
+        </TextBlock>
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="15" Grid.ColumnSpan="3" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Run FontSize="15"  Foreground="Blue" Text="2017-06-11 11:40:32" />
+        </TextBlock>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="18"   Background="#0099CC">
+            <TextBlock FontSize="20" Text="压铸线" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Left"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+            <TextBlock FontSize="20" Text="压&#x0a;铸&#x0a;线&#x0a;A" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+            <TextBlock FontSize="20" Text="压&#x0a;铸&#x0a;线&#x0a;B" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1">
+            <TextBlock FontSize="20" Text="压&#x0a;铸&#x0a;线&#x0a;C" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+            <TextBlock FontSize="20" Text="压&#x0a;铸&#x0a;线&#x0a;D" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_01" Header="  A_01" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_02" Header="  A_02" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_03" Header="  A_03" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_04" Header="  A_04" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_05" Header="  A_05" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_06" Header="  A_06" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_07" Header="  A_07" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_08" Header="  A_08" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_09" Header="  A_09" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="10" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_10" Header="  A_10" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_11" Header="  A_11" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_12" Header="  A_12" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_13" Header="  A_13" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_14" Header="  A_14" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="15" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_15" Header="  A_15" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="16" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_16" Header="  A_16" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="A_17" Header="  A_17" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_01" Header="  B_01" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_02" Header="  B_02" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_03" Header="  B_03" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_04" Header="  B_04" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_05" Header="  B_05" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_06" Header="  B_06" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_07" Header="  B_07" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_08" Header="  B_08" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_09" Header="  B_09" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="10" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_10" Header="  B_10" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_11" Header="  B_11" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="12" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_12" Header="  B_12" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="13" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_13" Header="  B_13" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="14" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_14" Header="  B_14" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="15" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_15" Header="  B_15" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="16" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_16" Header="  B_16" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="17" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="B_17" Header="  B_17" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="C_01" Header="  C_01" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="C_02" Header="  C_02" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="C_03" Header="  C_03" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="C_04" Header="  C_04" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="C_05" Header="  C_05" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="C_06" Header="  C_06" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="C_07" Header="  C_07" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="C_08" Header="  C_08" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="D_01" Header="  D_01" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="D_02" Header="  D_02" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="D_03" Header="  D_03" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="D_04" Header="  D_04" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="D_05" Header="  D_05" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="D_06" Header="  D_06" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="D_07" Header="  D_07" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="1">
+            <ToggleSwitch x:Name="D_08" Header="  D_08" OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="9" Background="#0099CC">
+            <TextBlock Text="熔解炉/冷冻机/油烟机/集尘机/离行剂供给机" VerticalAlignment="Center"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <ToggleSwitch OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <ToggleSwitch OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <ToggleSwitch OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <ToggleSwitch OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <ToggleSwitch OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <ToggleSwitch OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <ToggleSwitch OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="1" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="0,0,1,0">
+            <ToggleSwitch OffContent="" OnContent=""/>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="9" Background="#FFF32828">
+            <TextBlock VerticalAlignment="Center"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="1" Background="#FFD3C9C9" Margin="0,8,0,0">
+            <TextBlock Text="工位" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="10" Grid.ColumnSpan="1" Background="#FFD3C9C9" Margin="0,8,0,0">
+            <TextBlock Text="级别" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="1" Background="#FFD3C9C9" Margin="0,8,0,0">
+            <TextBlock Text="问题" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="12" Grid.ColumnSpan="2" Background="#FFD3C9C9" Margin="0,8,0,0">
+            <TextBlock Text="发生时间" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="14" Grid.ColumnSpan="2" Background="#FFD3C9C9" Margin="0,8,0,0">
+            <TextBlock Text="停机时间" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="16" Grid.ColumnSpan="2" Background="#FFD3C9C9" Margin="0,8,0,0">
+            <TextBlock Text="状态" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        </Border>
+    </Grid>
+</Page>
