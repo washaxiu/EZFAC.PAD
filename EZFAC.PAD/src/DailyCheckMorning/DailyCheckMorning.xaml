@@ -99,7 +99,7 @@
             <TextBlock  FontSize="25" Text="机番：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
         <Border Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="3" Margin="0,2,0,2" VerticalAlignment="Center">
-            <ComboBox x:Name="machineNo" FontSize="16" Width="130" SelectionChanged="machineNo_SelectionChanged">
+            <ComboBox x:Name="machineNo" FontSize="16" Width="120" SelectionChanged="machineNo_SelectionChanged">
             </ComboBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="3" >

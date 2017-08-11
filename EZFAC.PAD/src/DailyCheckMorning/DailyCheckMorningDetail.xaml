@@ -99,7 +99,7 @@
             <TextBlock  FontSize="25" Text="机器型号：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
         <Border Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" BorderBrush="Black" Margin="0,4,0,4">
-            <TextBlock  x:Name="machineModel" FontSize="25" VerticalAlignment="Center"   />
+            <TextBlock  x:Name="machineModel" FontSize="20" VerticalAlignment="Center"   />
         </Border>
         <Border Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="3" >
             <TextBlock  FontSize="25" Text="稼动情况：" VerticalAlignment="Center" HorizontalAlignment="Right" />
@@ -286,11 +286,11 @@
         <Border Grid.Row="20" Grid.Column="18" Grid.ColumnSpan="3" >
             <ToggleSwitch x:Name="eighteen" Header="" OffContent="N G" OnContent="O K"/>
         </Border>
-        <Border Grid.Row="21" Grid.Column="12" Grid.ColumnSpan="4" Padding="6" >
-            <Button x:Name="back"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="返   回"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="back_Click" />
+        <Border Grid.Row="21" Grid.Column="17" Grid.ColumnSpan="4" Padding="6" >
+            <Button x:Name="back"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="返   回"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="back_Click" />
         </Border>
-        <Border Grid.Row="21" Grid.Column="16" Grid.ColumnSpan="4" Padding="6" >
-            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="确   认"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="OnCommitData" />
+        <Border Grid.Row="21" Grid.Column="20" Grid.ColumnSpan="4" Padding="6" >
+            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="确   认"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="OnCommitData" />
         </Border>
     </Grid>
 </Page>

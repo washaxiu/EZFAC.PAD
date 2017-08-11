@@ -118,8 +118,8 @@
         <Border Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="3" >
             <TextBlock  FontSize="25" Text="稼动情况：" VerticalAlignment="Center" HorizontalAlignment="Right" />
         </Border>
-        <Border Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="3" BorderThickness="1,1,1,1" VerticalAlignment="Center" BorderBrush="Black" Margin="0,2,0,2">
-            <ComboBox x:Name="work" Width="150" SelectedIndex="0">
+        <Border Grid.Row="2" Grid.Column="20" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="0,2,0,2">
+            <ComboBox x:Name="work" Width="120" SelectedIndex="0">
                 <x:String>已稼动</x:String>
                 <x:String>未稼动</x:String>
             </ComboBox>
@@ -277,11 +277,11 @@
         <Border Grid.Row="20" Grid.Column="17" Grid.ColumnSpan="4" >
             <ToggleSwitch x:Name="seventeen" Header="" OffContent="N G" OnContent="O K" />
         </Border>
-        <Border Grid.Row="21" Grid.Column="16" Grid.ColumnSpan="4" Padding="6" >
-            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="提   交"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="OnCommitData" />
+        <Border Grid.Row="21" Grid.Column="20" Grid.ColumnSpan="4" Padding="6" >
+            <Button x:Name="Confirm"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="提   交"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="OnCommitData" />
         </Border>
-        <Border Grid.Row="21" Grid.Column="13" Grid.ColumnSpan="4" Padding="6" >
-            <Button x:Name="Return"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="返   回"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="Return_Click" />
+        <Border Grid.Row="21" Grid.Column="17" Grid.ColumnSpan="4" Padding="6" >
+            <Button x:Name="Return"  HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="返   回"  Background="#0099CC" Foreground="White" FontFamily="Segoe UI Black" FontSize="25" FontWeight="Bold" Click="Return_Click" />
         </Border>
     </Grid>
 </Page>
