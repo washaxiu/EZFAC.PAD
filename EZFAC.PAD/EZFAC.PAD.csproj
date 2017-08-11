@@ -203,7 +203,6 @@
     <None Include="EZFAC.PAD_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\5-120605204024-50.png" />
     <Content Include="Images\morning1.png" />
     <Content Include="Images\morning14.png" />
     <Content Include="Images\morning15.png" />
