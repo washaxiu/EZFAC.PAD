@@ -229,8 +229,8 @@ namespace EZFAC.PAD
         private void judgeGroup(string checkgroup)
         {
             //  初始化线数组
-            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,
-                                          line09,line10,line11,line12,line13,line14,line15,line16
+            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,line09,
+                                          line10,line11,line12,line13,line14,line15,line16,line17,line18
                                         };
             //  根据机组设置机番名称
             for (int i = 0; i < radioButton.Length; i++)
@@ -277,8 +277,8 @@ namespace EZFAC.PAD
         private void judgeLine(string checkline)
         {
             //  初始化线数组
-            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,
-                                          line09,line10,line11,line12,line13,line14,line15,line16
+            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,line09,
+                                          line10,line11,line12,line13,line14,line15,line16,line17,line18
                                         };
             for (int i = 0; i < radioButton.Length; i++)
             {

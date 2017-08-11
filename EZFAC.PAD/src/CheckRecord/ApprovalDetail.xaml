@@ -84,25 +84,61 @@
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Orientation="Horizontal" >
             <TextBlock x:Name="MachineIdTag" Margin="20,0,10,0" FontSize="25" Text="机 番：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
         </StackPanel>
-        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9" Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line01" Content="A-01" IsChecked="True"/>
+        <StackPanel Grid.Row="3" Grid.Column="1"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line01" Content="A-01" IsChecked="True" Click="OnLineChecked"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line03" Content="A-03" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="3"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line05" Content="A-05" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="4"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line07" Content="A-07" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="5"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line09" Content="A-09" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="6"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line11" Content="A-11" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="7"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line13" Content="A-13" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="8"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line15" Content="A-15" Click="OnLineChecked" />
         </StackPanel>
-        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="9" Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line02" Content="A-02" Click="OnLineChecked" />
+        <StackPanel Grid.Row="3" Grid.Column="9"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line17" Content="A-17" Click="OnLineChecked" />
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="4" Grid.Column="1"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton  GroupName="MachineId" Name="line02" Content="A-02" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line04" Content="A-04" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="3"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line06" Content="A-06" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="4"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line08" Content="A-08" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="5"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line10" Content="A-10" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="6"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line12" Content="A-12" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="7"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line14" Content="A-14" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="8"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line16" Content="A-16" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="9"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line18" Content="A-18" Click="OnLineChecked" />
         </StackPanel>
         <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
             <Run FontSize="22"  Foreground="Green" Text="点检内容" />

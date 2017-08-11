@@ -55,7 +55,6 @@ namespace EZFAC.PAD
                 data = (Dictionary<string, string>)e.Parameter;
                 // 显示内容
                 username.Text = data["username"];
-                ApprovalPosition.Text = commonOperation.getJobByLevel(data["userlevel"]);
                 date.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 // 获取导航参数
                 Dictionary<string, string> getdata = (Dictionary<string, string>)e.Parameter;
@@ -93,8 +92,8 @@ namespace EZFAC.PAD
         private void OnMachineGroupChanged(object sender, RoutedEventArgs e)
         {
             //  初始化线数组
-            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,
-                                          line09,line10,line11,line12,line13,line14,line15,line16
+            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,line09,
+                                          line10,line11,line12,line13,line14,line15,line16,line17,line18
                                         };
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4,Temp5,Temp6,Temp7,Temp8};
             line01.IsChecked = true;
@@ -129,8 +128,8 @@ namespace EZFAC.PAD
         private void OnLineChecked(object sender, RoutedEventArgs e)
         {
             //  初始化线数组
-            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,
-                                          line09,line10,line11,line12,line13,line14,line15,line16
+            RadioButton[] radioButton = { line01,line02,line03,line04,line05,line06,line07,line08,line09,
+                                          line10,line11,line12,line13,line14,line15,line16,line17,line18
                                         };
             //  初始化内容数组
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4,Temp5,Temp6,Temp7,Temp8};
