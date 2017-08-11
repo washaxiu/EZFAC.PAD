@@ -62,6 +62,9 @@
         </Border>
         <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
             <ToggleSwitch x:Name="A_01" Header="  A_01" OffContent="" OnContent=""/>
+            <!--
+            <TextBox Background="Green" Text="A-01" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
+             -->
         </Border>
         <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
             <ToggleSwitch x:Name="A_02" Header="  A_02" OffContent="" OnContent=""/>
