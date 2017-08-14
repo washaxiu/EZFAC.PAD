@@ -96,34 +96,34 @@
             <TextBox x:Name="numberProject"  HorizontalAlignment="Right" Margin="0,7,0,0"  FontSize="20" VerticalAlignment="Center" BorderThickness="0"  Foreground="#FF16325A" Width="101"/>
         </Border>
         <TextBlock Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="1"  HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Run FontSize="18" Text="次工程" />
+            <Run x:Name="numberProjectText" FontSize="18" Text="次工程" />
         </TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center" >
-            <Run FontSize="20" Text="其他:" />
+            <Run x:Name="otherText" FontSize="20" Text="其他:" />
         </TextBlock>
         <Border Grid.Row="3" Grid.Column="10" Grid.ColumnSpan="1" Margin="0,1,0,1" BorderThickness="1" BorderBrush="Black" >
             <TextBox x:Name="other"   FontSize="20" VerticalAlignment="Center" BorderThickness="0" Margin="0,7,0,0"  Foreground="#FF16325A"/>
         </Border>
         <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0" >
-            <Run FontSize="20" Text="制品名:" />
+            <Run x:Name="thingNameText" FontSize="20" Text="制品名:" />
         </TextBlock>
         <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,1,0,1"  BorderThickness="1" BorderBrush="Black" >
             <TextBox x:Name="thingName" FontSize="20" Background="White" Margin="0,4,0,0" BorderThickness="0" />
         </Border>
         <TextBlock Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2"  HorizontalAlignment="Right" VerticalAlignment="Center" >
-            <Run FontSize="20" Text="机械号码:" />
+            <Run  x:Name="machineNoText" FontSize="20" Text="机械号码:" />
         </TextBlock>
         <Border Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="4" Margin="0,1,0,1" BorderThickness="1" BorderBrush="Black">
             <TextBox x:Name="machineNo" FontSize="20"  Margin="0,4,0,0" VerticalAlignment="Center" Foreground="#FF16320A" BorderThickness="0"/>
         </Border>
         <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center" >
-            <Run FontSize="20" Text="不良内容:" />
+            <Run x:Name="badContentText" FontSize="20" Text="不良内容:" />
         </TextBlock>
         <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"  Margin="0,1,0,1"  BorderThickness="1" BorderBrush="Black">
             <TextBox x:Name="badContent"  Margin="0,4,0,0" BorderThickness="0"   FontSize="20" VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A"/>
         </Border>
         <TextBlock Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2"  HorizontalAlignment="Right" VerticalAlignment="Center" >
-            <Run FontSize="20" Text="不良率:" />
+            <Run x:Name="badRateText" FontSize="20" Text="不良率:" />
         </TextBlock>
         <Border Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="4" Margin="0,1,0,1"  BorderThickness="1" BorderBrush="Black">
             <TextBox x:Name="badRate" FontSize="20"  Margin="0,4,0,0" BorderThickness="0"  VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A"/>
@@ -137,13 +137,13 @@
             <RadioButton GroupName="judger" Name="groupJudgerb" FontSize="20" FontFamily="Segoe UI Black" >不可使用</RadioButton>
         </StackPanel>
         <TextBlock Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2"  HorizontalAlignment="Right" VerticalAlignment="Center" >
-            <Run FontSize="20" Text="判断者:" />
+            <Run x:Name="handleText" FontSize="20" Text="判断者:" />
         </TextBlock>
         <Border Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="4"  Margin="0,1,0,1"   BorderThickness="1" BorderBrush="Black">
             <TextBox x:Name="handle"  Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center"  Foreground="#FF16320A"/>
         </Border>
-        <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Left" VerticalAlignment="Center" >
-            <Run FontSize="20" Text="生产日期：" />
+        <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="0,5,76,4" >
+            <Run x:Name="productDateText" FontSize="20" Text="生产日期：" />
         </TextBlock>
         <Border Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,1,0,1" >
             <CalendarDatePicker x:Name="productDate"  FontSize="18" VerticalAlignment="Center" MinWidth="320"  Foreground="#FF16320A" />
@@ -158,19 +158,21 @@
             </ComboBox>
         </Border>
         <TextBlock Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,2" >
-            <Run FontSize="20" Text="操作工：" />
+            <Run x:Name="operaterText" FontSize="20" Text="操作工：" />
         </TextBlock>
         <Border Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" Margin="0,1,0,1"   BorderThickness="1" BorderBrush="Black">
             <TextBox x:Name="operater" Margin="0,4,0,0" BorderThickness="0"  FontSize="20" Foreground="#FF16320A" />
         </Border>
         <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="1"  HorizontalAlignment="Left" VerticalAlignment="Center" >
-            <Run FontSize="20" Text="研磨机：" />
+            <Run x:Name="grindMachineText" FontSize="20" Text="研磨机：" />
         </TextBlock>
         <Border Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,1,0,1"  BorderThickness="1" BorderBrush="Black">
             <TextBox x:Name="grindMachine" Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center" MinWidth="200"  Foreground="#FF16320A" />
         </Border>
         <Border Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="1">
-            <TextBlock FontSize="20" Text="研磨时间:" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
+            <TextBlock  VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center">
+                 <Run x:Name="grindTimeText" FontSize="20" Text="研磨时间:" />
+            </TextBlock>
         </Border>
         <Border Grid.Row="8" Grid.Column="7" Grid.ColumnSpan="1" BorderBrush="Black"  BorderThickness="1">
             <TextBox x:Name="grindTime"  Margin="0,4,0,0" BorderThickness="0" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Width="104"/>
@@ -179,13 +181,13 @@
             <TextBlock Text="：分" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Border>
         <TextBlock Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="1"  HorizontalAlignment="Right" VerticalAlignment="Center" >
-            <Run FontSize="20" Text="研磨工:" />
+            <Run x:Name="grindText" FontSize="20" Text="研磨工:" />
         </TextBlock>
         <Border Grid.Row="8" Grid.Column="10" Grid.ColumnSpan="1" Margin="0,1,0,1" BorderBrush="Black"  BorderThickness="1" >
             <TextBox x:Name="grind"  Margin="0,4,0,0" BorderThickness="0"  FontSize="20" VerticalAlignment="Center"  Foreground="#FF16320A" />
         </Border>
         <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalAlignment="left" VerticalAlignment="Center" >
-            <Run FontSize="23" Text="备考/编号（DCJ/DCX）：" />
+            <Run x:Name="DCJ_DCX_Text" FontSize="23" Text="备考/编号（DCJ/DCX）：" />
         </TextBlock>
         <Border Grid.Row="9" Grid.Column="3" Margin="0,4,0,4"  Grid.ColumnSpan="8" Background="Gray">
             <TextBox x:Name="DCJ_DCX" Background="White"  />

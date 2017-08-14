@@ -179,10 +179,10 @@
                 <Run FontSize="16" Text="    *模具更换时，对异物残留的混入检查"></Run>
             </TextBlock>
         </Border>
-        <Image x:Name="image1"  Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished1.png"  Margin="10,0,10,0" />
-        <Image x:Name="image2"  Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished2.png" Margin="10,0,10,0"/>
-        <Image x:Name="image3"  Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished3.png" Margin="10,0,10,0"/>
-        <Image x:Name="image4"  Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished4.png" Margin="10,0,10,0"/>
+        <Image x:Name="image1"  Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished1.png"  Margin="10,0,10,0"  PointerPressed="Image_Click"/>
+        <Image x:Name="image2"  Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished2.png" Margin="10,0,10,0"  PointerPressed="Image_Click"/>
+        <Image x:Name="image3"  Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished3.png" Margin="10,0,10,0"  PointerPressed="Image_Click"/>
+        <Image x:Name="image4"  Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Source="ms-appx:///Images/SemiFinished4.png" Margin="10,0,10,0"  PointerPressed="Image_Click"/>
         <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
             <Run FontSize="16" Text="图1：整体地图&#x0a;"></Run>
         </TextBlock>

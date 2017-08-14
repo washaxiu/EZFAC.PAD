@@ -1,16 +1,16 @@
 {
-	  "Users": [
-      {
-        "UniqueId": "000001",
-        "UserName": "zhaoyi",
-        "e-mail": "zhaoyi@123.com",
-        "Password": "123456",
-        "CNName": "zhaoyi",
-        "level": "1",
-        "date": "2016-01-23",
-        "authority": "CheckRecord,DailyCheckNoon,UnqualifiedReport,YZGCMonthRecord,MaintenanceLog,AbnormalQualityReport,DailyCheckMorning"
-      },
-  		{
+	"Users": [
+		{
+			"UniqueId": "000001",
+			"UserName": "zhaoyi",
+			"e-mail" : "zhaoyi@123.com",
+			"Password": "123456",
+			"CNName": "zhaoyi",
+			"level":"1",
+			"date" : "2016-01-23",
+			"authority" : "CheckRecord,DailyCheckNoon,UnqualifiedReport,YZGCMonthRecord,SemiFinishedCheck,DailyCheckMorning,AbnormalQualityReport,MaintenanceLog"
+		},
+		{
 			"UniqueId": "000002",
 			"UserName": "chener",
 			"e-mail" : "chener@123.com",
@@ -18,7 +18,7 @@
 			"CNName" : "chener",
 			"level":"2",
 			"date" : "2016-01-23",
-			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList,AbnormalQualityReportList,DailyCheckMorningList"
+			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,SemiFinishedCheckList,DailyCheckMorningList,AbnormalQualityReportList,MaintenanceLogList"
 		},
 		{
 			"UniqueId": "000003",
@@ -28,7 +28,7 @@
 			"CNName" : "zhangsan",
 			"level":"3",
 			"date" : "2016-01-23",
-			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList,AbnormalQualityReportList,DailyCheckMorningList"
+			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,SemiFinishedCheckList,DailyCheckMorningList,AbnormalQualityReportList,MaintenanceLogList"
 		},
 		{
 			"UniqueId": "000004",
@@ -38,7 +38,7 @@
 			"CNName" : "lisi",
 			"level":"4",
 			"date" : "2016-01-23",
-			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList,AbnormalQualityReportList"
+			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,SemiFinishedCheckList,DailyCheckMorningList,AbnormalQualityReportList,MaintenanceLogList"
 		},
 		{
 			"UniqueId": "000005",
@@ -48,7 +48,7 @@
 			"CNName" : "wangwu",
 			"level":"5",
 			"date" : "2016-01-23",
-			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,MaintenanceLogList,AbnormalQualityReportList"
+			"authority" : "ApprovalList,DailyCheckNoonList,UnqualifiedReportList,YZGCMonthRecordList,SemiFinishedCheckList,DailyCheckMorningList,AbnormalQualityReportList,MaintenanceLogList"
 		}
 	]
 }

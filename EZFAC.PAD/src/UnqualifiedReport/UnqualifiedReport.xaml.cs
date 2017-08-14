@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Tools;
+using Windows.UI.Xaml.Documents;
+using Windows.UI;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -30,6 +32,8 @@ namespace EZFAC.PAD
         private Dictionary<string, string> data = new Dictionary<string, string>();
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
+        private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        private SolidColorBrush black = new SolidColorBrush(Colors.Black);
 
         public UnqualifiedReport()
         {
@@ -52,6 +56,10 @@ namespace EZFAC.PAD
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            if (!judge())
+            {
+                return;
+            }
             // 初始化文本数组
             TextBox[] textBox = { underTaker, unqualifiedContent, classificationNo, description, material, finish, weight,
                                   founder, ExceptionDiscription,ExceptionObject,reasonProcess,machineNo,modelNo,
@@ -63,11 +71,6 @@ namespace EZFAC.PAD
                                           group1,group2,group3,
                                           groupWork1,groupWork2,
                                           group4M1,group4M2,group4M3,group4M4};
-       /*     if (!isOK(textBox, calendarDatePicker))
-            {
-                messDialog.showDialog("请完善表格！");
-                return;
-            }*/
 
             JsonObject checkRecordData = new JsonObject();
             // 初始化检查的json信息
@@ -121,23 +124,24 @@ namespace EZFAC.PAD
         }
 
         //  判断常规文本和时间文本是否填入值
-        private bool isOK(TextBox[] textBox, CalendarDatePicker[] calendarDatePicker)
+        private bool judge()
         {
-            for(int i = 0; i < textBox.Length; i++)
+            bool flag = true;
+            string msg = null;
+            TextBox[] textBox = { unqualifiedContent , classificationNo };
+            Run[] run = { unqualifiedContentText , classificationNoText };
+            for (int i = 0; i < textBox.Length; i++)
             {
+                run[i].Foreground = black;
                 if ("".Equals(textBox[i].Text.Trim()))
                 {
-                    return false;
+                    flag = false;
+                    msg = "必填项不能为空！";
+                    run[i].Foreground = red;
                 }
             }
-            for (int i = 0; i < calendarDatePicker.Length; i++)
-            {
-                if ("".Equals(calendarDatePicker[i].Date.ToString().Trim()))
-                {
-                    return false;
-                }
-            }
-            return true;
+            if (!flag) messDialog.showDialog(msg);
+            return flag;
         }
     }
 }

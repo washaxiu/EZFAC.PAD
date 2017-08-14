@@ -17,6 +17,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Tools;
 using EZFAC.PAD.src.Service;
+using Windows.UI;
+using Windows.UI.Xaml.Documents;
+using System.Text.RegularExpressions;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -33,6 +36,8 @@ namespace EZFAC.PAD
         private MessDialog messDialog = new MessDialog();
         private JsonValue good = JsonValue.CreateStringValue("good");
         private JsonValue bad = JsonValue.CreateStringValue("bad");
+        private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        private SolidColorBrush black = new SolidColorBrush(Colors.Black);
 
         public AbnormalQualityReportOne()
         {
@@ -107,6 +112,10 @@ namespace EZFAC.PAD
                 return;
             }
 
+            if (!judge())
+            {
+                return; 
+            }
             // 初始化控件文本
             TextBox[] textBox = { thingName ,numberProject , other , machineNo , badContent , badRate , handle ,
                     operater,grindMachine,grindTime,grind,DCJ_DCX,
@@ -284,6 +293,51 @@ namespace EZFAC.PAD
             }
         }
 
+
+        private bool judge()
+        {
+            bool flag = true;
+            string msg = null;
+            TextBox[] textBox = { numberProject,grindTime,other,thingName, machineNo, badContent, badRate, handle,
+                        operater, grindMachine, grind, DCJ_DCX};
+            Run[] run = { numberProjectText,grindTimeText,otherText,thingNameText, machineNoText, badContentText, badRateText,
+                        handleText, operaterText,grindMachineText,grindText,DCJ_DCX_Text };
+            for(int i = 0; i < textBox.Length; i++)
+            {
+                run[i].Foreground = black;
+                if ("".Equals(textBox[i].Text.Trim()))
+                {
+                    flag = false;
+                    msg = "必填项不能为空！";
+                    run[i].Foreground = red;
+                }
+            }
+            if (flag == true)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    run[i].Foreground = black;
+                    if (!Regex.IsMatch(textBox[i].Text, @"^(\-|\+)?\d+(\.\d+)?$"))
+                    {
+                        msg = "输入必须为数字!  ";
+                        run[i].Foreground = red;
+                        flag = false;
+                    }
+                }
+            }
+            if(flag == true)
+            {
+                productDateText.Foreground = black;
+                if ("".Equals(productDate.Date.ToString().Trim()))
+                {
+                    msg = "请输入时间！";
+                    productDateText.Foreground = red;
+                    flag = false;
+                }
+            }
+            if(!flag) messDialog.showDialog(msg);
+            return flag;
+        }
         
     }
 }

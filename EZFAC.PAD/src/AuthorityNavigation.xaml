@@ -112,7 +112,7 @@
             <Run x:Name="lineText08" FontSize="25" Text="压铸工程月度机械漏油点检"></Run>
         </TextBlock>
         
-        <Button  Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6" x:Name="button" FontSize="30" Content="进    入" HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="200" MinHeight="60" Background="#FF00D5FF" Foreground="White" Click="SignIn"/>
+        <Button  Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6" x:Name="button" FontSize="30" Content="进    入" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200" MinHeight="60" Background="#FF00D5FF" Foreground="White" Click="SignIn"/>
 
         <Border Grid.Row="10" Padding="6" Grid.Column="0" Grid.ColumnSpan="6" Background="Green">
             <TextBlock x:Name="tbRes" FontSize="12" Foreground="White" Margin="0,0,10,0" Text="Andon系统 版本号：R1.01.B001" HorizontalAlignment="Right" VerticalAlignment="Center"/>
