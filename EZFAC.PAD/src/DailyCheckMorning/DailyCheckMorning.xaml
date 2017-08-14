@@ -154,7 +154,7 @@
             <TextBlock  Text="油压"></TextBlock>
         </Border>
         <Border Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox  x:Name="four" Tag="油温针温度" VerticalAlignment="Center"></TextBox>
+            <TextBox  x:Name="four" Tag="油温针温度" VerticalAlignment="Center" MinWidth="40"></TextBox>
         </Border>
         <Border Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock  Text="℃"></TextBlock>
@@ -201,7 +201,7 @@
             <TextBlock Text="周期："></TextBlock>
         </Border>
         <Border Grid.Row="5" Grid.Column="20" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="zhouqi" Tag="CYCLE周期" VerticalAlignment="Center"></TextBox>
+            <TextBox x:Name="zhouqi" Tag="CYCLE周期" VerticalAlignment="Center" MinWidth="40"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="21" Grid.ColumnSpan="1" VerticalAlignment="Center">
             <TextBlock Text="  S"></TextBlock>
@@ -213,7 +213,7 @@
             <TextBlock Text="温度："></TextBlock>
         </Border>
         <Border Grid.Row="7" Grid.Column="20" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="nozzleTemp" Tag="NOZZLE运转温度" VerticalAlignment="Center"></TextBox>
+            <TextBox x:Name="nozzleTemp" Tag="NOZZLE运转温度" VerticalAlignment="Center" MinWidth="40"></TextBox>
         </Border>
         <Border Grid.Row="7" Grid.Column="21" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock Text="  ℃"></TextBlock>
@@ -226,7 +226,7 @@
             <TextBlock  Text="温度："></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="15" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="GOOSENECKTemp" TextWrapping="Wrap" Tag="GOOSE NECK温度" VerticalAlignment="Center"></TextBox>
+            <TextBox x:Name="GOOSENECKTemp" TextWrapping="Wrap" Tag="GOOSE NECK温度" VerticalAlignment="Center" MinWidth="40"></TextBox>
         </Border>
         <Border Grid.Row="15" Grid.Column="16" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock TextWrapping="Wrap" Text="  ℃"></TextBlock>
@@ -238,7 +238,7 @@
             <TextBlock  Text="温度："></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="19" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="fuTemp1" Tag="釜温度①" VerticalAlignment="Center"></TextBox>
+            <TextBox x:Name="fuTemp1" Tag="釜温度①" VerticalAlignment="Center" MinWidth="40"></TextBox>
         </Border>
         <Border Grid.Row="15" Grid.Column="20" Grid.ColumnSpan="1" VerticalAlignment="Center" >
             <TextBlock TextWrapping="Wrap" Text="  ℃"></TextBlock>
@@ -250,7 +250,7 @@
             <TextBlock TextWrapping="Wrap" Text="温度:"></TextBlock>
         </Border>
         <Border Grid.Row="15" Grid.Column="22" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="Black" Margin="0,2,0,2">
-            <TextBox x:Name="fuTemp2" TextWrapping="Wrap" Tag="釜温度②" VerticalAlignment="Center"></TextBox>
+            <TextBox x:Name="fuTemp2" TextWrapping="Wrap" Tag="釜温度②" VerticalAlignment="Center" MinWidth="40"></TextBox>
         </Border>
         <Border Grid.Row="15" Grid.Column="23" Grid.ColumnSpan="1" VerticalAlignment="Center"  >
             <TextBlock TextWrapping="Wrap" Text="  ℃"></TextBlock>

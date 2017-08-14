@@ -155,11 +155,22 @@
             </ListView.ItemTemplate>
         </ListView>
 
-
-        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"   VerticalAlignment="Center" HorizontalAlignment="Right" >
+        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" >
+            <TextBlock x:Name="MachineIdTag" Margin="45,0,10,0" FontSize="22"  Foreground="Green" Text="图例说明" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="10,6,10,0" Orientation="Vertical" >
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" >
+                <Run FontSize="20" Foreground="Black" Text="○ -- 良" />
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" >
+                <Run FontSize="20" Foreground="Black" Text="× -- 否" />
+            </TextBlock>
+        </StackPanel>
+        
+        <TextBlock Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2"   VerticalAlignment="Center" HorizontalAlignment="Right" >
             <Run FontSize="22"  Foreground="Green" Text="颜色说明" />
         </TextBlock>
-        <StackPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="25,7,10,0" Orientation="Vertical" >
+        <StackPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Margin="25,7,10,0" Orientation="Vertical" >
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20" Foreground="Black" Text="黑 -- 未修改" />
             </TextBlock>
