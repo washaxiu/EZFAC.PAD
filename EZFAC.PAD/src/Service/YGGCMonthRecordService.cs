@@ -62,22 +62,30 @@ namespace EZFAC.PAD.src.Service
                         for (int i = 0; i < content.Count; i++)
                         {
                             contentEdit = contentEdit + content[i].GetObject()["edit"].GetString();
-                        }
+                        }                       
                         lvFiles.Items.Add(new
                         {
                             // 设置检查信息
                             Group = checkInfo[0].GetObject()["group"].GetString(),
                             Line = checkInfo[0].GetObject()["number"].GetString(),
                             MachineName = "压铸线" + checkInfo[0].GetObject()["group"].GetString() + "-" + checkInfo[0].GetObject()["number"].GetString(),
-                            // 设置检查内容
-                            Temp1Name = content[0].GetObject()["status"].GetString() == "good" ? good : bad,
-                            Temp2Name = content[1].GetObject()["status"].GetString() == "good" ? good : bad,
-                            Temp3Name = content[2].GetObject()["status"].GetString() == "good" ? good : bad,
-                            Temp4Name = content[3].GetObject()["status"].GetString() == "good" ? good : bad,
-                            Temp5Name = content[4].GetObject()["status"].GetString() == "good" ? good : bad,
-                            Temp6Name = content[5].GetObject()["status"].GetString() == "good" ? good : bad,
-                            Temp7Name = content[6].GetObject()["status"].GetString() == "good" ? good : bad,
-                            Temp8Name = content[7].GetObject()["status"].GetString() == "good" ? good : bad,
+                            // 设置检查内容                      
+                            Temp1Name = content[0].GetObject()["status"].GetString().Split(',')[0] == "good" ? good : bad,
+                            Maintenance1Name = content[0].GetObject()["status"].GetString().Split(',')[1] == "good" ? good : bad,
+                            Temp2Name = content[1].GetObject()["status"].GetString().Split(',')[0] == "good" ? good : bad,
+                            Maintenance2Name = content[1].GetObject()["status"].GetString().Split(',')[1] == "good" ? good : bad,
+                            Temp3Name = content[2].GetObject()["status"].GetString().Split(',')[0] == "good" ? good : bad,
+                            Maintenance3Name = content[2].GetObject()["status"].GetString().Split(',')[1] == "good" ? good : bad,
+                            Temp4Name = content[3].GetObject()["status"].GetString().Split(',')[0] == "good" ? good : bad,
+                            Maintenance4Name = content[3].GetObject()["status"].GetString().Split(',')[1] == "good" ? good : bad,
+                            Temp5Name = content[4].GetObject()["status"].GetString().Split(',')[0] == "good" ? good : bad,
+                            Maintenance5Name = content[4].GetObject()["status"].GetString().Split(',')[1] == "good" ? good : bad,
+                            Temp6Name = content[5].GetObject()["status"].GetString().Split(',')[0] == "good" ? good : bad,
+                            Maintenance6Name = content[5].GetObject()["status"].GetString().Split(',')[1] == "good" ? good : bad,
+                            Temp7Name = content[6].GetObject()["status"].GetString().Split(',')[0] == "good" ? good : bad,
+                            Maintenance7Name = content[6].GetObject()["status"].GetString().Split(',')[1] == "good" ? good : bad,
+                            Temp8Name = content[7].GetObject()["status"].GetString().Split(',')[0] == "good" ? good : bad,
+                            Maintenance8Name = content[7].GetObject()["status"].GetString().Split(',')[1] == "good" ? good : bad,
                             // 设置用户信息
                             CheckerName = checkerInfo[0].GetObject()["name"].GetString(),
                             CheckDate = checkerInfo[0].GetObject()["date"].GetString(),
@@ -149,6 +157,38 @@ namespace EZFAC.PAD.src.Service
                 else if (strs[i].Equals("Temp8Name"))
                 {
                     data.Add("temp8", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Maintenance1Name"))
+                {
+                    data.Add("maintenance1", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Maintenance2Name"))
+                {
+                    data.Add("maintenance2", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Maintenance3Name"))
+                {
+                    data.Add("maintenance3", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Maintenance4Name"))
+                {
+                    data.Add("maintenance4", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Maintenance5Name"))
+                {
+                    data.Add("maintenance5", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Maintenance6Name"))
+                {
+                    data.Add("maintenance6", strs[i + 1]);                  
+                }
+                else if (strs[i].Equals("Maintenance7Name"))
+                {
+                    data.Add("maintenance7", strs[i + 1]);
+                }
+                else if (strs[i].Equals("Maintenance8Name"))
+                {
+                    data.Add("maintenance8", strs[i + 1]);
                 }
                 else if (strs[i].Equals("ContentEdit"))
                 {

@@ -67,18 +67,21 @@ namespace EZFAC.PAD
         {
             JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
+            ToggleSwitch[] maintenanceSwitch = { Maintenance1, Maintenance2, Maintenance3, Maintenance4, Maintenance5, Maintenance6, Maintenance7, Maintenance8 };
             // 初始化检查的json信息
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, groupName, lineName));
             // 设置检查内容的json信息
             JsonArray content = new JsonArray();
-            foreach (ToggleSwitch item in toggleSwitch)
+            for(int i = 0; i < toggleSwitch.Length; i++)
             {
                 JsonObject contentItem = new JsonObject();
-                contentItem["name"] = JsonValue.CreateStringValue(item.Name);
-                contentItem["status"] = item.IsOn == true ? good : bad;
+                contentItem["name"] = JsonValue.CreateStringValue(toggleSwitch[i].Name);
+                string toggle = toggleSwitch[i].IsOn == true ? "good" : "bad";         
+                String maintenance = maintenanceSwitch[i].IsOn == true ? "good" : "bad";
+                contentItem["status"] = JsonValue.CreateStringValue(toggle + "," + maintenance);
                 contentItem["edit"] = JsonValue.CreateStringValue("0");
                 content.Add(contentItem);
-            }
+            }        
             checkRecordData.Add("content", content);
             // 初始化各级别用户的json信息
             checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, reviewInfor.Text));
@@ -96,6 +99,8 @@ namespace EZFAC.PAD
                                           line10,line11,line12,line13,line14,line15,line16,line17,line18
                                         };
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4,Temp5,Temp6,Temp7,Temp8};
+            ToggleSwitch[] maintenanceSwitch = { Maintenance1, Maintenance2, Maintenance3, Maintenance4, Maintenance5, Maintenance6, Maintenance7, Maintenance8 };
+
             line01.IsChecked = true;
             //  根据机组选定情况设置groupName的值
             if (groupa.IsChecked == true)
@@ -121,6 +126,10 @@ namespace EZFAC.PAD
             {
                 toggleSwitch[i].IsOn = false;
             }
+            for(int i = 0; i < maintenanceSwitch.Length; i++)
+            {
+                maintenanceSwitch[i].IsOn = false;
+            }
             reviewInfor.Text = "";
 
         }
@@ -133,6 +142,7 @@ namespace EZFAC.PAD
                                         };
             //  初始化内容数组
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4,Temp5,Temp6,Temp7,Temp8};
+            ToggleSwitch[] maintenanceSwitch = { Maintenance1,Maintenance2,Maintenance3,Maintenance4,Maintenance5,Maintenance6,Maintenance7,Maintenance8};
             //  根据机番选定情况设置lineName的值
             for (int i = 0; i < radioButton.Length; i++)
             {
@@ -146,6 +156,10 @@ namespace EZFAC.PAD
             for (int i = 0; i < toggleSwitch.Length; i++)
             {
                 toggleSwitch[i].IsOn = false;
+            }
+            for(int j = 0; j < maintenanceSwitch.Length; j++)
+            {
+                maintenanceSwitch[j].IsOn = false;
             }
             reviewInfor.Text = "";
         }

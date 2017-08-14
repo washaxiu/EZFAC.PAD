@@ -43,7 +43,7 @@ namespace EZFAC.PAD
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
         JsonValue good = JsonValue.CreateStringValue("good");
         JsonValue bad = JsonValue.CreateStringValue("bad");
-        private YZGCMonthRecordService yZGCMonthRecordService = new YZGCMonthRecordService();
+        private YZGCMonthRecordService YZGCMonthRecordService = new YZGCMonthRecordService();
 
         public YZGCMonthRecordDetail()
         {
@@ -67,10 +67,16 @@ namespace EZFAC.PAD
                 folderName = getdata["folderName"];
 
                 ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
+                ToggleSwitch[] maintenanceSwitch = { Maintenance1, Maintenance2, Maintenance3, Maintenance4, Maintenance5, Maintenance6, Maintenance7, Maintenance8 };
+
                 TextBlock[] toggleText = { Temp1Text, Temp2Text, Temp3Text, Temp4Text, Temp5Text, Temp6Text, Temp7Text, Temp8Text };
                 string[] contents = { getdata["temp1"] , getdata["temp2"] , getdata["temp3"] , getdata["temp4"],
                                       getdata["temp5"] , getdata["temp6"] , getdata["temp7"] , getdata["temp8"]
-                                    };
+                                    }; 
+                string[] maintenanceContents = {getdata["maintenance1"] , getdata["maintenance2"] , getdata["maintenance3"] , getdata["maintenance4"] ,
+                                                getdata["maintenance5"] , getdata["maintenance6"] , getdata["maintenance7"] , getdata["maintenance8"]
+                                                };
+                String dd = getdata["maintenance5"];
                 string contentEdit = getdata["contentEdit"];
                 // 获取职位
                 ApprovalPosition.Text = commonOperation.getJobByLevel(userLevel);
@@ -88,6 +94,7 @@ namespace EZFAC.PAD
                         toggleText[i].Foreground = red;
                     }
                     toggleSwitch[i].IsOn = contents[i] == "○" ? true : false;
+                    maintenanceSwitch[i].IsOn = maintenanceContents[i] == "○" ? true : false;
                 }
                 // 获取审批信息并显示在多行Texkbox
                 commonOperation.getStateText(reviewInfor, userLevel, checkfilename, folderName);
@@ -174,6 +181,7 @@ namespace EZFAC.PAD
         {
             JsonObject checkRecordData = new JsonObject();
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
+            ToggleSwitch[] maintenanceSwitch = { Maintenance1, Maintenance2, Maintenance3, Maintenance4, Maintenance5, Maintenance6, Maintenance7, Maintenance8 };
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
             StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
@@ -192,6 +200,7 @@ namespace EZFAC.PAD
                     JsonArray checkerInfo = jsonObject["checkerInfo"].GetArray();
                     // 判断信息是否被更改并集成为字符串
                     newEdit = editContnet(content);
+
                     for (int i = 0; i < content.Count; i++)
                     {
                         oldEdit = oldEdit + content[i].GetObject()["edit"].GetString();
@@ -221,7 +230,10 @@ namespace EZFAC.PAD
             {
                 JsonObject contentItem = new JsonObject();
                 contentItem["name"] = JsonValue.CreateStringValue(toggleSwitch[i].Name);
-                contentItem["status"] = toggleSwitch[i].IsOn == true ? good : bad;
+                string toggle = toggleSwitch[i].IsOn == true ? "good" : "bad";
+                String maintenance = maintenanceSwitch[i].IsOn == true ? "good" : "bad";
+                contentItem["status"] = JsonValue.CreateStringValue(toggle + "," + maintenance);
+                //contentItem["status"] = toggleSwitch[i].IsOn == true ? good : bad;
                 //  判断内容是否被修改,若修改则设为1，否则等于原来的值
                 if (newEdit[i] == '1')
                 {
@@ -265,10 +277,16 @@ namespace EZFAC.PAD
             string edit = null;
             //  初始化内容数组
             ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Temp4, Temp5, Temp6, Temp7, Temp8 };
+            ToggleSwitch[] maintenanceSwitch = { Maintenance1, Maintenance2, Maintenance3, Maintenance4, Maintenance5, Maintenance6, Maintenance7, Maintenance8 };
             for (int i = 0; i < toggleSwitch.Length; i++)
             {
-                bool flag = content[i].GetObject()["status"].GetString().Equals("good");
-                string msg = flag == toggleSwitch[i].IsOn ? "0" : "1";
+                bool flag1 = content[i].GetObject()["status"].GetString().Split(',')[0].Equals("good");
+                bool flag2 = content[i].GetObject()["status"].GetString().Split(',')[1].Equals("good");
+                string msg = flag1 == toggleSwitch[i].IsOn ? "0" : "1";
+                if (msg.Equals("0"))
+                {
+                    msg = flag2 == maintenanceSwitch[i].IsOn ? "0" : "1";
+                }
                 edit = edit + msg;
             }
             return edit;

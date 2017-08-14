@@ -41,14 +41,20 @@
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32"/>
         </TextBlock>
 
-        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="UserNameTag" FontSize="25" Text="点检人：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="username" Margin="10,0,2,0" HorizontalAlignment="Left"  FontSize="20" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
-            <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="25" Text="点检日期" VerticalAlignment="Center" MinWidth="200" Foreground="#FF16325A"/>
+        <Border Grid.Row="1" Grid.Column="3" Padding="3" Background="#FF0080FF" BorderThickness="0">
+            <TextBlock x:Name="PositionTag" FontSize="20" Text="职位：" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBlock x:Name="ApprovalPosition" Text="员工" Margin="10,0,0,2" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
+            <TextBlock x:Name="DateTag" HorizontalAlignment="Center" Margin="-30,0,0,0" FontSize="25" Text="点检日期：" VerticalAlignment="Center" MinWidth="200" Foreground="#FF16325A"/>
         </Border>
         <Border Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="date" Margin="12,0,0,0"  FontSize="25" Text="2017-06-16" VerticalAlignment="Center"  Foreground="#FF16325A"/>
@@ -131,53 +137,77 @@
         <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="7" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
             <Run FontSize="25" Foreground="Green"  Text="点检内容" />
         </TextBlock>
-        <TextBlock Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
             <Run FontSize="20"   Text="机械可动侧LC部位漏油否" />
         </TextBlock>
-        <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <ToggleSwitch x:Name="Temp1"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" Margin="0,5,0,4" Width="118" />
+        <StackPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-40,0,0,0">
+            <ToggleSwitch x:Name="Temp1"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" Margin="0,5,0,4" Width="118" />
         </StackPanel>
-        <TextBlock Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Run FontSize="20"   Text="作动油油量表（1/2上X）" />
+        <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+            <ToggleSwitch x:Name="Maintenance1"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold" Margin="0,5,0,4" Width="118" />
+        </StackPanel>
+        <TextBlock Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="作动油油量表（1/2上否）" />
         </TextBlock>
-        <StackPanel Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
-            <ToggleSwitch x:Name="Temp2" OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        <StackPanel Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="Temp2" OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <TextBlock Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Run FontSize="20"   Text="压动系统的PC装置漏油X" />
+        <StackPanel Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+            <ToggleSwitch x:Name="Maintenance2"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold" Margin="0,5,0,4" Width="118" />
+        </StackPanel>
+        <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+            <Run FontSize="20"   Text="压动系统的PC装置漏油否" />
         </TextBlock>
-        <StackPanel Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
-            <ToggleSwitch x:Name="Temp3"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        <StackPanel Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Margin="-40,0,0,0">
+            <ToggleSwitch x:Name="Temp3"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <TextBlock Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Run FontSize="20"   Text="机械油温（50℃以上X）" />
+        <StackPanel Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+            <ToggleSwitch x:Name="Maintenance3"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold"  Margin="0,5,0,4" Width="118" />
+        </StackPanel>
+        <TextBlock Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="机械油温（50℃以上否）" />
         </TextBlock>
-        <StackPanel Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
-            <ToggleSwitch x:Name="Temp4"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        <StackPanel Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" >
+            <ToggleSwitch x:Name="Temp4"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <TextBlock Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Run FontSize="20"   Text="中心顶轴的EC部位漏油X" />
+        <StackPanel Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+            <ToggleSwitch x:Name="Maintenance4"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold"  Margin="0,5,0,4" Width="118" />
+        </StackPanel>
+        <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+            <Run FontSize="20"   Text="中心顶轴的EC部位漏油否" />
         </TextBlock>
-        <StackPanel Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <ToggleSwitch x:Name="Temp5"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        <StackPanel Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-40,0,0,0">
+            <ToggleSwitch x:Name="Temp5"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <TextBlock Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Run FontSize="20"   Text="冷却水管（15℃以下X）" />
+        <StackPanel Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+            <ToggleSwitch x:Name="Maintenance5"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold" Margin="0,5,0,4" Width="118" />
+        </StackPanel>
+        <TextBlock Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Run FontSize="20"   Text="冷却水管（15℃以下否）" />
         </TextBlock>
-        <StackPanel Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="6" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <ToggleSwitch x:Name="Temp6"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        <StackPanel Grid.Row="8" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <ToggleSwitch x:Name="Temp6"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <TextBlock Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Run FontSize="20"   Text="齿轮传动的CP部位漏油X" />
+        <StackPanel Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+            <ToggleSwitch x:Name="Maintenance6"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold"  Margin="0,5,0,4" Width="118" />
+        </StackPanel>
+        <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+            <Run FontSize="20"   Text="齿轮传动的CP部位漏油否" />
         </TextBlock>
-        <StackPanel Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <ToggleSwitch x:Name="Temp7"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        <StackPanel Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-40,0,0,0">
+            <ToggleSwitch x:Name="Temp7"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <TextBlock Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" >
+        <StackPanel Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+            <ToggleSwitch x:Name="Maintenance7"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold" Margin="0,5,0,4" Width="118" />
+        </StackPanel>
+        <TextBlock Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20"   Text="其他油、水配管情况" />
         </TextBlock>
-        <StackPanel Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="6" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <ToggleSwitch x:Name="Temp8"  OffContent="X" FontSize="25" FontWeight="Bold" OnContent="O" />
+        <StackPanel Grid.Row="9" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <ToggleSwitch x:Name="Temp8"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
+        </StackPanel>
+        <StackPanel Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+            <ToggleSwitch x:Name="Maintenance8"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold"  Margin="0,5,0,4" Width="118" />
         </StackPanel>
         <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,1,0,1">
         </Border>
