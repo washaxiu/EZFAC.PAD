@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Storage;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 
 namespace EZFAC.PAD.src.Tools
@@ -21,6 +22,11 @@ namespace EZFAC.PAD.src.Tools
         {
             JsonObject s = new JsonObject();
             return s;
+        }
+
+        public async void hide()
+        {
+            await StatusBar.GetForCurrentView().HideAsync();
         }
 
         /*

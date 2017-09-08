@@ -20,7 +20,8 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using EZFAC.PAD.src.Model;
 using EZFAC.PAD.src.Tools;
-
+using Windows.Foundation.Metadata;
+using Windows.UI.ViewManagement;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -32,10 +33,16 @@ namespace EZFAC.PAD
     public sealed partial class LoginPage : Page
     {
         private string jsonfile = "user.json";
-
+        private CommonOperation commonOperation = new CommonOperation();
+        private MessDialog mess = new MessDialog();
 
         public LoginPage()
         {
+            // 判断是否存在 StatusBar
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                commonOperation.hide();
+            }
             this.InitializeComponent();
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             //username.Text = "用户名/员工号/邮箱地址";
