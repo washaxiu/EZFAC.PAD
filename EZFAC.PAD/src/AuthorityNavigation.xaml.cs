@@ -143,7 +143,7 @@ namespace EZFAC.PAD
             // DC研磨前半制品的检查和审批界面 
             else if (line04.IsChecked == true)
             {
-                data["folderName"] = checkMenus[3];
+                data["folderName"] = checkMenus[1];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(SemiFinishedCheck), data);
@@ -156,7 +156,7 @@ namespace EZFAC.PAD
             // 压铸工程日常点检（早班）的检查和审批界面 
             else if (line05.IsChecked == true)
             {
-                data["folderName"] = checkMenus[4];
+                data["folderName"] = checkMenus[2];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(DailyCheckMorning), data);
@@ -169,7 +169,7 @@ namespace EZFAC.PAD
             // 压铸工程日常点检（中班)的检查和审批界面 
             else if (line06.IsChecked == true)
             {
-                data["folderName"] = checkMenus[5];
+                data["folderName"] = checkMenus[3];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(DailyCheckNoon), data);
@@ -182,7 +182,7 @@ namespace EZFAC.PAD
             // 压铸工程型维修记录表的检查和审批界面 
             else if (line07.IsChecked == true)
             {
-                data["folderName"] = checkMenus[6];
+                data["folderName"] = checkMenus[4];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(MaintenanceLog), data);
@@ -195,7 +195,7 @@ namespace EZFAC.PAD
             // 压铸工程月度机械漏油点检记录表的检查和审批界面 
             else if (line08.IsChecked == true)
             {
-                data["folderName"] = checkMenus[7];
+                data["folderName"] = checkMenus[8];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(YZGCMonthRecord), data);

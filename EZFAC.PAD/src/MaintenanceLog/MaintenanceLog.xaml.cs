@@ -143,9 +143,9 @@ namespace EZFAC.PAD.src.MaintenanceLog
             elementNumTag.Add(element10Tag.Text);
             elementNumTag.Add(element11Tag.Text);
             elementNumTag.Add(element12Tag.Text);
-            elementNumTag.Add("维修原因");
-            elementNumTag.Add("维修内容");
-            elementNumTag.Add("维修结果");
+            elementNumTag.Add("maintainReason");
+            elementNumTag.Add("reviewInfor");
+            elementNumTag.Add("MaintenResult");
         }
         //部品下拉框赋值
         public String getProductNum()

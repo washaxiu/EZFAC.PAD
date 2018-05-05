@@ -34,6 +34,8 @@ namespace EZFAC.PAD
         private CommonOperation commonOperation = new CommonOperation();
         private CheckRecordService pointCheckService = new CheckRecordService();
         private MessDialog messDialog = new MessDialog();
+
+        private DataInfo dataInfo = new DataInfo();
         private Dictionary<string, string> data = new Dictionary<string, string>();
 
         public ApprovalList()
@@ -123,6 +125,10 @@ namespace EZFAC.PAD
             checkBox.IsChecked = false;
         }
 
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            dataInfo.getInfo("table", "level");
+        }
     }
 
 

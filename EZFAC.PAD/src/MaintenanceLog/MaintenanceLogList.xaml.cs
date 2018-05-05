@@ -29,6 +29,7 @@ namespace EZFAC.PAD
         private CommonOperation commonOperation = new CommonOperation();
         private MaintenanceLogService MaintenanceLogService = new MaintenanceLogService();
         private MessDialog messDialog = new MessDialog();
+        private DataInfo dataInfo = new DataInfo();
         private Dictionary<string, string> data = new Dictionary<string, string>();
 
         public MaintenanceLogList()
@@ -110,6 +111,11 @@ namespace EZFAC.PAD
             getData.Add("folderName", data["folderName"]);
             // 导航并传递参数
             this.Frame.Navigate(typeof(MaintenanceLogDetail), getData);
+        }
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            dataInfo.getInfo("table","level");
         }
     }
 }

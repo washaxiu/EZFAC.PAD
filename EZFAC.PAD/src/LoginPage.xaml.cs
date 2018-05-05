@@ -39,7 +39,7 @@ namespace EZFAC.PAD
         private string jsonfile = "user.json";
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog mess = new MessDialog();
-        private UserInfo userInfo = new UserInfo();
+        private DataInfo userInfo = new DataInfo();
 
         public LoginPage()
         {
@@ -99,13 +99,12 @@ namespace EZFAC.PAD
                 isChecked = false;
             }
 
-            userInfo.getUserInfo();
+           
 
             file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
             if (file == null)
             {
-                msg = "用户配置文件不存在";
-                isChecked = false;
+                userInfo.getUserInfo();
 
             }
             else

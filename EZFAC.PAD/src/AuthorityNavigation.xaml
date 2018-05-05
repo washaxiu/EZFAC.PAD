@@ -70,31 +70,31 @@
             <Run x:Name="lineText04" FontSize="25" Text="DC研磨前半制品检查"></Run>
         </TextBlock>
 
-        <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Horizontal" BorderThickness="1" >
+        <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line05" Click="OnLineChecked" Margin="103,0,0,0" />
         </StackPanel>
-        <TextBlock  x:Name="lineBlock05" Tapped="lineBlock05_Tapped" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+        <TextBlock  x:Name="lineBlock05" Tapped="lineBlock05_Tapped" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
             <Run x:Name="lineText05" FontSize="25" Text="压铸工程日常点检（早班）"></Run>
         </TextBlock>
         
-        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" BorderThickness="1" >
+        <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line06"  Click="OnLineChecked" Margin="103,0,0,0"/>
         </StackPanel>
-        <TextBlock x:Name="lineBlock06" Tapped="lineBlock06_Tapped" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+        <TextBlock x:Name="lineBlock06" Tapped="lineBlock06_Tapped" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
             <Run x:Name="lineText06" FontSize="25" Text="压铸工程日常点检（中班）"></Run>
         </TextBlock>
         
-        <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Horizontal" BorderThickness="1" >
+        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line07"  Click="OnLineChecked" Margin="103,0,0,0"/>
         </StackPanel>
-        <TextBlock  x:Name="lineBlock07" Tapped="lineBlock07_Tapped" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+        <TextBlock  x:Name="lineBlock07" Tapped="lineBlock07_Tapped" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
             <Run x:Name="lineText07" FontSize="25" Text="压铸工程型维修记录表"></Run>
         </TextBlock>
         
-        <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" BorderThickness="1" >
+        <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line08" Click="OnLineChecked" Margin="103,0,0,0"/>
         </StackPanel>
-        <TextBlock x:Name="lineBlock08" Tapped="lineBlock08_Tapped" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+        <TextBlock x:Name="lineBlock08" Tapped="lineBlock08_Tapped" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left">
             <Run x:Name="lineText08" FontSize="25" Text="压铸工程月度机械漏油点检"></Run>
         </TextBlock>
         

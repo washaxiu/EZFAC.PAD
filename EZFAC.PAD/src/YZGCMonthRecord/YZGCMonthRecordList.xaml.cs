@@ -29,6 +29,7 @@ namespace EZFAC.PAD
         private CommonOperation commonOperation = new CommonOperation();
         private YZGCMonthRecordService YZGCMonthService = new YZGCMonthRecordService();
         private MessDialog messDialog = new MessDialog();
+        private DataInfo dataInfo = new DataInfo();
         private Dictionary<string, string> data = new Dictionary<string, string>();
 
         public YZGCMonthRecordList()
@@ -115,6 +116,11 @@ namespace EZFAC.PAD
             YZGCMonthService.getYZGCMonthList(lvFiles, data["userlevel"], data["folderName"]);
             checkBox.Content = "全选";
             checkBox.IsChecked = false;
+        }
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            dataInfo.getInfo("table", "level");
         }
     }
 }

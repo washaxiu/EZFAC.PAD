@@ -29,6 +29,7 @@ namespace EZFAC.PAD
         private CommonOperation commonOperation = new CommonOperation();
         private SemiFinishedCheckService semiFinishedCheckService = new SemiFinishedCheckService();
         private MessDialog messDialog = new MessDialog();
+        private DataInfo dataInfo = new DataInfo();
         private Dictionary<string, string> data = new Dictionary<string, string>();
 
         public SemiFinishedCheckList()
@@ -126,6 +127,11 @@ namespace EZFAC.PAD
             semiFinishedCheckService.getApprovalList(lvFiles, data["userlevel"], data["folderName"]);
             checkBox.Content = "全选";
             checkBox.IsChecked = false;
+        }
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            dataInfo.getInfo("table", "level");
         }
     }
 }
