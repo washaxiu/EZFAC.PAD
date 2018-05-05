@@ -39,8 +39,6 @@ namespace EZFAC.PAD
         private SolidColorBrush black = new SolidColorBrush(Colors.Black);
         private SolidColorBrush gray = new SolidColorBrush(Colors.Gray);
         private string[] checkMenus = {  "CheckRecord",
-                                    "UnqualifiedReport",
-                                    "AbnormalQualityReport",
                                     "SemiFinishedCheck",
                                     "DailyCheckMorning",
                                     "DailyCheckNoon",
@@ -48,8 +46,6 @@ namespace EZFAC.PAD
                                     "YZGCMonthRecord"
                                  };
         private string[] approvalcMenus = {  "ApprovalList",
-                                             "UnqualifiedReportList",
-                                             "AbnormalQualityReportList",
                                              "SemiFinishedCheckList",
                                              "DailyCheckMorningList",
                                              "DailyCheckNoonList",
@@ -68,8 +64,8 @@ namespace EZFAC.PAD
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            RadioButton[] radioButton = { line01, line02, line03, line04, line05, line06, line07, line08 };
-            Run[] run = { lineText01, lineText02, lineText03, lineText04, lineText05, lineText06, lineText07, lineText08 };
+            RadioButton[] radioButton = { line01, line04, line05, line06, line07, line08 };
+            Run[] run = { lineText01, lineText04, lineText05, lineText06, lineText07, lineText08 };
             for(int i = 0; i < radioButton.Length; i++)
             {
                 run[i].Foreground = gray;
@@ -143,32 +139,7 @@ namespace EZFAC.PAD
                     this.Frame.Navigate(typeof(ApprovalList), data);
                 }
             }
-            // 不合格报告的检查和审批界面 
-            else if (line02.IsChecked == true)
-            {
-                data["folderName"] = checkMenus[1];
-                if (level == "1")
-                {
-                    this.Frame.Navigate(typeof(UnqualifiedReport), data);
-                }
-                else
-                {
-                    this.Frame.Navigate(typeof(UnqualifiedReportList), data);
-                }
-            }
-            // DC品质异常报告书的检查和审批界面 
-            else if(line03.IsChecked == true)
-            {
-                data["folderName"] = checkMenus[2];
-                if (level == "1")
-                {
-                    this.Frame.Navigate(typeof(AbnormalQualityReportOne), data);
-                }
-                else
-                {
-                    this.Frame.Navigate(typeof(AbnormalQualityReportList), data);
-                }
-            }
+
             // DC研磨前半制品的检查和审批界面 
             else if (line04.IsChecked == true)
             {
@@ -252,15 +223,6 @@ namespace EZFAC.PAD
             line01.IsChecked = line01.IsEnabled;
         }
 
-        private void lineBlock02_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            line02.IsChecked = line02.IsEnabled;
-        }
-
-        private void lineBlock03_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            line03.IsChecked = line03.IsEnabled;
-        }
 
         private void lineBlock04_Tapped(object sender, TappedRoutedEventArgs e)
         {

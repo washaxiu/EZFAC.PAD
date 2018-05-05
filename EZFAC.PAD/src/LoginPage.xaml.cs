@@ -22,6 +22,10 @@ using EZFAC.PAD.src.Model;
 using EZFAC.PAD.src.Tools;
 using Windows.Foundation.Metadata;
 using Windows.UI.ViewManagement;
+using System.Net;
+using System.Text;
+
+
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -35,6 +39,7 @@ namespace EZFAC.PAD
         private string jsonfile = "user.json";
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog mess = new MessDialog();
+        private UserInfo userInfo = new UserInfo();
 
         public LoginPage()
         {
@@ -93,11 +98,15 @@ namespace EZFAC.PAD
                 msg = "请输入密码";
                 isChecked = false;
             }
+
+            userInfo.getUserInfo();
+
             file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
             if (file == null)
             {
                 msg = "用户配置文件不存在";
                 isChecked = false;
+
             }
             else
             {

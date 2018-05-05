@@ -177,6 +177,7 @@
     <Compile Include="src\Tools\MessDialog.cs" />
     <Compile Include="src\Service\CheckRecordService.cs" />
     <Compile Include="src\Tools\CommonOperation.cs" />
+    <Compile Include="src\Tools\UserInfo.cs" />
     <Compile Include="src\UnqualifiedReport\UnqualifiedReport.xaml.cs">
       <DependentUpon>UnqualifiedReport.xaml</DependentUpon>
     </Compile>

@@ -61,157 +61,154 @@
             <TextBlock FontSize="20" Text="压&#x0a;铸&#x0a;线&#x0a;D" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Center"/>
         </Border>
         <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_01" Header="  A_01" OffContent="" OnContent=""/>
-            <!--
             <TextBox Background="Green" Text="A-01" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
-             -->
         </Border>
         <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_02" Header="  A_02" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-02" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_03" Header="  A_03" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-03" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_04" Header="  A_04" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-04" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_05" Header="  A_05" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-05" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_06" Header="  A_06" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-06" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_07" Header="  A_07" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-07" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_08" Header="  A_08" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-08" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_09" Header="  A_09" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-09" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="10" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_10" Header="  A_10" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-10" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_11" Header="  A_11" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-11" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_12" Header="  A_12" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-12" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="13" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_13" Header="  A_13" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-13" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="14" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_14" Header="  A_14" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-14" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="15" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_15" Header="  A_15" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-15" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="16" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_16" Header="  A_16" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-16" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="2" Grid.Column="17" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="A_17" Header="  A_17" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="A-17" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_01" Header="  B_01" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-01" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_02" Header="  B_02" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-02" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_03" Header="  B_03" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-03" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_04" Header="  B_04" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-04" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_05" Header="  B_05" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-05" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_06" Header="  B_06" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-06" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_07" Header="  B_07" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-07" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_08" Header="  B_08" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-08" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_09" Header="  B_09" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-09" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="10" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_10" Header="  B_10" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-10" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_11" Header="  B_11" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-11" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="12" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_12" Header="  B_12" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-12" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="13" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_13" Header="  B_13" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-13" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="14" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_14" Header="  B_14" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-14" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="15" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_15" Header="  B_15" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-15" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="16" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_16" Header="  B_16" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-16" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="3" Grid.Column="17" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="B_17" Header="  B_17" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="B-17" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="C_01" Header="  C_01" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="C-01" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="C_02" Header="  C_02" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="C-02" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="C_03" Header="  C_03" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="C-03" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="C_04" Header="  C_04" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="C-04" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="C_05" Header="  C_05" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="C-05" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="C_06" Header="  C_06" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="C-06" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="C_07" Header="  C_07" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="C-07" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="C_08" Header="  C_08" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="C-08" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="D_01" Header="  D_01" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="D-01" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="D_02" Header="  D_02" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="D-02" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="D_03" Header="  D_03" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="D-03" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="D_04" Header="  D_04" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="D-04" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="D_05" Header="  D_05" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="D-05" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="D_06" Header="  D_06" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="D-06" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="D_07" Header="  D_07" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="D-07" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="1">
-            <ToggleSwitch x:Name="D_08" Header="  D_08" OffContent="" OnContent=""/>
+            <TextBox Background="Green" Text="D-08" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Margin="7,23,7,39" Width="43"></TextBox>
         </Border>
         <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="9" Background="#0099CC">
             <TextBlock Text="熔解炉/冷冻机/油烟机/集尘机/离行剂供给机" VerticalAlignment="Center"></TextBlock>
