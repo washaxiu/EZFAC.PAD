@@ -126,7 +126,7 @@ namespace EZFAC.PAD
 
         private void refresh_Click(object sender, RoutedEventArgs e)
         {
-            dataInfo.getInfo("table", "level");
+            dataInfo.getInfo("DAILY_CHECK_MORNING", (int.Parse(data["userlevel"]) - 1).ToString());
         }
     }
 

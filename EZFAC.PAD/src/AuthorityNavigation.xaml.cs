@@ -195,7 +195,7 @@ namespace EZFAC.PAD
             // 压铸工程月度机械漏油点检记录表的检查和审批界面 
             else if (line08.IsChecked == true)
             {
-                data["folderName"] = checkMenus[8];
+                data["folderName"] = checkMenus[5];
                 if (level == "1")
                 {
                     this.Frame.Navigate(typeof(YZGCMonthRecord), data);

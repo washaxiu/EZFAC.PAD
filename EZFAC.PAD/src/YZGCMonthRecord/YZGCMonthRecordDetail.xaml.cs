@@ -87,7 +87,7 @@ namespace EZFAC.PAD
                 judgeGroup(checkgroup);
                 judgeLine(checkline);
                 // 确定内容，并将修改的内容标红
-                for (int i = 0; i < contentEdit.Length; i++)
+                for (int i = 0; i < contentEdit.Length-1; i++)
                 {
                     if (contentEdit[i] == '1')
                     {

@@ -99,13 +99,12 @@ namespace EZFAC.PAD
                 isChecked = false;
             }
 
-           
+            
 
             file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
             if (file == null)
             {
                 userInfo.getUserInfo();
-
             }
             else
             {

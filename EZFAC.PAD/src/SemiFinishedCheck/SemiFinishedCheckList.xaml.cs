@@ -131,7 +131,7 @@ namespace EZFAC.PAD
 
         private void refresh_Click(object sender, RoutedEventArgs e)
         {
-            dataInfo.getInfo("table", "level");
+            dataInfo.getInfo("SEMI_FINISHED_CHECK", (int.Parse(data["userlevel"]) - 1).ToString());
         }
     }
 }

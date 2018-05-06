@@ -12,7 +12,7 @@ namespace EZFAC.PAD.src.Tools
     {
         public async void getUserInfo()
         {
-            string url = "http://180.161.134.61:8800/get-userInfo";
+            string url = "http://192.168.2.110:8800/get-userInfo";
             //string url = "http://example.com/datalist.aspx";
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();
@@ -35,7 +35,7 @@ namespace EZFAC.PAD.src.Tools
 
         public async void getInfo(string tableName, string level)
         {
-            string url = "http://180.161.134.61:8800/get-checkRecord-list?table=" + tableName + "&level=" + level;
+            string url = "http://192.168.2.110:8800/get-checkRecord-list?table_name=" + tableName + "&level=" + level;
             //string url = "http://example.com/datalist.aspx";
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();

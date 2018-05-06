@@ -81,7 +81,7 @@ namespace EZFAC.PAD
                 contentItem["status"] = JsonValue.CreateStringValue(toggle + "," + maintenance);
                 contentItem["edit"] = JsonValue.CreateStringValue("0");
                 content.Add(contentItem);
-            }        
+            }
             checkRecordData.Add("content", content);
             // 初始化各级别用户的json信息
             checkRecordData.Add("checkerInfo", commonOperation.initCheckerJsonArray(username.Text, date.Text, reviewInfor.Text));

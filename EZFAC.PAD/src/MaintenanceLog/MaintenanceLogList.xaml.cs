@@ -115,7 +115,7 @@ namespace EZFAC.PAD
 
         private void refresh_Click(object sender, RoutedEventArgs e)
         {
-            dataInfo.getInfo("table","level");
+            dataInfo.getInfo("MAINTENANCE_LOG", (int.Parse(data["userlevel"]) - 1).ToString());
         }
     }
 }
