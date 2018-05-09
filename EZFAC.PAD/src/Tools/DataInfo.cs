@@ -10,6 +10,8 @@ namespace EZFAC.PAD.src.Tools
 {
     public class DataInfo
     {
+        MessDialog messDialog =new MessDialog();
+
         public async void getUserInfo()
         {
             string url = "http://180.161.134.61:8800/get-userInfo";
@@ -37,7 +39,8 @@ namespace EZFAC.PAD.src.Tools
 
         public async void getInfo(string tableName, string level,string folderName)
         {
-            string url = "http://192.168.2.110:8800/get-checkRecord-list?table_name=" + tableName + "&level=" + level;
+            // string url = "http://192.168.2.110:8800/get-checkRecord-list?table_name=" + tableName + "&level=" + level;
+            string url = "http://180.161.134.61:8800/get-checkRecord-list?table_name=CHECK_RECORD&level=2";
             //string url = "http://example.com/datalist.aspx";
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();
@@ -47,7 +50,7 @@ namespace EZFAC.PAD.src.Tools
             {
                 HttpResponseMessage response = await httpClient.GetAsync(resourceUri);
                 String content = response.Content.ToString();
-                
+                messDialog.showDialog(unicodeToString(content));
             }
             catch (Exception ex)
             { 
@@ -57,6 +60,30 @@ namespace EZFAC.PAD.src.Tools
             {
                 httpClient.Dispose();
             }
+        }
+
+        // 将转义字符转换层对应的中文
+        public static string unicodeToString(string unicode)
+        {
+            StringBuilder sb = new StringBuilder();
+            Byte[] bytes = new byte[2];
+            string st = null;
+            for (int i = 0; i < unicode.Length; i++)
+            {
+                if (i + 5 <= unicode.Length && unicode[i] == '\\' && unicode[i + 1] == 'u')
+                {
+                    st = unicode.Substring(i + 2, 4);
+                    bytes[1] = byte.Parse(int.Parse(st.Substring(0, 2), System.Globalization.NumberStyles.HexNumber).ToString());
+                    bytes[0] = byte.Parse(int.Parse(st.Substring(2, 2), System.Globalization.NumberStyles.HexNumber).ToString());
+                    sb.Append(Encoding.Unicode.GetString(bytes));
+                    i += 5;
+                }
+                else
+                {
+                    sb.Append(unicode[i]);
+                }
+            }
+            return sb.ToString();
         }
     }
 }
