@@ -35,26 +35,28 @@ namespace EZFAC.PAD.src.Tools
             }
         }
 
-        public async void getInfo(string tableName, string level)
+        public async void getInfo(string tableName, string level,string folderName)
         {
             string url = "http://192.168.2.110:8800/get-checkRecord-list?table_name=" + tableName + "&level=" + level;
             //string url = "http://example.com/datalist.aspx";
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();
-            string fileName = "user.json";
             var httpClient = new HttpClient();
             var resourceUri = new Uri(url);
             try
             {
                 HttpResponseMessage response = await httpClient.GetAsync(resourceUri);
                 String content = response.Content.ToString();
-                checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
-                commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
+                
             }
-            catch (TaskCanceledException ex)
-            { // Handle request being canceled due to timeout. } catch (HttpRequestException ex) { // Handle other possible exceptions. }
+            catch (Exception ex)
+            { 
+                url = "1111";
             }
-            httpClient.Dispose();
+            finally
+            {
+                httpClient.Dispose();
+            }
         }
     }
 }

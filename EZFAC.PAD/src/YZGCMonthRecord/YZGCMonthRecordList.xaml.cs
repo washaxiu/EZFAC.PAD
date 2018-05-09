@@ -120,7 +120,7 @@ namespace EZFAC.PAD
 
         private void refresh_Click(object sender, RoutedEventArgs e)
         {
-            dataInfo.getInfo("YZGC_MONTH_RECORD", (int.Parse(data["userlevel"]) - 1).ToString());
+            dataInfo.getInfo("YZGC_MONTH_RECORD", (int.Parse(data["userlevel"]) - 1).ToString(), data["folderName"]);
         }
     }
 }

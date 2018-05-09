@@ -127,7 +127,7 @@ namespace EZFAC.PAD
 
         private void refresh_Click(object sender, RoutedEventArgs e)
         {
-            dataInfo.getInfo("CHECK_RECORD", (int.Parse(data["userlevel"]) - 1).ToString());
+            dataInfo.getInfo("CHECK_RECORD", (int.Parse(data["userlevel"]) - 1).ToString(), data["folderName"]);
         }
     }
 
