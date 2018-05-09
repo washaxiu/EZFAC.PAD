@@ -40,6 +40,7 @@ namespace EZFAC.PAD
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog mess = new MessDialog();
         private DataInfo userInfo = new DataInfo();
+        public string msg = "";
 
         public LoginPage()
         {
@@ -54,7 +55,24 @@ namespace EZFAC.PAD
             username.Text = "000002";
             password.Password = "123456";
             information.Text = "";
-            timetag.Text = DateTime.Now.ToString(); 
+            timetag.Text = DateTime.Now.ToString();
+
+            initFile();
+            
+        }
+
+        private async void initFile()
+        {
+            StorageFile file = await KnownFolders.PicturesLibrary.TryGetItemAsync(jsonfile) as StorageFile;
+            if (file == null)
+            {
+                userInfo.getUserInfo();
+            }
+            file = await KnownFolders.PicturesLibrary.TryGetItemAsync(jsonfile) as StorageFile;
+            if (file == null)
+            {
+                msg = "网络出错，请联网后，重启应用";
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -63,7 +81,7 @@ namespace EZFAC.PAD
             {
                 // 获取导航参数
                 Dictionary<string, string> data = (Dictionary<string, string>)e.Parameter;
-
+ 
                 if (data.ContainsKey("loginError"))
                 {
                     information.Text = data["loginError"];
@@ -72,8 +90,7 @@ namespace EZFAC.PAD
                 {
                     information.Text = "";
                 }
-            }
-            
+            }           
             //password.ClearValue(PasswordBox.PasswordProperty);
         }
 
@@ -83,7 +100,7 @@ namespace EZFAC.PAD
             Dictionary<string, string> data = new Dictionary<string, string>();
             bool isValidUser = false;
             bool isChecked = false;
-            string userLevel = "1",msg = null;
+            string userLevel = "1";
             StorageFolder folder_demonstration = KnownFolders.PicturesLibrary;
             //folder_demonstration = await DownloadsFolder.CreateFolderAsync(folderName);
             StorageFile file;
@@ -98,31 +115,24 @@ namespace EZFAC.PAD
                 msg = "请输入密码";
                 isChecked = false;
             }
-
             
-
             file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
-            if (file == null)
-            {
-                //userInfo.getUserInfo();
-            }
-            else
+            if (file != null)
             {
                 //string jsonText = await FileIO.ReadTextAsync(file);
                 var jsonText = await FileIO.ReadTextAsync(file);
                 JsonObject jsonObject = JsonObject.Parse(jsonText);
                 JsonArray jsonArray = jsonObject["Users"].GetArray();
+
                 foreach (JsonValue userInfo in jsonArray)
                 {
                     JsonObject userObject = userInfo.GetObject();
-                    string juserid = userObject["UniqueId"].GetString();
                     string jusername = userObject["UserName"].GetString();
-                    string jusermail = userObject["e-mail"].GetString();
                     string jpassword = userObject["Password"].GetString();
                     string jlevel = userObject["level"].GetString();
                     string authority = userObject["authority"].GetString();
                     //string jposation = userObject["Password"].GetString();                 
-                    if ((username.Text == juserid)|| (username.Text == jusername)|| (username.Text == jusermail))
+                    if (username.Text == jusername)
                     {
                         isValidUser = true;
                         if (password.Password == jpassword)
@@ -143,22 +153,26 @@ namespace EZFAC.PAD
                         }
                     }
                 }
-            }
 
-            if (!isValidUser)
-            {
-                msg = "用户名不存在";
-                isChecked = false;
-            }
-            // 导航并传递参数
-            if (!isChecked)
+                if (!isValidUser)
+                {
+                    msg = "用户名不存在";
+                    isChecked = false;
+                }
+                // 导航并传递参数
+                if (!isChecked)
+                {
+                    data["loginError"] = msg;
+                    this.Frame.Navigate(typeof(LoginPage), data);
+                }
+                else
+                {
+                    this.Frame.Navigate(typeof(AuthorityNavigation), data);
+                }
+            }else
             {
                 data["loginError"] = msg;
                 this.Frame.Navigate(typeof(LoginPage), data);
-            }
-            else
-            {
-                this.Frame.Navigate(typeof(AuthorityNavigation), data);
             }
         }
     }

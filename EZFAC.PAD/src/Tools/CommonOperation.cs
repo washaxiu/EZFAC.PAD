@@ -144,7 +144,9 @@ namespace EZFAC.PAD.src.Tools
                         write.WriteLine();
                     }
                     write.Write("}");
+                    write.Dispose();
                 }
+                file.Dispose();
             }
         }
 
@@ -154,13 +156,32 @@ namespace EZFAC.PAD.src.Tools
         */
         public async void writeJsonToFileForUser(JsonObject content, String fileName, StorageFolder record_folder)
         {
+            string userInfo = content.ToString().Replace("\\", "");
+            StringBuilder sb = new StringBuilder();
+            int len = userInfo.Length;
+            for (int i = 0; i < len; i++)
+            {
+                //  去掉[前面的双引号
+                if(i < len - 1 && userInfo[i]=='"' && userInfo[i+1] == '[')
+                {
+                    continue;
+                }
+                sb.Append(userInfo[i]);
+                // 去掉]后面的双引号
+                if (userInfo[i] == ']')
+                {
+                    i++;
+                }
+            }
             StorageFile record_file = await record_folder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
             using (Stream file = await record_file.OpenStreamForWriteAsync())
             {
                 using (StreamWriter write = new StreamWriter(file))
                 {
-                    write.Write(JsonTree(content.ToString().Replace("\\", "")));
+                    write.Write(JsonTree(sb.ToString()));
+                    write.Dispose();
                 }
+                file.Dispose();
             }
         }
 

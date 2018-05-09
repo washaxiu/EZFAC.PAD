@@ -13,7 +13,6 @@ namespace EZFAC.PAD.src.Tools
         public async void getUserInfo()
         {
             string url = "http://180.161.134.61:8800/get-userInfo";
-            //string url = "http://example.com/datalist.aspx";
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();
             string fileName = "user.json";
@@ -26,10 +25,14 @@ namespace EZFAC.PAD.src.Tools
                 checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
                 commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
             }
-            catch (TaskCanceledException ex)
-            { // Handle request being canceled due to timeout. } catch (HttpRequestException ex) { // Handle other possible exceptions. }
+            catch(Exception e)
+            {
+                fileName = "111";
             }
-            httpClient.Dispose();
+            finally
+            {
+                httpClient.Dispose();
+            }
         }
 
         public async void getInfo(string tableName, string level)
