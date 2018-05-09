@@ -113,7 +113,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
                 authority = getdata["authority"];
                 string contentEdit = getdata["ContentEdit"];
 
-                checkfilename = "ykk_record_" + getdata["jifan"] + "_" + getdata["pinming"] + "_" + checkdate + ".ykk";
+                checkfilename = "ykk_record_" + "MaintenanceLog_" + getdata["jifan"] + "_" + getdata["pinming"] + "_" + checkdate + ".ykk";
                 // 确定组和线
                 //judgeGroup(checkgroup);
                 // judgeLine(checkline);

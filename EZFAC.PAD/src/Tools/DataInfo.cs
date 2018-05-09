@@ -12,7 +12,7 @@ namespace EZFAC.PAD.src.Tools
     {
         public async void getUserInfo()
         {
-            string url = "http://192.168.2.110:8800/get-userInfo";
+            string url = "http://180.161.134.61:8800/get-userInfo";
             //string url = "http://example.com/datalist.aspx";
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();
@@ -23,8 +23,7 @@ namespace EZFAC.PAD.src.Tools
             {
                 HttpResponseMessage response = await httpClient.GetAsync(resourceUri);
                 String content = response.Content.ToString();
-                String newContent = content.Replace("\\",String.Empty);          
-                checkRecordData.Add("Users", JsonValue.CreateStringValue(newContent));
+                checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
                 commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
             }
             catch (TaskCanceledException ex)
@@ -46,8 +45,7 @@ namespace EZFAC.PAD.src.Tools
             {
                 HttpResponseMessage response = await httpClient.GetAsync(resourceUri);
                 String content = response.Content.ToString();
-                String newContent = content.Replace("\\", String.Empty);
-                checkRecordData.Add("Users", JsonValue.CreateStringValue(newContent));
+                checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
                 commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
             }
             catch (TaskCanceledException ex)

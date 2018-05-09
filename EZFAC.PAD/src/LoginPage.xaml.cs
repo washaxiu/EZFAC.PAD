@@ -104,7 +104,7 @@ namespace EZFAC.PAD
             file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
             if (file == null)
             {
-                userInfo.getUserInfo();
+                //userInfo.getUserInfo();
             }
             else
             {

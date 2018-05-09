@@ -159,7 +159,7 @@ namespace EZFAC.PAD.src.Tools
             {
                 using (StreamWriter write = new StreamWriter(file))
                 {
-                    write.Write(JsonTree(content.ToString()));
+                    write.Write(JsonTree(content.ToString().Replace("\\", "")));
                 }
             }
         }

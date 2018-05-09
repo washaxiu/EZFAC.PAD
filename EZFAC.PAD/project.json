@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "json-serialize": "1.1.2",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
   },
   "frameworks": {

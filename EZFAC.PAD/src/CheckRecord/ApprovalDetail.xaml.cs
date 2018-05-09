@@ -76,7 +76,7 @@ namespace EZFAC.PAD
                 ApprovalPosition.Text = commonOperation.getJobByLevel(userLevel);
                 date.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 reviewInfor.Text = "";
-                checkfilename = "ykk_record_" + checkgroup + "_" + checkline + "_" + checkdate + ".ykk";
+                checkfilename = "ykk_record_" + "CheckRecord_" + checkgroup + "_" + checkline + "_" + checkdate + ".ykk";
                 // 确定组和线
                 judgeGroup(checkgroup);
                 judgeLine(checkline);

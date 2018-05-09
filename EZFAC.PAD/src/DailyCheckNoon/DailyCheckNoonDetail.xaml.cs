@@ -83,7 +83,7 @@ namespace EZFAC.PAD
             // 获取职位
             ApprovalPosition.Text = commonOperation.getJobByLevel(userLevel);
             date.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            checkfilename = "ykk_record_" + checkgroup + "_" + checkline + "_" + checkdate + ".ykk";
+            checkfilename = "ykk_record_" + "DailyCheckNoon_" + checkgroup + "_" + checkline + "_" + checkdate + ".ykk";
 
             // 确定内容，并将修改的内容标红
             for (int i = 0; i < toggleContents.Length; i++)
