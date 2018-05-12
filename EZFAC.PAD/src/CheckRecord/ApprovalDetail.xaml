@@ -222,7 +222,7 @@
             <TextBlock x:Name="Select1Text"  VerticalAlignment="Center" Width="97">
                 <Run Text="齿轮油更换" FontSize="18"></Run>
             </TextBlock>
-            <ToggleSwitch x:Name="Select1" OffContent="否" OnContent="良" />
+            <ToggleSwitch x:Name="select1" OffContent="否" OnContent="良" />
         </StackPanel>
         <StackPanel Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
             <TextBlock  VerticalAlignment="Center" Width="77">

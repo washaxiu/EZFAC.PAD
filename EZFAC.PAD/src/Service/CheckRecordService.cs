@@ -175,7 +175,7 @@ namespace EZFAC.PAD.src.Service
                     if (strs[j].Equals("Group")) groupName = strs[j + 1];
                     if (strs[j].Equals("Line")) lineName = strs[j + 1];
                 }
-                string fileName = "ykk_record_" + groupName + "_" + lineName + "_" + date + ".ykk";
+                string fileName = "ykk_record_" + folderName + "_" + groupName + "_" + lineName + "_" + date + ".ykk";
                 StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
                 if (folder != null)
                 {

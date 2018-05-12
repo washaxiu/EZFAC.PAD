@@ -127,12 +127,14 @@ namespace EZFAC.PAD
                 foreach (JsonValue userInfo in jsonArray)
                 {
                     JsonObject userObject = userInfo.GetObject();
+                    string uniqueId = userObject["UniqueId"].GetString();
                     string jusername = userObject["UserName"].GetString();
+                    string eMail = userObject["e-mail"].GetString();
                     string jpassword = userObject["Password"].GetString();
                     string jlevel = userObject["level"].GetString();
                     string authority = userObject["authority"].GetString();
                     //string jposation = userObject["Password"].GetString();                 
-                    if (username.Text == jusername)
+                    if (username.Text == uniqueId || username.Text == jusername || username.Text == eMail)
                     {
                         isValidUser = true;
                         if (password.Password == jpassword)

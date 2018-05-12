@@ -111,7 +111,7 @@ namespace EZFAC.PAD.src.Service
                     if (strs[j].Equals("lineName")) jifan = strs[j + 1];
                     if (strs[j].Equals("elementName")) piming = strs[j + 1];
                 }
-                string fileName = "ykk_record_" + jifan + "_" + piming + "_" + date + ".ykk";
+                string fileName = "ykk_record_"+ folderName +"_"+ jifan + "_" + piming + "_" + date + ".ykk";
                 StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
                 if (folder != null)
                 {

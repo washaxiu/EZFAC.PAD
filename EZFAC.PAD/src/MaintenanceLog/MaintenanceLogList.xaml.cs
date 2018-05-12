@@ -115,7 +115,20 @@ namespace EZFAC.PAD
 
         private void refresh_Click(object sender, RoutedEventArgs e)
         {
-            dataInfo.getInfo("MAINTENANCE_LOG", (int.Parse(data["userlevel"]) - 1).ToString(), data["folderName"]);
+            ContentDialog dialog = new ContentDialog()
+            {
+                Content = "审批成功！",
+                PrimaryButtonText = "确定",
+                SecondaryButtonText = "取消"
+            };
+            dialog.PrimaryButtonClick += primaryButtonClick2;
+            dataInfo.getInfo("MAINTENANCE_LOG", (int.Parse(data["userlevel"]) - 1).ToString(), data["folderName"], dialog);
+        }
+
+        public void primaryButtonClick2(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            // 获取审批信息列表
+            MaintenanceLogService.getMaintenanceLogList(lvFiles, data["userlevel"], data["folderName"]);
         }
     }
 }

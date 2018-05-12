@@ -66,7 +66,7 @@ namespace EZFAC.PAD
                 authority = getdata["authority"];
                 folderName = getdata["folderName"];
 
-                ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Loop1, Loop2, Loop3, Select1, Plat1 };
+                ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Loop1, Loop2, Loop3, select1, Plat1 };
                 TextBlock[] toggleText = { Temp1Text, Temp2Text, Temp3Text, Loop1Text, Loop2Text, Loop3Text, Select1Text, Plat1Text };
                 string[] contents = { getdata["temp1"] , getdata["temp2"] , getdata["temp3"] , getdata["loop1"],
                                       getdata["loop2"] , getdata["loop3"] , getdata["select1"] , getdata["plat1"]
@@ -106,7 +106,7 @@ namespace EZFAC.PAD
 
         private async void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Loop1, Loop2, Loop3, Select1, Plat1 };
+            ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Loop1, Loop2, Loop3, select1, Plat1 };
             List<CheckerInfoEntity> checkerList = new List<CheckerInfoEntity>();
             string oldEdit = null, newEdit = null;
             StorageFolder folder =await KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
@@ -215,7 +215,7 @@ namespace EZFAC.PAD
 
         private void Select4_Toggled(object sender, RoutedEventArgs e)
         {
-            Select1.IsOn = Select4.IsOn;
+            select1.IsOn = Select4.IsOn;
         }
 
         private void Plat4_Toggled(object sender, RoutedEventArgs e)
@@ -299,7 +299,7 @@ namespace EZFAC.PAD
         {
             string edit = null;
             //  初始化内容数组
-            ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Loop1, Loop2, Loop3, Select1, Plat1 };
+            ToggleSwitch[] toggleSwitch = { Temp1, Temp2, Temp3, Loop1, Loop2, Loop3, select1, Plat1 };
             for(int i = 0; i < toggleSwitch.Length; i++)
             {
                 bool flag = content[i].GetObject()["status"].GetString().Equals("good");
