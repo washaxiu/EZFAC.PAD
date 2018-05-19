@@ -65,19 +65,19 @@
             <TextBlock x:Name="jiFanTag" Text="机  番:" FontSize="25" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" Margin="50,0,200,0"/>
         </Border>
         <Border Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2">
-            <TextBox x:Name="jifan"  FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" HorizontalAlignment="Left" Margin="-65,0,50,0"/>
+            <TextBox x:Name="jifan" IsReadOnly="True" FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" HorizontalAlignment="Left" Margin="-65,0,50,0"/>
         </Border>
         <Border Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="4">
             <TextBlock x:Name="pinMingTag" Text="品  名:" FontSize="25" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" Margin="50,0,200,0"/>
         </Border>
         <Border Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2">
-            <TextBox x:Name="pinming"  FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" HorizontalAlignment="Left" Margin="-65,0,50,0"/>
+            <TextBox x:Name="pinming"  FontSize="20" IsReadOnly="True" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" HorizontalAlignment="Right" Margin="-65,10,106,10"/>
         </Border>
         <Border Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="3">
             <TextBlock x:Name="SHOTTag" Text="生产SHOT数:" FontSize="25" FontFamily="Segoe UI Black" FontWeight="Bold" VerticalAlignment="Center" />
         </Border>
         <Border Grid.Column="10" Grid.Row="2" Grid.ColumnSpan="2">
-            <TextBox x:Name="SHOT"  FontSize="20" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" HorizontalAlignment="Left" Margin="-55,0,50,0"/>
+            <TextBox x:Name="SHOT"  FontSize="20" IsReadOnly="True" FontFamily="Segoe UI Black" VerticalAlignment="Center" Width="130" HorizontalAlignment="Left" Margin="-55,0,50,0"/>
         </Border>
         <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="12" BorderThickness="0,1,0,1" BorderBrush="Black">
             <TextBlock FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Margin="20,0,0,0">部品记录:</TextBlock>

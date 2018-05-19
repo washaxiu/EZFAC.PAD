@@ -78,7 +78,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, jiFan.Text, pinMing.Text, SHOT.Text));
             // 设置检查内容的json信息
             JsonArray content = new JsonArray();
-
+            elementNum.Clear();
             getElement();
             for (int i = 0; i < elementNum.Count; i++)
             {
