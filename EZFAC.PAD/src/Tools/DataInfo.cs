@@ -15,6 +15,33 @@ namespace EZFAC.PAD.src.Tools
         public static string[] checkRecordDb = { "temp1", "temp2", "temp3" , "loop1", "loop2", "loop3", "select1", "plat1" };
         public static string[] checkRecordText = { "Temp1", "Temp2", "Temp3", "Loop1", "Loop2", "Loop3", "select1", "Plat1" };
 
+        public static string[] dailyCheckMorningDb ={ "machineModel", "work", "first", "two", "three", "five", "six","seven",
+            "eight", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "four", "zhouqi", "nozzleTemp", "GOOSENECKTemp",
+            "fuTemp1", "fuTemp2" };
+        public static string[] dailyCheckMorningText ={ "machineModel", "work", "first", "two", "three", "five", "six","seven",
+            "eight", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "four", "zhouqi", "nozzleTemp", "GOOSENECKTemp",
+            "fuTemp1", "fuTemp2" };
+
+        public static string[] dailyCheckNoonDb ={ "machineModel", "work", "first", "two", "three", "five", "six","seven",
+            "eight", "nine", "fourteen", "fifteen", "sixteen","seventeen", "four", "ten", "eleven", "twelve" };
+        public static string[] dailyCheckNoonText ={ "machineModel", "work", "first", "two", "three", "five", "six","seven",
+            "eight", "nine", "fourteen", "fifteen", "sixteen","seventeen", "four", "ten", "eleven", "twelve" };
+
+        public static string[] yzgcMonthRecordDb ={ "Temp1", "Temp2", "Temp3", "Temp4", "Temp5", "Temp6", "Temp7","Temp8" };
+        public static string[] yzgcMonthRecordText ={ "Temp1", "Temp2", "Temp3", "Temp4", "Temp5", "Temp6", "Temp7","Temp8" };
+
+        public static string[] semiFinishedCheckDb ={ "item", "personInCharge", "separateStatus", "gneck", "HS_Num","remark",
+            "surface", "damage_SB171", "PINDamage", "damage_SB251","filling", "xingpian", "b3_b4_b5_b7","b6", "c8_c9_c10",
+            "coreWash" };
+        public static string[] semiFinishedCheckText ={ "item", "personInCharge", "separateStatus", "gneck", "HS_Num","remark",
+            "surface", "damage_SB171", "PINDamage", "damage_SB251","filling", "xingpian", "b3_b4_b5_b7","b6", "c8_c9_c10",
+            "coreWash" };
+
+        public static string[] maintenanceLogDb ={ "SB171", "SB172", "SB241", "SB242", "SB243", "SB244", "SB245","SB251",
+            "SB252", "SB253", "SB254", "SB255", "maintainReason","reviewInfor", "MaintenResult" };
+        public static string[] maintenanceLogText ={ "SB171", "SB172", "SB241", "SB242", "SB243", "SB244", "SB245","SB251",
+            "SB252", "SB253", "SB254", "SB255", "maintainReason","reviewInfor", "MaintenResult" };
+
         MessDialog messDialog =new MessDialog();
         CommonOperation commonOperation = new CommonOperation();
 
@@ -72,7 +99,8 @@ namespace EZFAC.PAD.src.Tools
             }
             catch (Exception ex)
             {
-                msg = "获取数据失败，请稍后再试";
+                msg = ex.ToString();
+             //   msg = "获取数据失败，请稍后再试";
             }
             finally
             {
@@ -83,6 +111,7 @@ namespace EZFAC.PAD.src.Tools
             }
         }
 
+        // 将get获取的数据写入相应的文件中
         public void dataToFile(List<Dictionary<string, string>> list,string folderName)
         {
             JsonObject checkRecordData = null;
@@ -119,6 +148,7 @@ namespace EZFAC.PAD.src.Tools
             return checkInfo;
         }
 
+        // 初始化点检的内容
         private static JsonArray getContent(Dictionary<string, string> dic, string folderName)
         {
             JsonArray contents = new JsonArray();
@@ -128,6 +158,26 @@ namespace EZFAC.PAD.src.Tools
             {
                 db = checkRecordDb;
                 text = checkRecordText;
+            }else if (folderName.Equals("DAILY_CHECK_MORNING"))
+            {
+                db = dailyCheckMorningDb;
+                text = dailyCheckMorningText;
+            }else if (folderName.Equals("DAILY_CHECK_NOON"))
+            {
+                db = dailyCheckNoonDb;
+                text = dailyCheckNoonText;
+            }else if (folderName.Equals("YZGC_MONTH_RECORD"))
+            {
+                db = yzgcMonthRecordDb;
+                text = yzgcMonthRecordText;
+            }else if (folderName.Equals("SEMI_FINISHED_CHECK"))
+            {
+                db = semiFinishedCheckDb;
+                text = semiFinishedCheckText;
+            }else if (folderName.Equals("MAINTENANCE_LOG"))
+            {
+                db = maintenanceLogDb;
+                text = maintenanceLogText;
             }
             string edit = dic["checkEdit"];
             for (int i = 0; i < db.Length; i++)
@@ -170,10 +220,13 @@ namespace EZFAC.PAD.src.Tools
             Dictionary<string, string> dic = null;
             string[] detail = content.Split('}'), rowDetails = null, keyAndValue = null;
             string rowContent = null;
+            int index = 0;
             for (int i = 0; i < detail.Length - 1; i++)
             {
                 dic = new Dictionary<string, string>();
-                rowContent = detail[i].Substring(2).Replace("\"", "");
+                // 找到数据开始的位置
+                index = detail[i].IndexOf('{');
+                rowContent = detail[i].Substring(index+1).Replace("\"", "");
                 rowDetails = rowContent.Split(',');
                 foreach (string rowDetail in rowDetails)
                 {
