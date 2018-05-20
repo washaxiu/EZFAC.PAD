@@ -84,7 +84,7 @@ namespace EZFAC.PAD.src.Tools
             {
                 HttpResponseMessage response = await httpClient.GetAsync(resourceUri);
                 String content = response.Content.ToString();
-                if (content != null)
+                if (content != null && !content.Equals("[]"))
                 {
                     content = unicodeToString(content);
                   //  messDialog.showDialog(content);
@@ -158,23 +158,23 @@ namespace EZFAC.PAD.src.Tools
             {
                 db = checkRecordDb;
                 text = checkRecordText;
-            }else if (folderName.Equals("DAILY_CHECK_MORNING"))
+            }else if (folderName.Equals("DailyCheckMorning"))
             {
                 db = dailyCheckMorningDb;
                 text = dailyCheckMorningText;
-            }else if (folderName.Equals("DAILY_CHECK_NOON"))
+            }else if (folderName.Equals("DailyCheckNoon"))
             {
                 db = dailyCheckNoonDb;
                 text = dailyCheckNoonText;
-            }else if (folderName.Equals("YZGC_MONTH_RECORD"))
+            }else if (folderName.Equals("YZGCMonthRecord"))
             {
                 db = yzgcMonthRecordDb;
                 text = yzgcMonthRecordText;
-            }else if (folderName.Equals("SEMI_FINISHED_CHECK"))
+            }else if (folderName.Equals("SemiFinishedCheck"))
             {
                 db = semiFinishedCheckDb;
                 text = semiFinishedCheckText;
-            }else if (folderName.Equals("MAINTENANCE_LOG"))
+            }else if (folderName.Equals("MaintenanceLog"))
             {
                 db = maintenanceLogDb;
                 text = maintenanceLogText;
