@@ -99,7 +99,8 @@ namespace EZFAC.PAD.src.Tools
             }
             catch (Exception ex)
             {
-                msg = "获取数据失败，请稍后再试";
+                msg = ex.ToString();
+             //   msg = "获取数据失败，请稍后再试";
             }
             finally
             {
@@ -219,10 +220,13 @@ namespace EZFAC.PAD.src.Tools
             Dictionary<string, string> dic = null;
             string[] detail = content.Split('}'), rowDetails = null, keyAndValue = null;
             string rowContent = null;
+            int index = 0;
             for (int i = 0; i < detail.Length - 1; i++)
             {
                 dic = new Dictionary<string, string>();
-                rowContent = detail[i].Substring(2).Replace("\"", "");
+                // 找到数据开始的位置
+                index = detail[i].IndexOf('{');
+                rowContent = detail[i].Substring(index+1).Replace("\"", "");
                 rowDetails = rowContent.Split(',');
                 foreach (string rowDetail in rowDetails)
                 {
