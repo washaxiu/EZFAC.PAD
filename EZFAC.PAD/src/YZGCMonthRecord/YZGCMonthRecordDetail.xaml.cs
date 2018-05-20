@@ -232,7 +232,7 @@ namespace EZFAC.PAD
                 contentItem["name"] = JsonValue.CreateStringValue(toggleSwitch[i].Name);
                 string toggle = toggleSwitch[i].IsOn == true ? "good" : "bad";
                 String maintenance = maintenanceSwitch[i].IsOn == true ? "good" : "bad";
-                contentItem["status"] = JsonValue.CreateStringValue(toggle + "," + maintenance);
+                contentItem["status"] = JsonValue.CreateStringValue(toggle + "-" + maintenance);
                 //contentItem["status"] = toggleSwitch[i].IsOn == true ? good : bad;
                 //  判断内容是否被修改,若修改则设为1，否则等于原来的值
                 if (newEdit[i] == '1')
@@ -280,8 +280,8 @@ namespace EZFAC.PAD
             ToggleSwitch[] maintenanceSwitch = { Maintenance1, Maintenance2, Maintenance3, Maintenance4, Maintenance5, Maintenance6, Maintenance7, Maintenance8 };
             for (int i = 0; i < toggleSwitch.Length; i++)
             {
-                bool flag1 = content[i].GetObject()["status"].GetString().Split(',')[0].Equals("good");
-                bool flag2 = content[i].GetObject()["status"].GetString().Split(',')[1].Equals("good");
+                bool flag1 = content[i].GetObject()["status"].GetString().Split('-')[0].Equals("good");
+                bool flag2 = content[i].GetObject()["status"].GetString().Split('-')[1].Equals("good");
                 string msg = flag1 == toggleSwitch[i].IsOn ? "0" : "1";
                 if (msg.Equals("0"))
                 {

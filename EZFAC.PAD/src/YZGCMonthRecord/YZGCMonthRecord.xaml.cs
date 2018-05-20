@@ -78,7 +78,7 @@ namespace EZFAC.PAD
                 contentItem["name"] = JsonValue.CreateStringValue(toggleSwitch[i].Name);
                 string toggle = toggleSwitch[i].IsOn == true ? "good" : "bad";         
                 String maintenance = maintenanceSwitch[i].IsOn == true ? "good" : "bad";
-                contentItem["status"] = JsonValue.CreateStringValue(toggle + "," + maintenance);
+                contentItem["status"] = JsonValue.CreateStringValue(toggle + "-" + maintenance);
                 contentItem["edit"] = JsonValue.CreateStringValue("0");
                 content.Add(contentItem);
             }
