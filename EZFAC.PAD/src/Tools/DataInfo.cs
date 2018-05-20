@@ -84,7 +84,7 @@ namespace EZFAC.PAD.src.Tools
             {
                 HttpResponseMessage response = await httpClient.GetAsync(resourceUri);
                 String content = response.Content.ToString();
-                if (content != null && !content.Equals("[]"))
+                if (content != null && !"".Equals(content) && !content.Equals("[]") && !content.Equals("null"))
                 {
                     content = unicodeToString(content);
                   //  messDialog.showDialog(content);
@@ -96,7 +96,6 @@ namespace EZFAC.PAD.src.Tools
                 {
                     msg = "服务器数据没有更新";
                 }
-                msg = content;
             }
             catch (Exception ex)
             {
