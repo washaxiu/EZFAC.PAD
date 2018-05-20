@@ -172,28 +172,28 @@
             <TextBlock x:Name="reason" FontSize="25" FontFamily="Segoe UI Black" VerticalAlignment="Center" Margin="20,0,0,0">维修原因:</TextBlock>
         </Border>
         <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="12" Orientation="Horizontal" Margin="10,0,10,0">
-            <CheckBox Name="maintain_A" Content="A:CORE破损（顶端）" FontSize="16" Width="250" />
-            <CheckBox Name="maintain_B" Content="B:CORE破损（底部）" FontSize="16" Width="250" />
-            <CheckBox Name="maintain_C" Content="C:型破损（成型部）" FontSize="16" Width="250"/>
-            <CheckBox Name="maintain_D" Content="D:型破损（成型部以外）" FontSize="16" Width="250"/>
+            <CheckBox Name="maintain_A" Content="A-CORE破损（顶端）" FontSize="16" Width="250" />
+            <CheckBox Name="maintain_B" Content="B-CORE破损（底部）" FontSize="16" Width="250" />
+            <CheckBox Name="maintain_C" Content="C-型破损（成型部）" FontSize="16" Width="250"/>
+            <CheckBox Name="maintain_D" Content="D-型破损（成型部以外）" FontSize="16" Width="250"/>
         </StackPanel>
         <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="12" Orientation="Horizontal" Margin="10,0,10,0">
-            <CheckBox Name="maintain_E" Content="E:毛刺（外形）" FontSize="16" Width="250" />
-            <CheckBox Name="maintain_F" Content="F:毛刺（爪穴）" FontSize="16" Width="250" />
-            <CheckBox Name="maintain_G" Content="G:毛刺（鼻柱两侧）" FontSize="16" Width="250"/>
-            <CheckBox Name="maintain_H" Content="H:毛刺（口径内）" FontSize="16" Width="250"/>
+            <CheckBox Name="maintain_E" Content="E-毛刺（外形）" FontSize="16" Width="250" />
+            <CheckBox Name="maintain_F" Content="F-毛刺（爪穴）" FontSize="16" Width="250" />
+            <CheckBox Name="maintain_G" Content="G-毛刺（鼻柱两侧）" FontSize="16" Width="250"/>
+            <CheckBox Name="maintain_H" Content="H-毛刺（口径内）" FontSize="16" Width="250"/>
         </StackPanel>
         <StackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="12" Orientation="Horizontal" Margin="10,0,10,0">
-            <CheckBox Name="maintain_J" Content="J:段差" FontSize="16" Width="250" />
-            <CheckBox Name="maintain_K" Content="K:变形" FontSize="16" Width="250" />
-            <CheckBox Name="maintain_M" Content="M:开裂" FontSize="16" Width="250"/>
-            <CheckBox Name="maintain_N" Content="N:溶损" FontSize="16" Width="250"/>
+            <CheckBox Name="maintain_J" Content="J-段差" FontSize="16" Width="250" />
+            <CheckBox Name="maintain_K" Content="K-变形" FontSize="16" Width="250" />
+            <CheckBox Name="maintain_M" Content="M-开裂" FontSize="16" Width="250"/>
+            <CheckBox Name="maintain_N" Content="N-溶损" FontSize="16" Width="250"/>
         </StackPanel>
         <StackPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="12" Orientation="Horizontal" Margin="10,0,10,0">
-            <CheckBox Name="maintain_P" Content="P:拉伤" FontSize="16" Width="250" />
-            <CheckBox Name="maintain_S" Content="S:磨损" FontSize="16" Width="250" />
-            <CheckBox Name="maintain_T" Content="T:人为操作失误" FontSize="16" Width="250"/>
-            <CheckBox Name="maintain_U" Content="U:变更，其他" FontSize="16" Width="250"/>
+            <CheckBox Name="maintain_P" Content="P-拉伤" FontSize="16" Width="250" />
+            <CheckBox Name="maintain_S" Content="S-磨损" FontSize="16" Width="250" />
+            <CheckBox Name="maintain_T" Content="T-人为操作失误" FontSize="16" Width="250"/>
+            <CheckBox Name="maintain_U" Content="U-变更，其他" FontSize="16" Width="250"/>
         </StackPanel>
         <Border Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,1,0,1" >
         </Border>
