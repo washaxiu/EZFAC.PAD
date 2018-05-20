@@ -96,6 +96,7 @@ namespace EZFAC.PAD.src.Tools
                 {
                     msg = "服务器数据没有更新";
                 }
+                msg = content;
             }
             catch (Exception ex)
             {
