@@ -30,10 +30,10 @@ namespace EZFAC.PAD.src.Tools
         public static string[] yzgcMonthRecordDb ={ "Temp1", "Temp2", "Temp3", "Temp4", "Temp5", "Temp6", "Temp7","Temp8" };
         public static string[] yzgcMonthRecordText ={ "Temp1", "Temp2", "Temp3", "Temp4", "Temp5", "Temp6", "Temp7","Temp8" };
 
-        public static string[] semiFinishedCheckDb ={ "item", "personInCharge", "separateStatus", "gneck", "HS_Num","remark",
+        public static string[] semiFinishedCheckDb ={  "separateStatus", "gneck","item", "personInCharge", "HS_Num","remark",
             "surface", "damage_SB171", "PINDamage", "damage_SB251","filling", "xingpian", "b3_b4_b5_b7","b6", "c8_c9_c10",
             "coreWash" };
-        public static string[] semiFinishedCheckText ={ "item", "personInCharge", "separateStatus", "gneck", "HS_Num","remark",
+        public static string[] semiFinishedCheckText ={ "separateStatus", "gneck","item", "personInCharge",  "HS_Num","remark",
             "surface", "damage_SB171", "PINDamage", "damage_SB251","filling", "xingpian", "b3_b4_b5_b7","b6", "c8_c9_c10",
             "coreWash" };
 
@@ -79,11 +79,12 @@ namespace EZFAC.PAD.src.Tools
             CommonOperation commonOperation = new CommonOperation();
             var httpClient = new HttpClient();
             var resourceUri = new Uri(url);
-            string msg = null;
+            string msg = null, content = null;
+            HttpResponseMessage response = null;
             try
             {
-                HttpResponseMessage response = await httpClient.GetAsync(resourceUri);
-                String content = response.Content.ToString();
+                response = await httpClient.GetAsync(resourceUri);
+                content = response.Content.ToString();
                 if (content != null && !"".Equals(content) && !content.Equals("[]") && !content.Equals("null"))
                 {
                     content = unicodeToString(content);
@@ -104,6 +105,10 @@ namespace EZFAC.PAD.src.Tools
             }
             finally
             {
+                if (response != null)
+                {
+                    response.Dispose();
+                }
                 httpClient.Dispose();
                 // 设置提示框
                 dialog.Content = msg;
