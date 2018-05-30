@@ -90,7 +90,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
                     
                 }
 
-                String[] reason = Regex.Split(getdata["reason"], ";", RegexOptions.IgnoreCase);
+                String[] reason = Regex.Split(getdata["reason"], "_", RegexOptions.IgnoreCase);
                 CheckBox[] checkbox = { maintain_A, maintain_B, maintain_C, maintain_D, maintain_E, maintain_F, maintain_G, maintain_H, maintain_J, maintain_K, maintain_M, maintain_N, maintain_P, maintain_S, maintain_T, maintain_U };
                 for (int i = 0; i < reason.Length; i++)
                 {
