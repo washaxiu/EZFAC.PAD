@@ -82,12 +82,12 @@ namespace EZFAC.PAD
                 ApprovalPosition.Text = commonOperation.getJobByLevel(userLevel);
                 date.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 reviewInfor.Text = "";
-                checkfilename = "ykk_record_" + checkgroup + "_" + checkline + "_" + checkdate + ".ykk";
+                checkfilename = "ykk_record_" + type + "_" + checkgroup + "_" + checkline + "_" + checkdate + ".ykk";
                 // 确定组和线
                 judgeGroup(checkgroup);
                 judgeLine(checkline);
                 // 确定内容，并将修改的内容标红
-                for (int i = 0; i < contentEdit.Length-1; i++)
+                for (int i = 0; i < contentEdit.Length; i++)
                 {
                     if (contentEdit[i] == '1')
                     {
