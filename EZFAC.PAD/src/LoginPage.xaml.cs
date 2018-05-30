@@ -177,6 +177,16 @@ namespace EZFAC.PAD
                 this.Frame.Navigate(typeof(LoginPage), data);
             }
         }
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog()
+            {
+                Content = "获取数据成功！",
+                PrimaryButtonText = "确定",
+            };
+            userInfo.getUserList(dialog);
+        }
     }
 
 }

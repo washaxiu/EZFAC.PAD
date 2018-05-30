@@ -17,6 +17,7 @@ namespace EZFAC.PAD.src.Tools
         private int userLevelCount = 5;
         public string good = "○";
         public string bad = "×";
+        public MessDialog messDialog = new MessDialog();
 
         public JsonObject initJsonObject()
         {

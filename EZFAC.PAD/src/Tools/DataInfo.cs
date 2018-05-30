@@ -75,6 +75,45 @@ namespace EZFAC.PAD.src.Tools
             }
         }
 
+        public async void getUserList(ContentDialog dialog)
+        {
+            string url = "http://192.168.2.110:8800/get-userInfo";
+            JsonObject checkRecordData = new JsonObject();
+            CommonOperation commonOperation = new CommonOperation();
+            string fileName = "user.json";
+            var httpClient = new HttpClient();
+            var resourceUri = new Uri(url);
+            HttpResponseMessage response = null;
+            string msg = null;
+            String content = null;
+            try
+            {
+                response = await httpClient.GetAsync(resourceUri);
+                content = response.Content.ToString();
+                if (content != null)
+                {
+                    checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
+                    commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
+                }
+                msg = "获取数据成功";
+            }
+            catch (Exception e)
+            {
+                fileName = "111";
+                msg = "获取数据失败，请稍后再试";
+            }
+            finally
+            {
+                if (response != null)
+                {
+                    response.Dispose();
+                }
+                httpClient.Dispose();
+                dialog.Content = msg;
+                await dialog.ShowAsync();
+            }
+        }
+
         public async void getInfo(string tableName, string level,string folderName, ContentDialog dialog)
         {
             string url = "http://192.168.2.110:8800/get-checkRecord-list?table_name=" + tableName + "&level=" + level;
@@ -105,8 +144,8 @@ namespace EZFAC.PAD.src.Tools
             }
             catch (Exception ex)
             {
-                msg = ex.ToString();
-             //   msg = "获取数据失败，请稍后再试";
+              //  msg = ex.ToString();
+                msg = "获取数据失败，请稍后再试";
             }
             finally
             {

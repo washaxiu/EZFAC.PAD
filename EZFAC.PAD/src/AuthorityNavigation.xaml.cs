@@ -73,7 +73,7 @@ namespace EZFAC.PAD
             }
             bool flag = false;
             data = (Dictionary<string, string>)e.Parameter;
-            string[] authority = data["authority"].Split(',');
+            string[] authority = data["authority"].Split('_');
             if ("1".Equals(data["userlevel"]))
             {
                 button.Content = "检    查";
