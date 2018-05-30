@@ -110,7 +110,6 @@ namespace EZFAC.PAD
                 {
                     Content = "审批成功！",
                     PrimaryButtonText = "确定",
-                    SecondaryButtonText = "取消"
                 };
                 dialog.PrimaryButtonClick += primaryButtonClick1;
                 await dialog.ShowAsync();

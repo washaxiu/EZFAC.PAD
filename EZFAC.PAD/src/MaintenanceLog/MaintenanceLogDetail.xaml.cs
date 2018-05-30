@@ -90,7 +90,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
                     
                 }
 
-                String[] reason = Regex.Split(getdata["reason"], "_", RegexOptions.IgnoreCase);
+                String[] reason = Regex.Split(getdata["maintainReason"], "_", RegexOptions.IgnoreCase);
                 CheckBox[] checkbox = { maintain_A, maintain_B, maintain_C, maintain_D, maintain_E, maintain_F, maintain_G, maintain_H, maintain_J, maintain_K, maintain_M, maintain_N, maintain_P, maintain_S, maintain_T, maintain_U };
                 for (int i = 0; i < reason.Length; i++)
                 {
@@ -216,10 +216,10 @@ namespace EZFAC.PAD.src.MaintenanceLog
                 if (checkbox[i].IsChecked == true)
                 {
                     reason += checkbox[i].Content;
-                    reason += ";";
+                    reason += "_";
                 }
             }
-            contentItem1["name"] = JsonValue.CreateStringValue("维修原因");
+            contentItem1["name"] = JsonValue.CreateStringValue("maintainReason");
             contentItem1["status"] = JsonValue.CreateStringValue(reason);
             if (newEdit[12] == '1')
             {
@@ -233,7 +233,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             newContent.Add(contentItem1);
 
             contentItem1 = new JsonObject();
-            contentItem1["name"] = JsonValue.CreateStringValue("维修内容");
+            contentItem1["name"] = JsonValue.CreateStringValue("reviewInfor");
             contentItem1["status"] = JsonValue.CreateStringValue(reviewInfor.Text);
 
             if (newEdit[13] == '1')
@@ -248,7 +248,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             newContent.Add(contentItem1);
 
             contentItem1 = new JsonObject();
-            contentItem1["name"] = JsonValue.CreateStringValue("维修结果");
+            contentItem1["name"] = JsonValue.CreateStringValue("MaintainResult");
             contentItem1["status"] = JsonValue.CreateStringValue(MaintenResult.SelectedValue.ToString());
             if (newEdit[14] == '1')
             {
@@ -431,7 +431,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             }
             else if (i == 12)
             {
-                reason.Foreground = red;
+                maintainReason.Foreground = red;
             }
             else if (i == 13)
             {

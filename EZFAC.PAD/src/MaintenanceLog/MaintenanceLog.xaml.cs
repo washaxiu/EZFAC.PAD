@@ -9,6 +9,7 @@ using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,9 +34,8 @@ namespace EZFAC.PAD.src.MaintenanceLog
         private string type = "MaintenanceLog";
         private List<String> elementNum = new List<String>();
         private List<String> elementNumTag = new List<String>();
-        private String lineName = "";
-        private String elementName = "";
-        private String SHOTNumber = "";
+        private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        private SolidColorBrush black = new SolidColorBrush(Colors.Black);
 
         public MaintenanceLog()
         {
@@ -74,6 +74,40 @@ namespace EZFAC.PAD.src.MaintenanceLog
         private void OnCommitData(object sender, RoutedEventArgs e)
         {
             JsonObject checkRecordData = new JsonObject();
+            string tips = "";
+            bool flagRequiredFields = true;
+            jiFanTag.Foreground = black;
+            if ("".Equals(jiFan.Text.Trim()))
+            {
+                tips = "必填项不能为空！";
+                jiFanTag.Foreground = red;
+                flagRequiredFields = false;
+            }
+            pinMingTag.Foreground = black;
+            if ("".Equals(pinMing.Text.Trim()))
+            {
+                tips = "必填项不能为空！";
+                pinMingTag.Foreground = red;
+                flagRequiredFields = false;
+            }
+            SHOTTag.Foreground = black;
+            if ("".Equals(SHOT.Text.Trim()))
+            {
+                tips = "必填项不能为空！";
+                SHOTTag.Foreground = red;
+                flagRequiredFields = false;
+            }
+            else if (!Regex.IsMatch(SHOT.Text, @"^(\-|\+)?\d+(\.\d+)?$"))
+            {
+                tips = "输入必须为数字!  ";
+                SHOTTag.Foreground = red;
+                flagRequiredFields = false;
+            }
+            if (!flagRequiredFields)
+            {
+                messDialog.showDialog(tips);
+                return;
+            }
             // 初始化检查的json信息
             checkRecordData.Add("checkInfo", commonOperation.initCheckJsonArray(type, jiFan.Text, pinMing.Text, SHOT.Text));
             // 设置检查内容的json信息

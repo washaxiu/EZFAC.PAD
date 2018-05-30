@@ -77,7 +77,7 @@ namespace EZFAC.PAD.src.Service
                             record10 = content[9].GetObject()["status"].GetString(),
                             record11 = content[10].GetObject()["status"].GetString(),
                             record12 = content[11].GetObject()["status"].GetString(),
-                            reason = content[12].GetObject()["status"].GetString(),
+                            maintainReason = content[12].GetObject()["status"].GetString(),
                             content = content[13].GetObject()["status"].GetString(),
                             result = content[14].GetObject()["status"].GetString(),
                             // 设置用户信息
@@ -221,9 +221,9 @@ namespace EZFAC.PAD.src.Service
                 {
                     data.Add("record12", strs[i + 1]);
                 }
-                else if (strs[i].Equals("reason"))
+                else if (strs[i].Equals("maintainReason"))
                 {
-                    data.Add("reason", strs[i + 1]);
+                    data.Add("maintainReason", strs[i + 1]);
                 }
                 else if (strs[i].Equals("content"))
                 {
