@@ -123,7 +123,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
                 if (checkbox[i].IsChecked == true)
                 {
                     reason += checkbox[i].Content;
-                    reason += ";";
+                    reason += "_";
                 }
             }
             elementNum.Add(reason);

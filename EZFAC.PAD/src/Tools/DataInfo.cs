@@ -53,9 +53,10 @@ namespace EZFAC.PAD.src.Tools
             string fileName = "user.json";
             var httpClient = new HttpClient();
             var resourceUri = new Uri(url);
+            HttpResponseMessage response = null;
             try
             {
-                HttpResponseMessage response = await httpClient.GetAsync(resourceUri);
+                response = await httpClient.GetAsync(resourceUri);
                 String content = response.Content.ToString();
                 checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
                 commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
@@ -66,6 +67,10 @@ namespace EZFAC.PAD.src.Tools
             }
             finally
             {
+                if (response != null)
+                {
+                    response.Dispose();
+                }
                 httpClient.Dispose();
             }
         }
