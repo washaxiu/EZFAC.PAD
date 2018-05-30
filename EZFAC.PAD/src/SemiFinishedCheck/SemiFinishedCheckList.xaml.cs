@@ -133,9 +133,8 @@ namespace EZFAC.PAD
         {
             ContentDialog dialog = new ContentDialog()
             {
-                Content = "审批成功！",
+                Content = "获取数据成功！",
                 PrimaryButtonText = "确定",
-                SecondaryButtonText = "取消"
             };
             dialog.PrimaryButtonClick += primaryButtonClick2;
             dataInfo.getInfo("SEMI_FINISHED_CHECK", (int.Parse(data["userlevel"]) - 1).ToString(), data["folderName"], dialog);

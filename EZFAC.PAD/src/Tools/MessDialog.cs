@@ -17,13 +17,13 @@ namespace EZFAC.PAD.src.Tools
         {
             ContentDialog dialog = new ContentDialog()
             {
+                FontSize = 32d,
                 Content = contnet,
                 PrimaryButtonText = "确定",
-                SecondaryButtonText = "取消"
+                VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center,
+                HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch
             };
             await dialog.ShowAsync();
         }
-
-        
     }
 }

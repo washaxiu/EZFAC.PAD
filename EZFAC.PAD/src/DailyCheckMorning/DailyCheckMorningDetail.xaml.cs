@@ -291,7 +291,6 @@ namespace EZFAC.PAD
                 Title = "消息提示",
                 Content = image,
                 PrimaryButtonText = "确定",
-                SecondaryButtonText = "取消",
                 FullSizeDesired = false,
             };
             await showImage.ShowAsync();

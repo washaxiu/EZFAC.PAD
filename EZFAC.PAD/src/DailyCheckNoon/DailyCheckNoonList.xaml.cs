@@ -109,7 +109,6 @@ namespace EZFAC.PAD
                 {
                     Content = "审批成功！",
                     PrimaryButtonText = "确定",
-                    SecondaryButtonText = "取消"
                 };
                 dialog.PrimaryButtonClick += primaryButtonClick1;
                 await dialog.ShowAsync();
@@ -132,9 +131,8 @@ namespace EZFAC.PAD
         {
             ContentDialog dialog = new ContentDialog()
             {
-                Content = "审批成功！",
+                Content = "获取数据成功！",
                 PrimaryButtonText = "确定",
-                SecondaryButtonText = "取消"
             };
             dialog.PrimaryButtonClick += primaryButtonClick2;
             dataInfo.getInfo("DAILY_CHECK_NOON", (int.Parse(data["userlevel"]) - 1).ToString(), data["folderName"], dialog);
