@@ -431,7 +431,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             }
             else if (i == 12)
             {
-                maintainReason.Foreground = red;
+                reason.Foreground = red;
             }
             else if (i == 13)
             {
