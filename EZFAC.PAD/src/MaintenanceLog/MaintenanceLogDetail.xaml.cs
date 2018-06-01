@@ -248,7 +248,7 @@ namespace EZFAC.PAD.src.MaintenanceLog
             newContent.Add(contentItem1);
 
             contentItem1 = new JsonObject();
-            contentItem1["name"] = JsonValue.CreateStringValue("MaintainResult");
+            contentItem1["name"] = JsonValue.CreateStringValue("MaintenResult");
             contentItem1["status"] = JsonValue.CreateStringValue(MaintenResult.SelectedValue.ToString());
             if (newEdit[14] == '1')
             {
