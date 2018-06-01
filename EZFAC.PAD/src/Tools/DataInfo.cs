@@ -44,10 +44,14 @@ namespace EZFAC.PAD.src.Tools
 
         MessDialog messDialog =new MessDialog();
         CommonOperation commonOperation = new CommonOperation();
+        Random random = new Random();
+
+        public string httpUrl = "http://192.168.2.110:8800";
 
         public async void getUserInfo()
         {
-            string url = "http://180.161.134.61:8800/get-userInfo";
+            
+            string url = httpUrl+"/get-userInfo?uuid=" + random.Next();
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();
             string fileName = "user.json";
@@ -77,15 +81,14 @@ namespace EZFAC.PAD.src.Tools
 
         public async void getUserList(ContentDialog dialog)
         {
-            string url = "http://192.168.2.110:8800/get-userInfo";
+            string url = httpUrl+"/get-userInfo?uuid=" + random.Next();
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();
             string fileName = "user.json";
             var httpClient = new HttpClient();
             var resourceUri = new Uri(url);
             HttpResponseMessage response = null;
-            string msg = null;
-            String content = null;
+            string msg = null, content = null;
             try
             {
                 response = await httpClient.GetAsync(resourceUri);
@@ -94,8 +97,12 @@ namespace EZFAC.PAD.src.Tools
                 {
                     checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
                     commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
+                    msg = "获取数据成功";
                 }
-                msg = "获取数据成功";
+                else
+                {
+                    msg = "服务器数据没有更新";
+                }
             }
             catch (Exception e)
             {
@@ -104,6 +111,7 @@ namespace EZFAC.PAD.src.Tools
             }
             finally
             {
+                content = null;
                 if (response != null)
                 {
                     response.Dispose();
@@ -116,9 +124,7 @@ namespace EZFAC.PAD.src.Tools
 
         public async void getInfo(string tableName, string level,string folderName, ContentDialog dialog)
         {
-            string url = "http://192.168.2.110:8800/get-checkRecord-list?table_name=" + tableName + "&level=" + level;
-           // string url = "http://180.161.134.61:8800/get-checkRecord-list?table_name=CHECK_RECORD&level=2";
-            // string url = "http://192.168.2.110:8800/get-checkRecord-list?table_name=CHECK_RECORD&level=1";
+            string url = httpUrl+"/get-checkRecord-list?table_name=" + tableName + "&level=" + level + "&uuid=" + random.Next();
             JsonObject checkRecordData = new JsonObject();
             CommonOperation commonOperation = new CommonOperation();
             var httpClient = new HttpClient();

@@ -229,7 +229,7 @@ namespace EZFAC.PAD
                 }
                 else
                 {
-                    contentItem["edit"] = JsonValue.CreateStringValue(oldEdit[i] + "");
+                    contentItem["edit"] = JsonValue.CreateStringValue(oldEdit[i + 12] + "");
                 }
                 newContent.Add(contentItem);
             }
