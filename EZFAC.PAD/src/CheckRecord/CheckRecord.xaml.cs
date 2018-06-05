@@ -35,12 +35,23 @@ namespace EZFAC.PAD
         private string type = "DieCasting";
         private string groupName = "A";
         private string lineName = "01";
+        public DispatcherTimer timer;
 
         public CheckRecord()
         {
             this.InitializeComponent();
             timetag.Text = DateTime.Now.ToString();
-       }
+            // 设置定时器，每秒刷新一次时间
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            timetag.Text = DateTime.Now.ToString();
+        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
