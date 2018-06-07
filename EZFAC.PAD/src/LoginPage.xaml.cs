@@ -24,6 +24,7 @@ using Windows.Foundation.Metadata;
 using Windows.UI.ViewManagement;
 using System.Net;
 using System.Text;
+using System.Threading;
 
 
 
@@ -42,6 +43,8 @@ namespace EZFAC.PAD
         private DataInfo userInfo = new DataInfo();
         public string msg = "";
 
+        public DispatcherTimer timer;
+
         public LoginPage()
         {
             // 判断是否存在 StatusBar
@@ -57,8 +60,19 @@ namespace EZFAC.PAD
             information.Text = "";
             timetag.Text = DateTime.Now.ToString();
 
+            // 设置定时器，每秒刷新一次时间
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
             initFile();
-            
+
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            timetag.Text = DateTime.Now.ToString();
         }
 
         private async void initFile()

@@ -43,10 +43,21 @@ namespace EZFAC.PAD
         private SolidColorBrush black = new SolidColorBrush(Colors.Black);
         private JsonObject group = new JsonObject();
         List<string[]> lineList = new List<string[]>();
+        public DispatcherTimer timer;
 
         public DailyCheckMorning()
         {
             this.InitializeComponent();
+            timetag.Text = DateTime.Now.ToString();
+            // 设置定时器，每秒刷新一次时间
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
             timetag.Text = DateTime.Now.ToString();
         }
 

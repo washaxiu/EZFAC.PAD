@@ -41,11 +41,24 @@ namespace EZFAC.PAD.src.MaintenanceLog
         private CommonOperation commonOperation = new CommonOperation();
         private MessDialog messDialog = new MessDialog();
         private SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        public DispatcherTimer timer;
+
         public MaintenanceLogDetail()
         {
             this.InitializeComponent();
             TimeLog.Text = DateTime.Now.ToString();
+            // 设置定时器，每秒刷新一次时间
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            TimeLog.Text = DateTime.Now.ToString();
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null && e.Parameter is Dictionary<string, string>)

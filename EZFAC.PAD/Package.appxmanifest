@@ -32,9 +32,9 @@
   <Capabilities>
     <Capability Name="internetClient" />
     <Capability Name="privateNetworkClientServer" />
-    <uap:Capability Name="sharedUserCertificates" />
-    <uap:Capability Name="userAccountInformation" />
     <uap:Capability Name="picturesLibrary" />
-    <DeviceCapability Name="location" />
+    <uap:Capability Name="videosLibrary" />
+    <uap:Capability Name="musicLibrary" />
+    <uap:Capability Name="userAccountInformation" />
   </Capabilities>
 </Package>
