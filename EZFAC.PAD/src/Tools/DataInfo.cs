@@ -46,40 +46,10 @@ namespace EZFAC.PAD.src.Tools
         CommonOperation commonOperation = new CommonOperation();
         Random random = new Random();
 
-        public string httpUrl = "http://192.168.2.110:8800";
+       // public string httpUrl = "http://192.168.2.110:8800";
+        public string httpUrl = "http://192.168.199.152:8800";
 
-        public async void getUserInfo()
-        {
-            
-            string url = httpUrl+"/get-userInfo?uuid=" + random.Next();
-            JsonObject checkRecordData = new JsonObject();
-            CommonOperation commonOperation = new CommonOperation();
-            string fileName = "user.json";
-            var httpClient = new HttpClient();
-            var resourceUri = new Uri(url);
-            HttpResponseMessage response = null;
-            try
-            {
-                response = await httpClient.GetAsync(resourceUri);
-                String content = response.Content.ToString();
-                checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
-                commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
-            }
-            catch(Exception e)
-            {
-                fileName = "111";
-            }
-            finally
-            {
-                if (response != null)
-                {
-                    response.Dispose();
-                }
-                httpClient.Dispose();
-            }
-        }
-
-        public async void getUserList(ContentDialog dialog)
+        public async void getUserList()
         {
             string url = httpUrl+"/get-userInfo?uuid=" + random.Next();
             JsonObject checkRecordData = new JsonObject();
@@ -97,17 +67,11 @@ namespace EZFAC.PAD.src.Tools
                 {
                     checkRecordData.Add("Users", JsonValue.CreateStringValue(content));
                     commonOperation.writeJsonToFileForUser(checkRecordData, fileName, KnownFolders.PicturesLibrary);
-                    msg = "获取数据成功";
-                }
-                else
-                {
-                    msg = "服务器数据没有更新";
                 }
             }
             catch (Exception e)
             {
-                fileName = "111";
-                msg = "获取数据失败，请稍后再试";
+                fileName = e.ToString();
             }
             finally
             {
@@ -117,8 +81,6 @@ namespace EZFAC.PAD.src.Tools
                     response.Dispose();
                 }
                 httpClient.Dispose();
-                dialog.Content = msg;
-                await dialog.ShowAsync();
             }
         }
 

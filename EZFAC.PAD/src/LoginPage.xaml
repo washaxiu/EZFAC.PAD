@@ -40,8 +40,5 @@
         <Border Grid.Row="8" Padding="6" Background="Green">
             <TextBlock x:Name="tbRes" FontSize="12" Foreground="White" Margin="0,0,10,0" Text="Andon系统 版本号：R1.01.B001" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         </Border>
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
-            <Button x:Name="refresh" HorizontalAlignment="Left" Margin="8,0,0,1" MinHeight="45" Content="刷新" MinWidth="100" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="20" FontWeight="Bold" Width="140"  VerticalAlignment="Bottom" Click="refresh_Click" />
-        </Border>
     </Grid>
 </Page>

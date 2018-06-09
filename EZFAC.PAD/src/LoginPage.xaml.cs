@@ -42,8 +42,9 @@ namespace EZFAC.PAD
         private MessDialog mess = new MessDialog();
         private DataInfo userInfo = new DataInfo();
         public string msg = "";
-
+        private Object thisLock = new Object();
         public DispatcherTimer timer;
+        public DispatcherTimer loginTimer;
 
         public LoginPage()
         {
@@ -80,12 +81,7 @@ namespace EZFAC.PAD
             StorageFile file = await KnownFolders.PicturesLibrary.TryGetItemAsync(jsonfile) as StorageFile;
             if (file == null)
             {
-                userInfo.getUserInfo();
-            }
-            file = await KnownFolders.PicturesLibrary.TryGetItemAsync(jsonfile) as StorageFile;
-            if (file == null)
-            {
-                msg = "网络出错，请联网后，重启应用";
+                userInfo.getUserList();
             }
         }
 
@@ -116,21 +112,7 @@ namespace EZFAC.PAD
             bool isChecked = false;
             string userLevel = "1";
             StorageFolder folder_demonstration = KnownFolders.PicturesLibrary;
-            //folder_demonstration = await DownloadsFolder.CreateFolderAsync(folderName);
-            StorageFile file;
-
-            if (username.Text == "")
-            {
-                msg = "请输入用户名";
-                isChecked = false;
-            }
-            if (password.Password == "")
-            {
-                msg = "请输入密码";
-                isChecked = false;
-            }
-            
-            file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
+            StorageFile file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
             if (file != null)
             {
                 //string jsonText = await FileIO.ReadTextAsync(file);
@@ -172,8 +154,13 @@ namespace EZFAC.PAD
 
                 if (!isValidUser)
                 {
-                    msg = "用户名不存在";
-                    isChecked = false;
+                    // 如果用户名不存在，就重新向服务器获取数据
+                    userInfo.getUserList();
+                    // 设置定时器
+                    loginTimer = new DispatcherTimer();
+                    loginTimer.Interval = new TimeSpan(0, 0, 2);
+                    loginTimer.Tick += LoginTimer_Tick; ;
+                    loginTimer.Start();
                 }
                 // 导航并传递参数
                 if (!isChecked)
@@ -185,21 +172,76 @@ namespace EZFAC.PAD
                 {
                     this.Frame.Navigate(typeof(AuthorityNavigation), data);
                 }
-            }else
+            }
+            else
             {
-                data["loginError"] = msg;
-                this.Frame.Navigate(typeof(LoginPage), data);
+                // 如果用户文件不存在，就重新向服务器获取数据
+                userInfo.getUserList();
+                // 设置定时器
+                loginTimer = new DispatcherTimer();
+                loginTimer.Interval = new TimeSpan(0, 0, 2);
+                loginTimer.Tick += LoginTimer_Tick; ;
+                loginTimer.Start();
             }
         }
 
-        private void refresh_Click(object sender, RoutedEventArgs e)
+        private async void LoginTimer_Tick(object sender, object e)
         {
-            ContentDialog dialog = new ContentDialog()
+            // 对输入内容进行验证
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            bool isChecked = false;
+            string userLevel = "1";
+            StorageFolder folder_demonstration = KnownFolders.PicturesLibrary;
+            StorageFile file = await folder_demonstration.TryGetItemAsync(jsonfile) as StorageFile;
+            if (file != null)
             {
-                Content = "获取数据成功！",
-                PrimaryButtonText = "确定",
-            };
-            userInfo.getUserList(dialog);
+                //string jsonText = await FileIO.ReadTextAsync(file);
+                var jsonText = await FileIO.ReadTextAsync(file);
+                JsonObject jsonObject = JsonObject.Parse(jsonText);
+                JsonArray jsonArray = jsonObject["Users"].GetArray();
+
+                foreach (JsonValue userInfo in jsonArray)
+                {
+                    JsonObject userObject = userInfo.GetObject();
+                    string uniqueId = userObject["UniqueId"].GetString();
+                    string jusername = userObject["UserName"].GetString();
+                    string eMail = userObject["e-mail"].GetString();
+                    string jpassword = userObject["Password"].GetString();
+                    string jlevel = userObject["level"].GetString();
+                    string authority = userObject["authority"].GetString();
+                    //string jposation = userObject["Password"].GetString();                 
+                    if (username.Text == uniqueId || username.Text == jusername || username.Text == eMail)
+                    {
+                        if (password.Password == jpassword)
+                        {
+                            data.Add("username", jusername);
+                            data.Add("authority", authority);
+                            data.Add("userlevel", jlevel);
+                            userLevel = jlevel;
+                            isChecked = true;
+                            break;
+                        }
+                    }
+                }
+                // 导航并传递参数
+                if (!isChecked)
+                {
+                    data["loginError"] = "用户名或密码出错";
+                    loginTimer.Stop();
+                    this.Frame.Navigate(typeof(LoginPage), data);
+                }
+                else
+                {
+                    loginTimer.Stop();
+                    this.Frame.Navigate(typeof(AuthorityNavigation), data);
+                }
+            }
+            else
+            {
+                data["loginError"] = "网络出错，请联网后，重启应用";
+                loginTimer.Stop();
+                this.Frame.Navigate(typeof(LoginPage), data);
+            }
         }
     }
 
