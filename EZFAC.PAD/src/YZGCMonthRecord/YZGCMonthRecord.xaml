@@ -19,6 +19,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="55" />
@@ -34,10 +35,10 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="7" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
             <Run FontSize="30"  Foreground="Blue" Text="压铸工程月度机械漏油点检记录表" FontFamily="Segoe UI Black" FontWeight="Bold" />
         </TextBlock>
-        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" >
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32"/>
         </TextBlock>
 
@@ -50,13 +51,13 @@
         <Border Grid.Row="1" Grid.Column="3" Padding="3" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="PositionTag" FontSize="20" Text="职位：" VerticalAlignment="Center" FontFamily="Segoe UI Black" HorizontalAlignment="Right"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="ApprovalPosition" Text="员工" Margin="10,0,0,2" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="DateTag" HorizontalAlignment="Center" Margin="-30,0,0,0" FontSize="25" Text="点检日期：" VerticalAlignment="Center" MinWidth="200" Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="date" Margin="12,0,0,0"  FontSize="25" Text="2017-06-16" VerticalAlignment="Center"  Foreground="#FF16325A"/>
         </Border>
         
@@ -92,7 +93,7 @@
             <RadioButton GroupName="MachineId" Name="line09" Content="A-09" Click="OnLineChecked" />
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="6"  Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line11" Content="A-11" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line11" Content="A-11" Click="OnLineChecked" IsEnabled="False"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="7"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line13" Content="A-13" Click="OnLineChecked" />
@@ -103,7 +104,9 @@
         <StackPanel Grid.Row="3" Grid.Column="9"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line17" Content="A-17" Click="OnLineChecked" />
         </StackPanel>
-
+        <StackPanel Grid.Row="3" Grid.Column="10"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line19" Content="A-19" Click="OnLineChecked" />
+        </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="1"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton  GroupName="MachineId" Name="line02" Content="A-02" Click="OnLineChecked" />
@@ -118,7 +121,7 @@
             <RadioButton GroupName="MachineId" Name="line08" Content="A-08" Click="OnLineChecked" />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="5"  Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line10" Content="A-10" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line10" Content="A-10" Click="OnLineChecked" IsEnabled="False" />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="6"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line12" Content="A-12" Click="OnLineChecked" />
@@ -130,8 +133,12 @@
             <RadioButton GroupName="MachineId" Name="line16" Content="A-16" Click="OnLineChecked" />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="9"  Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line18" Content="A-18" Click="OnLineChecked" IsEnabled="False" />
+            <RadioButton GroupName="MachineId" Name="line18" Content="A-18" Click="OnLineChecked"/>
         </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="10"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line20" Content="A-20" Click="OnLineChecked" IsEnabled="False" />
+        </StackPanel>
+        
         <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,0,0,1">
         </Border>
         <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="7" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
@@ -146,13 +153,13 @@
         <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
             <ToggleSwitch x:Name="Maintenance1"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold" Margin="0,5,0,4" Width="118" />
         </StackPanel>
-        <TextBlock Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Run FontSize="20"   Text="作动油油量表（1/2上否）" />
         </TextBlock>
-        <StackPanel Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" >
+        <StackPanel Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" >
             <ToggleSwitch x:Name="Temp2" OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <StackPanel Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+        <StackPanel Grid.Row="6" Grid.Column="10" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
             <ToggleSwitch x:Name="Maintenance2"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold" Margin="0,5,0,4" Width="118" />
         </StackPanel>
         <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
@@ -164,13 +171,13 @@
         <StackPanel Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
             <ToggleSwitch x:Name="Maintenance3"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold"  Margin="0,5,0,4" Width="118" />
         </StackPanel>
-        <TextBlock Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Run FontSize="20"   Text="机械油温（50℃以上否）" />
         </TextBlock>
-        <StackPanel Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" >
+        <StackPanel Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" >
             <ToggleSwitch x:Name="Temp4"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <StackPanel Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+        <StackPanel Grid.Row="7" Grid.Column="10" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
             <ToggleSwitch x:Name="Maintenance4"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold"  Margin="0,5,0,4" Width="118" />
         </StackPanel>
         <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
@@ -182,13 +189,13 @@
         <StackPanel Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
             <ToggleSwitch x:Name="Maintenance5"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold" Margin="0,5,0,4" Width="118" />
         </StackPanel>
-        <TextBlock Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Run FontSize="20"   Text="冷却水管（15℃以下否）" />
         </TextBlock>
-        <StackPanel Grid.Row="8" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <StackPanel Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center">
             <ToggleSwitch x:Name="Temp6"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <StackPanel Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+        <StackPanel Grid.Row="8" Grid.Column="10" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
             <ToggleSwitch x:Name="Maintenance6"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold"  Margin="0,5,0,4" Width="118" />
         </StackPanel>
         <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
@@ -200,13 +207,13 @@
         <StackPanel Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
             <ToggleSwitch x:Name="Maintenance7"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold" Margin="0,5,0,4" Width="118" />
         </StackPanel>
-        <TextBlock Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" >
+        <TextBlock Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="20"   Text="其他油、水配管情况" />
         </TextBlock>
-        <StackPanel Grid.Row="9" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <StackPanel Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center">
             <ToggleSwitch x:Name="Temp8"  OffContent="X" FontSize="20" FontWeight="Bold" OnContent="O" />
         </StackPanel>
-        <StackPanel Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
+        <StackPanel Grid.Row="9" Grid.Column="10" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-50,0,0,0">
             <ToggleSwitch x:Name="Maintenance8"  OffContent="未维修" OnContent="已维修" FontSize="20" FontWeight="Bold"  Margin="0,5,0,4" Width="118" />
         </StackPanel>
         <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="12" BorderBrush="Black" BorderThickness="0,1,0,1">
@@ -217,10 +224,10 @@
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="7" Margin="0,10,0,10">
             <TextBox x:Name="reviewInfor" Background="White" />
         </Border>
-        <Border Grid.Row="11"  Grid.ColumnSpan="8" Padding="6" BorderThickness="0">
+        <Border Grid.Row="11"  Grid.ColumnSpan="9" Padding="6" BorderThickness="0">
             <Button x:Name="Return" HorizontalAlignment="Right"  Margin="0,3,0,3"  Content="返  回"  Foreground="Blue" Click="Return_Click" Height="35" Width="127"/>
         </Border>
-        <Border Grid.Row="11"  Grid.ColumnSpan="10" Padding="6">
+        <Border Grid.Row="11"  Grid.ColumnSpan="11" Padding="6">
             <Button x:Name="Confirm" HorizontalAlignment="Right"  Margin="0,3,31,3"  Content="提  交"  Foreground="Blue" Click="OnCommitData" Height="35" Width="127"/>
         </Border>
 

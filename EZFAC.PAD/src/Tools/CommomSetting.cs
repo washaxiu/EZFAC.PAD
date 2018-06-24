@@ -11,10 +11,10 @@ namespace EZFAC.PAD.src.Tools
     class CommomSetting
     {
         // 每个分组所含的机番
-        public int[] gruopA = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,17 };
-        public int[] gruopB = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,17 };
-        public int[] gruopC = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        public int[] gruopD = { 1, 2, 3, 4, 5, 6, 7, 8 };
+        public int[] gruopA = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16,17,18,19};
+        public int[] gruopB = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16,17,18,19};
+        public int[] gruopC = { 1, 2, 3, 4, 5, 6};
+        public int[] gruopD = { 1, 2, 3, 4, 5, 6};
 
         /*
         * 将数字转换成对应的字符串

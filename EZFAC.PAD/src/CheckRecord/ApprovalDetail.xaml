@@ -25,6 +25,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -41,18 +42,18 @@
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="10" BorderThickness="0"></Border>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="11" BorderThickness="0"></Border>
 
-        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="7" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Run FontSize="30"  Foreground="Blue" Text="DC工程机械定期(三个月)点检审批表(明细)" FontFamily="Segoe UI Black" FontWeight="Bold" />
         </TextBlock>
-        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="9" Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
         </TextBlock>
         <Border Grid.Row="1" Grid.Column="0" Padding="6" Background="#FF0080FF" BorderThickness="0">
@@ -67,8 +68,8 @@
         <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="ApprovalPosition" Margin="10,0,0,2" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF"  BorderThickness="0" ></Border>
-        <StackPanel Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="3" Orientation="Horizontal" >
+        <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF"  BorderThickness="0" ></Border>
+        <StackPanel Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="3" Orientation="Horizontal" >
             <TextBlock x:Name="DateTag" HorizontalAlignment="Right"   FontSize="20" Text="审批日期" VerticalAlignment="Center" FontFamily="Segoe UI Black" Foreground="#FF16325A" Margin="92,11,0,10" />
             <TextBlock x:Name="date" Margin="20,0,0,2" HorizontalAlignment="Right" FontSize="18" Text="2017-06-16" VerticalAlignment="Center" MinWidth="150" Foreground="#FF16325A"/>
         </StackPanel>
@@ -111,7 +112,9 @@
         <StackPanel Grid.Row="3" Grid.Column="9"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line17" Content="A-17" Click="OnLineChecked" />
         </StackPanel>
-
+        <StackPanel Grid.Row="3" Grid.Column="10"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line19" Content="A-19" Click="OnLineChecked" />
+        </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="1"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton  GroupName="MachineId" Name="line02" Content="A-02" Click="OnLineChecked" />
@@ -140,14 +143,17 @@
         <StackPanel Grid.Row="4" Grid.Column="9"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line18" Content="A-18" Click="OnLineChecked" />
         </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="10"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line20" Content="A-20" Click="OnLineChecked" />
+        </StackPanel>
         <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
             <Run FontSize="22"  Foreground="Green" Text="点检内容" />
         </TextBlock>
 
-        <TextBlock Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Run FontSize="22"  Foreground="Green" Text="颜色说明" />
         </TextBlock>
-        <StackPanel Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" Margin="20,5,10,0" Orientation="Vertical" >
+        <StackPanel Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2" Margin="20,5,10,0" Orientation="Vertical" >
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="18" Foreground="Black" Text="黑 -- 未修改" />
             </TextBlock>
@@ -176,7 +182,7 @@
             </TextBlock>
             <ToggleSwitch x:Name="Temp3" OffContent="否" OnContent="良" />
         </StackPanel>
-        <StackPanel Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="3" HorizontalAlignment="Center"  Margin="0,0,20,0" Orientation="Horizontal" >
             <TextBlock  VerticalAlignment="Center" Width="77">
                 <Run Text="一键判定" FontSize="18"></Run>
             </TextBlock>
@@ -209,7 +215,7 @@
             </TextBlock>
             <ToggleSwitch x:Name="Loop3" OffContent="否" OnContent="良" AutomationProperties.LiveSetting="Polite" />
         </StackPanel>
-        <StackPanel Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="3" HorizontalAlignment="Center"  Margin="0,0,20,0" Orientation="Horizontal" >
             <TextBlock  VerticalAlignment="Center" Width="77">
                 <Run Text="一键判定" FontSize="18"></Run>
             </TextBlock>
@@ -224,7 +230,7 @@
             </TextBlock>
             <ToggleSwitch x:Name="select1" OffContent="否" OnContent="良" />
         </StackPanel>
-        <StackPanel Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="3" HorizontalAlignment="Center"  Margin="0,0,20,0" Orientation="Horizontal" >
             <TextBlock  VerticalAlignment="Center" Width="77">
                 <Run Text="一键判定" FontSize="18"></Run>
             </TextBlock>
@@ -239,7 +245,7 @@
             </TextBlock>
             <ToggleSwitch x:Name="Plat1" OffContent="否" OnContent="良" />
         </StackPanel>
-        <StackPanel Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="3" HorizontalAlignment="Center"  Margin="0,0,20,0" Orientation="Horizontal" >
             <TextBlock  VerticalAlignment="Center" Width="77">
                 <Run Text="一键判定" FontSize="18"></Run>
             </TextBlock>
@@ -249,17 +255,17 @@
         <TextBlock Grid.Row="10"  Grid.Column="0" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Run FontSize="18"  Foreground="Black" Text="审批信息" />
         </TextBlock>
-        <Border Grid.Row="10" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="7" Padding="6" BorderThickness="0">
+        <Border Grid.Row="10" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="8" Padding="6" BorderThickness="0">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
 
                 <TextBox x:Name="reviewInfor" AcceptsReturn="True" Background="White" Text="reviewed" Margin="0,0,3,4" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
             </ScrollViewer>
         </Border>
 
-        <Border Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
+        <Border Grid.Row="10" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
             <Button x:Name="back" HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="返  回" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="back_Click" />
         </Border>
-        <Border Grid.Row="11" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
+        <Border Grid.Row="11" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" BorderThickness="0">
             <Button x:Name="Confirm" HorizontalAlignment="Right" Margin="0,0,20,0" MinHeight="50" Content="确 认" MinWidth="150" Background="#FF0052FF" Foreground="White" FontFamily="Segoe UI Black" FontSize="30" FontWeight="Bold" Click="Confirm_Click" />
         </Border>
     </Grid>

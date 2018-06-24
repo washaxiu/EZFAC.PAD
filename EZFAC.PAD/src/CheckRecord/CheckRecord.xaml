@@ -25,6 +25,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -41,32 +42,32 @@
             <RowDefinition Height="55" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="10"></Border>
-        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="10"></Border>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="11"></Border>
 
 
-        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="7" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Run FontSize="30"  Foreground="Blue" Text="DC工程机械定期（三个月）点检记录表" FontFamily="Segoe UI Black" FontWeight="Bold" />
         </TextBlock>
-        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+        <TextBlock x:Name="timetag" Grid.Row="0" Grid.Column="9" Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" >
             <Run FontSize="20"  Foreground="Blue" Text="2017-06-11 11:40:32" />
         </TextBlock>
         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="UserNameTag" FontSize="25" Text="点检人：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="username" Margin="10,0,2,0" HorizontalAlignment="Left"  FontSize="20" Text="张三" VerticalAlignment="Center" MinWidth="150"  Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="DateTag" HorizontalAlignment="Right"  FontSize="25" Text="点检日期" VerticalAlignment="Center" MinWidth="200" Foreground="#FF16325A"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
+        <Border Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" Padding="6" Background="#FF0080FF" BorderThickness="0">
             <TextBlock x:Name="date" Margin="12,0,0,0"  FontSize="25" Text="2017-06-16" VerticalAlignment="Center"  Foreground="#FF16325A"/>
         </Border>
         
@@ -102,7 +103,7 @@
             <RadioButton GroupName="MachineId" Name="line09" Content="A-09" Click="OnLineChecked" />
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="6"  Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line11" Content="A-11" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line11" Content="A-11" Click="OnLineChecked" IsEnabled="False"  />
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="7"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line13" Content="A-13" Click="OnLineChecked" />
@@ -112,6 +113,9 @@
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="9"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line17" Content="A-17" Click="OnLineChecked" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="10"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line19" Content="A-19" Click="OnLineChecked" />
         </StackPanel>
 
 
@@ -128,7 +132,7 @@
             <RadioButton GroupName="MachineId" Name="line08" Content="A-08" Click="OnLineChecked" />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="5"  Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line10" Content="A-10" Click="OnLineChecked" />
+            <RadioButton GroupName="MachineId" Name="line10" Content="A-10" Click="OnLineChecked" IsEnabled="False"  />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="6"  Orientation="Horizontal" BorderThickness="1" >
             <RadioButton GroupName="MachineId" Name="line12" Content="A-12" Click="OnLineChecked" />
@@ -140,9 +144,11 @@
             <RadioButton GroupName="MachineId" Name="line16" Content="A-16" Click="OnLineChecked" />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="9"  Orientation="Horizontal" BorderThickness="1" >
-            <RadioButton GroupName="MachineId" Name="line18" Content="A-18" Click="OnLineChecked" IsEnabled="False" />
+            <RadioButton GroupName="MachineId" Name="line18" Content="A-18" Click="OnLineChecked" />
         </StackPanel>
-        
+        <StackPanel Grid.Row="4" Grid.Column="10"  Orientation="Horizontal" BorderThickness="1" >
+            <RadioButton GroupName="MachineId" Name="line20" Content="A-20" Click="OnLineChecked" IsEnabled="False" />
+        </StackPanel>
         
         <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10" Margin="20,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
             <Run FontSize="22"  Foreground="Green" Text="点检内容" />
@@ -168,7 +174,7 @@
             </TextBlock>
             <ToggleSwitch x:Name="Temp3" OffContent="否" OnContent="良" />
         </StackPanel>
-        <StackPanel Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="3" Margin="0,0,20,0" Orientation="Horizontal" HorizontalAlignment="Center" >
             <TextBlock  VerticalAlignment="Center" Width="77">
                 <Run Text="一键判定" FontSize="18"></Run>
             </TextBlock>
@@ -201,7 +207,7 @@
             </TextBlock>
             <ToggleSwitch x:Name="Loop3" OffContent="否" OnContent="良" AutomationProperties.LiveSetting="Polite" />
         </StackPanel>
-        <StackPanel Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="7" Grid.Column="8" Grid.ColumnSpan="3" Margin="0,0,20,0" Orientation="Horizontal" HorizontalAlignment="Center" >
             <TextBlock  VerticalAlignment="Center" Width="77">
                 <Run Text="一键判定" FontSize="18"></Run>
             </TextBlock>
@@ -217,7 +223,7 @@
             </TextBlock>
             <ToggleSwitch x:Name="select1" OffContent="否" OnContent="良" />
         </StackPanel>
-        <StackPanel Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="3" Margin="0,0,20,0" Orientation="Horizontal" HorizontalAlignment="Center"  >
             <TextBlock  VerticalAlignment="Center" Width="77">
                 <Run Text="一键判定" FontSize="18"></Run>
             </TextBlock>
@@ -233,7 +239,7 @@
             </TextBlock>
             <ToggleSwitch x:Name="Plat1" OffContent="否" OnContent="良" />
         </StackPanel>
-        <StackPanel Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,20,0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="3" Margin="0,0,20,0" Orientation="Horizontal" HorizontalAlignment="Center"  >
             <TextBlock  VerticalAlignment="Center" Width="77">
                 <Run Text="一键判定" FontSize="18"></Run>
             </TextBlock>
@@ -246,10 +252,10 @@
         <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="7" BorderThickness="0">
             <TextBox x:Name="comments" Background="White" BorderBrush="Gray" BorderThickness="2" Margin="0,14,0,10" Height="42" />
         </Border>
-        <Border Grid.Row="11"  Grid.ColumnSpan="8" Padding="6" BorderThickness="0">
+        <Border Grid.Row="11"  Grid.ColumnSpan="9" Padding="6" BorderThickness="0">
             <Button x:Name="Return" HorizontalAlignment="Right"  Margin="0,3,0,0" MinHeight="30" Content="返  回" MinWidth="150" Foreground="Blue" Click="Return_Click" Height="35" Width="127" VerticalAlignment="Top"/>
         </Border>
-        <Border Grid.Row="11"  Grid.ColumnSpan="10" Padding="6">
+        <Border Grid.Row="11"  Grid.ColumnSpan="11" Padding="6">
             <Button x:Name="Confirm" HorizontalAlignment="Right"  Margin="0,3,31,3" MinHeight="30" Content="提  交" MinWidth="150" Foreground="Blue" Click="OnCommitData" Height="35" Width="127"/>
         </Border>
     </Grid>
