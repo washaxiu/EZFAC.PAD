@@ -96,7 +96,8 @@ namespace EZFAC.PAD
                 {
                     for(int j=0;j< checkMenus.Length; j++)
                     {
-                        if(authority[i] == checkMenus[j])
+                        string value = (j + 1) + "";
+                        if(authority[i] == value)
                         {
                             if(flag == false)
                             {
@@ -119,7 +120,8 @@ namespace EZFAC.PAD
                 {
                     for (int j = 0; j < approvalcMenus.Length; j++)
                     {
-                        if (authority[i] == approvalcMenus[j])
+                        string value = (j + 1) + "";
+                        if (authority[i] == value)
                         {
                             if (flag == false)
                             {

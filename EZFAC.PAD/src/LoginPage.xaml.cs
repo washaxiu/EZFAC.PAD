@@ -123,10 +123,10 @@ namespace EZFAC.PAD
                 foreach (JsonValue userInfo in jsonArray)
                 {
                     JsonObject userObject = userInfo.GetObject();
-                    string uniqueId = userObject["UniqueId"].GetString();
-                    string jusername = userObject["UserName"].GetString();
-                    string eMail = userObject["e-mail"].GetString();
-                    string jpassword = userObject["Password"].GetString();
+                    string uniqueId = userObject["id"].GetString();
+                    string jusername = userObject["user_name"].GetString();
+                    string eMail = userObject["email"].GetString();
+                    string jpassword = userObject["user_password"].GetString();
                     string jlevel = userObject["level"].GetString();
                     string authority = userObject["authority"].GetString();
                     //string jposation = userObject["Password"].GetString();                 
@@ -203,10 +203,10 @@ namespace EZFAC.PAD
                 foreach (JsonValue userInfo in jsonArray)
                 {
                     JsonObject userObject = userInfo.GetObject();
-                    string uniqueId = userObject["UniqueId"].GetString();
-                    string jusername = userObject["UserName"].GetString();
-                    string eMail = userObject["e-mail"].GetString();
-                    string jpassword = userObject["Password"].GetString();
+                    string uniqueId = userObject["id"].GetString();
+                    string jusername = userObject["user_name"].GetString();
+                    string eMail = userObject["email"].GetString();
+                    string jpassword = userObject["user_password"].GetString();
                     string jlevel = userObject["level"].GetString();
                     string authority = userObject["authority"].GetString();
                     //string jposation = userObject["Password"].GetString();                 

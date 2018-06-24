@@ -46,8 +46,8 @@ namespace EZFAC.PAD.src.Tools
         CommonOperation commonOperation = new CommonOperation();
         Random random = new Random();
 
-       // public string httpUrl = "http://192.168.2.110:8800";
-        public string httpUrl = "http://192.168.199.152:8800";
+        public string httpUrl = "http://192.168.2.110:8800";
+      //  public string httpUrl = "http://192.168.199.152:8800";
 
         public async void getUserList()
         {
