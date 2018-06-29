@@ -56,8 +56,8 @@ namespace EZFAC.PAD
             this.InitializeComponent();
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             //username.Text = "用户名/员工号/邮箱地址";
-            username.Text = "000002";
-            password.Password = "123456";
+            username.Text = "";
+            password.Password = "";
             information.Text = "";
             timetag.Text = DateTime.Now.ToString();
 
