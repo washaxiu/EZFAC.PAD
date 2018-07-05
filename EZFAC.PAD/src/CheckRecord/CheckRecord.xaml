@@ -76,10 +76,10 @@
             <TextBlock x:Name="MachineGroupTag" Margin="20,0,10,0" FontSize="25" Text="机 组：" VerticalAlignment="Center" FontFamily="Segoe UI Black"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="7" Orientation="Horizontal" >
-            <RadioButton GroupName="MachineGroup" x:Name="groupa" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged" IsChecked="True" Content="压轴线A" Width="135" />
-            <RadioButton GroupName="MachineGroup" x:Name="groupb" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"  Content="压轴线B" Width="135" />
-            <RadioButton GroupName="MachineGroup" x:Name="groupc" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"   Content="压轴线C" Width="135" />
-            <RadioButton GroupName="MachineGroup" x:Name="groupd" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"   Content="压轴线D" Width="135" />
+            <RadioButton GroupName="MachineGroup" x:Name="groupa" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged" IsChecked="True" Content="压铸线A" Width="135" />
+            <RadioButton GroupName="MachineGroup" x:Name="groupb" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"  Content="压铸线B" Width="135" />
+            <RadioButton GroupName="MachineGroup" x:Name="groupc" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"   Content="压铸线C" Width="135" />
+            <RadioButton GroupName="MachineGroup" x:Name="groupd" FontSize="22" FontFamily="Segoe UI Black" Click="OnMachineGroupChanged"   Content="压铸线D" Width="135" />
         </StackPanel>
         
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Orientation="Horizontal" >

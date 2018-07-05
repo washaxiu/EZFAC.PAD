@@ -33,7 +33,7 @@ namespace EZFAC.PAD.src.Tools
         public JsonObject getGroupAndLine()
         {
             JsonObject group = new JsonObject();
-            string groupName = "压轴线A,压轴线B,压轴线C,压轴线D";
+            string groupName = "压铸线A,压铸线B,压铸线C,压铸线D";
             string A = null, B = null, C = null, D = null;
             // 初始化机番A
             for(int i=0;i< gruopA.Length; i++)
